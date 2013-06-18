@@ -1,0 +1,61 @@
+﻿if (typeof langs == "undefined") {
+    var langs = {};
+}
+
+langs.ru = {
+    'ConfirmDowngrade' : "Da li stvarno želite da srušite 1 nivo ove zgrade?",
+    'Circular_message' : "Poruka svima",
+	'Ally_members'     : "Savez",
+	'Attack_All'	   : "Sve",
+	'Attack_Half'	   : "Polovina",
+	'Attack_Nothing'   : "Ništa",
+	'Required' 		   : "Potrebno je:",
+	'Next_Level'	   : "Sljedeći nivo:",
+	'Messages'	   	   : "Poruke",
+	'Agora'	   		   : "Agora",
+	'Treaty'	       : "Sporazum",
+	'Alliance'	   	   : "Forum",
+	'Transport'		   : "Transportirati!",
+	'Send_General_Log' : "Poslati izvještaj savezu",
+	'Send_General_Log_Header' : "Napadi na članove saveza",
+	
+	'options' : {
+		'transport' : {
+			'header' : 'Vrsta transporta resursa',
+			'original' : 'GameForge',
+			'Ikaeasy' : 'IkaEasy'
+		}
+	},
+
+    'ikalogs' : {
+        'save_log'  : 'Sačuvati izvještaj',
+        'analyze'   : 'Analizirati',
+        'each'      : 'Svaka',
+        'help_bw'   : 'Upišite pojedinačne runde sa zarezom, ili opseg runda sa crticom.,
+
+        'get_info'  : 'Dobijanje informacije',
+        'get_round' : 'Dobijanje izvještaja',
+        'saving'    : 'Sačuvanje izvještaja',
+
+        'saving_success' : 'Izvještaj je uspješno sačuvan.',
+        'open_report'    : 'Otvoriti izvještaj',
+
+        'saving_failed'  : 'Izvještaj nije sačuvan',
+        'repeat'    : 'Pokušati još jednom',
+
+        'auth' : {
+            'not_logged' : 'Vi niste autorizirani na ikalogs'
+        },
+
+
+        'types'     : {
+            'full'  : 'Pun izvještaj',
+            'short' : 'Kratak izvještaj',
+            'last'  : 'Posljednja runda',
+            'each'  : 'Svaku N rundu',
+            'between'  : 'Određene runde'
+        }
+    },
+
+    'Transporter' : 'Transporter'
+};

@@ -1,0 +1,74 @@
+if (typeof  zJS == "undefined") {
+    zJS = {};
+}
+
+zJS.Var = {
+    getIslandId : function() {
+        return this.getIsland().islandId;
+    },
+
+    getActionRequest : function() {
+        return this.getTransferVars()['actionRequest'];
+    },
+
+    getTransferVars : function() {
+        if ($('#__ikaeasy').html() != '') {
+            this._transferVars = jQuery.parseJSON($('#__ikaeasy').html());
+            $('#__ikaeasy').html('');
+        }
+
+        return this._transferVars;
+    },
+
+    getShips : function() {
+        return this.getTransferVars().ships;
+    },
+
+    getAllyId : function() {
+        if (!this._ally_id) {
+            this._ally_id = parseInt(this.getTransferVars().allyId);
+        }
+        return this._ally_id;
+    },
+
+    getCityResources : function() {
+        var _resource = this.getTransferVars()['resources'];
+
+        var resource = {};
+        resource.wood    = _resource.resource;
+        resource.wine    = _resource[1];
+        resource.marble  = _resource[2];
+        resource.crystal = _resource[3];
+        resource.sulfur  = _resource[4];
+        
+        return resource;
+    },
+
+    getCities : function() {
+        return this.getTransferVars()['cities'];
+    },
+
+    getCityId : function() {
+        var cities = this.getTransferVars()['cities'];
+
+        return cities[cities.selectedCity].id;
+    },
+
+    isMyCity : function() {
+        var cities = this.getTransferVars()['cities'];
+
+        return (cities[cities.selectedCity].relationship == 'ownCity');
+    },
+
+    getIsland : function() {
+        return this.getTransferVars()['island'];
+    },
+
+    getSeparators : function() {
+        if (typeof this._separators == "undefined") {
+            this._separators = this.getTransferVars()['separators'];
+        }
+
+        return this._separators;
+    }
+};
