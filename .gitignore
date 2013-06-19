@@ -2,6 +2,4 @@ bin/
 FINAL/
 compiler.txt
 build.xml
-configs/
 .idea/
-inner/
