@@ -2,4 +2,5 @@ bin/
 FINAL/
 compiler.txt
 build.xml
+config/
 .idea/
