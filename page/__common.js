@@ -10,24 +10,33 @@ zJS.Page.__common = {
     _notes : [],
 
     init : function() {
-        var evt = document.createEvent("MouseEvents");
-        evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-
-        $('body').keydown(function(e){
-            if (e.keyCode == 27) {
-                var _close = $('.close');
-                if (_close.length > 0) {
-                    _close[0].dispatchEvent(evt);
-                }
-            } 
-        }.bind(this));
-		
         this._transporter();
         this._nextCity();
         this._addOtherButtons();
 		this._changeForumBtn();
 		this._getProduction();
 		this.sendInfo();
+
+        if(document.getElementsByTagName('body')[0].id !== "worldmap_iso"){
+            this._addLinkToIslandFeature();
+        }
+    },
+
+    refresh : function() {
+        $('#ikaeasy_nextCity').remove();
+        $('#ikaeasy_transporter').parent().parent().parent().parent().parent().remove();
+
+        $.each(this._notes, function(k, v){
+            $(v).remove();
+        });
+
+        this._notes = [];
+
+        $("ul.resources li div p:first-child").parent().parent()
+            .css("cursor", "")
+            .removeAttr("onClick");
+
+        this.init();
     },
 	
 	sendInfo : function() {
@@ -101,19 +110,6 @@ zJS.Page.__common = {
 	_changeForumBtn : function() {
 		$('#GF_toolbar li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.com/index.php?page=Index';
 	},
-
-    refresh : function() {
-        $('#ikaeasy_nextCity').remove();
-        $('#ikaeasy_transporter').parent().parent().parent().parent().parent().remove();
-
-        $.each(this._notes, function(k, v){
-            $(v).remove();
-        });
-
-        this._notes = [];
-
-        this.init();
-    },
 
     _addOtherButtons : function() {
         if (zJS.Var.getAllyId()) {
@@ -289,5 +285,20 @@ zJS.Page.__common = {
         }
 
         return html_city;
+    },
+
+    _addLinkToIslandFeature : function() {
+        var resourceType = $("ul.resources li div p:first-child"),
+            islandId = zJS.Var.getIsland()['islandId'];
+        
+        // Добавляем ссылку для дерева
+        $("#resources_wood")
+            .css("cursor", "pointer")
+            .attr("onClick", "ajaxHandlerCall('?view=resource&type=resource&islandId=" + islandId + "')");
+
+        // Добавляем ссылку для Драгоценного ресурса
+        resourceType.not(".invisible").eq(1).parent().parent()
+            .css("cursor", "pointer")
+            .attr("onClick", "ajaxHandlerCall('?view=tradegood&islandId=" + islandId + "')");
     }
 };

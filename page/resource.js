@@ -7,10 +7,10 @@ if (typeof zJS.Page == "undefined") {
 }
 
 $.fn.firstText = function () {
- return $(this).first().contents().filter(function () {
-  return this.nodeType == 3;
- }).text();
-}
+    return $(this).first().contents().filter(function () {
+        return this.nodeType == 3;
+    }).text();
+};
 
 function addNeedText(){
     var res = $('.resUpgrade .resources li').eq(0).attr("class");
@@ -25,7 +25,7 @@ function addNeedText(){
 function addNeedTextWonder(){
     var res = $('#sidebar .resources li').eq(0).attr("class");
     if ($('#sidebar .' + res).length == 2) {
-        $('#sidebar h4')[0].innerText = zJS.Lang.Next_Level;
+        $('#sidebar').find('h4')[0].innerText = zJS.Lang.Next_Level;
         var _need = $('#sidebar .resources li').eq(0).text().replace(/\D+/g,"");
         var _have = $('#sidebar .resources li').eq(1).text().replace(/\D+/g,"");
         $('div#maxLevelNotReached div:eq(0)').after('<h4 class="center">' + zJS.Lang.Required + '</h4><ul class="resources"><li class="' + res + '">'+ zJS.Utils.formatNumber(_need-_have) +'</li></ul>');
