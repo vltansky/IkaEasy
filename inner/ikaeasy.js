@@ -56,6 +56,7 @@ front.prototype = {
         var trasferVars = {allyId : ikariam.model.avatarAllyId, actionRequest : ikariam.model.actionRequest, resources : ikariam.model.currentResources, cities : ikariam.model.relatedCityData, separators : {thousand : LocalizationStrings.thousandSeperator, decimal : LocalizationStrings.decimalPoint}, ships : ikariam.model.freeTransporters};
         if (this._getBgId() == 'city') {
             trasferVars['builds'] = ikariam.backgroundView.screen.data.position;
+            trasferVars['island'] = {islandId : ikariam.backgroundView.screen.data.islandId};
         } else if (this._getBgId() == 'island') {
             var data = ikariam.backgroundView.screen.data;
             trasferVars['island'] = {islandId : data.id, tradegood : data.tradegoodLevel, wonderType : data.wonder, wonder : data.wonderLevel, wood : data.resourceLevel, cities : data.cities};

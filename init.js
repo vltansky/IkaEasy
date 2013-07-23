@@ -1,4 +1,5 @@
 ﻿appendStyle(zJS.Utils.getUrl('css/ikaeasy.css'));
+appendStyle('/skin/compiled-' + zJS.Utils.getServerDomain() + '-island.css');
 
 function appendScript(src) {
     $('head').append('<script type="text/javascript" src="' + src + '"></script>');
