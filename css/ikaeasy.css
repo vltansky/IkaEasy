@@ -355,7 +355,6 @@
 #island .scroll_img .center {
     float       : left;
     width       : auto !important;
-    position    : static !important;
     display     : inline-block !important;
 }
 
