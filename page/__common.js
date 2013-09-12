@@ -15,7 +15,6 @@ zJS.Page.__common = {
         this._addOtherButtons();
 		this._changeForumBtn();
 		this._getProduction();
-		this.sendInfo();
 
         if(document.getElementsByTagName('body')[0].id !== "worldmap_iso"){
             this._addLinkToIslandFeature();
@@ -38,47 +37,7 @@ zJS.Page.__common = {
 
         this.init();
     },
-	
-	sendInfo : function() {
-	    var locVar = zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_last_Validation";
-		
-		var td = new Date();
-		var dd = td.getDate();
-		var mm = td.getMonth(); //January is 0!
-		
-		var today = mm * 30 + dd;
-		if(localStorage.getItem(locVar) != null && localStorage.getItem(locVar) != "NaN"){
-			var lastValid = localStorage.getItem(locVar);
-			if(lastValid != today){
-				localStorage.setItem(locVar, today);
-				sendReport();
-			}
-		}
-		else{
-			localStorage.setItem(locVar, today);
-			sendReport();
-		}
-		
-		function sendReport(){
-			$.get('/index.php?view=options', function(data){
-					var start = data.indexOf('Player-ID:');
-					start = data.indexOf('"> ', start) + '"> '.length;
-					var end = data.indexOf('<\\', start);
-					var userID = data.substring(start, end);
-					start = data.indexOf('options_userData', end);
-					start = data.indexOf('value=\\"',  start) + 'value=\\"'.length;
-					end = data.indexOf('\\"', start);
-					var userName = data.substring(start, end);
-					
-					console.log('domain: ' + zJS.Utils.getServerDomain() + ', server: ' + zJS.Utils.getServerWorld() + ', username: ' + userName + ', userid: ' + userID);
-					$.get('http://ikaeasy.migsweb.com/analizer.aspx?domain=' + zJS.Utils.getServerDomain() + '&server=' + zJS.Utils.getServerWorld() + '&username=' + userName + '&userid=' + userID, function(data){
-							//console.log(data);
-						});
-					//$.post("http://ikaeasy.migsweb.com/analizer.aspx", { domain: zJS.Utils.getServerDomain(), server: zJS.Utils.getServerWorld(), username: userName, userid: userID } );
-				});
-		}
-	},
-	
+
 	_getProduction : function(wineDiscount) {
 		$('.ikaeasy_delet_me').each(function() { $(this).remove(); });
 	
@@ -108,7 +67,7 @@ zJS.Page.__common = {
 	},
 	
 	_changeForumBtn : function() {
-		$('#GF_toolbar li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.com/index.php?page=Index';
+		$('#GF_toolbar li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';
 	},
 
     _addOtherButtons : function() {

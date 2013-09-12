@@ -145,12 +145,12 @@ zJS.Utils = {
     },
 
     getServerDomain : function(){
-        var hostMatch = /(s\d+)(\.([a-z]+))?\.ikariam(\.[a-z]+)?\.([a-z]+)/i.exec( top.location.host );
+        var hostMatch = /(s\d+)-([a-z]+)?\.ikariam.gameforge.com/i.exec( top.location.host );
         return (hostMatch?(hostMatch[3] || hostMatch[5]):false) || 'ru';
     },
 
     getServerWorld : function(){
-        var hostMatch = /(s\d+)(\.([a-z]+))?\.ikariam(\.[a-z]+)?\.([a-z]+)/i.exec( top.location.host );
+        var hostMatch = /(s\d+)-([a-z]+)?\.ikariam.gameforge.com/i.exec( top.location.host );
         return (hostMatch?hostMatch[1]:false) || 's?';
     },
 

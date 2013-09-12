@@ -10,27 +10,27 @@
     "content_scripts": [
        {
            "js": [ "langs/en.js", "langs/ru.js", "langs/de.js", "langs/he.js" ],
-           "matches": [ "http://*.ikariam.com/*"],
+           "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*"],
            "run_at": "document_start"
        }, {
             "js": [ "jquery.js" ],
-            "matches": [ "http://*.ikariam.com/*", "http://ikalogs.ru/*", "http://*.ikalogs.ru/*" ],
+            "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*", "http://ikalogs.ru/*", "http://*.ikalogs.ru/*" ],
             "run_at": "document_end"
         }, {
           "js": [ "zJS/utils.js", "zJS/lng.js", "zJS/var.js", "zJS/db.js", "init.js", "ikalogs.js" ],
-          "matches": [ "http://*.ikariam.com/*" ],
+          "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*" ],
           "run_at": "document_end"
        },  {
            "js": [ "zJS/navigation.js" ],
-           "matches": [ "http://*.ikariam.com/*" ],
+           "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*" ],
            "run_at": "document_end"
        },  {
            "js": [ "page/__common.js", "page/city.js", "page/island.js", "page/resource.js", "page/militaryAdvisor.js", "page/militaryAdvisorReportView.js", "page/transport.js", "page/attack.js", "page/diplomacyAdvisor.js", "page/units.js", "page/topLists.js", "page/tavern.js", "page/options.js", "page/generalAttacksToAlly.js", "page/pirateFortress.js" ],
-           "matches": [ "http://*.ikariam.com/*" ],
+           "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*" ],
            "run_at": "document_end"
        },  {
            "js": [ "hotkeysPlugin.js", "page/sendIKMessage.js" ],
-           "matches": [ "http://*.ikariam.com/*" ],
+           "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*" ],
            "run_at": "document_end"
        }
    ],
@@ -131,6 +131,6 @@
     ],
 
     "name": "Ikariam Easy",
-    "permissions": [ "tabs", "http://*.ikariam.com/*", "http://ikalogs.ru/*", "http://*.ikalogs.ru/*" ],
+    "permissions": [ "tabs", "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*", "http://ikalogs.ru/*", "http://*.ikalogs.ru/*" ],
     "version": "2.0.0.1"
 }

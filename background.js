@@ -1,6 +1,6 @@
 ﻿var nowTabId, _url;
 function checkForValidUrl(tabId, changeInfo, tab) {
-    if ((tab.url.indexOf('.ikariam.com') > -1) && (tab.url.indexOf('www.ikariam.com') < 0)) {
+    if (tab.url.indexOf('.ikariam.gameforge.com') > -1) {
         chrome.pageAction.show(tabId);
         nowTabId = tabId;
         _url = tab.url;

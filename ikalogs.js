@@ -476,13 +476,13 @@ ikalogs.prototype = {
         $('a.button', this._box).click(this._analize.bind(this));
     },
 
-    get_server_domain : function getServerDomain(){
-        var hostMatch        = /(s\d+)(\.([a-z]+))?\.ikariam(\.[a-z]+)?\.([a-z]+)/i.exec( top.location.host );
+    get_server_domain : function(){
+        var hostMatch = /(s\d+)-([a-z]+)?\.ikariam.gameforge.com/i.exec( top.location.host );
         return (hostMatch?(hostMatch[3] || hostMatch[5]):false) || 'ru';
     },
 
-    get_server_world : function (){
-        var hostMatch        = /(s\d+)(\.([a-z]+))?\.ikariam(\.[a-z]+)?\.([a-z]+)/i.exec( top.location.host );
+    get_server_world : function(){
+        var hostMatch = /(s\d+)-([a-z]+)?\.ikariam.gameforge.com/i.exec( top.location.host );
         return (hostMatch?hostMatch[1]:false) || 's?';
     }
 };
