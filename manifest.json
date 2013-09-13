@@ -34,7 +34,7 @@
            "run_at": "document_end"
        }
    ],
-   "description": "Extension for ikariam.com. BETA VERSION",
+   "description": "Extension for ikariam.com.",
    "icons": {
       "128": "icon/128.png",
       "16": "icon/16.png",

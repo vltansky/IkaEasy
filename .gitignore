@@ -4,3 +4,5 @@ compiler.txt
 build.xml
 config/
 .idea/
+Phing
+build.json
