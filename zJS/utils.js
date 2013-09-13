@@ -146,7 +146,7 @@ zJS.Utils = {
 
     getServerDomain : function(){
         var hostMatch = /(s\d+)-([a-z]+)?\.ikariam.gameforge.com/i.exec( top.location.host );
-        return (hostMatch?(hostMatch[3] || hostMatch[5]):false) || 'ru';
+        return (hostMatch ? hostMatch[2] : false) || 'ru';
     },
 
     getServerWorld : function(){

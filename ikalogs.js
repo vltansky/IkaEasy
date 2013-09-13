@@ -478,7 +478,7 @@ ikalogs.prototype = {
 
     get_server_domain : function(){
         var hostMatch = /(s\d+)-([a-z]+)?\.ikariam.gameforge.com/i.exec( top.location.host );
-        return (hostMatch?(hostMatch[3] || hostMatch[5]):false) || 'ru';
+        return (hostMatch ? hostMatch[2] : false) || 'ru';
     },
 
     get_server_world : function(){
