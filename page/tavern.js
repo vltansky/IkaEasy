@@ -21,13 +21,11 @@ zJS.Page.tavern = {
 					var locWine = zJS.Utils.getLocWine();
 					var start = data.indexOf('wineSpendings: ') + 'wineSpendings: '.length;
 					var end = data.indexOf(',', start);
-					wine = data.substring(start, end);
-					start = data.indexOf('savedWine[25] = ') + 'savedWine[25] = '.length;
-					end = data.indexOf(';', start);
-					var discount = data.substring(start,end);
+					var regular_wine = data.substring(start, end);
+					wine=$("#js_GlobalMenu_WineConsumption").text();
+					var discount = regular_wine-wine;
 					discount = discount > 0 ? discount : 0;
 					console.log('wine: ' + wine + '\r\ndiscount: ' + discount);
-					wine = wine > 0 ? Math.round(wine - discount) : 0;
 					localStorage.setItem(locWine, wine);
 					zJS.Page.__common._getProduction(1);
 				}
