@@ -30,7 +30,7 @@ function changeTabsText(){
 
 //Создание активных ссылок
 function makeActiveLinks(){
-	$('td.msgText').each(function(){
+	$('tr:not(.globalmessage) td.msgText').each(function(){
 		this.innerHTML = this.innerHTML.replace(/<br>/gi, " $&"); //На случай если тег стоит сразу после ссылки, а такое часто бывает
 		var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi
         var replace = "<a href=\"$&\" target=\"_blank\">$&</a>";
