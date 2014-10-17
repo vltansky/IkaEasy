@@ -25,7 +25,7 @@ zJS.Page.tavern = {
 					wine=$("#js_GlobalMenu_WineConsumption").text();
 					var discount = regular_wine-wine;
 					discount = discount > 0 ? discount : 0;
-					console.log('wine: ' + wine + '\r\ndiscount: ' + discount);
+					console.log('wine: ' + wine + '\r\nregular_wine: ' + regular_wine + '\r\ndiscount: ' + discount);
 					localStorage.setItem(locWine, wine);
 					zJS.Page.__common._getProduction(1);
 				}
