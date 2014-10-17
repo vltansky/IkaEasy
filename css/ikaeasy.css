@@ -697,3 +697,55 @@
 .ikaeasy_city_link_turquoise{
 	background-image: url(/images/Marker/turquoise/city_turquoise.png) !important;
 }
+
+/* Фиксы раздвоения обьектов на острове при наведении. Это баг самого икариама */
+#island #worldmap #cities .cityLocation {
+    margin-left: -12px;
+}
+#island #cities .city .position {
+    left: 73px;
+    top: -8px;
+}
+#island #cities .city.selected .hover {
+    left: 20px;
+}
+
+#island #cities .buildplace .island_feature_img {
+    left: -9px!important;
+}
+
+#island #cities .islandfeature.wine .hover {
+    left: 0px!important;
+}
+
+#island #cities .islandfeature.wood .hover {
+    left: -3px!important;
+}
+
+#island #cities .islandfeature.forum .hover {
+    left: 7px!important;
+}
+
+#island #cities .islandfeature .hover {
+    left: 0px!important;
+}
+
+#island #cities .premium.buildplace .island_feature_img.hover {
+    left: -7px!important;
+}
+
+#island #cities .city.own .hover {
+    left: 21px!important;
+}
+
+#island #cities .islandfeature.marble .hover {
+left: -6px!important;
+}
+
+#island #cities .islandfeature.sulfur .hover {
+left: 0px!important;
+top: -3px!important;
+}
+#island #cities .hover{
+    left:20px!important;
+}
