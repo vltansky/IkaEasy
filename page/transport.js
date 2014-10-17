@@ -111,7 +111,8 @@ zJS.Page.transport = {
 	},
 	
 	moveTransportBtn : function() {
-		var transBtn = $('<br><center><input id="submit" class="button action_bubble" title="" type="submit" value="' + zJS.Lang.Transport + '"></center>').appendTo($('.resourceAssign'));
+		if($("#ikaeasy_tranport_btn").length == 0)
+		var transBtn = $('<br><center id="ikaeasy_tranport_btn"><input id="submit" class="button action_bubble" title="" type="submit" value="' + zJS.Lang.Transport + '"></center>').appendTo($('.resourceAssign'));
 	},
 
     addSource : function(k, obj) {
