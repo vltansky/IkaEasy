@@ -30,11 +30,34 @@ function changeTabsText(){
 
 //Создание активных ссылок
 function makeActiveLinks(){
+	var temp=[], i=0;
+
+	$('tr:not(.globalmessage) td.msgText a:not(.button)').each(function(){//Удалить с активных линков ссылки, чтобы предотвратить повторное создание
+		temp[i]=$(this).attr('href');
+		$(this).attr('href', '');
+		$(this).text('');
+		i++;
+	});
+
+
 	$('tr:not(.globalmessage) td.msgText').each(function(){
 		this.innerHTML = this.innerHTML.replace(/<br>/gi, " $&"); //На случай если тег стоит сразу после ссылки, а такое часто бывает
-		var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi
-        var replace = "<a href=\"$&\" target=\"_blank\">$&</a>";
-		this.innerHTML = this.innerHTML.replace(regexp, replace);
+		
+		//URLs начинающиеся с http://, https://
+		var replacePattern1 = /(\b(https?):\/\/[-A-Z0-9+&amp;@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;@#\/%=~_|])/ig;
+		this.innerHTML = this.innerHTML.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
+ 
+		//URLs начинающиеся с "www."
+		var replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+		this.innerHTML = this.innerHTML.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
+	});
+
+
+	i=0;
+	$('tr:not(.globalmessage) td.msgText a:not(.button)').each(function(){//Возвращаем на место ссылки и делаем их снова активными
+		$(this).attr('href', temp[i]);
+		$(this).text(temp[i]);
+		i++;
 	});
 }
 
