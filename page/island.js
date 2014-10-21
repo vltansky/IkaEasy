@@ -12,7 +12,6 @@ zJS.Page.island = {
         var wood_lvl   = zJS.Var.getIsland()['wood'];
         var res_lvl    = zJS.Var.getIsland()['tradegood'];
         var wonder_lvl = zJS.Var.getIsland()['wonder'];
-
         $('#islandresource').append($('<div class="ikaeasy_watcher build_green" style="top:50px; left:70px;"><div class="ikaeasy_watcher_circle">' + wood_lvl + '</div></div>'));
         $('#islandtradegood').append($('<div class="ikaeasy_watcher build_green" style="top:60px; left:80px;"><div class="ikaeasy_watcher_circle">' + res_lvl + '</div></div>'));
         $('#islandwonder').append($('<div class="ikaeasy_watcher build_green" style="top:125px; left:60px;"><div class="ikaeasy_watcher_circle">' + wonder_lvl + '</div></div>'));
@@ -136,11 +135,13 @@ zJS.Page.island = {
                         var score = $.trim(data.match(/id="js_selectedCityScore">([^<]+)</)[1].replace(/[\s]+/, '')),
                             __score = score.split(/[^\d]/);
                         var _score = __score[0];
-
+                        if(__score.length>=3){
+                            _score += '.' + __score[1][0];
+                        }
                         for(var i = 1; i < __score.length; i++) {
                             _score += 'k';
                         }
-
+                        console.log(_score);
                         users[v.ownerId] = {'h' : _score, 's' : score.replace(/[^\d]+/g, ''), 'e' : _now + 43200};
                         zJS.Utils.ls.setValue('users', users, 86400);
 
