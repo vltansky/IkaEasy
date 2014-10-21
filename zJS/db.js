@@ -173,6 +173,11 @@ zJS.DB = {
                 { "x" : 32, "y" : 73 }
             ],
 
+            "blackMarket" : [//edit this position
+                { "x" : 32, "y" : 73 },
+                { "x" : 32, "y" : 73 }
+            ],
+
             // construction spot
             "constructionSite" : [
                 { "x" : 65, "y" : 20 },
@@ -1159,7 +1164,14 @@ zJS.DB = {
                 { "wood" : 451015, "marble" : 271878},
                 { "wood" : 560208, "marble" : 337705},
                 { "wood" : 695038, "marble" : 418983},
-                { "wood" : 861391, "marble" : 446564}//level 32
+                { "wood" : 861391, "marble" : 446564},//level 32
+                { "wood" : 1066671, "marble" : 643010},
+                { "wood" : 1319986, "marble" : 795711},
+                { "wood" : 1632576, "marble" : 984147},
+                { "wood" : 2018313, "marble" : 1216678},
+                { "wood" : 2494313, "marble" : 1503620},
+                { "wood" : 3081696, "marble" : 1857706},
+                { "wood" : 3806527, "marble" : 2294649}//level 39. current max lvl 21.10.14
             ],
 
             "pirateFortress" : [
@@ -1192,6 +1204,33 @@ zJS.DB = {
                 { "wood" : 358926, "marble" : 294197 },
                 { "wood" : 410748, "marble" : 337048 },
                 { "wood" : 468032, "marble" : 384429 }
+            ],
+           "blackMarket" : [
+                { "wood" : 440, "marble" : 260},
+                { "wood" : 887, "marble" : 525},
+                { "wood" : 1360, "marble" : 807},
+                { "wood" : 1890, "marble" : 1126},
+                { "wood" : 2516, "marble" : 1509},
+                { "wood" : 3288, "marble" : 1988},
+                { "wood" : 4263, "marble" : 2601},
+                { "wood" : 5505, "marble" : 3390},
+                { "wood" : 7086, "marble" : 4403},
+                { "wood" : 9086, "marble" : 5693},
+                { "wood" : 11590, "marble" : 7314},
+                { "wood" : 14691, "marble" : 9331},
+                { "wood" : 18489, "marble" : 11807},
+                { "wood" : 23088, "marble" : 14812},
+                { "wood" : 28600, "marble" : 18420},
+                { "wood" : 35142, "marble" : 22707},
+                { "wood" : 42839, "marble" : 27757},
+                { "wood" : 51820, "marble" : 33654},
+                { "wood" : 62218, "marble" : 40485},
+                { "wood" : 74175, "marble" : 48348},
+                { "wood" : 87838, "marble" : 57334},
+                { "wood" : 103356, "marble" : 67546},
+                { "wood" : 120888, "marble" : 79087},
+                { "wood" : 140596, "marble" : 92064},
+                { "wood" : 162647, "marble" : 106587}//25
             ]
         };
         return {'source' : BUILDINGS, 'pos' : POSITIONS};
