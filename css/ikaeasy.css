@@ -739,13 +739,29 @@
 }
 
 #island #cities .islandfeature.marble .hover {
-left: -6px!important;
+    left: -6px!important;
 }
 
 #island #cities .islandfeature.sulfur .hover {
-left: 0px!important;
-top: -3px!important;
+    left: 0px!important;
+    top: -3px!important;
 }
 #island #cities .hover{
     left:20px!important;
+}
+
+.externalURL {
+    color: #542c0f;
+    background-image: url(/images/externalURL.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+    padding-right: 15px;
+    text-decoration: underline;
+    line-height: 18px;
+}
+
+.externalURL:hover {
+    color: #542c0f;
+    background-image: url(/images/externalURLHover.png);
+    text-decoration: none;
 }

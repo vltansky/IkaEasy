@@ -48,12 +48,12 @@ function makeActiveLinks(){
                 return '<a href="'+match+'" target="_blank" class="IkaEasy_msg_img"><img src="'+match+'" /></a>';
             }
             else{
-                return '<a href="'+match+'" target="_blank">'+match+'</a>';
+                return '<a href="'+match+'" target="_blank" class="externalURL">'+match+'</a>';
             }
         }
     );
  
-		this.innerHTML = this.innerHTML.replace(__urlRegex_www, '$1<a href="http://$2" target="_blank">$2</a>');
+		this.innerHTML = this.innerHTML.replace(__urlRegex_www, '$1<a href="http://$2" target="_blank" class="externalURL">$2</a>');
 		$(this).addClass('IkaEasy_links_completed');
 	});
 }

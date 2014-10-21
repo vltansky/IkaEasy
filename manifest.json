@@ -127,7 +127,9 @@
 		"images/Marker/highlighter_right.png",
 		"images/Marker/controls.png",
 		"images/Marker/paint-icon-big.png",
-		"images/Marker/topList-menu.png"
+    "images/Marker/topList-menu.png",
+    "images/externalURLHover.png",
+    "images/externalURL.png"
     ],
 
     "name": "Ikariam Easy",
