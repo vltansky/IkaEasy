@@ -174,8 +174,8 @@ zJS.DB = {
             ],
 
             "blackMarket" : [//edit this position
-                { "x" : 32, "y" : 73 },
-                { "x" : 32, "y" : 73 }
+                { "x" : 50, "y" : 20 },
+                { "x" : 50, "y" : 20 }
             ],
 
             // construction spot

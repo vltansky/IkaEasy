@@ -23,7 +23,6 @@ zJS.Page.transport = {
             var obj = this;
             var box = $('<div class="ikaeasy_resource"></div>')
              $('div.sliderinput', this).append(box);
-
 			 if(localStorage[zJS.Utils.getPlace() + 'transporter-type'] == '1')
 			 {			 
 				$('.minusPlusValueContainer').remove();
