@@ -3,6 +3,7 @@
 }
 
 langs.de = {
+    'MessagePlaceholder' : "Klik op CTRL + Enter om bericht te sturen",//not sure
     'ConfirmDowngrade': "Möchten Sie wirklich dieses Gebäude um 1 Stufe downgraden?",
     'Circular_message': "Mitteilung an alle",
     'Ally_members': "Allianz",

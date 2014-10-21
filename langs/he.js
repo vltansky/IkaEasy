@@ -3,6 +3,7 @@ if (typeof langs == "undefined") {
 }
 
 langs.il = {
+    'MessagePlaceholder' : "לחץ CTRL + Enter כדי לשלוח הודעה",//not sure
     'ConfirmDowngrade' : "אתה באמת רוצה להרוס שלב אחד של המבנה הזה?",
     'Circular_message' : "הודעה לכולם",
 	'Ally_members'     : "ברית",

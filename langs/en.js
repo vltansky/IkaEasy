@@ -3,6 +3,7 @@ if (typeof langs == "undefined") {
 }
 
 langs.en = {
+    'MessagePlaceholder' : "Click CTRL + Enter to send message",
     'ConfirmDowngrade' : "Confirm downgrading of building",
     'Circular_message' : "Message to everyone",
 	'Ally_members'     : "Alliance",

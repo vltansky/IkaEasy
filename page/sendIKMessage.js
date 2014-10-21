@@ -7,6 +7,7 @@ if (typeof zJS.Page == "undefined") {
 }
 zJS.Page.sendIKMessage = {
 	init : function() {
+		$('#js_msgTextConfirm').attr('placeholder', zJS.Lang.MessagePlaceholder);
 		$('#js_msgTextConfirm').bind('keydown.ctrl_return', function(){
 			$('form#sendMessageBoxForm').submit();
 		});

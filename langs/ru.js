@@ -3,6 +3,7 @@ if (typeof langs == "undefined") {
 }
 
 langs.ru = {
+    'MessagePlaceholder' : "Нажмите CTRL + Enter для отправки сообщения",
     'ConfirmDowngrade' : "Вы действительно хотите снести 1 уровень этого здания?",
     'Circular_message' : "Общее сообщение",
 	'Ally_members'     : "Альянс",
