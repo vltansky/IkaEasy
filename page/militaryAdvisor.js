@@ -14,7 +14,7 @@ zJS.Page.militaryAdvisor = {
 		});
 		
         // Отображение войск и флотов в военном советнике.
-        $('#js_MilitaryMovementsFleetMovementsTable tr').has('td').each(function(){
+        $('#js_MilitaryMovementsFleetMovementsTable tr:not(.ikaeasy_complete)').has('td').each(function(){
             var wrapper = $('<div class="ikaeasy_transport_main"></div>');
 
 			if($('.unit_detail_icon', this)[0] != null){
@@ -24,6 +24,7 @@ zJS.Page.militaryAdvisor = {
 
 				$('td', this).eq(3).empty().append(wrapper).attr('colspan', '2');
 				$('td', this).eq(4).remove();
+				$(this).addClass('ikaeasy_complete');
 			}
         });
     },
