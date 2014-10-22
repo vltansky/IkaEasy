@@ -49,7 +49,7 @@ zJS.Page.__common = {
 			var tmpRes = $(tmpVar).text() == '-' ? 0 : $(tmpVar).text().replace(/[^\d+]/g, '');
             var wineLeftTime;
 			if(i == 1){
-                tmpRes -= $("#js_GlobalMenu_WineConsumption").text();
+                tmpRes -= $("#js_GlobalMenu_WineConsumption").text().replace(/[^\d+]/g, '');
                 if(tmpRes<0){
                     wineLeftTime=Math.abs(parseFloat($("#js_GlobalMenu_wine").text().replace(/[^\d+]/g, ''))/tmpRes);
                     wineLeftTime=zJS.Utils.transformHours(wineLeftTime);
@@ -64,7 +64,7 @@ zJS.Page.__common = {
 			if($(search)[0].className.indexOf('invisible') == -1 || i == 1){
 				var tmpIns = tmpRes.substring(0,1) == '-' ? 'ikaeasy_resources_negative' : 'ikaeasy_resources_positive';
                 var template;
-                if(i == 1)
+                if(i == 1 && tmpRes<0)
                     template = '<div class="ikaeasy_delet_me"><span id="ikaeasy-'+ clas + '" class="' + tmpIns + '">' + zJS.Utils.formatNumber(tmpRes) + ' <span class="ikaeasy_wine_left_time">' + wineLeftTime+ '</span></span></div>';
                 else
 				    template = '<div class="ikaeasy_delet_me"><span id="ikaeasy-'+ clas + '" class="' + tmpIns + '">' + zJS.Utils.formatNumber(tmpRes) + '</span></div>';
