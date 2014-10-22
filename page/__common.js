@@ -40,14 +40,6 @@ zJS.Page.__common = {
 
 	_getProduction : function(wineDiscount) {
 		$('.ikaeasy_delet_me').each(function() { $(this).remove(); });
-	
-		var locWine = zJS.Utils.getLocWine();
-		var wine = localStorage.getItem(locWine);
-
-		if(wine == null || wine == "NaN" || ($('.vineyard').length > 0 && wineDiscount != 1)){
-			zJS.Page.tavern.getWine();
-			return;
-		}
 		
 		var resCol = ['wood', 'wine', 'marble', 'crystal', 'sulfur'];
 		
@@ -55,7 +47,7 @@ zJS.Page.__common = {
 			var clas = i == 3 ? 'glass' : resCol[i];
 			var tmpVar = i == 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_' + resCol[i];
 			var tmpRes = $(tmpVar).text() == '-' ? 0 : $(tmpVar).text().replace(/[^\d+]/g, '');
-			if(i == 1) tmpRes -= wine;
+			if(i == 1) tmpRes -= $("#js_GlobalMenu_WineConsumption").text();
 			tmpRes = tmpRes < 0 ? zJS.Utils.formatNumber(tmpRes) : '+' + zJS.Utils.formatNumber(tmpRes);
 			var search = i == 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_container_' + resCol[i];
 			if($(search)[0].className.indexOf('invisible') == -1 || i == 1){
