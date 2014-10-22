@@ -3,6 +3,13 @@ if (typeof langs == "undefined") {
 }
 
 langs.en = {
+    'per_day' : "Per day",
+    'per_month' : "Per month",
+    'left' : "Left",
+    'hours' : "hours",
+    'days' : "days",
+    'months' : "months",
+    'years' : "years",
     'MessagePlaceholder' : "Click CTRL + Enter to send message",
     'ConfirmDowngrade' : "Confirm downgrading of building",
     'Circular_message' : "Message to everyone",

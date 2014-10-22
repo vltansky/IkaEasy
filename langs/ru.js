@@ -3,6 +3,13 @@ if (typeof langs == "undefined") {
 }
 
 langs.ru = {
+    'per_day' : "В день",
+    'per_month' : "В месяц",
+    'left' : "Осталось",
+    'hours' : "часов",
+    'days' : "дней",
+    'months' : "месяцев",
+    'years' : "год",
     'MessagePlaceholder' : "Нажмите CTRL + Enter для отправки сообщения",
     'ConfirmDowngrade' : "Вы действительно хотите снести 1 уровень этого здания?",
     'Circular_message' : "Общее сообщение",

@@ -252,6 +252,17 @@ zJS.Utils = {
         customEvent.initEvent('execute_js', true, true);
         $('#__ikaeasy')[0].dispatchEvent(customEvent);
     },
+    transformHours: function(hours){
+        if(hours<24)
+                return Math.round(hours)+' '+zJS.Lang.hours;
+        if(hours<720)
+                return Math.round(hours/24)+' '+zJS.Lang.days;
+        else if(hours<8640)
+                return Math.round(hours/720)+' '+zJS.Lang.months;
+        else if(hours>=8640)
+                return Math.round(hours/8640)+' '+zJS.Lang.years;
+        
+    },
 
     draggable : function(obj1, obj2, callback) {
         this._draggble = {

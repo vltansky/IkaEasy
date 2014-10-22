@@ -3,6 +3,13 @@
 }
 
 langs.de = {
+    'per_day' : "Pro Tag",
+    'per_month' : "Pro Monat",
+    'left' : "links",
+    'hours' : "Stunden.",
+    'days' : "Tage.",
+    'months' : "Monate",
+    'years' : "Jahre",
     'MessagePlaceholder' : "Klik op CTRL + Enter om bericht te sturen",//not sure
     'ConfirmDowngrade': "Möchten Sie wirklich dieses Gebäude um 1 Stufe downgraden?",
     'Circular_message': "Mitteilung an alle",

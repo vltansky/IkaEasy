@@ -3,6 +3,13 @@ if (typeof langs == "undefined") {
 }
 
 langs.il = {
+    'per_day' : "יום",
+    'per_month' : "לחודש",
+    'left' : "עזב",
+    'hours' : "שעות",
+    'days' : "ימים",
+    'months' : "חודשים",
+    'years' : "שנים",
     'MessagePlaceholder' : "לחץ CTRL + Enter כדי לשלוח הודעה",//not sure
     'ConfirmDowngrade' : "אתה באמת רוצה להרוס שלב אחד של המבנה הזה?",
     'Circular_message' : "הודעה לכולם",

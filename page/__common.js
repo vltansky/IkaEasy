@@ -47,12 +47,27 @@ zJS.Page.__common = {
 			var clas = i == 3 ? 'glass' : resCol[i];
 			var tmpVar = i == 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_' + resCol[i];
 			var tmpRes = $(tmpVar).text() == '-' ? 0 : $(tmpVar).text().replace(/[^\d+]/g, '');
-			if(i == 1) tmpRes -= $("#js_GlobalMenu_WineConsumption").text();
+            var wineLeftTime;
+			if(i == 1){
+                tmpRes -= $("#js_GlobalMenu_WineConsumption").text();
+                if(tmpRes<0){
+                    wineLeftTime=Math.abs(parseFloat($("#js_GlobalMenu_wine").text().replace(/[^\d+]/g, ''))/tmpRes);
+                    wineLeftTime=zJS.Utils.transformHours(wineLeftTime);
+                    var wine_tooltip='<p class="smallFont">'+zJS.Lang.left + ': ' + wineLeftTime+'</p>\
+                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_day + ': ' + tmpRes*24+'</p>\
+                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_month + ': ' + tmpRes*720+'</p>';
+                    $("#js_GlobalMenu_wine_tooltip").prepend(wine_tooltip);
+                }
+            }
 			tmpRes = tmpRes < 0 ? zJS.Utils.formatNumber(tmpRes) : '+' + zJS.Utils.formatNumber(tmpRes);
 			var search = i == 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_container_' + resCol[i];
 			if($(search)[0].className.indexOf('invisible') == -1 || i == 1){
 				var tmpIns = tmpRes.substring(0,1) == '-' ? 'ikaeasy_resources_negative' : 'ikaeasy_resources_positive';
-				var template = '<div class="ikaeasy_delet_me"><span id="ikaeasy-'+ clas + '" class="' + tmpIns + '">' + zJS.Utils.formatNumber(tmpRes) + '</span></div>';
+                var template;
+                if(i == 1)
+                    template = '<div class="ikaeasy_delet_me"><span id="ikaeasy-'+ clas + '" class="' + tmpIns + '">' + zJS.Utils.formatNumber(tmpRes) + ' <span class="ikaeasy_wine_left_time">' + wineLeftTime+ '</span></span></div>';
+                else
+				    template = '<div class="ikaeasy_delet_me"><span id="ikaeasy-'+ clas + '" class="' + tmpIns + '">' + zJS.Utils.formatNumber(tmpRes) + '</span></div>';
 				$(template).appendTo($('#resources_' + clas));
 			}
 		}
