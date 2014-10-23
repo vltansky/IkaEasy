@@ -33,18 +33,18 @@ function _ajax(url, method, vars, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open(method.toUpperCase(), url, true);
     xhr.onreadystatechange = function() {
-        alert(0)
+        alert(0);
         xhr.onreadystatechange = function () {
-            alert(xhr.readyState)
+            alert(xhr.readyState);
             if (xhr.readyState == 4) {
-                alert(xhr.responseText)
+                alert(xhr.responseText);
                 callback && callback({response : xhr.responseText});
             }
         }
     };
 
     xhr.onerror = function(e){
-        alert(e)
+        alert(e);
         console.error("XHR failed for " + url + ", " + e);
     };
 
@@ -59,7 +59,7 @@ function _ajax(url, method, vars, callback) {
     try {
         xhr.send(vars);
     } catch (e) {
-        alert('aхтунг')
+        alert('aхтунг');
         console.error("XHR failed for " + url + ", " + e);
     }
 }

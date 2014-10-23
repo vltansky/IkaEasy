@@ -39,7 +39,7 @@ zJS.Page.island = {
 	//debugger;
 		var allys = zJS.Utils.marker.getAllAllys();
 		for(var i = 0; i < 17; i++){
-			var City = $('#cityLocation' + i);
+			var City = $('#cityLocation').find(i);
 			if(!$(City).hasClass('own') && !$(City).hasClass('ally') && !$(City).hasClass('treaty')){
 				for(var q = 0; q < allys.length; q++){
 					for(var s = 0; s < allys[q].length; s++){
@@ -66,8 +66,8 @@ zJS.Page.island = {
 		//Чистим себя на случай обновления страницы
 		$('#markerMenu').remove();
 		$('#ikaeasy_marker_btn').remove();
-	
-		var markerMenu = $('<div id="markerMenu" style="display: none;"><div id="markerMenuTitle">Alliance marker</div></div>').appendTo($('body'));
+	    var $body=$('body');
+		var markerMenu = $('<div id="markerMenu" style="display: none;"><div id="markerMenuTitle">Alliance marker</div></div>').appendTo($body);
 		$('<div id="markerLeft"></div>').appendTo($(markerMenu));
 		var cityColors = zJS.Utils.marker.getMarkerColors();
 		for(var i = 0; i < cityColors.length; i++){
@@ -101,8 +101,8 @@ zJS.Page.island = {
 				else{
 					$(markerMenu).hide(500);
 				}
-			}).appendTo($('#js_selectedCityAlly .icons'));
-		$('body').mouseup(function(e){
+			}).appendTo($('#js_selectedCityAlly').find('.icons'));
+		$body.mouseup(function(e){
 				if(e.target.id != "ikaeasy_marker_btn" && e.target.id != "markerMenu" && e.target.className != "ikaeasy_marker_ally_list" && e.target.className !=  "markerAllys")
 					$(markerMenu).hide(500);
 			});
@@ -121,8 +121,9 @@ zJS.Page.island = {
                 var score = ((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) ? '' : ' #' + users[v.ownerId]['h'];
                 var ally  = ((v.ownerAllyTag) && (v.ownerAllyTag != '')) ? ' [' + v.ownerAllyTag + ']' : '';
 
-                var city = $('#js_cityLocation' + k + 'TitleText').html() + ally + score;
-                $('#js_cityLocation' + k + 'TitleText').html(city);
+                var $cashe_city=$('#js_cityLocation' + k + 'TitleText');
+                var city = $cashe_city.html() + ally + score;
+                $cashe_city.html(city);
 
                 this._recalcWidth(k);
 
@@ -146,8 +147,9 @@ zJS.Page.island = {
                         zJS.Utils.ls.setValue('users', users, 86400);
 
                         $.each(users_req[v.ownerId], function(k, v){
-                            var name = $('#js_cityLocation' + v + 'TitleText').html();
-                            $('#js_cityLocation' + v + 'TitleText').html(name + ' #' + _score);
+                            var $cashe_name=$('#js_cityLocation' + v + 'TitleText');
+                            var name = $cashe_name.html();
+                            $cashe_name.html(name + ' #' + _score);
                             this._recalcWidth(v);
                         }.bind(this));
 
@@ -159,7 +161,7 @@ zJS.Page.island = {
             }
         }.bind(this));
 
-        $('#cities .islandfeature .scroll_img').each(function(){
+        $('#cities').find('div.islandfeature div.scroll_img').each(function(){
             var w = 9;
             $(this).find('div').each(function(){
                 w += parseInt($(this).width());

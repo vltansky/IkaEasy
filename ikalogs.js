@@ -71,20 +71,20 @@ ikalogs.prototype = {
                 self.isComplete();
             }
         };
-
-        var url = $('#troopsReport .contentBox01h p.link a').eq(0).attr('href');
+        var $troopsReport=$('#troopsReport');
+        var url = $troopsReport.find('.contentBox01h p.link a').eq(0).attr('href');
         this._rep_id = url.match(/detailedCombatId=(\d+)/i)[1];
 
         // Получаем краткий доклад
         count++;
         this._get_short_log(_afterAll);
 
-        $('#troopsReport div.attacker span > a').each(function(){
+        $troopsReport.find('div.attacker span > a').each(function(){
             count++;
             self._get_user_ally($.trim($(this).text()), _afterAll);
         });
 
-        $('#troopsReport div.defender span > a').each(function(){
+        $troopsReport.find('div.defender span > a').each(function(){
             count++;
             self._get_user_ally($.trim($(this).text()), _afterAll);
         });
@@ -105,7 +105,7 @@ ikalogs.prototype = {
             // Нужно! Значит для начала по любому получим первый раунд
 
             var first = '';
-            url = $('#troopsReport .contentBox01h p.link a').eq(0).attr('href');
+            url = $troopsReport.find('.contentBox01h p.link a').eq(0).attr('href');
             var __first_r = url.match(/combatRound=(\d+)/i)[1];
 
             $('.ikalogs_loader span', this._box).text(zJS.Lang.ikalogs.get_rounds);

@@ -212,16 +212,17 @@ zJS.Utils = {
     },
 
     addToLeftMenu : function(image, title) {
-        if ($('#leftMenu').length == 0) {
+        var $leftMenu=$('#leftMenu');
+        if ($leftMenu.length == 0) {
             $('#container').append('<div id="leftMenu"></div>');
         }
-
-        if ($('#js_viewCityMenu').length == 0) {
-            $('#leftMenu').append('<div id="js_viewCityMenu" class="slot_menu city_menu"></div>');
+        var $js_viewCityMenu=$('#js_viewCityMenu');
+        if ($js_viewCityMenu.length == 0) {
+            $leftMenu.append('<div id="js_viewCityMenu" class="slot_menu city_menu"></div>');
         }
 
         if ($('.menu_slots', '#js_viewCityMenu').length == 0) {
-            $('#js_viewCityMenu').append('<ul class="menu_slots"></ul>');
+            $js_viewCityMenu.append('<ul class="menu_slots"></ul>');
         }
 
         var menu_slot = $('#js_viewCityMenu .menu_slots');
@@ -280,15 +281,15 @@ zJS.Utils = {
             this._draggble.sX = $(obj2).offset().left;
             this._draggble.sY = $(obj2).offset().top;
         }.bind(this));
-
-        $('body').mouseup(function(e){
+        var $body=$('body');
+        $body.mouseup(function(e){
             if (this._draggble.drag) {
                 callback && callback();
                 this._draggble.drag = false;
             }
         }.bind(this));
 
-        $('body').mousemove(function(e){
+        $body.mousemove(function(e){
             if (this._draggble.drag) {
                 var pos = {
                     top  : this._draggble.sY + (e.pageY - this._draggble.mouseY),

@@ -41,12 +41,18 @@ function makeActiveLinks(){
 		//IMGs url
 		var __imgRegex = /\.(?:jpe?g|gif|png)$/i;
 
+		var __urlRegex_Ikalogs=/(\b(https?):\/\/ikalogs.ru\/report\/.*[-A-Z0-9+&amp;@#\/%=~_|])/ig;
+
 		var exp = __urlRegex;
     	this.innerHTML = this.innerHTML.replace(exp,function(match){
             __imgRegex.lastIndex=0;
+            __urlRegex_Ikalogs.lastIndex=0;
             if(__imgRegex.test(match)){
                 return '<a href="'+match+'" target="_blank" class="IkaEasy_msg_img"><img src="'+match+'" /></a>';
             }
+            //else if(__urlRegex_Ikalogs.test(match)){
+            //	return '<div id="ikaeasy_ikalogs_msg_log"><a href="$1" class="ikaeasy_show_log">Show log</a><a href="$1">Visit</a></div>';
+            //}
             else{
                 return '<a href="'+match+'" target="_blank" class="externalURL">'+match+'</a>';
             }
@@ -54,6 +60,7 @@ function makeActiveLinks(){
     );
  
 		this.innerHTML = this.innerHTML.replace(__urlRegex_www, '$1<a href="http://$2" target="_blank" class="externalURL">$2</a>');
+		
 		$(this).addClass('IkaEasy_links_completed');
 	});
 }
@@ -63,11 +70,9 @@ function addMembersTab(){
 	$('#js_tab_diplomacyMembers').remove();
 	var tabOnClick = "ajaxHandlerCall('?view=diplomacyAlly&listAllyMembers=1'); return false;"
 	var allyTab = $('<li class="tab" id="js_tab_diplomacyMembers" onclick="' + tabOnClick + '"><b class="tab_diplomacyMembers">' + zJS.Lang.Ally_members + '</b></li>');
-	$('ul.tabmenu').css('table-layout', 'inherit');
-	$('ul.tabmenu').append(allyTab);
+	$('ul.tabmenu').css('table-layout', 'inherit').append(allyTab);
 	if($('table#allyMemberList')[0] != null){
-		var tabmenu = $('ul.tabmenu');
-		$('li', tabmenu).each(function(){
+		$('li', 'ul.tabmenu').each(function(){
 			$(this).removeClass('selected');
 			if(this.id == "js_tab_diplomacyAlly"){
 				this.id = "js_tab_diplomacyAllyNotSelected"; //Небольшая хитрость чтобы вкладка не перепрыгивала во время переключения страниц
@@ -146,3 +151,17 @@ zJS.Page.diplomacyAlly = {
 		this.init();
 	}
 };
+
+// $.ajax({
+//         type: "GET",
+// headers: { 
+//         "e": true
+//     },
+//         url: "http://ikalogs.ru/user/report/get/?id=8767647410f011e4af97002421ef2dfa",
+//         processData: false,
+      
+//         dataType: "json",
+//         success: function(data){
+//                 console.log(data);
+//         }
+// });

@@ -8,13 +8,13 @@ if (typeof zJS.Page == "undefined") {
 
 zJS.Page.militaryAdvisor = {
     init : function() {
-	
-		$('#js_MilitaryMovementsFleetMovementsTable td').each(function(){
+	var $js_MilitaryMovementsFleetMovementsTable=$('#js_MilitaryMovementsFleetMovementsTable');
+        $js_MilitaryMovementsFleetMovementsTable.find('td').each(function(){
 			$(this).css('padding', '4px 0px').removeClass('right');
 		});
 		
         // Отображение войск и флотов в военном советнике.
-        $('#js_MilitaryMovementsFleetMovementsTable tr:not(.ikaeasy_complete)').has('td').each(function(){
+        $js_MilitaryMovementsFleetMovementsTable.find('tr:not(.ikaeasy_complete)').has('td').each(function(){
             var wrapper = $('<div class="ikaeasy_transport_main"></div>');
 
 			if($('.unit_detail_icon', this)[0] != null){

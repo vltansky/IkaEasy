@@ -12,10 +12,14 @@ zJS.Var = {
     },
 
     getTransferVars : function() {
+        //console.time('getTransferVars');
         if ($('#__ikaeasy').html() != '') {
-            this._transferVars = jQuery.parseJSON($('#__ikaeasy').html());
-            $('#__ikaeasy').html('');
+            var $ikaeasy=$('#__ikaeasy');
+            this._transferVars = jQuery.parseJSON($ikaeasy.html());
+            $ikaeasy.html('');
         }
+
+        //console.timeEnd('getTransferVars');
 
         return this._transferVars;
     },

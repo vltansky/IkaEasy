@@ -90,10 +90,11 @@ zJS.Page.city = {
         }.bind(this));
 
         var db = zJS.DB._loadDB();
-        var worldmap_top = Math.abs($('#worldmap').offset().top), worldmap_left= Math.abs($('#worldmap').offset().left);
+        var $worldmap=$('#worldmap');
+        var worldmap_top = Math.abs($worldmap.offset().top), worldmap_left= Math.abs($worldmap.offset().left);
 
         var parent = $('<div id="ikaeasy_builds"></div>'), location = $('#locations');
-        $('#worldmap').append(parent);
+        $worldmap.append(parent);
 
         $(parent).css({
             top    : $(location).css('top'),
@@ -152,8 +153,8 @@ zJS.Page.city = {
         var sourceOnCity = zJS.Var.getCityResources();
 
         // Проверяем, нет ли строящихся зданий?
-        var bb_icon = ($('#locations .constructionSite').length > 0) ? 'build_blue' : 'build_green';
-        $('#ikaeasy_builds .ikaeasy_watcher').hide();
+        var bb_icon = ($('#locations').find('.constructionSite').length > 0) ? 'build_blue' : 'build_green';
+        $('#ikaeasy_builds').find('.ikaeasy_watcher').hide();
 
         $.each(this._builds, function(name, builds){
             $.each(builds, function(pos, build){
@@ -206,7 +207,8 @@ zJS.Page.city = {
                 }
 
                 if (build['completed']) {
-                    var worldmap_top = Math.abs($('#worldmap').offset().top), worldmap_left= Math.abs($('#worldmap').offset().left);
+                    var $worldmap=$('#worldmap');
+                    var worldmap_top = Math.abs($worldmap.offset().top), worldmap_left= Math.abs($worldmap.offset().left);
                     var b_coord = db.pos['constructionSite'];
                     var build_pos = $('#position' + build['position']);
                     $(block).css({left : parseInt($(build_pos).css('left')) + b_coord[0]['x'], top :  parseInt($(build_pos).css('top')) +  b_coord[0]['y']});

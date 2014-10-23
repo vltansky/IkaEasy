@@ -72,7 +72,7 @@ zJS.Page.deployment = {
 
 zJS.Page.plunder = {
     init : function() {	
-        var a = $('<div href="#reset" class="ikaeasy_max_btn" id="ikaeasy_max_ships"></div>');
+        var a = $('<div href="#reset" class="ikaeasy_max_btn" id="ikaeasy_max_ships"></div>');//why div with href?
         $('#plusminus').append(a);
          $(a).click(function(){
 			$('#extraTransporter').val(zJS.Var.getShips());

@@ -33,7 +33,6 @@ zJS.Page.__common = {
         $("ul.resources li div p:first-child").parent().parent()
             .css("cursor", "")
             .removeAttr("onClick");
-        example;
 
         this.init();
     },
@@ -72,9 +71,9 @@ zJS.Page.__common = {
 			}
 		}
 	},
-	
+
 	_changeForumBtn : function() {
-		$('#GF_toolbar li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';
+		$('#GF_toolbar').find('li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';
 	},
 
     _addOtherButtons : function() {
@@ -144,7 +143,7 @@ zJS.Page.__common = {
         }
 
         var nextCity = $('<li class="ikaeasy_nextCity" id="ikaeasy_nextCity"></li>');
-        $('#cityResources .resources').prepend(nextCity);
+        $('#cityResources').find('.resources').prepend(nextCity);
 
         $(nextCity).click(function(){
             if (_next < 1) {
