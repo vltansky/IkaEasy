@@ -15,7 +15,6 @@ zJS.Page.__common = {
         this._addOtherButtons();
 		this._changeForumBtn();
 		this._getProduction();
-
         if(document.getElementsByTagName('body')[0].id !== "worldmap_iso"){
             this._addLinkToIslandFeature();
         }
@@ -34,6 +33,7 @@ zJS.Page.__common = {
         $("ul.resources li div p:first-child").parent().parent()
             .css("cursor", "")
             .removeAttr("onClick");
+        example;
 
         this.init();
     },
