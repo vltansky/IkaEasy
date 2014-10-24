@@ -12,9 +12,10 @@ function addAllAndHalfBtns(){
 	//All button
 	var allBtn = $('<a class="button">' + zJS.Lang.Attack_All + '</a>');
 	$(allBtn).click(function(){
-		$('a.setMax').each(function(){
-			$(this).click();
-		});
+        $('ul.assignUnits li').each(function(){
+            var count = $('.amount', this).text();
+            $('input.textfield', this).val(count).click();
+        });
 	});
 	
 	//Half button
@@ -29,15 +30,17 @@ function addAllAndHalfBtns(){
 	//Nothing button
 	var nothingBtn = $('<a class="button">' + zJS.Lang.Attack_Nothing + '</a>');
 	$(nothingBtn).click(function(){
-		$('a.setMin').each(function(){
-			$(this).click();
-		});
+        $('ul.assignUnits li').each(function(){
+            var count = $('.amount', this).text();
+            $('input.textfield', this).val(0).click();
+        });
 	});
 	
 	$(allBtnDiv).append($(nothingBtn));
 	$(allBtnDiv).append($(halfBtn));
 	$(allBtnDiv).append($(allBtn));
-	$(allBtnDiv).insertBefore('div.newSummary');
+	$(allBtnDiv).insertBefore('div.newSummary:not(.ikaeasy_complete)');
+    $('div.newSummary').addClass('ikaeasy_complete');
 }
 
 zJS.Page.blockade = {

@@ -28,7 +28,7 @@ zJS.Utils = {
         var diffMs = (Date.parse(date1) - Date.parse(date2));
     return Math.round((diffMs % 86400000) / 3600000);//после деления - перевод милисекунд в часы
 },
-	
+
 	marker : {
 		getColors : function() {
 			var cityColors = ['orange','bordo','pink','purple','turquoise','black','white'];
@@ -308,3 +308,9 @@ zJS.Utils = {
         }.bind(this));
     }
 };
+
+
+Number.prototype.padLeft = function(base,chr) {
+    var len = (String(base || 10).length - String(this).length) + 1;
+    return len > 0 ? new Array(len).join(chr || '0') + this : this;
+}
