@@ -780,3 +780,16 @@
 #IkaEasy_Gold_per_hour.ikaeasy_red{
     color:red;
 }
+#militaryMovements table>tbody>tr:hover, #militaryMovements table>tbody>tr:focus{
+    background-color:#FFF0B0!important;
+}
+
+span.IkaEasy_transport_date {
+    color: rgb(192, 22, 0);
+    position: relative;
+    top: 2px;
+}
+
+#island #cities .city .position {
+    left: 71px!important;
+}
