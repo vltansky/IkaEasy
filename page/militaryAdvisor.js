@@ -24,8 +24,36 @@ zJS.Page.militaryAdvisor = {
 
 				$('td', this).eq(3).empty().append(wrapper).attr('colspan', '2');
 				$('td', this).eq(4).remove();
-				$(this).addClass('ikaeasy_complete');
 			}
+            var $arrival_time=$('span[id$="ArrivalTime"]', this);
+            var arrival_time=$arrival_time.text();
+            var arrival_array=arrival_time.split(' ');
+            var Arrival_time=0;
+            if(arrival_array.length>=1){
+                Arrival_time+=arrival_array[0].replace(/[^\d+]/g, '')*1000;
+            }
+            if(arrival_array.length>=2) {
+                Arrival_time+=arrival_array[0].replace(/[^\d+]/g, '')*60000;//60*1000
+            }
+            if(arrival_array.length>=3) {
+                Arrival_time+=arrival_array[0].replace(/[^\d+]/g, '')*3600000;//60*1000*60
+            }
+            if(arrival_array.length>=4) {
+                Arrival_time+=arrival_array[0].replace(/[^\d+]/g, '')*86400000;//60*1000*60*24
+            }
+            var now = Date.now();
+
+            now += Arrival_time;
+            var arrival_date= new Date(now);
+
+            var dformat = [arrival_date.getDate().padLeft(),
+                    (arrival_date.getMonth()+1).padLeft()].join('/')+
+            ' ' +
+            [ arrival_date.getHours().padLeft(),
+                arrival_date.getMinutes().padLeft()].join(':');
+            $arrival_time.parent().append('<span class="IkaEasy_transport_date">'+dformat+'</span>');
+            $(this).addClass('ikaeasy_complete');
+
         });
     },
 
