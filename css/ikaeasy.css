@@ -788,8 +788,12 @@ span.IkaEasy_transport_date {
     color: rgb(192, 22, 0);
     position: relative;
     top: 2px;
+    display: block;
 }
 
 #island #cities .city .position {
     left: 71px!important;
+}
+tr.ikaeasy_finance_tr {
+    border-top:1px dotted #CCA569
 }

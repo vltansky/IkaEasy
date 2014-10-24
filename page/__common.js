@@ -55,9 +55,9 @@ zJS.Page.__common = {
                     wineLeftTime=Math.abs(parseFloat($("#js_GlobalMenu_wine").text().replace(/[^\d+]/g, ''))/tmpRes);
                     wineLeftTime=zJS.Utils.transformHours(wineLeftTime);
                     var wine_tooltip='<p class="smallFont ikaeasy_delet_me">'+zJS.Lang.left + ': ' + wineLeftTime+'</p>\
-                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_day + ': ' + tmpRes*24+'</p>\
-                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_week + ': ' + tmpRes*168+'</p>\
-                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_month + ': ' + tmpRes*730+'</p>';
+                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_day + ': ' + zJS.Utils.formatNumber(tmpRes*24)+'</p>\
+                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_week + ': ' + zJS.Utils.formatNumber(tmpRes*168)+'</p>\
+                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_month + ': ' + zJS.Utils.formatNumber(tmpRes*730)+'</p>';
                     $("#js_GlobalMenu_wine_tooltip").prepend(wine_tooltip);
                 }
             }
