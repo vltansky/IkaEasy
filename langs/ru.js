@@ -3,7 +3,9 @@ if (typeof langs == "undefined") {
 }
 
 langs.ru = {
+    'WillBeFullIn' : 'Заполнится через',
     'per_day' : "В день",
+    'per_week' : "В неделю",
     'per_month' : "В месяц",
     'left' : "Осталось",
     'hours' : "часов",

@@ -15,6 +15,8 @@ zJS.Page.__common = {
         this._addOtherButtons();
 		this._changeForumBtn();
 		this._getProduction();
+        this._getFinance();
+        this._setFinance();
         if(document.getElementsByTagName('body')[0].id !== "worldmap_iso"){
             this._addLinkToIslandFeature();
         }
@@ -54,7 +56,8 @@ zJS.Page.__common = {
                     wineLeftTime=zJS.Utils.transformHours(wineLeftTime);
                     var wine_tooltip='<p class="smallFont ikaeasy_delet_me">'+zJS.Lang.left + ': ' + wineLeftTime+'</p>\
                     <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_day + ': ' + tmpRes*24+'</p>\
-                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_month + ': ' + tmpRes*720+'</p>';
+                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_week + ': ' + tmpRes*168+'</p>\
+                    <p class="smallFont ikaeasy_delet_me">'+zJS.Lang.per_month + ': ' + tmpRes*730+'</p>';
                     $("#js_GlobalMenu_wine_tooltip").prepend(wine_tooltip);
                 }
             }
@@ -71,6 +74,54 @@ zJS.Page.__common = {
 			}
 		}
 	},
+    _getFinance: function(){
+        console.log('get finance');
+        var LocFinanceDate=zJS.Utils.getLocFinance()+'_date';
+        if((localStorage.getItem(LocFinanceDate)!=null && zJS.Utils.hoursBetween(new Date(),LocFinanceDate)>1)||localStorage.getItem(LocFinanceDate)==null){
+            console.log('get finance' + $('#js_GlobalMenu_gold').attr('href'));
+            try{
+                $.ajax({
+                    url: $('#js_GlobalMenu_gold').attr('href'),
+                    success: function(data){
+                        var ex;
+                        var start = data.indexOf('ikariam.getClass(ajax.Responder') + 'ikariam.getClass(ajax.Responder'.length;
+                        var end = data.indexOf("updateTemplateData", start);
+                        ex = data.substring(start, end);
+                        end = ex.indexOf('updateBackgroundData');
+                        start = end-200
+                        ex = ex.substring(start, end);
+                        start=ex.indexOf('<td class=\"hidden bold\">') + '<td class=\"hidden bold\">'.length;
+                        ex = ex.substring(start, end);
+                        var red = ex.match('red') // "3"
+                        ex=ex.replace(/[^\d+]/g, '');
+                        ex = ex.match(/\d+/) // "3"
+                        if(red[0]=='red')
+                        ex=0-ex;
+
+                        var LocFinance=zJS.Utils.getLocFinance(),
+                            LocFinanceDate=zJS.Utils.getLocFinance()+'_date';
+
+                        localStorage.setItem(LocFinance, ex);
+                        localStorage.setItem(LocFinanceDate, new Date());
+                    }
+                });
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+    },
+    _setFinance : function(){
+        console.log('set finance');
+        var LocFinance=zJS.Utils.getLocFinance();
+        var value=localStorage.getItem(LocFinance),
+            np_char='ikaeasy_green';
+        //console.log(value);
+        if(value<0)
+            np_char='red';
+        $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me '+np_char+'">'+zJS.Utils.formatNumber(value)+'</span>')
+
+    },
 
 	_changeForumBtn : function() {
 		$('#GF_toolbar').find('li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';

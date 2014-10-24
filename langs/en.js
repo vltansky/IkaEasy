@@ -3,7 +3,9 @@ if (typeof langs == "undefined") {
 }
 
 langs.en = {
+    'WillBeFullIn' : 'Be filled in',
     'per_day' : "Per day",
+    'per_week' : "Per week",
     'per_month' : "Per month",
     'left' : "Left",
     'hours' : "hours",

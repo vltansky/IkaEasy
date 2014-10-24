@@ -7,6 +7,7 @@ if (typeof zJS.Page == "undefined") {
 }
 function AddIkaEasyOptionsfunction() {
     //Cleaning up
+    var $tabMenu=$("ul#tabMenu");
     $('#js_tabIkaEasyOptions').remove();
     $('#tabIkaEasyOptions').remove();
 

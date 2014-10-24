@@ -13,6 +13,7 @@ zJS.Page.tavern = {
 	
 	getWine : function(){
 		try{
+            console.log('tavern');
 			var tavern = $('.tavern');
 			
 			$.ajax({

@@ -3,7 +3,9 @@ if (typeof langs == "undefined") {
 }
 
 langs.il = {
+    'WillBeFullIn' : 'להיות מלא ב',
     'per_day' : "יום",
+    'per_week' : "בשבוע",
     'per_month' : "לחודש",
     'left' : "עזב",
     'hours' : "שעות",

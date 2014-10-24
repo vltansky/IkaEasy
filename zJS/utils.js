@@ -17,10 +17,17 @@ zJS.Utils = {
 	getLocWine : function(){
 		return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + zJS.Var.getCityId() + "_wine";
 	},
+    getLocFinance :function(){
+        return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + zJS.Var.getCityId() + "_finance";
+    },
 	
 	getPlace : function(){
 		return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_";
 	},
+    hoursBetween : function( date1, date2 ) {
+        var diffMs = (Date.parse(date1) - Date.parse(date2));
+    return Math.round((diffMs % 86400000) / 3600000);//после деления - перевод милисекунд в часы
+},
 	
 	marker : {
 		getColors : function() {
@@ -256,12 +263,12 @@ zJS.Utils = {
     transformHours: function(hours){
         if(hours<24)
                 return Math.round(hours)+' '+zJS.Lang.hours;
-        if(hours<720)
+        if(hours<730)
                 return Math.round(hours/24)+' '+zJS.Lang.days;
-        else if(hours<8640)
-                return Math.round(hours/720)+' '+zJS.Lang.months;
-        else if(hours>=8640)
-                return Math.round(hours/8640)+' '+zJS.Lang.years;
+        else if(hours<8765)
+                return Math.round(hours/730)+' '+zJS.Lang.months;
+        else if(hours>=8765)
+                return Math.round(hours/8765)+' '+zJS.Lang.years;
         
     },
 

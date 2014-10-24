@@ -3,7 +3,9 @@
 }
 
 langs.de = {
+    'WillBeFullIn' : 'wird durch ausgefüllt werden',
     'per_day' : "Pro Tag",
+    'per_week' : "pro Woche",
     'per_month' : "Pro Monat",
     'left' : "links",
     'hours' : "Stunden.",

@@ -765,3 +765,18 @@
     background-image: url(/images/externalURLHover.png);
     text-decoration: none;
 }
+
+#IkaEasy_Gold_per_hour{
+    font-size: 8px;
+    clear: both;
+    position: absolute;
+    left: 60%;
+    top: 9px;
+}
+
+#IkaEasy_Gold_per_hour.ikaeasy_green{
+    color:green;
+}
+#IkaEasy_Gold_per_hour.ikaeasy_red{
+    color:red;
+}

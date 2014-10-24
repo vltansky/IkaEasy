@@ -25,7 +25,7 @@
            "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*" ],
            "run_at": "document_end"
        },  {
-           "js": [ "page/__common.js", "page/city.js", "page/island.js", "page/resource.js", "page/militaryAdvisor.js", "page/militaryAdvisorReportView.js", "page/transport.js", "page/attack.js", "page/diplomacyAdvisor.js", "page/units.js", "page/topLists.js", "page/tavern.js", "page/options.js", "page/generalAttacksToAlly.js", "page/pirateFortress.js" ],
+           "js": [ "page/__common.js", "page/city.js", "page/island.js", "page/resource.js", "page/militaryAdvisor.js", "page/militaryAdvisorReportView.js", "page/transport.js", "page/attack.js", "page/diplomacyAdvisor.js", "page/units.js", "page/topLists.js", "page/tavern.js", "page/options.js", "page/generalAttacksToAlly.js", "page/pirateFortress.js", "page/finances.js", "page/townHall.js"],
            "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*" ],
            "run_at": "document_end"
        },  {
