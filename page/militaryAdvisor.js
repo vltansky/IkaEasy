@@ -41,15 +41,15 @@ zJS.Page.militaryAdvisor = {
                             Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 86400000;//60*1000*60*24
             }
             var now = Date.now();
-
+            var now_date=new Date();
             now += Arrival_time;
             var arrival_date= new Date(now);
 
-            var dformat = [arrival_date.getDate().padLeft(),
-                    (arrival_date.getMonth()+1).padLeft()].join('/')+
-            ' ' +
-            [ arrival_date.getHours().padLeft(),
-                arrival_date.getMinutes().padLeft()].join(':');
+            var dformat='';
+            if(arrival_date.getDate()!=now_date.getDate()||arrival_date.getMonth()!=now_date.getMonth())
+            dformat = [arrival_date.getDate().padLeft(), (arrival_date.getMonth()+1).padLeft()].join('/')+' ';
+
+            dformat+=[ arrival_date.getHours().padLeft(), arrival_date.getMinutes().padLeft()].join(':');
             $arrival_time.parent().append('<span class="IkaEasy_transport_date">'+dformat+'</span>');
             $(this).addClass('ikaeasy_complete');
 
