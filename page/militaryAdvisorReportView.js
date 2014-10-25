@@ -13,8 +13,9 @@ zJS.Page.militaryAdvisorReportView = {
         if (typeof ikalogs != "undefined") {
             var _ikalogs = new ikalogs();
         }
-    var $full_report=$('.link:first');
-    $('#militaryAdvisorReportView').find('div.content').after($full_report);
-        $full_report.addClass('ikaeasy_full_report_btn');
+        if($('#troopsReport').find('.result').length > 0){
+            var $full_report=$('.link:first').clone().addClass('ikaeasy_full_report_btn');
+            $('#militaryAdvisorReportView').find('div.content').after($full_report);
+        }
     }
 };
