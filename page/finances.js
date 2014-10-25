@@ -16,7 +16,7 @@ zJS.Page.finances = {
             $SumGoldTable=$("#finances").find('table.upkeepReductionTable:last');
         var GoldPerHour=$SumGoldTable.find('tr.result td.hidden.bold').text().replace(/[^\d+]/g, '');
         var pn_char='';//по умолчанию берем значение +
-        if($SumGoldTable.find('tr.result td.hidden.bold').has('span.red')){
+        if($SumGoldTable.find('tr.result td.hidden.bold').text()[0]!=GoldPerHour[0]){
             pn_char='red';
             GoldPerHour=0 - GoldPerHour;
         }

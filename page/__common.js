@@ -77,6 +77,7 @@ zJS.Page.__common = {
     _getFinance: function(){
         console.log('get finance');
         var LocFinanceDate=zJS.Utils.getLocFinance()+'_date';
+        console.log(zJS.Utils.hoursBetween(new Date(),localStorage.getItem(LocFinanceDate)));
         if((localStorage.getItem(LocFinanceDate)!=null && zJS.Utils.hoursBetween(new Date(),localStorage.getItem(LocFinanceDate))>1)||localStorage.getItem(LocFinanceDate)==null){
             console.log('get finance' + $('#js_GlobalMenu_gold').attr('href'));
             try{
@@ -92,16 +93,18 @@ zJS.Page.__common = {
                         ex = ex.substring(start, end);
                         start=ex.indexOf('<td class=\"hidden bold\">') + '<td class=\"hidden bold\">'.length;
                         ex = ex.substring(start, end);
-                        var red = ex.match('red') // "3"
+                        var status=true;
+                        if(ex.indexOf('red')> -1)
+                        status=false;
                         ex=ex.replace(/[^\d+]/g, '');
                         ex = ex.match(/\d+/) // "3"
-                        if(red[0]=='red')
+                        if(status==false)
                         ex=0-ex;
 
                         var LocFinance=zJS.Utils.getLocFinance(),
                             LocFinanceDate=zJS.Utils.getLocFinance()+'_date';
 
-                        localStorage.setItem(LocFinance, ex);
+                        localStorage.setItem(LocFinance, ex[0]);
                         localStorage.setItem(LocFinanceDate, new Date());
                     }
                 });

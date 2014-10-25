@@ -3,6 +3,10 @@
 }
 
 langs.de = {
+    'char_day' : 'd',
+    'char_hour' : 'h',
+    'char_minute' : 'm',
+    'char_second' : 's',
     'WillBeFullIn' : 'wird durch ausgefüllt werden',
     'per_day' : "Pro Tag",
     'per_week' : "pro Woche",

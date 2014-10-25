@@ -3,6 +3,10 @@ if (typeof langs == "undefined") {
 }
 
 langs.en = {
+    'char_day' : 'd',
+    'char_hour' : 'h',
+    'char_minute' : 'm',
+    'char_second' : 's',
     'WillBeFullIn' : 'Be filled in',
     'per_day' : "Per day",
     'per_week' : "Per week",

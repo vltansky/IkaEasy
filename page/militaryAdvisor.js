@@ -29,17 +29,16 @@ zJS.Page.militaryAdvisor = {
             var arrival_time=$arrival_time.text();
             var arrival_array=arrival_time.split(' ');
             var Arrival_time=0;
-            if(arrival_array.length>=1){
-                Arrival_time+=arrival_array[0].replace(/[^\d+]/g, '')*1000;
-            }
-            if(arrival_array.length>=2) {
-                Arrival_time+=arrival_array[0].replace(/[^\d+]/g, '')*60000;//60*1000
-            }
-            if(arrival_array.length>=3) {
-                Arrival_time+=arrival_array[0].replace(/[^\d+]/g, '')*3600000;//60*1000*60
-            }
-            if(arrival_array.length>=4) {
-                Arrival_time+=arrival_array[0].replace(/[^\d+]/g, '')*86400000;//60*1000*60*24
+
+            for(var i=0; i<arrival_array.length;i++) {
+                if (arrival_array[i].indexOf(zJS.Lang.char_second) !== -1)
+                    Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 1000;
+                else if (arrival_array[i].indexOf(zJS.Lang.char_minute) !== -1)
+                    Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 60000;//60*1000
+                else if (arrival_array[i].indexOf(zJS.Lang.char_hour) !== -1)
+                        Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 3600000;//60*1000*60
+                    else if (arrival_array[i].indexOf(zJS.Lang.char_day) !== -1)
+                            Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 86400000;//60*1000*60*24
             }
             var now = Date.now();
 

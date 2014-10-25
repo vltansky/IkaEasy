@@ -3,6 +3,10 @@ if (typeof langs == "undefined") {
 }
 
 langs.ru = {
+    'char_day' : 'д',
+    'char_hour' : 'ч',
+    'char_minute' : 'м',
+    'char_second' : 'с',
     'WillBeFullIn' : 'Заполнится через',
     'per_day' : "В день",
     'per_week' : "В неделю",

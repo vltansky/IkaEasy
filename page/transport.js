@@ -12,6 +12,7 @@ zJS.Page.transport = {
     init : function() {
 		this.moveTransportBtn();
 		this._addTransportBtns();
+        this.SaveTime();
     },
 	
 	_addTransportBtns : function() {
@@ -110,8 +111,13 @@ zJS.Page.transport = {
 	},
 	
 	moveTransportBtn : function() {
-		if($("#ikaeasy_tranport_btn").length == 0)
-		var transBtn = $('<br><center id="ikaeasy_tranport_btn"><input id="submit" class="button action_bubble" title="" type="submit" value="' + zJS.Lang.Transport + '"></center>').appendTo($('.resourceAssign'));
+		if($("#ikaeasy_tranport_btn").length == 0) {
+            var $transport_container = $('#missionSummary').addClass('ikaeasy_transport_container');
+            var $transportersCapacity = $('.transportersCapacity');
+            $transportersCapacity.before($transport_container);
+            var $transBtn = $('<br><center id="ikaeasy_tranport_btn"><input id="submit" class="button action_bubble" title="" type="submit" value="' + zJS.Lang.Transport + '"></center>').appendTo($('.resourceAssign'));
+            $transportersCapacity.before($transBtn);
+        }
 	},
 
     addSource : function(k, obj) {
@@ -126,5 +132,9 @@ zJS.Page.transport = {
         }
 
         $('input', obj).val(val).focus().blur();
+    },
+
+    SaveTime : function() {
+        var journeyTime=$("#journeyTime");
     }
 };

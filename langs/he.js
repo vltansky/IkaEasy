@@ -3,6 +3,10 @@ if (typeof langs == "undefined") {
 }
 
 langs.il = {
+    'char_day' : 'd',
+    'char_hour' : 'h',
+    'char_minute' : 'm',
+    'char_second' : 's',
     'WillBeFullIn' : 'להיות מלא ב',
     'per_day' : "יום",
     'per_week' : "בשבוע",
