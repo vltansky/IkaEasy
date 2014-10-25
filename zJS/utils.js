@@ -25,7 +25,7 @@ zJS.Utils = {
 		return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_";
 	},
     hoursBetween : function( date1, date2 ) {
-        var diffMs = (Date.parse(date1) - Date.parse(date2));
+        var diffMs = Date.parse(date1) - Date.parse(date2);
     return Math.round((diffMs % 86400000) / 3600000);//после деления - перевод милисекунд в часы
 },
 

@@ -77,7 +77,7 @@ zJS.Page.__common = {
     _getFinance: function(){
         console.log('get finance');
         var LocFinanceDate=zJS.Utils.getLocFinance()+'_date';
-        if((localStorage.getItem(LocFinanceDate)!=null && zJS.Utils.hoursBetween(new Date(),LocFinanceDate)>1)||localStorage.getItem(LocFinanceDate)==null){
+        if((localStorage.getItem(LocFinanceDate)!=null && zJS.Utils.hoursBetween(new Date(),localStorage.getItem(LocFinanceDate))>1)||localStorage.getItem(LocFinanceDate)==null){
             console.log('get finance' + $('#js_GlobalMenu_gold').attr('href'));
             try{
                 $.ajax({
