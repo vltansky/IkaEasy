@@ -75,11 +75,9 @@ zJS.Page.__common = {
 		}
 	},
     _getFinance: function(){
-        console.log('get finance');
         var LocFinanceDate=zJS.Utils.getLocFinance()+'_date';
-        console.log(zJS.Utils.hoursBetween(new Date(),localStorage.getItem(LocFinanceDate)));
         if((localStorage.getItem(LocFinanceDate)!=null && zJS.Utils.hoursBetween(new Date(),localStorage.getItem(LocFinanceDate))>1)||localStorage.getItem(LocFinanceDate)==null){
-            console.log('get finance' + $('#js_GlobalMenu_gold').attr('href'));
+            console.log('Ajax get finance' + $('#js_GlobalMenu_gold').attr('href'));
             try{
                 $.ajax({
                     url: $('#js_GlobalMenu_gold').attr('href'),
@@ -115,11 +113,9 @@ zJS.Page.__common = {
         }
     },
     _setFinance : function(){
-        console.log('set finance');
         var LocFinance=zJS.Utils.getLocFinance();
         var value=localStorage.getItem(LocFinance),
             np_char='ikaeasy_green';
-        //console.log(value);
         if(value<0)
             np_char='red';
         $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me '+np_char+'">'+zJS.Utils.formatNumber(value)+'</span>')
