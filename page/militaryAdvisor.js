@@ -32,13 +32,13 @@ zJS.Page.militaryAdvisor = {
 
             for(var i=0; i<arrival_array.length;i++) {
                 if (arrival_array[i].indexOf(zJS.Lang.char_second) !== -1)
-                    Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 1000;
-                else if (arrival_array[i].indexOf(zJS.Lang.char_minute) !== -1)
-                    Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 60000;//60*1000
-                else if (arrival_array[i].indexOf(zJS.Lang.char_hour) !== -1)
-                        Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 3600000;//60*1000*60
-                    else if (arrival_array[i].indexOf(zJS.Lang.char_day) !== -1)
-                            Arrival_time += arrival_array[0].replace(/[^\d+]/g, '') * 86400000;//60*1000*60*24
+                        Arrival_time += arrival_array[i].replace(/[^\d+]/g, '') * 1000;
+                            else if (arrival_array[i].indexOf(zJS.Lang.char_minute) !== -1)
+                                 Arrival_time += arrival_array[i].replace(/[^\d+]/g, '') * 60000;//60*1000
+                                    else if (arrival_array[i].indexOf(zJS.Lang.char_hour) !== -1)
+                                        Arrival_time += arrival_array[i].replace(/[^\d+]/g, '') * 3600000;//60*1000*60
+                                            else if (arrival_array[i].indexOf(zJS.Lang.char_day) !== -1)
+                                                Arrival_time += arrival_array[i].replace(/[^\d+]/g, '') * 86400000;//60*1000*60*24
             }
             var now = Date.now();
             var now_date=new Date();
@@ -47,7 +47,7 @@ zJS.Page.militaryAdvisor = {
 
             var dformat='';
             if(arrival_date.getDate()!=now_date.getDate()||arrival_date.getMonth()!=now_date.getMonth())
-            dformat = [arrival_date.getDate().padLeft(), (arrival_date.getMonth()+1).padLeft()].join('/')+' ';
+            dformat = [arrival_date.getDate().padLeft(), (arrival_date.getMonth()+1).padLeft()].join('.')+' ';
 
             dformat+=[ arrival_date.getHours().padLeft(), arrival_date.getMinutes().padLeft()].join(':');
             $arrival_time.parent().append('<span class="IkaEasy_transport_date">'+dformat+'</span>');
