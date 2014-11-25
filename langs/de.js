@@ -1,22 +1,22 @@
-﻿if ( typeof langs == "undefined" ) {
+﻿if(typeof langs == "undefined") {
     var langs = {};
 }
 
 langs.de = {
-    'char_day' : 'd',
-    'char_hour' : 'h',
-    'char_minute' : 'm',
-    'char_second' : 's',
-    'WillBeFullIn' : 'wird durch ausgefüllt werden',
-    'per_day' : "Pro Tag",
-    'per_week' : "pro Woche",
-    'per_month' : "Pro Monat",
-    'left' : "links",
-    'hours' : "Stunden.",
-    'days' : "Tage.",
-    'months' : "Monate",
-    'years' : "Jahre",
-    'MessagePlaceholder' : "Klik op CTRL + Enter om bericht te sturen",//not sure
+    'char_day': 'd',
+    'char_hour': 'h',
+    'char_minute': 'm',
+    'char_second': 's',
+    'WillBeFullIn': 'wird durch ausgefüllt werden',
+    'per_day': "Pro Tag",
+    'per_week': "pro Woche",
+    'per_month': "Pro Monat",
+    'left': "links",
+    'hours': "Stunden.",
+    'days': "Tage.",
+    'months': "Monate",
+    'years': "Jahre",
+    'MessagePlaceholder': "Klik op CTRL + Enter om bericht te sturen",//not sure
     'ConfirmDowngrade': "Möchten Sie wirklich dieses Gebäude um 1 Stufe downgraden?",
     'Circular_message': "Mitteilung an alle",
     'Ally_members': "Allianz",
@@ -42,31 +42,31 @@ langs.de = {
     },
 
     'ikalogs': {
-        'save_log'  : 'Kampfberichte speichern',
-        'analyze'   : 'speichern',
-        'each'      : 'jede',
-        'help_bw'   : 'Durch Komma-separierte Liste, oder durch einen Bindestrich eine Reihe von Runden.',
+        'save_log': 'Kampfberichte speichern',
+        'analyze': 'speichern',
+        'each': 'jede',
+        'help_bw': 'Durch Komma-separierte Liste, oder durch einen Bindestrich eine Reihe von Runden.',
 
-        'get_info'  : 'sammle Daten',
-        'get_round' : 'KB Daten',
-        'saving'    : 'speichere KB',
+        'get_info': 'sammle Daten',
+        'get_round': 'KB Daten',
+        'saving': 'speichere KB',
 
         'saving_success': 'Der KB wurde gespeichert.',
-        'open_report'   : 'öffne gespeicherten KB',
+        'open_report': 'öffne gespeicherten KB',
 
-        'saving_failed' : 'Fehler beim speichern des KB',
-        'repeat'        : 'versuche es erneut',
+        'saving_failed': 'Fehler beim speichern des KB',
+        'repeat': 'versuche es erneut',
 
         'auth': {
             'not_logged': 'Du bist nicht eingelogt in Ikalogs'
         },
 
         'types': {
-            'full'    : 'gesamten KB',
-            'short'   : 'kurzer KB',
-            'last'    : 'letzte Runde',
-            'each'    : 'jede N Runde',
-            'between' : 'Runde wählen'
+            'full': 'gesamten KB',
+            'short': 'kurzer KB',
+            'last': 'letzte Runde',
+            'each': 'jede N Runde',
+            'between': 'Runde wählen'
         }
     },
 

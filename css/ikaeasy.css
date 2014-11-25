@@ -6,19 +6,21 @@
 
 .ikaeasy_watcher {
     position: absolute;
-    z-index : 999;
+    z-index: 999;
     width: 45px;
     height: 30px;
-    cursor  : default;
+    cursor: default;
 }
 
-.ikaeasy_watcher .ikaeasy_watcher_circle{
-    width       : 28px;
-    color       : white;
-    text-align  : center;
-    line-height : 31px;
-    font-weight : bold;
-    float       : left;
+.ikaeasy_watcher .ikaeasy_watcher_circle {
+    width: 28px;
+    color: white;
+    text-align: center;
+    line-height: 31px;
+    font-weight: bold;
+    float: left;
+    position: absolute;
+    top: -12px;
 }
 
 .ikaeasy_watcher.build_red .ikaeasy_watcher_circle {
@@ -39,10 +41,10 @@
 
 .ikaeasy_watcher .ikaeasy_watcher_buttons {
     margin-left: 30px;
-    width   : 15px;
-    height  : 30px;
-    display : none;
-    cursor  : pointer;
+    width: 15px;
+    height: 30px;
+    display: none;
+    cursor: pointer;
 }
 
 .ikaeasy_watcher .ikaeasy_watcher_buttons .watche_up {
@@ -83,7 +85,6 @@
     margin-top: 0;
 }
 
-
 .ikaeasy_watcher:hover .ikaeasy_watcher_tooltip {
     display: block;
 }
@@ -94,10 +95,10 @@
 
 .ikaeasy_watcher_tooltip {
     position: absolute;
-    z-index : 999;
+    z-index: 999;
     display: none;
-    top     : 31px;
-    left    : 0;
+    top: 31px;
+    left: 0;
 }
 
 .ikaeasy_watcher_tooltip div {
@@ -105,25 +106,25 @@
 }
 
 .ikaeasy_watcher_tooltip .ikaeasy_tooltip_center {
-    padding-left    : 5px;
-    margin-left     : 27px;
-    margin-right    : 13px;
-    line-height     : 28px;
-    background      : url(../images/resourceCg.png);
-    color           : white;
-    font-weight     : bold;
+    padding-left: 5px;
+    margin-left: 27px;
+    margin-right: 13px;
+    line-height: 28px;
+    background: url(../images/resourceCg.png);
+    color: white;
+    font-weight: bold;
 }
 
 .ikaeasy_watcher_tooltip .ikaeasy_tooltip_left {
     width: 27px;
     float: left;
-    background : url(../images/resourceLR.png) no-repeat;
+    background: url(../images/resourceLR.png) no-repeat;
 }
 
 .ikaeasy_watcher_tooltip .ikaeasy_tooltip_right {
     width: 13px;
     float: right;
-    background : url(../images/resourceLR.png) no-repeat -150px 0;
+    background: url(../images/resourceLR.png) no-repeat -150px 0;
 }
 
 .ikaeasy_watcher_tooltip .ikaeasy_tooltip_center {
@@ -131,34 +132,42 @@
     font-weight: bold;
 }
 
-.ikaeasy_watcher_tooltip .wood    .ikaeasy_tooltip_left { background-position : 0 0; }
-.ikaeasy_watcher_tooltip .marble  .ikaeasy_tooltip_left { background-position : -30px 0; }
-.ikaeasy_watcher_tooltip .crystal .ikaeasy_tooltip_left { background-position : -60px 0; }
-.ikaeasy_watcher_tooltip .wine    .ikaeasy_tooltip_left { background-position : -90px 0; }
-.ikaeasy_watcher_tooltip .sulfur  .ikaeasy_tooltip_left { background-position : -120px 0; }
+.ikaeasy_watcher_tooltip .wood .ikaeasy_tooltip_left { background-position: 0 0; }
 
-.ikaeasy_watcher_tooltip .ikaeasy_red.wood    .ikaeasy_tooltip_left { background-position : -180px 0; }
-.ikaeasy_watcher_tooltip .ikaeasy_red.marble  .ikaeasy_tooltip_left { background-position : -210px 0; }
-.ikaeasy_watcher_tooltip .ikaeasy_red.crystal .ikaeasy_tooltip_left { background-position : -240px 0; }
-.ikaeasy_watcher_tooltip .ikaeasy_red.wine    .ikaeasy_tooltip_left { background-position : -270px 0; }
-.ikaeasy_watcher_tooltip .ikaeasy_red.sulfur  .ikaeasy_tooltip_left { background-position : -300px 0; }
+.ikaeasy_watcher_tooltip .marble .ikaeasy_tooltip_left { background-position: -30px 0; }
+
+.ikaeasy_watcher_tooltip .crystal .ikaeasy_tooltip_left { background-position: -60px 0; }
+
+.ikaeasy_watcher_tooltip .wine .ikaeasy_tooltip_left { background-position: -90px 0; }
+
+.ikaeasy_watcher_tooltip .sulfur .ikaeasy_tooltip_left { background-position: -120px 0; }
+
+.ikaeasy_watcher_tooltip .ikaeasy_red.wood .ikaeasy_tooltip_left { background-position: -180px 0; }
+
+.ikaeasy_watcher_tooltip .ikaeasy_red.marble .ikaeasy_tooltip_left { background-position: -210px 0; }
+
+.ikaeasy_watcher_tooltip .ikaeasy_red.crystal .ikaeasy_tooltip_left { background-position: -240px 0; }
+
+.ikaeasy_watcher_tooltip .ikaeasy_red.wine .ikaeasy_tooltip_left { background-position: -270px 0; }
+
+.ikaeasy_watcher_tooltip .ikaeasy_red.sulfur .ikaeasy_tooltip_left { background-position: -300px 0; }
 
 .ikaeasy_watcher_tooltip .ikaeasy_red .ikaeasy_tooltip_center {
-    background      : url(../images/resourceCr.png);
+    background: url(../images/resourceCr.png);
 }
 
 .ikaeasy_watcher_tooltip .ikaeasy_red .ikaeasy_tooltip_right {
-    background : url(../images/resourceLR.png) no-repeat -330px 0;
+    background: url(../images/resourceLR.png) no-repeat -330px 0;
 }
 
 .ikaeasy_dynamic {
-    box-shadow: 0px 0px 4px #000;
-    margin  : 8px 0 0 -8px;
+    box-shadow: 0 0 4px #000;
+    margin: 8px 0 0 -8px;
     position: absolute;
-    z-index : 65535;
-    display : none;
-    top     : 200px;
-    left    : 100px;
+    z-index: 65535;
+    display: none;
+    top: 200px;
+    left: 100px;
 }
 
 .ikaeasy_dynamic .main_dynamic {
@@ -168,7 +177,8 @@
 }
 
 .ikaeasy_dynamic .main_dynamic li { list-style: none; }
-.ikaeasy_dynamic .main_dynamic .dynamic_panel  { display: inline; }
+
+.ikaeasy_dynamic .main_dynamic .dynamic_panel { display: inline; }
 
 .ikaeasy_dynamic .main_dynamic .dynamic_panel a.dynamic_title {
     display: block;
@@ -185,14 +195,13 @@
 }
 
 .ikaeasy_dynamic .main_dynamic .dynamic_panel a.dynamic_title .indicator {
-    background-position: 0 -1px;
     left: 232px;
     top: -20px;
     cursor: pointer;
     display: block;
     width: 18px;
     height: 16px;
-    background: url(../images/window_control_sprite.gif) no-repeat scroll transparent;
+    background: transparent url(../images/window_control_sprite.gif) no-repeat scroll 0 -1px;
     position: relative;
 }
 
@@ -207,7 +216,7 @@
     background: url(../images/bg_sidebox.gif) repeat-y;
     max-height: 300px;
     overflow-y: auto;
-    width     : 248px;
+    width: 248px;
 }
 
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .dynamic {
@@ -226,77 +235,87 @@
     background: url(../images/ally_message.png) no-repeat 0 0;
 }
 
-
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter > div {
-    color   : #542C0F;
-    font-weight : bold;
-    font-size   : 11px;
-    line-height : 23px;
-    padding : 0 3px;
-    width   : 100%;
-    cursor  : default;
+    color: #542c0f;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 23px;
+    padding: 0 3px;
+    width: 100%;
+    cursor: default;
 }
 
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter > div > span { cursor: pointer; }
+
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter > div > span:hover { text-decoration: underline; }
+
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter > div.current_city > span:hover { text-decoration: none; cursor: default; }
 
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter div.current_city { color: #888; }
 
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter div.current_city { color   : #888; }
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_ownCity { }
 
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_ownCity {}
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_deployedCities{ background-color: #C2F6AC;}
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_occupiedCities{ background-color: #ffc5bf; }
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_deployedCities { background-color: #c2f6ac; }
+
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_occupiedCities { background-color: #ffc5bf; }
 
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_res,
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_fleet,
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_army {
     margin-top: 1px;
-    float   : right;
-    width   : 32px;
-    height  : 21px;
-    cursor  : pointer;
+    float: right;
+    width: 32px;
+    height: 21px;
+    cursor: pointer;
 }
 
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter > div.current_city > div {
-    cursor  : default;
+    cursor: default;
 }
 
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_res { background  : url(../images/res.png) no-repeat top left; }
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_res:hover { background  : url(../images/res_f.png) no-repeat top left; }
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .current_city .ikaeasy_tr_res { background  : url(../images/res_d.png) no-repeat top left; }
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_res { background: url(../images/res.png) no-repeat top left; }
 
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_fleet { background  : url(../images/fleet.png) no-repeat top left; width: 30px }
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_fleet:hover { background  : url(../images/fleet_f.png) no-repeat top left; width: 30px }
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .current_city .ikaeasy_tr_fleet { background  : url(../images/fleet_d.png) no-repeat top left;  width: 30px }
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_res:hover { background: url(../images/res_f.png) no-repeat top left; }
 
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_army { background  : url(../images/army.png) no-repeat top left; }
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_army:hover { background  : url(../images/army_f.png) no-repeat top left; }
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .current_city .ikaeasy_tr_army { background  : url(../images/army_d.png) no-repeat top left; }
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .current_city .ikaeasy_tr_res { background: url(../images/res_d.png) no-repeat top left; }
 
-.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .box_border{
-    background-image:url(../images/border.jpg);
-    height : 6px;
-    width : 256px;
-    margin  : 3px 0 0 -1px;
-    cursor:pointer;
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_fleet { background: url(../images/fleet.png) no-repeat top left; width: 30px }
+
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_fleet:hover { background: url(../images/fleet_f.png) no-repeat top left; width: 30px }
+
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .current_city .ikaeasy_tr_fleet { background: url(../images/fleet_d.png) no-repeat top left; width: 30px }
+
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_army { background: url(../images/army.png) no-repeat top left; }
+
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .ikaeasy_tr_army:hover { background: url(../images/army_f.png) no-repeat top left; }
+
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .current_city .ikaeasy_tr_army { background: url(../images/army_d.png) no-repeat top left; }
+
+.ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter .box_border {
+    background-image: url(../images/border.jpg);
+    height: 6px;
+    width: 256px;
+    margin: 3px 0 0 -1px;
+    cursor: pointer;
 }
+
 .ikaeasy_dynamic .main_dynamic .dynamic_panel .dynamic_content .ikaeasy_transporter #ikaeasy_not_mycities {
     margin-top: 3px;
     display: none;
 }
 
-
 #header #cityResources .population { left: 55px; }
+
 .ikaeasy_nextCity {
-    left:170px;
-    width : 0 !important;
-    top :-28px !important;
+    left: 170px;
+    width: 0 !important;
+    top: -28px !important;
     height: 19px !important;
     cursor: pointer;
     background: url(../images/nextCity.png) no-repeat top left;
     z-index: 1;
 }
+
 /*
 #transportGoods ul.resourceAssign {
     width: 100% !important;
@@ -326,36 +345,35 @@
 */
 
 .ikaeasy_max_btn {
-    position    : absolute;
-    background  : transparent url(../images/btn_max.gif) no-repeat;
-    left    : 67px;
-    top     : 15px;
-    height  : 14px;
-    width   : 13px;
-	cursor  : pointer;
+    position: absolute;
+    background: transparent url(../images/btn_max.gif) no-repeat;
+    left: 67px;
+    top: 15px;
+    height: 14px;
+    width: 13px;
+    cursor: pointer;
 }
 
 .ikaeasy_max_btn:hover {
-    background-position : 0 -14px;
+    background-position: 0 -14px;
 }
 
 #island .scroll_img {
-    position    : absolute !important;
-    bottom      : -17px !important;
-    padding     : 0 !important;
-	/*width: 240px !important;*/
+    position: absolute !important;
+    padding: 0 !important;
+    /*width: 240px !important;*/
 }
 
 #island .scroll_img .before, .scroll_img .after {
-    float:left;
-    position    : static !important;
-    display     : inline-block !important;
+    float: left;
+    position: static !important;
+    display: inline-block !important;
 }
 
 #island .scroll_img .center {
-    float       : left;
-    width       : auto !important;
-    display     : inline-block !important;
+    float: left;
+    width: auto !important;
+    display: inline-block !important;
 }
 
 #island .cityLocation.city {
@@ -363,398 +381,417 @@
 }
 
 #island .selected .scroll_img {
-    bottom : -10px !important;
-	width: 240px !important;
+    bottom: -10px !important;
+    width: 240px !important;
 }
 
 .ikaeasy_transport_main {
-    color       	: #906646;
-    font-size   	: 9px;
-    text-align  	: center;
-    width       	: 350px;
-    overflow    	: hidden;
-    margin-top  	: 2px;
-    padding     	: 1px;
-    display     	: table-cell;
+    color: #906646;
+    font-size: 9px;
+    text-align: center;
+    width: 350px;
+    overflow: hidden;
+    margin-top: 2px;
+    padding: 1px;
+    display: table-cell;
     /*border-bottom   : 1px dotted #E4B873;*/
-	vertical-align	: bottom;
+    vertical-align: bottom;
 }
 
 .ikaeasy_transport_unit {
-    padding-top 		: 22px;
-    font-weight 		: 500;
-    font-size   		: 9px;
-    background-size 	: 19px 19px;
-    margin-bottom   	: 4px;
-    padding-left    	: 1px;
-	width				: 30px !important; 
-	height				: 17px !important;
-	padding-top			: 25px !important;
-	font-weight			: normal !important;
+    font-size: 9px;
+    background-size: 19px 19px;
+    margin-bottom: 4px;
+    padding-left: 1px;
+    width: 30px !important;
+    height: 17px !important;
+    padding-top: 25px !important;
+    font-weight: normal !important;
 }
 
-.ikaeasy_attack_btns_div{
-	height: 20px;
-	position: relative;
-	padding: 5px 0 3px 40px;
-	margin-left: 3px;
+.ikaeasy_attack_btns_div {
+    height: 20px;
+    position: relative;
+    padding: 5px 0 3px 40px;
+    margin-left: 3px;
 }
 
-.ikaeasy_barracks_max{
-	font-size: 12px;
-	font-weight: bold;
+.ikaeasy_barracks_max {
+    font-size: 12px;
+    font-weight: bold;
 }
 
-.ikaeasy_military_table td{
-	padding: 4px 0px !important;
+.ikaeasy_military_table td {
+    padding: 4px 0 !important;
 }
 
-.ikaeasy_resources_positive{
-	color: green;
-	font-size: 8px;
-	line-height: 7px;
-	position: absolute;
-	top: 19px;
+.ikaeasy_resources_positive {
+    color: green;
+    font-size: 8px;
+    line-height: 7px;
+    position: absolute;
+    top: 19px;
 }
 
-.ikaeasy_resources_negative{
-	color: red;
-	font-size: 8px;
-	line-height: 7px;
-	position: absolute;
-	top: 19px;
+.ikaeasy_resources_negative {
+    color: red;
+    font-size: 8px;
+    line-height: 7px;
+    position: absolute;
+    top: 19px;
 }
 
-.ikaeasy_marker_big{
-	background: transparent url(../images/Marker/paint-icon-big.png) no-repeat;
-	height: 16px;
-	width: 16px;
-	cursor: pointer;
-	position: absolute;
-	margin-left: 68px;
+.ikaeasy_marker_big {
+    background: transparent url(../images/Marker/paint-icon-big.png) no-repeat;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 68px;
 }
 
-.ikaeasy_marker_big_ally{
-	background: transparent url(../images/Marker/paint-icon-big.png) no-repeat;
-	height: 16px;
-	width: 16px;
-	cursor: pointer;
-	position: absolute;
-	margin-left: 58px;
+.ikaeasy_marker_big_ally {
+    background: transparent url(../images/Marker/paint-icon-big.png) no-repeat;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 58px;
 }
 
-.ikaeasy_top_marker_menu{
-	background: transparent url(../images/Marker/topList-menu.png) no-repeat;
-	width: 257px;
-	height: 33px;
-	display: none;
-	position: absolute;
-}
-.ikaeasy_top_menuCell{
-	width: 32px;
-	height: 32px;
-	cursor: pointer;
-	float: left;
+.ikaeasy_top_marker_menu {
+    background: transparent url(../images/Marker/topList-menu.png) no-repeat;
+    width: 257px;
+    height: 33px;
+    display: none;
+    position: absolute;
 }
 
-#ikaeasy_marker_btn{
-	width: 11px;
-	height: 11px;
-	background: transparent url(../images/Marker/paint-icon.png) no-repeat;
-	background-size: 11px;
-	cursor: pointer;
-	display: block;
-	float: right;
+.ikaeasy_top_menuCell {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    float: left;
 }
 
-#markerMenu{
-	display: inline-block;
-	height: 305px;
-	z-index:9000;
-	-moz-box-shadow: 0px 0px 4px #000;
-	-webkit-box-shadow: 0px 0px 4px black;
-	box-shadow: 0px 0px 4px black;
+#ikaeasy_marker_btn {
+    width: 11px;
+    height: 11px;
+    background: transparent url(../images/Marker/paint-icon.png) no-repeat;
+    background-size: 11px;
+    cursor: pointer;
+    display: block;
+    float: right;
 }
 
-#markerLeft,#markerRight{
-	width: 5px;
-	height: 305px;
-	margin-top: -26px;
-	float:left;
+#markerMenu {
+    display: inline-block;
+    height: 305px;
+    z-index: 9000;
+    -moz-box-shadow: 0 0 4px #000;
+    -webkit-box-shadow: 0 0 4px black;
+    box-shadow: 0 0 4px black;
 }
 
-#markerLeft{
-	background: transparent url(../images/Marker/highlighter_left.png);
-}
-#markerRight{
-	background: transparent url(../images/Marker/highlighter_right.png);
-	margin-left: -3px;
-}
-
-#markerMenuTitle{
-	position: relative;
-	left: 50%;
-	margin-left: -80px;
-	width: 160px;
-	height: 26px;
-	text-align:center;
-	line-height: 27px;
-	font-weight: bold;
+#markerLeft, #markerRight {
+    width: 5px;
+    height: 305px;
+    margin-top: -26px;
+    float: left;
 }
 
-.markerAllys{
-  opacity: 0.8;
-  line-height: 19px;
+#markerLeft {
+    background: transparent url(../images/Marker/highlighter_left.png);
 }
 
-.markerAllys:hover{
-  opacity: 1;
-  text-decoration:line-through;
+#markerRight {
+    background: transparent url(../images/Marker/highlighter_right.png);
+    margin-left: -3px;
 }
 
-.ikaeasy_marker_ally_list{
-	background: transparent url(../images/Marker/highlighter_panel.png);
-	float: left;
-	width: 80px;
-	height: 279px;
-	text-align: center;
-	margin-top: -26px;
-	padding-top: 26px
+#markerMenuTitle {
+    position: relative;
+    left: 50%;
+    margin-left: -80px;
+    width: 160px;
+    height: 26px;
+    text-align: center;
+    line-height: 27px;
+    font-weight: bold;
 }
 
-.cityBox{
-	height:77px;
-	width:77px;
-	cursor: pointer;
+.markerAllys {
+    opacity: 0.8;
+    line-height: 19px;
 }
 
-.marker_purple{
-	background: transparent url(/images/Marker/purple/purple.png) no-repeat;
+.markerAllys:hover {
+    opacity: 1;
+    text-decoration: line-through;
 }
 
-.marker_bordo{
-	background: transparent url(/images/Marker/bordo/bordo.png) no-repeat;
+.ikaeasy_marker_ally_list {
+    background: transparent url(../images/Marker/highlighter_panel.png);
+    float: left;
+    width: 80px;
+    height: 279px;
+    text-align: center;
+    margin-top: -26px;
+    padding-top: 26px
 }
 
-.marker_white{
-	background: transparent url(/images/Marker/white/white.png) no-repeat;
+.cityBox {
+    height: 77px;
+    width: 77px;
+    cursor: pointer;
 }
 
-.marker_pink{
-	background: transparent url(/images/Marker/pink/pink.png) no-repeat;
+.marker_purple {
+    background: transparent url(/images/Marker/purple/purple.png) no-repeat;
 }
 
-.marker_orange{
-	background: transparent url(/images/Marker/orange/orange.png) no-repeat;
+.marker_bordo {
+    background: transparent url(/images/Marker/bordo/bordo.png) no-repeat;
 }
 
-.marker_turquoise{
-	background: transparent url(/images/Marker/turquoise/turquoise.png) no-repeat;
+.marker_white {
+    background: transparent url(/images/Marker/white/white.png) no-repeat;
 }
 
-.marker_black{
-	background: transparent url(/images/Marker/black/black.png) no-repeat;
+.marker_pink {
+    background: transparent url(/images/Marker/pink/pink.png) no-repeat;
+}
+
+.marker_orange {
+    background: transparent url(/images/Marker/orange/orange.png) no-repeat;
+}
+
+.marker_turquoise {
+    background: transparent url(/images/Marker/turquoise/turquoise.png) no-repeat;
+}
+
+.marker_black {
+    background: transparent url(/images/Marker/black/black.png) no-repeat;
 }
 
 /*************************************************************/
 
-.marker_top_purple{
-	background-color: #8029F0 !important;
-	color: #B3B3B3 !important;
-}
-.marker_top_purple a{
-	color: #B3B3B3 !important;
+.marker_top_purple {
+    background-color: #8029f0 !important;
+    color: #b3b3b3 !important;
 }
 
-.marker_top_bordo{
-	background-color: #7A120C !important;
-	color: #B3B3B3 !important;
-}
-.marker_top_bordo a{
-	color: #B3B3B3 !important;
+.marker_top_purple a {
+    color: #b3b3b3 !important;
 }
 
-.marker_top_white{
-	background-color: #E3E3E3 !important;
+.marker_top_bordo {
+    background-color: #7a120c !important;
+    color: #b3b3b3 !important;
 }
 
-.marker_top_pink{
-	background-color: #E627BD !important;
+.marker_top_bordo a {
+    color: #b3b3b3 !important;
 }
 
-.marker_top_orange{
-	background-color: #FF851E !important;
+.marker_top_white {
+    background-color: #e3e3e3 !important;
 }
 
-.marker_top_turquoise{
-	background-color: #00E5EC !important;
+.marker_top_pink {
+    background-color: #e627bd !important;
 }
 
-.marker_top_black{
-	background-color: #212121 !important;
-	color: #B3B3B3 !important;
+.marker_top_orange {
+    background-color: #ff851e !important;
 }
-.marker_top_black a{
-	color: #B3B3B3 !important;
+
+.marker_top_turquoise {
+    background-color: #00e5ec !important;
+}
+
+.marker_top_black {
+    background-color: #212121 !important;
+    color: #b3b3b3 !important;
+}
+
+.marker_top_black a {
+    color: #b3b3b3 !important;
 }
 
 /*************************************************************/
 
 /*Marker cities starts here*/
-.ikaeasy_city_linkHover_black{
-	background-image: url(/images/Marker/black/city_black_glow.png) !important;
-}
-.ikaeasy_city_link_black_animated{
-	background-image: url(/images/Marker/black/city_black_animated.png) !important;
-}
-.ikaeasy_flag_black_animated{
-	background-image: url(/images/Marker/black/flag_black_gross.png) !important;
-}
-.ikaeasy_city_link_black{
-	background-image: url(/images/Marker/black/city_black.png) !important;
+.ikaeasy_city_linkHover_black {
+    background-image: url(/images/Marker/black/city_black_glow.png) !important;
 }
 
-
-.ikaeasy_city_linkHover_purple{
-	background-image: url(/images/Marker/purple/city_purple_glow.png) !important;
-}
-.ikaeasy_city_link_purple_animated{
-	background-image: url(/images/Marker/purple/city_purple_animated.png) !important;
-}
-.ikaeasy_flag_purple_animated{
-	background-image: url(/images/Marker/purple/flag_purple_gross.png) !important;
-}
-.ikaeasy_city_link_purple{
-	background-image: url(/images/Marker/purple/city_purple.png) !important;
+.ikaeasy_city_link_black_animated {
+    background-image: url(/images/Marker/black/city_black_animated.png) !important;
 }
 
-
-.ikaeasy_city_linkHover_bordo{
-	background-image: url(/images/Marker/bordo/city_bordo_glow.png) !important;
-}
-.ikaeasy_city_link_bordo_animated{
-	background-image: url(/images/Marker/bordo/city_bordo_animated.png) !important;
-}
-.ikaeasy_flag_bordo_animated{
-	background-image: url(/images/Marker/bordo/flag_bordo_gross.png) !important;
-}
-.ikaeasy_city_link_bordo{
-	background-image: url(/images/Marker/bordo/city_bordo.png) !important;
+.ikaeasy_flag_black_animated {
+    background-image: url(/images/Marker/black/flag_black_gross.png) !important;
 }
 
-
-.ikaeasy_city_linkHover_white{
-	background-image: url(/images/Marker/white/city_white_glow.png) !important;
-}
-.ikaeasy_city_link_white_animated{
-	background-image: url(/images/Marker/white/city_white_animated.png) !important;
-}
-.ikaeasy_flag_white_animated{
-	background-image: url(/images/Marker/white/flag_white_gross.png) !important;
-}
-.ikaeasy_city_link_white{
-	background-image: url(/images/Marker/white/city_white.png) !important;
+.ikaeasy_city_link_black {
+    background-image: url(/images/Marker/black/city_black.png) !important;
 }
 
-
-.ikaeasy_city_linkHover_pink{
-	background-image: url(/images/Marker/pink/city_pink_glow.png) !important;
-}
-.ikaeasy_city_link_pink_animated{
-	background-image: url(/images/Marker/pink/city_pink_animated.png) !important;
-}
-.ikaeasy_flag_pink_animated{
-	background-image: url(/images/Marker/pink/flag_pink_gross.png) !important;
-}
-.ikaeasy_city_link_pink{
-	background-image: url(/images/Marker/pink/city_pink.png) !important;
+.ikaeasy_city_linkHover_purple {
+    background-image: url(/images/Marker/purple/city_purple_glow.png) !important;
 }
 
-
-.ikaeasy_city_linkHover_orange{
-	background-image: url(/images/Marker/orange/city_orange_glow.png) !important;
-}
-.ikaeasy_city_link_orange_animated{
-	background-image: url(/images/Marker/orange/city_orange_animated.png) !important;
-}
-.ikaeasy_flag_orange_animated{
-	background-image: url(/images/Marker/orange/flag_orange_gross.png) !important;
-}
-.ikaeasy_city_link_orange{
-	background-image: url(/images/Marker/orange/city_orange.png) !important;
+.ikaeasy_city_link_purple_animated {
+    background-image: url(/images/Marker/purple/city_purple_animated.png) !important;
 }
 
+.ikaeasy_flag_purple_animated {
+    background-image: url(/images/Marker/purple/flag_purple_gross.png) !important;
+}
 
-.ikaeasy_city_linkHover_turquoise{
-	background-image: url(/images/Marker/turquoise/city_turquoise_glow.png) !important;
+.ikaeasy_city_link_purple {
+    background-image: url(/images/Marker/purple/city_purple.png) !important;
 }
-.ikaeasy_city_link_turquoise_animated{
-	background-image: url(/images/Marker/turquoise/city_turquoise_animated.png) !important;
+
+.ikaeasy_city_linkHover_bordo {
+    background-image: url(/images/Marker/bordo/city_bordo_glow.png) !important;
 }
-.ikaeasy_flag_turquoise_animated{
-	background-image: url(/images/Marker/turquoise/flag_turquoise_gross.png) !important;
+
+.ikaeasy_city_link_bordo_animated {
+    background-image: url(/images/Marker/bordo/city_bordo_animated.png) !important;
 }
-.ikaeasy_city_link_turquoise{
-	background-image: url(/images/Marker/turquoise/city_turquoise.png) !important;
+
+.ikaeasy_flag_bordo_animated {
+    background-image: url(/images/Marker/bordo/flag_bordo_gross.png) !important;
+}
+
+.ikaeasy_city_link_bordo {
+    background-image: url(/images/Marker/bordo/city_bordo.png) !important;
+}
+
+.ikaeasy_city_linkHover_white {
+    background-image: url(/images/Marker/white/city_white_glow.png) !important;
+}
+
+.ikaeasy_city_link_white_animated {
+    background-image: url(/images/Marker/white/city_white_animated.png) !important;
+}
+
+.ikaeasy_flag_white_animated {
+    background-image: url(/images/Marker/white/flag_white_gross.png) !important;
+}
+
+.ikaeasy_city_link_white {
+    background-image: url(/images/Marker/white/city_white.png) !important;
+}
+
+.ikaeasy_city_linkHover_pink {
+    background-image: url(/images/Marker/pink/city_pink_glow.png) !important;
+}
+
+.ikaeasy_city_link_pink_animated {
+    background-image: url(/images/Marker/pink/city_pink_animated.png) !important;
+}
+
+.ikaeasy_flag_pink_animated {
+    background-image: url(/images/Marker/pink/flag_pink_gross.png) !important;
+}
+
+.ikaeasy_city_link_pink {
+    background-image: url(/images/Marker/pink/city_pink.png) !important;
+}
+
+.ikaeasy_city_linkHover_orange {
+    background-image: url(/images/Marker/orange/city_orange_glow.png) !important;
+}
+
+.ikaeasy_city_link_orange_animated {
+    background-image: url(/images/Marker/orange/city_orange_animated.png) !important;
+}
+
+.ikaeasy_flag_orange_animated {
+    background-image: url(/images/Marker/orange/flag_orange_gross.png) !important;
+}
+
+.ikaeasy_city_link_orange {
+    background-image: url(/images/Marker/orange/city_orange.png) !important;
+}
+
+.ikaeasy_city_linkHover_turquoise {
+    background-image: url(/images/Marker/turquoise/city_turquoise_glow.png) !important;
+}
+
+.ikaeasy_city_link_turquoise_animated {
+    background-image: url(/images/Marker/turquoise/city_turquoise_animated.png) !important;
+}
+
+.ikaeasy_flag_turquoise_animated {
+    background-image: url(/images/Marker/turquoise/flag_turquoise_gross.png) !important;
+}
+
+.ikaeasy_city_link_turquoise {
+    background-image: url(/images/Marker/turquoise/city_turquoise.png) !important;
 }
 
 /* Фиксы раздвоения обьектов на острове при наведении. Это баг самого икариама */
 #island #worldmap #cities .cityLocation {
     margin-left: -12px;
 }
+
 #island #cities .city .position {
     left: 73px;
     top: -8px;
 }
+
 #island #cities .city.selected .hover {
     left: 20px;
 }
 
 #island #cities .buildplace .island_feature_img {
-    left: -9px!important;
+    left: -9px !important;
 }
 
 #island #cities .islandfeature.wine .hover {
-    left: 0px!important;
+    left: 0 !important;
 }
 
 #island #cities .islandfeature.wood .hover {
-    left: -3px!important;
+    left: -3px !important;
 }
 
 #island #cities .islandfeature.forum .hover {
-    left: 7px!important;
+    left: 7px !important;
 }
 
 #island #cities .islandfeature .hover {
-    left: 0px!important;
+    left: 0 !important;
 }
 
 #island #cities .premium.buildplace .island_feature_img.hover {
-    left: -7px!important;
+    left: -7px !important;
 }
 
 #island #cities .city.own .hover {
-    left: 21px!important;
+    left: 21px !important;
 }
 
 #island #cities .islandfeature.marble .hover {
-    left: -6px!important;
+    left: -6px !important;
 }
 
 #island #cities .islandfeature.sulfur .hover {
-    left: 0px!important;
-    top: -3px!important;
+    left: 0 !important;
+    top: -3px !important;
 }
-#island #cities .hover{
-    left:20px!important;
+
+#island #cities .hover {
+    left: 20px !important;
 }
 
 .externalURL {
     color: #542c0f;
-    background-image: url(/images/externalURL.png);
-    background-position: right top;
-    background-repeat: no-repeat;
+    background: url(/images/externalURL.png) no-repeat right top;
     padding-right: 15px;
     text-decoration: underline;
     line-height: 18px;
@@ -766,7 +803,7 @@
     text-decoration: none;
 }
 
-#IkaEasy_Gold_per_hour{
+#IkaEasy_Gold_per_hour {
     font-size: 8px;
     clear: both;
     position: absolute;
@@ -774,14 +811,16 @@
     top: 9px;
 }
 
-#IkaEasy_Gold_per_hour.ikaeasy_green{
-    color:green;
+#IkaEasy_Gold_per_hour.ikaeasy_green {
+    color: green;
 }
-#IkaEasy_Gold_per_hour.ikaeasy_red{
-    color:red;
+
+#IkaEasy_Gold_per_hour.ikaeasy_red {
+    color: red;
 }
-#militaryMovements table>tbody>tr:hover, #militaryMovements table>tbody>tr:focus{
-    background-color:#FFF0B0!important;
+
+#militaryMovements table > tbody > tr:hover, #militaryMovements table > tbody > tr:focus {
+    background-color: #fff0b0 !important;
 }
 
 span.IkaEasy_transport_date {
@@ -792,12 +831,36 @@ span.IkaEasy_transport_date {
 }
 
 #island #cities .city .position {
-    left: 71px!important;
+    left: 71px !important;
 }
+
 tr.ikaeasy_finance_tr {
-    border-top:1px dotted #CCA569
+    border-top: 1px dotted #cca569
 }
 
 p.link.ikaeasy_full_report_btn {
     margin-top: 15px;
+}
+
+div#ikaeasy_levelcity {
+    position: absolute;
+    right: -15px;
+    top: -4px;
+    background: #fff;
+    padding: 2px 7px;
+    border-radius: 10px;
+}
+
+div#ikaeasy_BD {
+    position: absolute;
+    right: -55px;
+    top: -4px;
+    background: green;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 7px;
+}
+
+#cities .scroll_img {
+    bottom: -6px !important;
 }

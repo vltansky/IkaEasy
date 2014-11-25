@@ -1,13 +1,13 @@
-﻿if (typeof zJS == "undefined") {
+﻿if(typeof zJS == "undefined") {
     zJS = {};
 }
 
-if (typeof zJS.Page == "undefined") {
+if(typeof zJS.Page == "undefined") {
     zJS.Page = {};
 }
 function AddIkaEasyOptionsfunction() {
     //Cleaning up
-    var $tabMenu=$("ul#tabMenu");
+    var $tabMenu = $("ul#tabMenu");
     $('#js_tabIkaEasyOptions').remove();
     $('#tabIkaEasyOptions').remove();
 
@@ -25,19 +25,19 @@ function AddIkaEasyOptionsfunction() {
     var transportIkaeasyTxt = '<div id="ikaeasyIkaeasyTransport" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.transport.ikaeasy + '</span></div>';
     $('<table><tr><td class="vertical_top"></td><td class="left"><form>' + transportOriginalTxt + transportIkaeasyTxt + '</form></td></tr></table>').appendTo(transportOptionsContent);
 
-    if(localStorage[zJS.Utils.getPlace() + 'transporter-type'] == 1){
+    if(localStorage[zJS.Utils.getPlace() + 'transporter-type'] == 1) {
         $('#Img', '#ikaeasyIkaeasyTransport').addClass('checked');
     }
-    else{
+    else {
         $('#Img', '#ikaeasyOriginalTransport').addClass('checked');
     }
 
-    $('#ikaeasyOriginalTransport').click(function(){
+    $('#ikaeasyOriginalTransport').click(function() {
         $('#Img', this).addClass('checked');
         $('#Img', '#ikaeasyIkaeasyTransport').removeClass('checked');
         localStorage[zJS.Utils.getPlace() + 'transporter-type'] = 0;
     });
-    $('#ikaeasyIkaeasyTransport').click(function(){
+    $('#ikaeasyIkaeasyTransport').click(function() {
         $('#Img', this).addClass('checked');
         $('#Img', '#ikaeasyOriginalTransport').removeClass('checked');
         localStorage[zJS.Utils.getPlace() + 'transporter-type'] = 1;
@@ -45,41 +45,41 @@ function AddIkaEasyOptionsfunction() {
     //Transport type END
 }
 zJS.Page.options = {
-    init : function() {
+    init: function() {
         AddIkaEasyOptionsfunction()
     },
 
-    refresh : function() {
+    refresh: function() {
         this.init();
     }
 };
 
 zJS.Page.optionsAccount = {
-    init : function() {
+    init: function() {
         AddIkaEasyOptionsfunction()
     },
 
-    refresh : function() {
+    refresh: function() {
         this.init();
     }
 };
 
 zJS.Page.optionsNotification = {
-    init : function() {
+    init: function() {
         AddIkaEasyOptionsfunction()
     },
 
-    refresh : function() {
+    refresh: function() {
         this.init();
     }
 };
 
 zJS.Page.optionsFacebook = {
-    init : function() {
+    init: function() {
         AddIkaEasyOptionsfunction()
     },
 
-    refresh : function() {
+    refresh: function() {
         this.init();
     }
 };

@@ -1,28 +1,28 @@
 /**
  * Created by Tansky on 23.10.2014.
  */
-if (typeof zJS == "undefined") {
+if(typeof zJS == "undefined") {
     zJS = {};
 }
 
-if (typeof zJS.Page == "undefined") {
+if(typeof zJS.Page == "undefined") {
     zJS.Page = {};
 }
 
 zJS.Page.finances = {
-    init : function() {
-        var LocFinance=zJS.Utils.getLocFinance(),
-            LocFinanceDate=zJS.Utils.getLocFinance()+'_date',
-            $SumGoldTable=$("#finances").find('table.upkeepReductionTable:last');
-        var GoldPerHour=$SumGoldTable.find('tr.result td.hidden.bold').text().replace(/[^\d+]/g, '');
-        var pn_char='';//по умолчанию берем значение +
-        if($SumGoldTable.find('tr.result td.hidden.bold').text()[0]!=GoldPerHour[0]){
-            pn_char='red';
-            GoldPerHour=0 - GoldPerHour;
+    init: function() {
+        var LocFinance = zJS.Utils.getLocFinance(),
+            LocFinanceDate = zJS.Utils.getLocFinance() + '_date',
+            $SumGoldTable = $("#finances").find('table.upkeepReductionTable:last');
+        var GoldPerHour = $SumGoldTable.find('tr.result td.hidden.bold').text().replace(/[^\d+]/g, '');
+        var pn_char = '';//по умолчанию берем значение +
+        if($SumGoldTable.find('tr.result td.hidden.bold').text()[0] != GoldPerHour[0]) {
+            pn_char = 'red';
+            GoldPerHour = 0 - GoldPerHour;
         }
         localStorage.setItem(LocFinance, GoldPerHour);
         localStorage.setItem(LocFinanceDate, new Date());
-        if (!$SumGoldTable.hasClass("ikaeasy_complete")) {
+        if(!$SumGoldTable.hasClass("ikaeasy_complete")) {
             var per_day = GoldPerHour * 24,
                 per_week = GoldPerHour * 168,//24*7
                 per_month = GoldPerHour * 730,//from google
@@ -34,17 +34,17 @@ zJS.Page.finances = {
             $SumGoldTable.append(template);
             $SumGoldTable.addClass('ikaeasy_complete');
         }
-        $( "#ikaeasy_gold_calc" ).change(function () {
-            var custom_number=$("#ikaeasy_gold_calc").val();
-            var calc=custom_number*GoldPerHour;
-            if(calc<0)
-                pn_char='red';
+        $("#ikaeasy_gold_calc").change(function() {
+            var custom_number = $("#ikaeasy_gold_calc").val();
+            var calc = custom_number * GoldPerHour;
+            if(calc < 0)
+                pn_char = 'red';
             $("#ikaeasy_gold_custom").removeClass('red').addClass(pn_char).text(zJS.Utils.formatNumber(calc));
         });
 
     },
 
-    refresh : function() {
+    refresh: function() {
 
     }
 };

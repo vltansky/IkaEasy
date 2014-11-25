@@ -1,20 +1,20 @@
-if (typeof  zJS == "undefined") {
+if(typeof  zJS == "undefined") {
     zJS = {};
 }
 
 zJS.Var = {
-    getIslandId : function() {
+    getIslandId: function() {
         return this.getIsland().islandId;
     },
 
-    getActionRequest : function() {
+    getActionRequest: function() {
         return this.getTransferVars()['actionRequest'];
     },
 
-    getTransferVars : function() {
+    getTransferVars: function() {
         //console.time('getTransferVars');
-        if ($('#__ikaeasy').html() != '') {
-            var $ikaeasy=$('#__ikaeasy');
+        if($('#__ikaeasy').html() != '') {
+            var $ikaeasy = $('#__ikaeasy');
             this._transferVars = jQuery.parseJSON($ikaeasy.html());
             $ikaeasy.html('');
         }
@@ -24,52 +24,52 @@ zJS.Var = {
         return this._transferVars;
     },
 
-    getShips : function() {
+    getShips: function() {
         return this.getTransferVars().ships;
     },
 
-    getAllyId : function() {
-        if (!this._ally_id) {
+    getAllyId: function() {
+        if(!this._ally_id) {
             this._ally_id = parseInt(this.getTransferVars().allyId);
         }
         return this._ally_id;
     },
 
-    getCityResources : function() {
+    getCityResources: function() {
         var _resource = this.getTransferVars()['resources'];
 
         var resource = {};
-        resource.wood    = _resource.resource;
-        resource.wine    = _resource[1];
-        resource.marble  = _resource[2];
+        resource.wood = _resource.resource;
+        resource.wine = _resource[1];
+        resource.marble = _resource[2];
         resource.crystal = _resource[3];
-        resource.sulfur  = _resource[4];
-        
+        resource.sulfur = _resource[4];
+
         return resource;
     },
 
-    getCities : function() {
+    getCities: function() {
         return this.getTransferVars()['cities'];
     },
 
-    getCityId : function() {
+    getCityId: function() {
         var cities = this.getTransferVars()['cities'];
 
         return cities[cities.selectedCity].id;
     },
 
-    isMyCity : function() {
+    isMyCity: function() {
         var cities = this.getTransferVars()['cities'];
 
         return (cities[cities.selectedCity].relationship == 'ownCity');
     },
 
-    getIsland : function() {
+    getIsland: function() {
         return this.getTransferVars()['island'];
     },
 
-    getSeparators : function() {
-        if (typeof this._separators == "undefined") {
+    getSeparators: function() {
+        if(typeof this._separators == "undefined") {
             this._separators = this.getTransferVars()['separators'];
         }
 

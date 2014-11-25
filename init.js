@@ -27,22 +27,22 @@ function askms(params, handler) {
 
 function getJSON(url, callback) {
     $.ajax({
-        url      : url,
-        async    : true,
-        dataType : "json",
-        error    : callback,
-        success  : callback
+        url: url,
+        async: true,
+        dataType: "json",
+        error: callback,
+        success: callback
     });
 }
 
-function postJSON (url, data, callback) {
+function postJSON(url, data, callback) {
     $.ajax({
-        url      : url,
-        data     : data,
-        async    : true,
-        type     : "POST",
-        error    : callback || false,
-        success  : callback || false,
-        dataType : "json"
+        url: url,
+        data: data,
+        async: true,
+        type: "POST",
+        error: callback || false,
+        success: callback || false,
+        dataType: "json"
     });
 }
