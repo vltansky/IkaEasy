@@ -1,6 +1,8 @@
 # IkaEasy
 Расширения стабильно работает на версии **0.6.1**.
+
 Стабильное расширение: https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en
+
 Расширение для тестов: https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb
 
 ##Структура:
