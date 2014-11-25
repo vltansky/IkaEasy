@@ -19,9 +19,26 @@ if(typeof zJS.Page == "undefined") {
 
 
  */
+
+
 zJS.Page.militaryAdvisor = {
     init: function() {
         var $js_MilitaryMovementsFleetMovementsTable = $('#js_MilitaryMovementsFleetMovementsTable');
+        $js_MilitaryMovementsFleetMovementsTable.find('table:not(.ikaeasy_complete)').prepend('<tr><td><input type="checkbox" id="ikaeasy_militaryView_cb_plunder"/> Набег</td> <td><input type="checkbox" id="ikaeasy_militaryView_cb_blockade"/> Блокада</td> <td><input type="checkbox" id="ikaeasy_militaryView_cb_transport"/> Транпортировка</td> <td><input type="checkbox" id="ikaeasy_militaryView_cb_deployarmy"/> размещение</td> <td><input type="checkbox" id="ikaeasy_militaryView_cb_defend"/> Защита</td> <td></td> <td></td> <td></td> </tr>').addClass('ikaeasy_complete');
+        var $ikaeasy_militaryView_cb_plunder=$("#ikaeasy_militaryView_cb_plunder"), $ikaeasy_militaryView_cb_blockade=$("#ikaeasy_militaryView_cb_blockade"), $ikaeasy_militaryView_cb_transport=$("#ikaeasy_militaryView_cb_transport"), $ikaeasy_militaryView_cb_deployarmy=$("#ikaeasy_militaryView_cb_deployarmy"), $ikaeasy_militaryView_cb_defend=$("#ikaeasy_militaryView_cb_defend") ;
+        $ikaeasy_militaryView_cb_plunder.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_plunder')=== "true"));
+        $ikaeasy_militaryView_cb_blockade.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_blockade')=== "true"));
+        $ikaeasy_militaryView_cb_transport.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_transport')=== "true"));
+        $ikaeasy_militaryView_cb_deployarmy.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_deployarmy')=== "true"));
+        $ikaeasy_militaryView_cb_defend.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_defend')=== "true"));
+
+        $ikaeasy_militaryView_cb_plunder.click(function() {
+            //$('#Img', this).addClass('checked');
+            //$('#Img', '#ikaeasyIkaeasyTransport').removeClass('checked');
+            zJS.Utils.settingsStorage.setItem('MilitaryMovements_plunder', this.checked);
+            console.log(this.checked);
+        });
+
         $js_MilitaryMovementsFleetMovementsTable.find('td').each(function() {
             $(this).css('padding', '4px 0px').removeClass('right');
         });

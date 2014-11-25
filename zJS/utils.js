@@ -18,7 +18,7 @@ zJS.Utils = {
         return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + zJS.Var.getCityId() + "_wine";
     },
     getLocFinance: function() {
-        return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + zJS.Var.getCityId() + "_finance";
+        return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_finance";
     },
 
     getPlace: function() {
@@ -145,7 +145,22 @@ zJS.Utils = {
             localStorage.removeItem(name);
         }
     },
-
+    settingsStorage: {
+        setItem: function(name, value) {
+            name=zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + name;
+            localStorage.setItem(name,value);
+            return true;
+        },
+        getItem: function(name) {
+            name=zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + name;
+            return localStorage.getItem(name);
+        },
+        removeItem: function(name){
+            name=zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + name;
+            localStorage.removeItem(name);
+            return true;
+        }
+    },
     getUrl: function(str) {
         return chrome.extension.getURL(str);
     },
