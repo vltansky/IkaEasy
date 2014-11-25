@@ -1,12 +1,7 @@
 # IkaEasy
-
-## ВНИМАНИЕ
-Движок расширения писался под версию **0.5.0**, в связи с тем что в игра регулярно
-обновляется, движок, частично или полностью, мог устареть.
-
-У меня к сожалению нет ни времени, ни желания заниматься расширением, посему
-я отдаю его на растерзание всем.
-
+Расширения стабильно работает на версии **0.6.1**.
+Стабильное расширение: https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en
+Расширение для тестов: https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb
 
 ##Структура:
 * **css**     - папка со стилями
