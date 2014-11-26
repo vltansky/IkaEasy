@@ -10,7 +10,8 @@ if(typeof zJS.Page == "undefined") {
  .mission_icon.plunder - набег
  .mission_icon.blockade - блокада
  .mission_icon.transport - транспортировка
- .mission_icon.deployarmy - размещение
+ .mission_icon.deployarmy - размещение войска
+ .mission_icon.deployfleet - размещение флота
  .mission_icon.defend - защита
 
  Who's movements:
@@ -23,21 +24,40 @@ if(typeof zJS.Page == "undefined") {
 
 zJS.Page.militaryAdvisor = {
     init: function() {
+        var action_options=["plunder", "blockade", "transport", "deployarmy", "deployfleet", "defend"];
         var $js_MilitaryMovementsFleetMovementsTable = $('#js_MilitaryMovementsFleetMovementsTable');
-        $js_MilitaryMovementsFleetMovementsTable.find('table:not(.ikaeasy_complete)').prepend('<tr><td><input type="checkbox" id="ikaeasy_militaryView_cb_plunder"/> Набег</td> <td><input type="checkbox" id="ikaeasy_militaryView_cb_blockade"/> Блокада</td> <td><input type="checkbox" id="ikaeasy_militaryView_cb_transport"/> Транпортировка</td> <td><input type="checkbox" id="ikaeasy_militaryView_cb_deployarmy"/> размещение</td> <td><input type="checkbox" id="ikaeasy_militaryView_cb_defend"/> Защита</td> <td></td> <td></td> <td></td> </tr>').addClass('ikaeasy_complete');
-        var $ikaeasy_militaryView_cb_plunder=$("#ikaeasy_militaryView_cb_plunder"), $ikaeasy_militaryView_cb_blockade=$("#ikaeasy_militaryView_cb_blockade"), $ikaeasy_militaryView_cb_transport=$("#ikaeasy_militaryView_cb_transport"), $ikaeasy_militaryView_cb_deployarmy=$("#ikaeasy_militaryView_cb_deployarmy"), $ikaeasy_militaryView_cb_defend=$("#ikaeasy_militaryView_cb_defend") ;
-        $ikaeasy_militaryView_cb_plunder.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_plunder')=== "true"));
-        $ikaeasy_militaryView_cb_blockade.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_blockade')=== "true"));
-        $ikaeasy_militaryView_cb_transport.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_transport')=== "true"));
-        $ikaeasy_militaryView_cb_deployarmy.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_deployarmy')=== "true"));
-        $ikaeasy_militaryView_cb_defend.prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_defend')=== "true"));
+        $js_MilitaryMovementsFleetMovementsTable.find('table:not(.ikaeasy_complete)').prepend('<tr><td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="plunder" id="ikaeasy_militaryView_cb_plunder" checked/><label for="ikaeasy_militaryView_cb_plunder"> Набег</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb"  id="ikaeasy_militaryView_cb_blockade" data-ikaeztype="blockade" checked/><label for="ikaeasy_militaryView_cb_blockade"> Блокада</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="transport" id="ikaeasy_militaryView_cb_transport" checked/><label for="ikaeasy_militaryView_cb_transport"> Транпортировка</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="deployarmy" id="ikaeasy_militaryView_cb_deployarmy" checked/><label for="ikaeasy_militaryView_cb_deployarmy"> размещение войска</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="defend"  id="ikaeasy_militaryView_cb_defend" checked/><label for="ikaeasy_militaryView_cb_defend"> Защита</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="deployfleet"  id="ikaeasy_militaryView_cb_deployfleet" checked/><label for="ikaeasy_militaryView_cb_deployfleet"> размещение флота</label></td> <td></td> <td></td> </tr>').addClass('ikaeasy_complete');
+        var $ikaeasy_militaryView_cb=$(".ikaeasy_militaryView_cb");
 
-        $ikaeasy_militaryView_cb_plunder.click(function() {
+        $ikaeasy_militaryView_cb.each(function() {
+            var action=$(this).data('ikaeztype');
+            $(this).prop('checked', (zJS.Utils.settingsStorage.getItem('MilitaryMovements_'+action)=== "true"));
+        });
+
+        $ikaeasy_militaryView_cb.click(function() {
             //$('#Img', this).addClass('checked');
             //$('#Img', '#ikaeasyIkaeasyTransport').removeClass('checked');
-            zJS.Utils.settingsStorage.setItem('MilitaryMovements_plunder', this.checked);
-            console.log(this.checked);
+            var action=$(this).data('ikaeztype');
+            updateTableActions(action, this.checked);
+            zJS.Utils.settingsStorage.setItem('MilitaryMovements_'+action, this.checked);
         });
+
+
+        for(var i=1;i<action_options.length;i++){
+            console.log(action_options[i]+': '+zJS.Utils.settingsStorage.getItem('MilitaryMovements_'+action_options[i]));
+            if(zJS.Utils.settingsStorage.getItem('MilitaryMovements_'+action_options[i]) == "false") {
+                $js_MilitaryMovementsFleetMovementsTable.find('tr:not(.ikaeasy_complete)').has('.' + action_options[i]).hide();
+            }
+        }
+
+        function updateTableActions(action, value){
+            if(value===true){
+                $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.' + action).show("fast");
+            }
+            else{
+                $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.' + action).hide("fast");
+            }
+        }
 
         $js_MilitaryMovementsFleetMovementsTable.find('td').each(function() {
             $(this).css('padding', '4px 0px').removeClass('right');
@@ -84,6 +104,7 @@ zJS.Page.militaryAdvisor = {
             $(this).addClass('ikaeasy_complete');
 
         });
+
     },
 
     refresh: function() {
