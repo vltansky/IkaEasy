@@ -190,7 +190,7 @@
         "images/externalURL.png"
     ],
 
-    "name": "Ikariam Easy 2014",
+    "name": "Ikariam Easy - new feature tests",
     "permissions": [
         "tabs",
         "http://*.ikariam.gameforge.com/*",
@@ -198,5 +198,5 @@
         "http://ikalogs.ru/*",
         "http://*.ikalogs.ru/*"
     ],
-    "version": "2.1"
+    "version": "2.1.0.0.1"
 }
