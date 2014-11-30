@@ -178,6 +178,10 @@ zJS.DB = {
                 {"x": 50, "y": 20}
             ],
 
+            marineChartArchive: [
+                {"x": 55, "y": 20},
+                {"x": 55, "y": 20}
+            ],
             // construction spot
             "constructionSite": [
                 {"x": 65, "y": 20},
@@ -1231,6 +1235,32 @@ zJS.DB = {
                 {"wood": 120888, "marble": 79087},
                 {"wood": 140596, "marble": 92064},
                 {"wood": 162647, "marble": 106587}//25
+            ],
+            "marineChartArchive": [
+                {"wood":1298, "marble":1066, "crystal":611},
+                {"wood":2133, "marble":1916, "crystal":1142},
+                {"wood":3101, "marble":2917, "crystal":1768},
+                {"wood":4226, "marble":4100, "crystal":2507},
+                {"wood":5530, "marble":5496, "crystal":3379},
+                {"wood":7041, "marble":7143, "crystal":4409},
+                {"wood":8794, "marble":9087, "crystal":5624},
+                {"wood":10830,"marble":11380, "crystal":7057},
+                {"wood":13191,"marble":14087, "crystal":8750},
+                {"wood":15928,"marble":17280, "crystal":10745},
+                {"wood":19106, "marble":21048, "crystal":13100},
+                {"wood":22789,"marble":25494, "crystal":15879},
+                {"wood":27063,"marble":30743, "crystal":19158},
+                {"wood":32020,"marble":36933, "crystal":23028},
+                {"wood":37772,"marble":44241, "crystal":27594},
+                {"wood":44443,"marble":52861, "crystal":32984},
+                {"wood":52181,"marble":63033, "crystal":39342},
+                {"wood":61157,"marble":75039, "crystal":46843},
+                {"wood":71570,"marble":89204, "crystal":55697},
+                {"wood":83650,"marble":105917, "crystal":66143},
+                {"wood":97663,"marble":125641, "crystal":78470},
+                {"wood":113917,"marble":148913, "crystal":93015},
+                {"wood":132770,"marble":176376, "crystal":110179},
+                {"wood":154641,"marble":208781, "crystal":130434}//25
             ]
         };
         return {'source': BUILDINGS, 'pos': POSITIONS};
