@@ -864,3 +864,26 @@ div#ikaeasy_BD {
 #cities .scroll_img {
     bottom: -6px !important;
 }
+
+ul#ikaeasy_military_movements {
+    margin: 0px 3px;
+    background: #FFEBCA;
+    border-bottom: 1px solid #FAD69D;
+}
+
+ul#ikaeasy_military_movements li {
+    display: inline-block;
+}
+
+ul#ikaeasy_military_movements li>a {
+    padding: 0px 5px;
+    background: #FFEBCA;
+    line-height: 30px;
+    display: block;
+}
+
+ul#ikaeasy_military_movements li>a:hover, ul#ikaeasy_military_movements li>a:focus {
+    background: #FFE4B0;
+    text-decoration: none;
+    color: #000;
+}
