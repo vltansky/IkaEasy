@@ -734,7 +734,7 @@
     background-image: url(/images/Marker/turquoise/city_turquoise.png) !important;
 }
 
-/* Фиксы раздвоения обьектов на острове при наведении. Это баг самого икариама */
+/* Ð¤Ð¸ÐºÑÑ‹ Ñ€Ð°Ð·Ð´Ð²Ð¾ÐµÐ½Ð¸Ñ Ð¾Ð±ÑŒÐµÐºÑ‚Ð¾Ð² Ð½Ð° Ð¾ÑÑ‚Ñ€Ð¾Ð²Ðµ Ð¿Ñ€Ð¸ Ð½Ð°Ð²ÐµÐ´ÐµÐ½Ð¸Ð¸. Ð­Ñ‚Ð¾ Ð±Ð°Ð³ ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð¸ÐºÐ°Ñ€Ð¸Ð°Ð¼Ð° */
 #island #worldmap #cities .cityLocation {
     margin-left: -12px;
 }
@@ -866,7 +866,7 @@ div#ikaeasy_BD {
 }
 
 ul#ikaeasy_military_movements {
-    margin: 0px 3px;
+    margin: 0 3px;
     background: #FFEBCA;
     border-bottom: 1px solid #FAD69D;
 }
@@ -876,14 +876,46 @@ ul#ikaeasy_military_movements li {
 }
 
 ul#ikaeasy_military_movements li>a {
-    padding: 0px 5px;
+    padding: 0 5px;
     background: #FFEBCA;
-    line-height: 30px;
     display: block;
+    position: relative;
+    opacity: 0.5;
 }
-
+ul#ikaeasy_military_movements li>a.ikaeasy_complete {
+    opacity: 1;
+}
 ul#ikaeasy_military_movements li>a:hover, ul#ikaeasy_military_movements li>a:focus {
     background: #FFE4B0;
     text-decoration: none;
     color: #000;
+    opacity: 0.8;
+}
+
+#ikaeasy_military_movements li>a>div.ikaez_badge {
+    display: inline-block;
+    line-height: 15px;
+    position: absolute;
+    right: 1px;
+    top: -4px;
+    background: #A9721B;
+    padding: 0 4px;
+    color: #fff;
+    border-radius: 10px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.47);
+    font-size: 10px;
+    box-shadow: -1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+ul#ikaeasy_military_movements div#ikaez_movements_all {
+    line-height: 20px;
+    background: #FAD5A0;
+    text-align: center;
+    border: 1px solid #EAB476;
+}
+
+ul#ikaeasy_military_movements #ikaez_movements_all_li {
+    display: block;
+    width: 41px;
+    float: left;
 }

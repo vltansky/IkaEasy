@@ -3,6 +3,17 @@ if(typeof langs == "undefined") {
 }
 
 langs.ru = {
+    'movements':{
+        all: 'все',
+        transport: 'транпортировка',
+        plunder: 'набег',
+        blockade: 'блокада',
+        deployarmy: 'размещение войска',
+        deployfleet: 'размещение флота',
+        defend: 'защита',
+        defend_port: 'защита порта',
+        occupy: 'окупация'
+    },
     'char_day': 'д',
     'char_hour': 'ч',
     'char_minute': 'м',
