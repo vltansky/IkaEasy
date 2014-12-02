@@ -819,6 +819,9 @@
 #IkaEasy_Gold_per_hour.ikaeasy_red {
     color: red;
 }
+body.ikaez_animation #militaryMovements table > tbody > tr{
+    transition: all 300ms;
+}
 
 #militaryMovements table > tbody > tr:hover, #militaryMovements table > tbody > tr:focus {
     background-color: #fff0b0 !important;
@@ -922,4 +925,28 @@ ul#ikaeasy_military_movements #ikaez_movements_all_li {
     display: block;
     width: 41px;
     float: left;
+}
+
+#container .tabmenu .tab {
+    padding: 1px 3px 0px 2px!important;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+#container .tabmenu .selected, #container .tabmenu .tab:hover{
+    border-top: 1px solid #E4B873!important;
+    border-left: 1px solid #E4B873!important;
+    border-right: 1px solid #E4B873!important;
+}
+body.ikaez_animation #container .tabmenu .tab {
+    transition: all 400ms;
+}
+
+
+body.ikaez_animation table.table01>tbody>tr{
+    transition: all 200ms;
+}
+
+table#inboxCity.table01>tbody>tr:hover,table#inboxCity.table01>tbody>tr:focus{
+    background-color: #F9DD9E!important;
 }
