@@ -882,6 +882,9 @@ ul#ikaeasy_military_movements li>a {
     position: relative;
     opacity: 0.5;
 }
+body.ikaez_animation ul#ikaeasy_military_movements li>a{
+    transition: all 200ms;
+}
 ul#ikaeasy_military_movements li>a.ikaeasy_complete {
     opacity: 1;
 }
