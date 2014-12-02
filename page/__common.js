@@ -10,6 +10,7 @@ zJS.Page.__common = {
     _notes: [],
 
     init: function() {
+        this._animation();
         this._transporter();
         this._nextCity();
         this._addOtherButtons();
@@ -42,6 +43,9 @@ zJS.Page.__common = {
         this.init();
     },
 
+    _animation: function(){
+        $('body').addClass('ikaez_animation');
+    },
     /*
      * Display resource spend per hour
      */
