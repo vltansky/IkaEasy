@@ -889,7 +889,7 @@ ul#ikaeasy_military_movements li>a {
 body.ikaez_animation ul#ikaeasy_military_movements li>a{
     transition: all 200ms;
 }
-ul#ikaeasy_military_movements li>a.ikaeasy_complete {
+ul#ikaeasy_military_movements li>a.ikaez_active {
     opacity: 1;
 }
 ul#ikaeasy_military_movements li>a:hover, ul#ikaeasy_military_movements li>a:focus {

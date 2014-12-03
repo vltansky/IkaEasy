@@ -50,8 +50,7 @@ zJS.Page.militaryAdvisor = {
         });
 
 var active_tab=zJS.Utils.settingsStorage.getItem('MilitaryMovements_tab');
-        $('#js_MilitaryMovementsFleetMovementsTable a[data-ikaeztype='+active_tab+']').addClass('ikaeasy_complete');
-        console.log(active_tab);
+        $('#js_MilitaryMovementsFleetMovementsTable a[data-ikaeztype='+active_tab+']').addClass('ikaez_active');
         if(active_tab!="all") {
             console.log('not true '+zJS.Utils.settingsStorage.getItem('MilitaryMovements_tab'));
             $js_MilitaryMovementsFleetMovementsTable.find('tr:not(.ikaeasy_complete, '+active_tab+')').has('.mission_icon').hide();
