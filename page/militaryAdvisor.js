@@ -59,10 +59,10 @@ var active_tab=zJS.Utils.settingsStorage.getItem('MilitaryMovements_tab');
         function updateTableActions(action){
             console.log('update table actions');
             if(action=="all") {
-                $js_MilitaryMovementsFleetMovementsTable.find('tr').show("fast");
+                $js_MilitaryMovementsFleetMovementsTable.find('tr').show();
             }else{
-                $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.mission_icon').hide("fast");
-                $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.' + action).show("fast");
+                $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.mission_icon').hide();
+                $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.' + action).show();
             }
         }
 
