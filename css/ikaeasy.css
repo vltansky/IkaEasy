@@ -846,23 +846,41 @@ p.link.ikaeasy_full_report_btn {
     margin-top: 15px;
 }
 
-div#ikaeasy_levelcity {
+div.ikaeasy_levelcity {
     position: absolute;
-    right: -15px;
-    top: -4px;
-    background: #fff;
-    padding: 2px 7px;
-    border-radius: 10px;
+    right: 10px;
+    bottom: 0;
+    background: #7C6D36;
+    border-radius: 25px;
+    line-height: 24px;
+    width: 25px;
+    text-align: center;
+    color: #E4E4E4;
+    border: 1px solid #FFF;
+    opacity: 0.8;
+    cursor: default;
+}
+.ikaeasy_watcher.build_default .ikaeasy_watcher_circle {
+    position: absolute;      background: #7C6D36;
+    border-radius: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #E4E4E4;
+    border: 1px solid #FFF;  opacity: 0.8;
+    width: 25px;
+}
+#island #cities .city.vacation span.ikaeasy_BD {
+    left: 0;
+}
+span.ikaeasy_BD img {
+    height: 14px;
+    position: relative;
+    top: 3px;
 }
 
-div#ikaeasy_BD {
-    position: absolute;
-    right: -55px;
-    top: -4px;
-    background: green;
-    color: #fff;
-    padding: 2px 5px;
-    border-radius: 7px;
+span.ikaeasy_BD {
+    position: relative;
+    left: 5px;
 }
 
 #cities .scroll_img {

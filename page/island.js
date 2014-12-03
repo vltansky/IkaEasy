@@ -12,9 +12,9 @@ zJS.Page.island = {
         var wood_lvl = zJS.Var.getIsland()['wood'];
         var res_lvl = zJS.Var.getIsland()['tradegood'];
         var wonder_lvl = zJS.Var.getIsland()['wonder'];
-        $('#islandresource').append($('<div class="ikaeasy_watcher build_green" style="top:50px; left:70px;"><div class="ikaeasy_watcher_circle">' + wood_lvl + '</div></div>'));
-        $('#islandtradegood').append($('<div class="ikaeasy_watcher build_green" style="top:60px; left:80px;"><div class="ikaeasy_watcher_circle">' + res_lvl + '</div></div>'));
-        $('#islandwonder').append($('<div class="ikaeasy_watcher build_green" style="top:125px; left:60px;"><div class="ikaeasy_watcher_circle">' + wonder_lvl + '</div></div>'));
+        $('#islandresource').append($('<div class="ikaeasy_watcher build_default" style="top:50px; left:70px;"><div class="ikaeasy_watcher_circle">' + wood_lvl + '</div></div>'));
+        $('#islandtradegood').append($('<div class="ikaeasy_watcher build_default" style="top:60px; left:80px;"><div class="ikaeasy_watcher_circle">' + res_lvl + '</div></div>'));
+        $('#islandwonder').append($('<div class="ikaeasy_watcher build_default" style="top:125px; left:60px;"><div class="ikaeasy_watcher_circle">' + wonder_lvl + '</div></div>'));
 
         this._showIslandInfo();
         this._sendWorld();
@@ -23,7 +23,8 @@ zJS.Page.island = {
     },
 
     refresh: function() {
-        this._showIslandInfo();
+        console.log('===== REFRESH =====');
+        this._showIslandInfo(false);
         this._sendWorld();
         this._addMarker();
         this._colorizeCities();
@@ -108,7 +109,8 @@ zJS.Page.island = {
         });
     },
 
-    _showIslandInfo: function() {
+    _showIslandInfo: function(UpdateLevel) {
+        UpdateLevel = typeof UpdateLevel !== 'undefined' ? UpdateLevel : true;
         var id = zJS.Var.getIsland()['islandId'], cities = zJS.Var.getIsland()['cities'], _now = Math.floor((new Date()).getTime() / 1000);
 
         var users = {}, users_req = {};
@@ -120,14 +122,16 @@ zJS.Page.island = {
             if(v.type == "city") {
                 var score = ((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) ? '' : ' #' + users[v.ownerId]['h'];
                 var ally = ((v.ownerAllyTag) && (v.ownerAllyTag != '')) ? ' [' + v.ownerAllyTag + ']' : '';
-                var level = ((v.level) && (v.level != '')) ? '<div id="ikaeasy_levelcity">' + v.level + ' LVL</div>' : '';
-                var BD = ((v.level) && (v.level != '')) ? '<div id="ikaeasy_BD">' + Math.floor(v.level / 4 + 3) + ' БД</div>' : '';
+                var level = ((v.level) && (v.level != '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '';
+                var BD = ((v.level) && (v.level != '')) ? '<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' + Math.floor(v.level / 4 + 3) + '</span>' : '';
 
                 var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
                 var $cashe_city_gl = $('#cityLocation' + k);
-                var city = $cashe_city.html() + score + ally;
+                var city = $cashe_city.html() + score + ally + BD;
                 $cashe_city.html(city);
-                $cashe_city_gl.append(level + BD);
+                if(UpdateLevel==true) {
+                    $cashe_city_gl.append(level);
+                }
 
                 this._recalcWidth(k);
 
@@ -155,9 +159,8 @@ zJS.Page.island = {
                         $.each(users_req[v.ownerId], function(k, v) {
                             var $cashe_name = $('#js_cityLocation' + v + 'TitleText');
                             var name = $cashe_name.html();
-                            $cashe_name.html(name + ' #' + _score);
+                            $cashe_name.html(name + ' #' + _score + BD);
                             var $cashe_city_gll = $('#cityLocation' + k);
-                            $cashe_city_gll.append('<div id="ikaeasy_levelcity">' + city_level + ' LVL</div>' + '<div id="ikaeasy_BD">' + Math.floor(city_level / 4 + 3) + ' БД</div>');
                             this._recalcWidth(v);
                         }.bind(this));
 

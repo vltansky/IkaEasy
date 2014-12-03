@@ -61,19 +61,19 @@ zJS.Page.__common = {
             var clas = i == 3 ? 'glass' : resCol[i];
             var tmpVar = i == 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_' + resCol[i];
             var tmpRes = $(tmpVar).text() == '-' ? 0 : $(tmpVar).text().replace(/[^\d+]/g, '');
-            var wineLeftTime;
-
-            //var value="1,052k", k;
-            //console.log('here');
-            //while(value.slice(-1)=="k"){
-            //    value.substring(0, value.length - 1);
-            //    k++; }
-            //console.log(k);
-            //console.log(Math.abs(parseFloat(value.replace(/[^\d+]/g, ''))/tmpRes));
             if(i == 1) {
+
+                var wineLeftTime,
+                    GlobalWine=$("#js_GlobalMenu_wine").text(),
+                    k=1;
+                while(GlobalWine.slice(-1)=="k"){
+                    GlobalWine=GlobalWine.substring(0, GlobalWine.length - 1);
+                    k++; }
+                GlobalWine=GlobalWine.replace(/[^\d+]/g, '')*k;
+                console.log(GlobalWine);
                 tmpRes -= $("#js_GlobalMenu_WineConsumption").text().replace(/[^\d+]/g, '');
                 if(tmpRes < 0) {
-                    wineLeftTime = Math.abs(parseFloat($("#js_GlobalMenu_wine").text().replace(/[^\d+]/g, '')) / tmpRes);
+                    wineLeftTime = Math.abs(parseFloat(GlobalWine / tmpRes));
                     wineLeftTime = zJS.Utils.transformHours(wineLeftTime);
                     //@todo В настройках выбирать прим. "показывать расход за неделю, месяц"
                     var wine_tooltip = '<p class="smallFont ikaeasy_delet_me">' + zJS.Lang.left + ': ' + wineLeftTime + '</p>\
