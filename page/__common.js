@@ -10,6 +10,7 @@ zJS.Page.__common = {
     _notes: [],
 
     init: function() {
+        this._checkUpdates();
         this._animation();
         this._transporter();
         this._nextCity();
@@ -26,6 +27,7 @@ zJS.Page.__common = {
     refresh: function() {
         console.log('=========== REFRESH =============');
         console.time('refresh');
+        this._checkUpdates();
         $('#ikaeasy_nextCity').remove();
         $('#ikaeasy_transporter').parent().parent().parent().parent().parent().remove();
 
@@ -38,11 +40,19 @@ zJS.Page.__common = {
         $("ul.resources li div p:first-child").parent().parent()
             .css("cursor", "")
             .removeAttr("onClick");
-
         console.timeEnd('refresh');
         this.init();
     },
-
+    _checkUpdates: function(){
+        if($("a.premiumactive")){
+            console.log('====HAVE NEWS====');
+            var link = document.createElement('link');
+            link.type = 'image/x-icon';
+            link.rel = 'shortcut icon';
+            link.href = 'https://raw.githubusercontent.com/swat-web/IkaEasy/swat/images/ally_message.ico';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    },
     _animation: function(){
         $('body').addClass('ikaez_animation');
     },
