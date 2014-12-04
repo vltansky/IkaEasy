@@ -123,11 +123,17 @@ zJS.Page.island = {
                 var score = ((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) ? '' : ' #' + users[v.ownerId]['h'];
                 var ally = ((v.ownerAllyTag) && (v.ownerAllyTag != '')) ? ' [' + v.ownerAllyTag + ']' : '';
                 var level = ((v.level) && (v.level != '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '';
-                var BD = ((v.level) && (v.level != '')) ? '<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' + Math.floor(v.level / 4 + 3) + '</span>' : '';
-
-                var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
                 var $cashe_city_gl = $('#cityLocation' + k);
-                var city = $cashe_city.html() + score + ally + BD;
+                var BD;
+                if ( $cashe_city_gl.hasClass("own") ) {
+                    BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3) : '';
+                }
+                else{
+                    BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3)-2 : '';
+                }
+                var BD_WRAP='<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' +BD  + '</span>';
+                var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
+                var city = $cashe_city.html() + score + ally + BD_WRAP;//
                 $cashe_city.html(city);
                 if(UpdateLevel==true) {
                     $cashe_city_gl.append(level);
@@ -159,7 +165,7 @@ zJS.Page.island = {
                         $.each(users_req[v.ownerId], function(k, v) {
                             var $cashe_name = $('#js_cityLocation' + v + 'TitleText');
                             var name = $cashe_name.html();
-                            $cashe_name.html(name + ' #' + _score + BD);
+                            $cashe_name.html(name + ' #' + _score + BD_WRAP);
                             var $cashe_city_gll = $('#cityLocation' + k);
                             this._recalcWidth(v);
                         }.bind(this));
