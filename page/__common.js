@@ -44,13 +44,21 @@ zJS.Page.__common = {
         this.init();
     },
     _checkUpdates: function(){
-        if($("a.premiumactive")){
+        if($("a.premiumactive").length){
             console.log('====HAVE NEWS====');
             var link = document.createElement('link');
             link.type = 'image/x-icon';
             link.rel = 'shortcut icon';
-            link.href = 'https://raw.githubusercontent.com/swat-web/IkaEasy/swat/images/ally_message.ico';
+            link.href = 'http://www.iconj.com/ico/x/k/xknwndqq9w.ico';
             document.getElementsByTagName('head')[0].appendChild(link);
+        }
+        else{
+            var new_link = document.createElement('link');
+            new_link.type = 'image/x-icon';
+            new_link.rel = 'shortcut icon';
+            new_link.href = '/favicon.ico';
+            document.getElementsByTagName('head')[0].appendChild(new_link);
+
         }
     },
     _animation: function(){
