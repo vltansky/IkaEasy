@@ -46,15 +46,8 @@ zJS.Page.militaryAdvisor = {
             $ikaeasy_militaryView_cb.removeClass('ikaez_active');
             $(this).addClass('ikaez_active');
             updateTableActions(action);
-            zJS.Utils.settingsStorage.setItem('MilitaryMovements_tab', action);
+            //zJS.Utils.settingsStorage.setItem('MilitaryMovements_tab', action);
         });
-
-var active_tab=zJS.Utils.settingsStorage.getItem('MilitaryMovements_tab');
-        $('#js_MilitaryMovementsFleetMovementsTable a[data-ikaeztype='+active_tab+']').addClass('ikaez_active');
-        if(active_tab!="all") {
-            console.log('not true '+zJS.Utils.settingsStorage.getItem('MilitaryMovements_tab'));
-            $js_MilitaryMovementsFleetMovementsTable.find('tr:not(.ikaeasy_complete, '+active_tab+')').has('.mission_icon').hide();
-        }
 
         function updateTableActions(action){
             console.log('update table actions');
