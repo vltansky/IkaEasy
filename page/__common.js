@@ -10,7 +10,7 @@ zJS.Page.__common = {
     _notes: [],
 
     init: function() {
-        this._checkUpdates();
+        //this._checkUpdates();
         this._animation();
         this._transporter();
         this._nextCity();
@@ -27,7 +27,7 @@ zJS.Page.__common = {
     refresh: function() {
         console.log('=========== REFRESH =============');
         console.time('refresh');
-        this._checkUpdates();
+        //this._checkUpdates();
         $('#ikaeasy_nextCity').remove();
         $('#ikaeasy_transporter').parent().parent().parent().parent().parent().remove();
 
