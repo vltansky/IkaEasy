@@ -6,3 +6,6 @@ config/
 .idea/
 Phing
 build.json
+manifest.json
+manifest_new.txt
+manifest_test.txt
