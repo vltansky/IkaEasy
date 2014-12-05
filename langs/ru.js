@@ -12,7 +12,8 @@ langs.ru = {
         deployfleet: 'размещение флота',
         defend: 'защита',
         defend_port: 'защита порта',
-        occupy: 'окупация'
+        occupy: 'окупация',
+        trade: 'обмен'
     },
     'char_day': 'д',
     'char_hour': 'ч',

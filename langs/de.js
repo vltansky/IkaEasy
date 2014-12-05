@@ -12,7 +12,8 @@ langs.de = {
         deployfleet: 'Bereitstellung Flotte',
         defend: 'verteidigen',
         defend_port: 'verteidigen Hafen',
-        occupy: 'besetzen'
+        occupy: 'besetzen',
+        trade: 'trade'
     },
     'char_day': 'd',
     'char_hour': 'h',

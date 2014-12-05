@@ -12,7 +12,8 @@ langs.en = {
         deployfleet: 'deploy fleet',
         defend: 'defend',
         defend_port: 'defend port',
-        occupy: 'occupy'
+        occupy: 'occupy',
+        trade: 'trade'
     },
     'char_day': 'd',
     'char_hour': 'h',
