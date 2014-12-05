@@ -1210,7 +1210,6 @@ zJS.DB = {
                 {"wood": 468032, "marble": 384429}
             ],
             "blackMarket": [
-                {"wood": 440, "marble": 260},
                 {"wood": 887, "marble": 525},
                 {"wood": 1360, "marble": 807},
                 {"wood": 1890, "marble": 1126},
@@ -1260,7 +1259,16 @@ zJS.DB = {
                 {"wood":97663,"marble":125641, "crystal":78470},
                 {"wood":113917,"marble":148913, "crystal":93015},
                 {"wood":132770,"marble":176376, "crystal":110179},
-                {"wood":154641,"marble":208781, "crystal":130434}//25
+                {"wood":154641,"marble":208781, "crystal":130434},//25
+                {"wood":180011,"marble":247020, "crystal":154333},
+                {"wood":209441,"marble":292141, "crystal":182533},
+                {"wood":243580,"marble":345383, "crystal":215809},
+                {"wood":283180,"marble":408211, "crystal":255077},
+                {"wood":329115,"marble":482346, "crystal":301412},
+                {"wood":382402,"marble":569828, "crystal":356087},
+                {"wood":444213,"marble":673054, "crystal":420603},
+                {"wood":515915,"marble":794863, "crystal":496734},
+                {"wood":599089,"marble":938594, "crystal":586566}//34
             ]
         };
         return {'source': BUILDINGS, 'pos': POSITIONS};

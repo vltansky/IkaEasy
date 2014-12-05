@@ -10,7 +10,7 @@ zJS.Page.__common = {
     _notes: [],
 
     init: function() {
-        //this._checkUpdates();
+        //this._checkUpdates();//@todo доработать проверку событий
         this._animation();
         this._transporter();
         this._nextCity();
@@ -93,7 +93,7 @@ zJS.Page.__common = {
                 if(tmpRes < 0) {
                     wineLeftTime = Math.abs(parseFloat(GlobalWine / tmpRes));
                     wineLeftTime = zJS.Utils.transformHours(wineLeftTime);
-                    //@todo В настройках выбирать прим. "показывать расход за неделю, месяц"
+                    //@todo В настройках выбирать прим. "показывать расход за день, неделю"
                     var wine_tooltip = '<p class="smallFont ikaeasy_delet_me">' + zJS.Lang.left + ': ' + wineLeftTime + '</p>\
                     <p class="smallFont ikaeasy_delet_me">' + zJS.Lang.per_day + ': ' + zJS.Utils.formatNumber(tmpRes * 24) + '</p>\
                     <p class="smallFont ikaeasy_delet_me">' + zJS.Lang.per_week + ': ' + zJS.Utils.formatNumber(tmpRes * 168) + '</p>';
