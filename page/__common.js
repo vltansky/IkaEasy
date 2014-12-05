@@ -86,8 +86,8 @@ zJS.Page.__common = {
                     k=1;
                 while(GlobalWine.slice(-1)=="k"){
                     GlobalWine=GlobalWine.substring(0, GlobalWine.length - 1);
-                    k++; }
-                GlobalWine=GlobalWine.replace(/[^\d+]/g, '')*k;
+                    k*=10; }
+                GlobalWine=(k>1)?GlobalWine.replace(/[^\d+]/g, '')*k:GlobalWine.replace(/[^\d+]/g, '');
                 console.log(GlobalWine);
                 tmpRes -= $("#js_GlobalMenu_WineConsumption").text().replace(/[^\d+]/g, '');
                 if(tmpRes < 0) {
