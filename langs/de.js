@@ -4,15 +4,15 @@
 
 langs.de = {
     'movements':{
-        all: 'all',
-        transport: 'transport',
-        plunder: 'plunder',
-        blockade: 'blockade',
-        deployarmy: 'deploy army',
-        deployfleet: 'deploy fleet',
-        defend: 'defend',
-        defend_port: 'defend port',
-        occupy: 'occupy'
+        all: 'alle',
+        transport: 'verkehr',
+        plunder: 'plündern',
+        blockade: 'vlockade',
+        deployarmy: 'vereitstellung Armee',
+        deployfleet: 'Bereitstellung Flotte',
+        defend: 'verteidigen',
+        defend_port: 'verteidigen Hafen',
+        occupy: 'besetzen'
     },
     'char_day': 'd',
     'char_hour': 'h',
