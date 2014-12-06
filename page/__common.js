@@ -10,8 +10,8 @@ zJS.Page.__common = {
     _notes: [],
 
     init: function() {
-        //this._checkUpdates();//@todo доработать проверку событий
-        this._animation();
+        this.notification_init();
+        this._checkUpdates();//@todo доработать проверку событий
         this._transporter();
         this._nextCity();
         this._addOtherButtons();
@@ -43,14 +43,38 @@ zJS.Page.__common = {
         console.timeEnd('refresh');
         this.init();
     },
+    notification_init: function () {
+        console.log('check notification');
+    if (!Notification) {
+        alert('Please us a modern version of Chrome, Firefox, Opera or Firefox.');
+        return;
+    }
+
+    if (Notification.permission !== "granted")
+        Notification.requestPermission();
+
+    //var notification = new Notification('IkaEasy: new notification', {
+    //    icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+    //    body: message,
+    //});
+
+
+    //notification.onclick = function () {
+    //    window.open("http://stackoverflow.com/a/13328397/1269037");
+    //}
+},
     _checkUpdates: function(){
-        if($("a.premiumactive").length){
+        if($("a.premiumactive").length){//@todo add non premium active & add what advisor
             console.log('====HAVE NEWS====');
             var link = document.createElement('link');
             link.type = 'image/x-icon';
             link.rel = 'shortcut icon';
             link.href = 'http://www.iconj.com/ico/x/k/xknwndqq9w.ico';
             document.getElementsByTagName('head')[0].appendChild(link);
+            new Notification('IkaEasy: new notification', {
+                icon: '/images/advisors/militaryAdvisor.png'//@todo change link
+                //body: message
+            });
         }
         else{
             var new_link = document.createElement('link');
@@ -60,9 +84,6 @@ zJS.Page.__common = {
             document.getElementsByTagName('head')[0].appendChild(new_link);
 
         }
-    },
-    _animation: function(){
-        $('body').addClass('ikaez_animation');
     },
     /*
      * Display resource spend per hour
