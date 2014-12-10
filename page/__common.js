@@ -11,7 +11,7 @@ zJS.Page.__common = {
 
     init: function() {
         this.notification_init();
-        this._checkUpdates();//@todo доработать проверку событий
+        //this._checkUpdates();//@todo доработать проверку событий
         this._transporter();
         this._nextCity();
         this._addOtherButtons();
@@ -64,7 +64,7 @@ zJS.Page.__common = {
     //}
 },
     _checkUpdates: function(){
-        if($("a.premiumactive").length){//@todo add non premium active & add what advisor
+        if($("a.premiumactive").length || $("a.normalactive").length){//@todo add non premium active & add what advisor
             console.log('====HAVE NEWS====');
             var link = document.createElement('link');
             link.type = 'image/x-icon';
@@ -187,7 +187,7 @@ zJS.Page.__common = {
      */
     _setFinance: function() {
         console.time('_setFinance');
-        var LocFinance = zJS.Utils.getLocFinance();
+        var LocFinance = zJS.Utils.getLxocFinance();
         var value = localStorage.getItem(LocFinance),
             np_char = 'ikaeasy_green';
         if(value < 0)

@@ -125,14 +125,15 @@ zJS.Page.island = {
                 var level = ((v.level) && (v.level != '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '';
                 var $cashe_city_gl = $('#cityLocation' + k);
                 var BD;
-                if ( $cashe_city_gl.hasClass("own") ) {
+                if ( $cashe_city_gl.hasClass("own") && score && score!='' ) {
                     BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3) : '';
                 }
                 else{
-                    BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3)-2 : '';
+                    BD = (v.level) ? Math.floor(v.level / 4 + 3)-2: false;
                 }
-                var BD_WRAP='<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' +BD  + '</span>';
+                var BD_WRAP=(BD!=false)?'<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' +BD  + '</span>':'';
                 var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
+                console.log('==>BD WRAP #1');
                 var city = $cashe_city.html() + score + ally + BD_WRAP;//
                 $cashe_city.html(city);
                 if(UpdateLevel==true) {
@@ -165,6 +166,7 @@ zJS.Page.island = {
                         $.each(users_req[v.ownerId], function(k, v) {
                             var $cashe_name = $('#js_cityLocation' + v + 'TitleText');
                             var name = $cashe_name.html();
+                            console.log('===> BD WRAP #2');
                             $cashe_name.html(name + ' #' + _score + BD_WRAP);
                             var $cashe_city_gll = $('#cityLocation' + k);
                             this._recalcWidth(v);
