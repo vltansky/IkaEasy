@@ -111,12 +111,15 @@ zJS.Page.island = {
 
     _showIslandInfo: function(UpdateLevel) {
         UpdateLevel = typeof UpdateLevel !== 'undefined' ? UpdateLevel : true;
-        var id = zJS.Var.getIsland()['islandId'], cities = zJS.Var.getIsland()['cities'], _now = Math.floor((new Date()).getTime() / 1000);
+        var id = zJS.Var.getIsland()['islandId'],
+            cities = zJS.Var.getIsland()['cities'],
+            _now = Math.floor((new Date()).getTime() / 1000);
 
         var users = {}, users_req = {};
         if(zJS.Utils.ls.getValue('users')) {
             users = zJS.Utils.ls.getValue('users');
         }
+        console.log(cities);
 
         $.each(cities, function(k, v) {
             if(v.type == "city") {
@@ -133,15 +136,13 @@ zJS.Page.island = {
                 }
                 var BD_WRAP=(BD!=false)?'<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' +BD  + '</span>':'';
                 var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
-                console.log('==>BD WRAP #1');
-                var city = $cashe_city.html() + score + ally + BD_WRAP;//
+                var city = $cashe_city.html() + score + ally;
                 $cashe_city.html(city);
                 if(UpdateLevel==true) {
                     $cashe_city_gl.append(level);
                 }
 
                 this._recalcWidth(k);
-
                 if(((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) && (!users_req[v.ownerId])) {
                     users_req[v.ownerId] = [k];
 
@@ -149,26 +150,24 @@ zJS.Page.island = {
                         data = $.parseJSON(data)[1][1][1];
 
                         var score = $.trim(data.match(/id="js_selectedCityScore">([^<]+)</)[1].replace(/[\s]+/, '')),
-                            city_level = $.trim(data.match(/id="js_selectedCityLevel">([^<]+)</)[1].replace(/[\s]+/, '')),
+                            //city_level = $.trim(data.match(/id="js_selectedCityLevel">([^<]+)</)[1].replace(/[\s]+/, '')),
                             __score = score.split(/[^\d]/);
                         var _score = __score[0];
-                        console.log(city_level);
+
                         if(__score.length >= 3) {
                             _score += '.' + __score[1][0];
                         }
                         for(var i = 1; i < __score.length; i++) {
                             _score += 'k';
                         }
-                        console.log(_score);
                         users[v.ownerId] = {'h': _score, 's': score.replace(/[^\d]+/g, ''), 'e': _now + 43200};
                         zJS.Utils.ls.setValue('users', users, 86400);
 
                         $.each(users_req[v.ownerId], function(k, v) {
                             var $cashe_name = $('#js_cityLocation' + v + 'TitleText');
                             var name = $cashe_name.html();
-                            console.log('===> BD WRAP #2');
-                            $cashe_name.html(name + ' #' + _score + BD_WRAP);
-                            var $cashe_city_gll = $('#cityLocation' + k);
+                            $cashe_name.html(name + ' #' + _score +BD_WRAP);
+                            //var $cashe_city_gll = $('#cityLocation' + k);
                             this._recalcWidth(v);
                         }.bind(this));
 
@@ -177,6 +176,10 @@ zJS.Page.island = {
                 }
                 else if(users_req[v.ownerId]) {
                     users_req[v.ownerId].push(k);
+                }
+                if(!users_req[v.ownerId]) {
+                    city = $cashe_city.html() + BD_WRAP;
+                    $cashe_city.html(city);
                 }
             }
         }.bind(this));

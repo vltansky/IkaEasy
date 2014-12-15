@@ -187,7 +187,7 @@ zJS.Page.__common = {
      */
     _setFinance: function() {
         console.time('_setFinance');
-        var LocFinance = zJS.Utils.getLxocFinance();
+        var LocFinance = zJS.Utils.getLocFinance();
         var value = localStorage.getItem(LocFinance),
             np_char = 'ikaeasy_green';
         if(value < 0)
