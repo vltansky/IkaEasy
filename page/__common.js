@@ -192,7 +192,6 @@ zJS.Page.__common = {
             np_char = 'ikaeasy_green';
         if(value < 0)
             np_char = 'red';
-        //console.log(value);
         $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me ' + np_char + '">' + zJS.Utils.formatNumber(value) + '</span>');
         console.timeEnd('_setFinance');
     },
