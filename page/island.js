@@ -136,7 +136,7 @@ zJS.Page.island = {
                 }
                 var BD_WRAP=(BD!=false)?'<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' +BD  + '</span>':'';
                 var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
-                var city = $cashe_city.html() + score + ally;
+                var city = $cashe_city.html() + ally + score;
                 $cashe_city.html(city);
                 if(UpdateLevel==true) {
                     $cashe_city_gl.append(level);
@@ -166,7 +166,7 @@ zJS.Page.island = {
                         $.each(users_req[v.ownerId], function(k, v) {
                             var $cashe_name = $('#js_cityLocation' + v + 'TitleText');
                             var name = $cashe_name.html();
-                            $cashe_name.html(name + ' #' + _score +BD_WRAP);
+                            $cashe_name.html(name + ' #' + _score + BD_WRAP);
                             //var $cashe_city_gll = $('#cityLocation' + k);
                             this._recalcWidth(v);
                         }.bind(this));
