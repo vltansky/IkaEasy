@@ -2,7 +2,7 @@ if(typeof langs == "undefined") {
     var langs = {};
 }
 
-langs.en = {
+langs.tr = {
     'movements':{
         all: 'hepsi',
         transport: 'transport',
