@@ -28,7 +28,7 @@ langs.tr = {
     'days': "gün",
     'months': "ay",
     'years': "yıl",
-    'MessagePlaceholder': "CTRLvye tıkla + mesajı göndermek için Enter a tıkla",
+    'MessagePlaceholder': "CTRL ye tıkla + mesajı göndermek için Enter a tıkla",
     'ConfirmDowngrade': "Binayı yıkmak için onayla",
     'Circular_message': "Herkese mesaj gönder",
     'Ally_members': "ittifak",
