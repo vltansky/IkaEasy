@@ -67,4 +67,13 @@ When adding (deleting, moving, renaming) script files, you must update informati
 ##Adding images
 When adding (deleting, moving, renaming) images in directory `image`, you must update information about it in `manifest.json`
 
+##Adding translation
+
+Files for internationalization are located [here](https://github.com/swat-web/IkaEasy/tree/swat/langs).
+
+The language has to be referenced in the /blob/swat/zJS/lng.js file and /blob/swat/manifest.json file to be picked up.
+
+Note: To add a new language, create a new file in that directory.
+The name of the file should be the two-letters [ISO-639-1 language code](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+
 
