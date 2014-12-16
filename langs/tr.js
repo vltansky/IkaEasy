@@ -23,7 +23,7 @@ langs.tr = {
     'per_day': "Her gün",
     'per_week': "Her hafta",
     'per_month': "Her ay",
-    'left': "Sol",
+    'left': "Kalan",
     'hours': "saat",
     'days': "gün",
     'months': "ay",
