@@ -19,7 +19,7 @@ langs.tr = {
     'char_hour': 'h',
     'char_minute': 'm',
     'char_second': 's',
-    'WillBeFullIn': 'Be filled in',
+    'WillBeFullIn': 'Tamamlanması için:',
     'per_day': "Her gün",
     'per_week': "Her hafta",
     'per_month': "Her ay",
