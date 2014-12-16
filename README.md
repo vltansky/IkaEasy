@@ -1,23 +1,23 @@
 # IkaEasy
-Расширения стабильно работает на версии **0.6.2**.
+Extension stable on version **0.6.2**.
 
-Стабильное расширение: https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en
+Main extension: https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en
 
-Расширение для тестов: https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb
+Test extension: https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb
 
-##Структура:
-* **css**     - папка со стилями
-* **icon**    - папка с иконками
-* **images**  - папка с картинками используемыми расширением
-* **inner**   - скрипты, подключаемые на старницу тегом <script>
-* **langs**   - языки
-* **page**    - папка со скрипатами отвечающими за действия на страницах
-* **zJS**     - "движок"
+##Structure:
+* **css**     - stylesheet directory
+* **icon**    - icons directory
+* **images**  - extensions images directory
+* **inner**   - scripts included to page with <script>
+* **langs**   - languages
+* **page**    - scripts that execute on pages (advisors, views e.g island, city)
+* **zJS**     - "engine"
 
-##Добавление нового скрипта
-Создаете файт с произвольным именем в папке `page`.
+##Adding new script
+Create file with custom name in directory `page`.
 
-Заполняете файл:
+Default temaplte of script:
 
         if (typeof zJS == "undefined") {
             zJS = {};
@@ -39,32 +39,32 @@
             }
         };
 
-`zJS.Page.TEMPLATE_ID` - заместо `TEMPLATE_ID` необходимо указать значение переменной `ikariam.templateView.id` или
-`ikariam.backgroundView.id`, по изменении которой должен вызваться этот скрипт.
+`zJS.Page.TEMPLATE_ID` - instead `TEMPLATE_ID` - value of variable `ikariam.templateView.id` or
+`ikariam.backgroundView.id`. When this variables changes - script will be executed.
 
-И в завершении, прописываете его в `manifest.json`, в конец очень длиной строки, к которой уже прописаны остальные файлы.
-
-
-##Принцип работы
-Все скрипты отвечающие за работу на той или иной странице игры находятся в папке `page`.
-
-Скрипт `__common.js` выполняется на каждой странице.
-
-Все остальные скрипты выполняются по мере необходимости, в зависимости от значения переменный `ikariam.templateView.id` и `ikariam.backgroundView.id`.
+And finally add this file to `manifest.json`, to the end of the long line.
 
 
-###Принцип работы скрипта
-Переменная `dont_refresh` определяет, нужно ли переинициализировать скрипт, при обновлении шаблона.
+##How it works
+All scripts, that must be executed on pages are located in directory `page`.
 
-функция `init` вызаывается для инициализации скрипта, когда этот скрипт вызван для работы.
+Script `__common.js` executing on all pages.
 
-Функция `refresh` вызывается при обновлении скрипта (например смена города, или по timeout-у).
+All other pages call by changes values of `ikariam.templateView.id` or `ikariam.backgroundView.id`.
 
 
-##Добавление скриптов
-При добавлении (удалении, перемещении, переименовывании) файлов скриптов, необходимо добавить информацию об этом в файл `manifest.json`
+###How script works
+Value `dont_refresh` define if script must be reinitialize when page refreshed (by ikariam).
 
-##Добавление изображений
-При добавлении (удалении, перемещении, переименовывании) файлов с картинками в папке `image`, необходимо добавить информацию об этом в файл `manifest.json`
+Function `init` calling when page execute.
+
+Function `refresh` by refreshing pages (e.g city change, or by timeout).
+
+
+##Adding script
+When adding (deleting, moving, renaming) script files, you must update information about it in `manifest.json`
+
+##Adding images
+When adding (deleting, moving, renaming) images in directory `image`, you must update information about it in `manifest.json`
 
 
