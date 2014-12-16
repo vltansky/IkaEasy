@@ -13,7 +13,8 @@
                 "langs/en.js",
                 "langs/ru.js",
                 "langs/de.js",
-                "langs/he.js"
+                "langs/he.js",
+                "langs/tr.js"
             ],
             "matches": [
                 "http://*.ikariam.gameforge.com/*",
@@ -198,5 +199,5 @@
         "http://ikalogs.ru/*",
         "http://*.ikalogs.ru/*"
     ],
-    "version": "2.0.0.34"
+    "version": "2.0.0.35"
 }
