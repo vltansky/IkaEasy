@@ -16,6 +16,7 @@ zJS.Page.__common = {
         this._nextCity();
         this._addOtherButtons();
         this._changeForumBtn();
+        this._addIkaEasylinks();
         this._getProduction();
         this._getFinance();
         this._setFinance();
@@ -197,11 +198,11 @@ zJS.Page.__common = {
     },
 
     _changeForumBtn: function() {
-        console.time('_changeForumBtn');
         $('#GF_toolbar').find('li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';
-        console.timeEnd('_changeForumBtn');
     },
-
+    _addIkaEasylinks: function(){
+        $('#GF_toolbar').find('li.ikhelp').prepend('<li class="ikaez_fb_link"><a class="noViewParameters" target="_blank" href="https://www.facebook.com/ikaeasy" title="IkaEasy facebook"> IkaEasy</a></li>')
+    },
     _addOtherButtons: function() {
         console.time('_addOtherButtons');
         if(zJS.Var.getAllyId()) {

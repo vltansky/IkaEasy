@@ -953,3 +953,7 @@ ul#ikaeasy_military_movements #ikaez_movements_all_li {
 table#inboxCity.table01>tbody>tr:hover,table#inboxCity.table01>tbody>tr:focus{
     background-color: #F9DD9E!important;
 }
+
+#GF_toolbar ul{
+    width: 1100px;
+}
