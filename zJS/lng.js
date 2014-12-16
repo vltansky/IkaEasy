@@ -21,6 +21,7 @@ var assignedLng = {
     'de': 'de',
     'rs': 'rs',
     'il': 'il'
+    'tr': 'tr'
 };
 
 var lang = assignedLng[zJS.Utils.getServerDomain()] || 'en';
