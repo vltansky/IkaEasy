@@ -201,7 +201,9 @@ zJS.Page.__common = {
         $('#GF_toolbar').find('li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';
     },
     _addIkaEasylinks: function(){
-        $('#GF_toolbar').find('li.ikhelp').prepend('<li class="ikaez_fb_link"><a class="noViewParameters" target="_blank" href="https://www.facebook.com/ikaeasy" title="IkaEasy facebook"> IkaEasy</a></li>')
+        var $cashe_el=$('#GF_toolbar').find('li.ikhelp:not(.ikaez_completed)');
+        $cashe_el.prepend('<li class="ikaez_fb_link"><a class="noViewParameters" target="_blank" href="https://www.facebook.com/ikaeasy" title="IkaEasy facebook"> IkaEasy</a></li>')
+        $cashe_el.addClass('ikaez_completed');
     },
     _addOtherButtons: function() {
         console.time('_addOtherButtons');
