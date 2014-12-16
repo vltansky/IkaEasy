@@ -111,17 +111,24 @@ zJS.Page.island = {
 
     _showIslandInfo: function(UpdateLevel) {
         UpdateLevel = typeof UpdateLevel !== 'undefined' ? UpdateLevel : true;
+        console.log('SHOW ISLAND INFO ===');
         var id = zJS.Var.getIsland()['islandId'],
             cities = zJS.Var.getIsland()['cities'],
             _now = Math.floor((new Date()).getTime() / 1000);
 
-        var users = {}, users_req = {};
+        var users = {}, users_req = {}, islands_data = {}, active_cities=0;
         if(zJS.Utils.ls.getValue('users')) {
             users = zJS.Utils.ls.getValue('users');
         }
+        if(zJS.Utils.ls.getValue('islands_data')){
+            islands_data=zJS.Utils.ls.getValue('islands_data');
+        }
+
+
 if(!$('.ikaez_score').length>0) {
     $.each(cities, function(k, v) {
         if(v.type == "city") {
+            active_cities++;
             console.log(v.id);
             var score = ((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) ? '<span class="ikaez_score"></span>' : '<span class="ikaez_score"> #' + users[v.ownerId]['h'] + '</span>',
                 ally = ((v.ownerAllyTag) && (v.ownerAllyTag != '')) ? ' [' + v.ownerAllyTag + ']' : '',
@@ -143,9 +150,8 @@ if(!$('.ikaez_score').length>0) {
             }
 
             this._recalcWidth(k);
-            if(((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) && (!users_req[v.ownerId])) {
+            if((((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) && (!users_req[v.ownerId]))) {
                 users_req[v.ownerId] = [k];
-
                 $.get('http://' + top.location.host + '/index.php?view=cityDetails&destinationCityId=' + v.id + '&ajax=1', function(data) {
                     data = $.parseJSON(data)[1][1][1];
 
@@ -179,6 +185,12 @@ if(!$('.ikaez_score').length>0) {
         }
     }.bind(this));
 }
+
+
+        if(islands_data[id] && parseInt(islands_data[id]['count'])!=active_cities){
+            this._sendWorld(true);
+        }
+
         $('#cities').find('div.islandfeature div.scroll_img').each(function() {
             var w = 9;
             $(this).find('div').each(function() {
@@ -198,11 +210,16 @@ if(!$('.ikaez_score').length>0) {
         $(obj).css({width: w, left: 55 - w / 2});
     },
 
-    _sendWorld: function() {
+    _sendWorld: function(force) {
+        console.log(force);
+        force = typeof force !== 'undefined' ? force : false;
+        var islands_data = {}, active_cities=0;
+        if(zJS.Utils.ls.getValue('islands_data')) {
+            islands_data = zJS.Utils.ls.getValue('islands_data');
+        }
         console.log('send map');
         var id = zJS.Var.getIsland()['islandId'], cities = zJS.Var.getIsland()['cities'], _now = Math.floor((new Date()).getTime() / 1000) - 3;
-
-        if(!zJS.Utils.ls.getValue('island_' + id)) {
+        if(!islands_data[id] || force===true) {
             var score = {},
                 users = zJS.Utils.ls.getValue('users'),
                 data = zJS.Var.getIsland(),
@@ -211,9 +228,12 @@ if(!$('.ikaez_score').length>0) {
 
             $.each(cities, function(k, v) {
                 if(v.type == "city") {
-                    if((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) {
-                        ok = false;
-                        return false;
+                    active_cities++;
+                    if(force!==true) {
+                        if((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) {
+                            ok = false;
+                            return false;
+                        }
                     }
 
                     score[v.ownerId] = users[v.ownerId]['s'];
@@ -221,6 +241,7 @@ if(!$('.ikaez_score').length>0) {
             }.bind(this));
 
             if(!ok) {
+                console.log('map: !ok');
                 return;
             }
 
@@ -231,7 +252,8 @@ if(!$('.ikaez_score').length>0) {
             postJSON('http://ikalogs.ru/common/world/', data);
 
             // zJS.Utils.askms({type : 'ajax', url : 'http://ikalogs.ru/common/world/', 'method' : 'post', vars : data}, false);
-            zJS.Utils.ls.setValue('island_' + id, true, 86400 * 2);
+            islands_data[id]={'status': true, 'count':active_cities};
+            zJS.Utils.ls.setValue('islands_data', islands_data, 86400 * 2);
         }
     },
 
