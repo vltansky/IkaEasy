@@ -199,6 +199,7 @@ if(!$('.ikaez_score').length>0) {
     },
 
     _sendWorld: function() {
+        console.log('send map');
         var id = zJS.Var.getIsland()['islandId'], cities = zJS.Var.getIsland()['cities'], _now = Math.floor((new Date()).getTime() / 1000) - 3;
 
         if(!zJS.Utils.ls.getValue('island_' + id)) {

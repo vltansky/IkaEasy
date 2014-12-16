@@ -10,6 +10,7 @@ zJS.Page.city = {
     init: function() {
         this._updateBuilds();
 
+        this.infoBlock();
         this._watcher();
         $('#portOccupierShip1').css('z-index', '9999999');
         $('#portOccupierShip2').css('z-index', '9999999');
@@ -20,7 +21,15 @@ zJS.Page.city = {
         $('#ikaeasy_builds').remove();
         this.init();
     },
-
+    infoBlock: function(){
+       var warehouses=$('.building.warehouse'), sum_lvl=0;
+        console.log(warehouses);
+        for(var i=0;i<warehouses.length;i++){
+            sum_lvl+=parseInt($(warehouses[i]).attr('class').match(/level(\d+)/)[1]);
+        }
+        var protecred_resources=sum_lvl*480+100;
+        console.log(protecred_resources);
+    },
     _updateBuilds: function() {
         var emb = false, myCity = zJS.Var.isMyCity();
 
@@ -61,7 +70,7 @@ zJS.Page.city = {
         }.bind(this));
     },
 
-    _getBuidLvl: function(obj) {
+    _getBuildLvl: function(obj) {
         return $(obj).attr('class').match(/level(\d+)/)[1];
     },
 
