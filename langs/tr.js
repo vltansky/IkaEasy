@@ -28,20 +28,20 @@ langs.tr = {
     'days': "gün",
     'months': "ay",
     'years': "yıl",
-    'MessagePlaceholder': "CTRL ye tıkla + mesajı göndermek için Enter a tıkla",
+    'MessagePlaceholder': "CTRL ye tıkla ve mesajı göndermek için Enter a tıkla",
     'ConfirmDowngrade': "Binayı yıkmak için onayla",
     'Circular_message': "Herkese mesaj gönder",
     'Ally_members': "ittifak",
-    'Attack_All': "All",
-    'Attack_Half': "Half",
-    'Attack_Nothing': "Nothing",
-    'Required': "Required:",
+    'Attack_All': "Hepsi",
+    'Attack_Half': "Yarısı",
+    'Attack_Nothing': "Hiçbiri",
+    'Required': "Gerekli:",
     'Next_Level': "Sonraki Seviye: ",
     'Messages': "Mesajlar",
     'Agora': "Agora",
     'Treaty': "Antlaşma",
     'Alliance': "Board",
-    'Transport': "Transport goods!",
+    'Transport': "Kaynakları taşı!",
     'Send_General_Log': "Send log to ally",
     'Send_General_Log_Header': "Attacks on alliance members",
 
@@ -56,7 +56,7 @@ langs.tr = {
     'ikalogs': {
         'save_log': 'Save log',
         'analyze': 'Analyze',
-        'each': 'Every',
+        'each': 'Her seferinde',
         'help_bw': 'Seperate individual rounds with a comma, or a range of rounds with a dash.',
 
         'get_info': 'Getting data',
@@ -82,5 +82,5 @@ langs.tr = {
         }
     },
 
-    'Transporter': 'Transporter'
+    'Transporter': 'Nakliyat'
 };
