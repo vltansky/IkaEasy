@@ -3,6 +3,7 @@ if(typeof langs == "undefined") {
 }
 
 langs.ru = {
+    'ikaeasy_link': 'https://vk.com/ikariam_easy',
     'movements':{
         all: 'все',
         transport: 'транпортировка',

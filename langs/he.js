@@ -3,6 +3,7 @@ if(typeof langs == "undefined") {
 }
 
 langs.il = {
+    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
         all: 'all',
         transport: 'transport',

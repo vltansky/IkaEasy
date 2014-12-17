@@ -202,7 +202,7 @@ zJS.Page.__common = {
     },
     _addIkaEasylinks: function(){
         var $cashe_el=$('#GF_toolbar').find('li.ikhelp:not(.ikaez_completed)');
-        $cashe_el.prepend('<li class="ikaez_fb_link"><a class="noViewParameters" target="_blank" href="https://www.facebook.com/ikaeasy" title="IkaEasy facebook"> IkaEasy</a></li>')
+        $cashe_el.prepend('<li class="ikaez_fb_link"><a class="noViewParameters" target="_blank" href="'+zJS.Lang.ikaeasy_link+'" title="IkaEasy facebook"> IkaEasy</a></li>')
         $cashe_el.addClass('ikaez_completed');
     },
     _addOtherButtons: function() {

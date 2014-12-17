@@ -3,6 +3,7 @@
 }
 
 langs.de = {
+    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
         all: 'alle',
         transport: 'verkehr',
