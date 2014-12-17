@@ -957,3 +957,10 @@ table#inboxCity.table01>tbody>tr:hover,table#inboxCity.table01>tbody>tr:focus{
 #GF_toolbar ul{
     width: 1100px;
 }
+
+#GF_toolbar .ikaez_fb_link a {
+    color: #A03123;  text-decoration: underline;  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.43);
+}
+#GF_toolbar .ikaez_fb_link a:hover, #GF_toolbar .ikaez_fb_link a:focus {
+    text-decoration: none;
+}
