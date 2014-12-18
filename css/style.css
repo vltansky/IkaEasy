@@ -82,12 +82,11 @@ a#tour-button {
 #contentBottom {background:url(../img/sp-bg-content-bottom.png) no-repeat; height:65px; width:553px;}
 
 #content #menuBox {height:35px; overflow:hidden; padding:31px 33px 0; width:500px;}
-#content ul#tabs, #content .lnkmenu {float: left}
+#content ul#tabs {float: left}
 #content ul#tabs li.last {margin-right:0;}
-#content ul#tabs li, #content .lnkmenu a {float:left; margin-right:4px; width:120px;}
-#content ul#tabs li a, #content .lnkmenu a {text-shadow:0 1px 0 #DFB26F; font-family:Arial, Helvetica, sans-serif; display:block; background:url(../img/sp-bg-content.png) no-repeat -201px -255px; height:15px; padding:10px 2px; overflow:hidden; text-align:center; font-size:18px; color:#612d04; font-weight:700; top:0px; width:115px; }
-#content ul#tabs li a:hover, #content ul#menu li a.current, #content .lnkmenu a.current, #content .lnkmenu a:hover {background-position:-201px -290px; text-decoration:none; text-shadow:0 1px 0 #FFFFFF; top:0px;}
-
+#content ul#tabs li {float:left; margin-right:4px; width:120px;}
+#content ul#tabs li a {text-shadow:0 1px 0 #DFB26F; font-family:Arial, Helvetica, sans-serif; display:block; background:url(../img/sp-bg-content.png) no-repeat -201px -255px; height:15px; padding:10px 2px; overflow:hidden; text-align:center; font-size:18px; color:#612d04; font-weight:700; top:0px; width:115px; }
+#content ul#tabs li a:hover, #content ul#menu li a.current, #content ul#tabs li.active a {background-position:-201px -290px; text-decoration:none; text-shadow:0 1px 0 #FFFFFF; top:0px;}
 
 .tab_content{border-top:none;padding:0;padding-top:10px;overflow:hidden}
 .tab_content a,.tab_content a strong{color:#000}
