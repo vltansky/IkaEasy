@@ -5,19 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=640">
     <title>Ikaeasy Chrome Extension</title>
+      <meta property="og:url" content="http://ikariam-easy.com/" />
     
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
     <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script> 
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1401579030133800',
+            xfbml      : true,
+            version    : 'v2.1'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
     
 <div id="wrapper">
   <div id="page">
@@ -35,46 +46,33 @@
   
   <h2>Extension stable on version 0.6.2.</h2>
   <div class="txt">
-<p>Main extension: <a href="https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en">https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en</a></p>
-<p>Test extension: <a href="https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb">https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb</a></p>
+<p>Install <a href="https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en">stable extension</a> or <a href="https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb">latest build</a> from chrome store</p>
   </div>
 
-  <h2>Whats News</h2>
+  <h2>Latest news</h2>
   <div class="txt">
- <div class="fb-post" data-width="465" data-href="https://www.facebook.com/ikariam.easy/posts/1519897201614511"></div>
+      <div class="fb-post" data-href="https://www.facebook.com/ikariam.easy/posts/1520123068258591" data-width="465"></div>
+      <div class="fb-comments" data-href="http://ikariam-easy.com/#news/id/2" data-width="465" data-numposts="5" data-colorscheme="light"></div>
+
+      <br>
+
+      <div class="fb-post" data-width="465" data-href="https://www.facebook.com/ikariam.easy/posts/1519897201614511"></div>
+      <div class="fb-comments" data-href="http://ikariam-easy.com/#news/id/1" data-width="465" data-numposts="5" data-colorscheme="light"></div>
   </div>
  
-  <h2>Connect with us</h2>
+  <h2>Have an idea or question?</h2>
   <div class="txt">
-<p>
-
-<<<<<<< HEAD
-<div class="fb-comments" data-href="http://ikariam-easy.com/" data-width="475" data-numposts="5" data-colorscheme="light"></div>
-
-
-<div class="fb-comments" data-href="http://ikariam-easy.com/#data2" data-width="475" data-numposts="5" data-colorscheme="light"></div>
-=======
-<div class="fb-comments" data-width="465" data-href="http://ikariam-easy.com/" data-numposts="5" data-colorscheme="light"></div>
->>>>>>> origin/gh-pages
-
-</p>
+<div class="fb-comments" data-href="http://ikariam-easy.com/#feedback" data-width="465" data-numposts="5" data-colorscheme="light"></div>
  </div>
  
-  <h2>Connect with us 2</h2>
+  <h2>Want to join us?</h2>
   <div class="txt">
-
-<div class="fb-comments" data-width="465" data-href="http://ikariam-easy.com/#data2" data-numposts="5" data-colorscheme="light"></div>
+      <p>
+          If you want to join our team. Contact with us by e-mail: <a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a> or skype: fbiswatua. If you're developer - IkaEasy is an open source project, so fork <a href="https://github.com/swat-web/IkaEasy">IkaEasy repository on github</a> and start to work with us right now:)
+      </p>
 
  </div>
- 
- 
-  <h2>try 1</h2>
-  <div class="txt">
- ss
- 
- </div>
- 
-</div>
+                      </div>
 								<div id="extraContent" class="page-content" style="display: none;">
 								</div>
                                 <div id="pageContentBottom"></div>
