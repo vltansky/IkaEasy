@@ -5,12 +5,12 @@
 if(typeof zJS.Page == "undefined") {
     zJS.Page = {};
 }
-var current_units_costs={citizens:0, wood:0, sulfur:0, wine:0, crystal:0}, resources={}, city_resources={};
+var current_units_costs={citizens:0, wood:0, sulfur:0, wine:0, crystal:0}, resources={}, city_resources={}, maxUnitVal={};
 
 function changeMaxValue_barracks(currentElementClass){
     console.log(currentElementClass);//
     var $accumulatedResourcesCosts=$("#accumulatedResourcesCosts"), $each_el=$('ul#units li.unit');//@todo create function for global resources
-    current_units_costs={citizens:0, wood:0, sulfur:0, wine:0, crystal:0}
+    current_units_costs={citizens:0, wood:0, sulfur:0, wine:0, crystal:0};
     $each_el.each(function(index) {
         var _this=$('div.forminput input.textfield', this);
         current_units_costs['citizens'] += _this.val() * resources[index]['citizens'];
@@ -29,9 +29,15 @@ function changeMaxValue_barracks(currentElementClass){
             max[2]=(city_resources['sulfur']-current_units_costs['sulfur'])/resources[index]['sulfur']<max[0]?(city_resources['sulfur']-current_units_costs['sulfur'])/resources[index]['sulfur']:max[0];
             max[3]=(city_resources['wine']-current_units_costs['wine'])/resources[index]['wine']<max[0]?(city_resources['wine']-current_units_costs['wine'])/resources[index]['wine']:max[0];
             max[4]=(city_resources['crystal']-current_units_costs['crystal'])/resources[index]['crystal']<max[0]?(city_resources['crystal']-current_units_costs['crystal'])/resources[index]['crystal']:max[0];
-                var maxVal = Math.floor(Math.min.apply(Math, max)) > 0 ? Math.floor(Math.min.apply(Math, max)) : 0;
-                maxVal+=parseInt($('div.forminput input.textfield', this).val());
-                $('.ikaeasy_barracks_max', this).text('/ '+maxVal);
+                var maxVal = Math.floor(Math.min.apply(Math, max)) > 0 ? Math.floor(Math.min.apply(Math, max)) : Math.floor(Math.min.apply(Math, max)),//maxUnitVal[index]
+                    input_val=parseInt($('div.forminput input.textfield', this).val());
+                maxVal=input_val>0?maxVal+input_val:0;
+            if(input_val<=maxVal) {
+                $('.ikaeasy_barracks_max', this).text('/ ' + maxVal);
+            }
+            else{
+                $('.ikaeasy_barracks_max', this).html('/ <span class="red">' + maxVal + '</span>');
+            }
         }
         catch(ex) {
         }
@@ -64,9 +70,9 @@ function addMaxValue_barracks(){//@todo create option - enable\disable
             max[3]=city_resources['wine']/resources[index]['wine']<max[0]?city_resources['wine']/resources[index]['wine']:max[0];
             max[4]=city_resources['crystal']/resources[index]['crystal']<max[0]?city_resources['crystal']/resources[index]['crystal']:max[0];
 
-            var maxVal = Math.floor(Math.min.apply(Math, max));
+            maxUnitVal[index] = parseInt(Math.floor(Math.min.apply(Math, max)));
 
-            var container = $('<span class="ikaeasy_barracks_max"> / ' + maxVal + '</span>');
+            var container = $('<span class="ikaeasy_barracks_max"> / ' + maxUnitVal[index] + '</span>');
             $('div.forminput', this).append(container);
             i++;
         }
