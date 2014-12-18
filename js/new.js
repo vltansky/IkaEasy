@@ -1,6 +1,5 @@
 /*! ikariam-easy v0.1 | ikariam-easy.com */
-
-                        
+                   
  /*! tab menü */
 $(document).ready(function() {
 	//Default Action 1
