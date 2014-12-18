@@ -39,29 +39,47 @@
             <div id="container">
                 <div id="content">
                     <div id="contentTop">
+                       <!--
+                        <div id="menuBox">
+                            <ul id="menu" class="clearfix">
+                                <li>
+                                    <a id="tab1" href="/main/home" class="current" style="z-index: 20;">Home</a>
+                                </li>
+                                <li>
+                                    <a id="tab2" href="/main/gametour_extended" class="" style="z-index: 20;">Game Tour</a>
+                                </li>
+                                <li>
+                                    <a id="tab3" href="/main/media" class="" style="z-index: 20;">Media</a>
+                                </li>
+                            </ul>
+                        </div>
+                        -->
                         <ul id="tabs" class="tabs">
-                            <li><a href="#tab1">Son Yazılar</a></li>
-                            <li><a href="#tab2">Rastgele</a></li>
-                            <li><a href="#tab3">Yorumlar</a></li>
+                            <li><a href="#tab1">Extension</a></li>
+                            <li><a href="#tab1">What's news</a></li>
+                            <li><a href="#tab2">Developers</a></li>
+                            <li><a href="#tab3">Join Us</a></li>
                         </ul>
-
-                        <div id="tab1" class="tab_content">
-                            <ul><?php wp_get_archives('type=postbypost&limit=10'); ?></ul>
-                        </div>
-
-                        <div id="tab2" class="tab_content">
-                            <ul><?php rastgele_yazi('10'); ?></ul>
-                        </div>
-
-                        <div id="tab3" class="tab_content">
-                            <ul><?php son_yorumlar(); ?></ul>
-                        </div>
-
                     </div>
                     <div id="contentMiddle" class="clearfix">
                         <div id="pageContentWrapper">
                             <div id="pageContentTop"></div>
                             <div id="pageContent" class="page-content clearfix" style="display: block;">
+                                <div id="tab1" class="tab_content">
+                                    aaa
+                                </div>
+
+                                <div id="tab2" class="tab_content">
+                                   bbb
+                                </div>
+
+                                <div id="tab3" class="tab_content">
+                                  ccc
+                                </div>
+
+
+
+
 
                                 <h2>Extension stable on version 0.6.2.</h2>
                                 <div class="txt">

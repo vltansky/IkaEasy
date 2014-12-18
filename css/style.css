@@ -1,3 +1,8 @@
+/* reset layout & set new defaults */
+
+@import url('gf_reset.css');
+@import url('gf_default.css');
+
 html {height:100%;}
 body {
 	font:100 12px/16px  Arial, Helvetica, sans-serif;
@@ -77,12 +82,20 @@ a#tour-button {
 #contentBottom {background:url(../img/sp-bg-content-bottom.png) no-repeat; height:65px; width:553px;}
 
 #content #menuBox {height:35px; overflow:hidden; padding:31px 33px 0; width:500px;}
-#content ul#menu, #content .lnkmenu {float:left;}
-#content ul#menu li.last {margin-right:0;}
-#content ul#menu li, #content .lnkmenu a {float:left; margin-right:4px; width:120px;}
-#content ul#menu li a, #content .lnkmenu a {text-shadow:0 1px 0 #DFB26F; font-family:Arial, Helvetica, sans-serif; display:block; background:url(../img/sp-bg-content.png) no-repeat -201px -255px; height:15px; padding:10px 2px; overflow:hidden; text-align:center; font-size:18px; color:#612d04; font-weight:700; top:0px; width:115px; }
-#content ul#menu li a:hover, #content ul#menu li a.current, #content .lnkmenu a.current, #content .lnkmenu a:hover {background-position:-201px -290px; text-decoration:none; text-shadow:0 1px 0 #FFFFFF; top:0px;}
-#content .lnkmenu a {padding-right:3px;}
+#content ul#tabs, #content .lnkmenu {margin-top: 31px;float: left;margin-left: 31px}
+#content ul#tabs li.last {margin-right:0;}
+#content ul#tabs li, #content .lnkmenu a {float:left; margin-right:4px; width:120px;}
+#content ul#tabs li a, #content .lnkmenu a {text-shadow:0 1px 0 #DFB26F; font-family:Arial, Helvetica, sans-serif; display:block; background:url(../img/sp-bg-content.png) no-repeat -201px -255px; height:15px; padding:10px 2px; overflow:hidden; text-align:center; font-size:18px; color:#612d04; font-weight:700; top:0px; width:115px; }
+#content ul#tabs li a:hover, #content ul#menu li a.current, #content .lnkmenu a.current, #content .lnkmenu a:hover {background-position:-201px -290px; text-decoration:none; text-shadow:0 1px 0 #FFFFFF; top:0px;}
+
+
+.tab_content{border-top:none;padding:0;padding-top:10px;overflow:hidden}
+.tab_content a,.tab_content a strong{color:#000}
+.tab_content a:hover,.tab_content a:hover strong{color:#000;text-decoration:underline}
+.tab_content ul{color:#111;padding-left:35px}
+.tab_content ul li{list-style-type:square;padding-bottom:5px;padding-left:0px}
+.tab_content ul li a{color:black}
+.tab_content ul li a:hover{color:#333;text-decoration:underline}
 
 #content #pageContentTop, #content #pageContentBottom {background:url(../img/sp-bg-content.png) no-repeat -322px -317px; height:3px; width:498px;}
 #content #pageContent {background:url(../img/sp-bg-content-repeat.png) repeat-y -215px 0; min-height:450px;}
