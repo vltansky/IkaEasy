@@ -5,106 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=640">
     <title>Ikaeasy Chrome Extension</title>
+    
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
-    <body>  <div id="wrapper">
-            <div id="page">
-  <div id="header">
+    <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> 
+    
+<div id="wrapper">
+  <div id="page">
+    <div id="header">
   <h2 id="logo"><a id="logoimg" href="/">Ikariam</a></h2>
-  </div>
-                <div id="container">
-                    <div id="content">
-                        <div id="contentTop">
-                        </div>
-                        <div id="contentMiddle" class="clearfix">
-                            <div id="pageContentWrapper">
-                                <div id="pageContentTop"></div>
-                                <div id="pageContent" class="page-content clearfix" style="display: block;">
-
-<h2>Extension stable on version 0.6.2.</h2>
-<div class="txt">
+    </div>
+      <div id="container">
+        <div id="content">
+          <div id="contentTop">
+          </div>
+            <div id="contentMiddle" class="clearfix">
+              <div id="pageContentWrapper">
+                <div id="pageContentTop"></div>
+                  <div id="pageContent" class="page-content clearfix" style="display: block;">
+  
+  <h2>Extension stable on version 0.6.2.</h2>
+  <div class="txt">
 <p>Main extension: <a href="https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en">https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en</a></p>
 <p>Test extension: <a href="https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb">https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb</a></p>
-</div>
+  </div>
+
+  <h2>Whats News</h2>
+  <div class="txt">
+ <div class="fb-post" data-width="465" data-href="https://www.facebook.com/ikariam.easy/posts/1519897201614511"></div>
+  </div>
+ 
+  <h2>Connect with us</h2>
+  <div class="txt">
+<p>
+
+<<<<<<< HEAD
+<div class="fb-comments" data-href="http://ikariam-easy.com/" data-width="475" data-numposts="5" data-colorscheme="light"></div>
 
 
-<h2>Structure:</h2>
-<div class="txt">
-<ul class="task-list">
-<li>
-<strong>css</strong>     - stylesheet directory</li>
-<li>
-<strong>icon</strong>    - icons directory</li>
-<li>
-<strong>images</strong>  - extensions images directory</li>
-<li>
-<strong>inner</strong>   - scripts included to page with </li>
-<li>
-<strong>langs</strong>   - languages</li>
-<li>
-<strong>page</strong>    - scripts that execute on pages (advisors, views e.g island, city)</li>
-<li>
-<strong>zJS</strong>     - "engine"</li>
-</ul>
-</div>
+<div class="fb-comments" data-href="http://ikariam-easy.com/#data2" data-width="475" data-numposts="5" data-colorscheme="light"></div>
+=======
+<div class="fb-comments" data-width="465" data-href="http://ikariam-easy.com/" data-numposts="5" data-colorscheme="light"></div>
+>>>>>>> origin/gh-pages
 
-<h2>Adding new script:</h2>
-<div class="txt">
+</p>
+ </div>
+ 
+  <h2>Connect with us 2</h2>
+  <div class="txt">
 
-<p>Create file with custom name in directory <code>page</code>.</p>
-
-<p>Default temaplte of script:</p>
-
-<pre><code>    if (typeof zJS == "undefined") {
-        zJS = {};
-    }
-
-    if (typeof zJS.Page == "undefined") {
-        zJS.Page = {};
-    }
-
-    zJS.Page.TEMPLATE_ID = {
-        dont_refresh : false,
-
-        init : function() {
-
-        },
-
-        refresh : function() {
-
-        }
-    };
-</code></pre>
-
-<p><code>zJS.Page.TEMPLATE_ID</code> - instead <code>TEMPLATE_ID</code> - value of variable <code>ikariam.templateView.id</code> or
-<code>ikariam.backgroundView.id</code>. When this variables changes - script will be executed.</p>
-
-<p>And finally add this file to <code>manifest.json</code>, to the end of the long line.</p>
-</div>
-     
- <h2>How it works</h2>
-<div class="txt">
-
-<p>All scripts, that must be executed on pages are located in directory <code>page</code>.</p>
-
-<p>Script <code>__common.js</code> executing on all pages.</p>
-
-<p>All other pages call by changes values of <code>ikariam.templateView.id</code> or <code>ikariam.backgroundView.id</code>.</p>
-
-
+<div class="fb-comments" data-width="465" data-href="http://ikariam-easy.com/#data2" data-numposts="5" data-colorscheme="light"></div>
 
  </div>
  
-  <h2>How script works</h2>
-<div class="txt">
-
-<p>Value <code>dont_refresh</code> define if script must be reinitialize when page refreshed (by ikariam).</p>
-
-<p>Function <code>init</code> calling when page execute.</p>
-
-<p>Function <code>refresh</code> by refreshing pages (e.g city change, or by timeout).</p>
+ 
+  <h2>try 1</h2>
+  <div class="txt">
+ ss
+ 
  </div>
-
+ 
 </div>
 								<div id="extraContent" class="page-content" style="display: none;">
 								</div>
