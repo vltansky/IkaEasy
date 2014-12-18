@@ -1,0 +1,17 @@
+[Header]:
+Ikaeasy logo, link with img to chrome store, facebook page, VK page, github
+
+News:
+Loop{ (I mean here will be couple of news)
+{{ POST from facebook }}
+{{comments}}
+}
+
+Join to us:
+{{ links to github and other texts }}
+
+Leave feedback:
+{{comments}}
+
+[Footer]
+Email for support. Copyrights
