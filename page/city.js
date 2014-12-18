@@ -8,6 +8,7 @@ if(typeof zJS.Page == "undefined") {
 
 zJS.Page.city = {
     init: function() {
+        //this.play_sound();
         this._updateBuilds();
 
         this.infoBlock();
@@ -20,6 +21,11 @@ zJS.Page.city = {
     refresh: function() {
         $('#ikaeasy_builds').remove();
         this.init();
+    },
+    play_sound: function(){
+        var audio = new Audio('http://crypteia.webatu.com/sounds/city-view.ogg');
+        audio.volume=0.2;
+        audio.play();
     },
     infoBlock: function(){
        var warehouses=$('.building.warehouse'), sum_lvl=0;
