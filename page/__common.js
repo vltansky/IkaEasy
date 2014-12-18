@@ -65,16 +65,23 @@ zJS.Page.__common = {
     //}
 },
     _checkUpdates: function(){
+        $("#js_GlobalMenu_military").addClass('premiumactive');
+
+        chrome.storage.sync.get('last_generalAdvisor_notification', function(data) {
+            console.log(data);
+        });
         if($("a.premiumactive").length || $("a.normalactive").length){//@todo add non premium active & add what advisor
             console.log('====HAVE NEWS====');
-            var link = document.createElement('link');
-            link.type = 'image/x-icon';
-            link.rel = 'shortcut icon';
-            link.href = 'http://www.iconj.com/ico/x/k/xknwndqq9w.ico';
-            document.getElementsByTagName('head')[0].appendChild(link);
-            new Notification('IkaEasy: new notification', {
-                icon: '/images/advisors/militaryAdvisor.png'//@todo change link
-                //body: message
+            chrome.storage.sync.set({'last_generalAdvisor_notification': zJS.Utils.getDateNow()}, function() {
+                var link = document.createElement('link');
+                link.type = 'image/x-icon';
+                link.rel = 'shortcut icon';
+                link.href = 'http://www.iconj.com/ico/x/k/xknwndqq9w.ico';
+                document.getElementsByTagName('head')[0].appendChild(link);
+                new Notification('IkaEasy: new notification', {
+                    icon: chrome.extension.getURL('images/advisors/militaryAdvisor.png')//@todo change link
+                    //body: message
+                });
             });
         }
         else{

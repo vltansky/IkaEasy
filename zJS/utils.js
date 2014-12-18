@@ -145,21 +145,11 @@ zJS.Utils = {
             localStorage.removeItem(name);
         }
     },
-    settingsStorage: {
-        setItem: function(name, value) {
-            name=zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + name;
-            localStorage.setItem(name,value);
-            return true;
-        },
-        getItem: function(name) {
-            name=zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + name;
-            return localStorage.getItem(name);
-        },
-        removeItem: function(name){
-            name=zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + name;
-            localStorage.removeItem(name);
-            return true;
-        }
+    generateServerName: function(name){
+        return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + name;
+    },
+    getDateNow: function(){
+      return Math.floor((new Date()).getTime() / 1000);
     },
     getUrl: function(str) {
         return chrome.extension.getURL(str);
