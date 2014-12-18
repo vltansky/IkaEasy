@@ -7,7 +7,7 @@ $('body').on('click', 'a[target^=_blank], a[rel^=external], area[target^=_blank]
 });  
         
 /*! reload page */
-$('body').on('click', 'a[target^=sayfayenile], a[rel^=appendix], area[target^=sayfayenile]', function(e) { 
+$('body').on('click', 'a[target^=reloadpage], a[rel^=appendix], area[target^=reloadpage]', function (e) {
     window.location= $(this).attr('href');
     return false;
 });
