@@ -11,13 +11,7 @@ $('body').on('click', 'a[target^=sayfayenile], a[rel^=appendix], area[target^=sa
     window.location= $(this).attr('href');
     return false;
 });
-     
-/*! go top */
-$('body').on('click', 'a', function(e) {
-    $(window).scrollTop(0);
-    e.preventDefault();
-}); 
-                        
+                   
  /*! tab menü */
 $(document).ready(function() {
 	//Default Action 1
