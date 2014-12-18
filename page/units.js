@@ -31,7 +31,7 @@ function changeMaxValue_barracks(currentElementClass){
             max[4]=(city_resources['crystal']-current_units_costs['crystal'])/resources[index]['crystal']<max[0]?(city_resources['crystal']-current_units_costs['crystal'])/resources[index]['crystal']:max[0];
                 var maxVal = Math.floor(Math.min.apply(Math, max)) > 0 ? Math.floor(Math.min.apply(Math, max)) : Math.floor(Math.min.apply(Math, max)),//maxUnitVal[index]
                     input_val=parseInt($('div.forminput input.textfield', this).val());
-                maxVal=input_val>0?maxVal+input_val:0;
+                maxVal=input_val>0?(maxVal+input_val>0?maxVal+input_val:0):0;
             if(input_val<=maxVal) {
                 $('.ikaeasy_barracks_max', this).text('/ ' + maxVal);
             }
