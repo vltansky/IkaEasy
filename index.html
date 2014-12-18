@@ -1,111 +1,131 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=640">
     <title>Ikaeasy Chrome Extension</title>
-      <meta property="og:url" content="http://ikariam-easy.com/" />
-    
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta property="og:url" content="http://ikariam-easy.com/" />
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" async="" src="js/new.js"></script>
 </head>
-    <body>
-<div id="fb-root"></div>
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '1401579030133800',
-            xfbml      : true,
-            version    : 'v2.1'
-        });
-    };
+<body>
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1401579030133800',
+                xfbml: true,
+                version: 'v2.1'
+            });
+        };
 
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-    
-<div id="wrapper">
-  <div id="page">
-    <div id="header">
-  <h2 id="logo"><a id="logoimg" href="/">Ikariam</a></h2>
-    </div>
-      <div id="container">
-        <div id="content">
-          <div id="contentTop">
-          </div>
-            <div id="contentMiddle" class="clearfix">
-              <div id="pageContentWrapper">
-                <div id="pageContentTop"></div>
-                  <div id="pageContent" class="page-content clearfix" style="display: block;">
-  
-  <h2>Extension stable on version 0.6.2.</h2>
-  <div class="txt">
-<p>Install <a href="https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en">stable extension</a> or <a href="https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb">latest build</a> from chrome store</p>
-  </div>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
-  <h2>Latest news</h2>
-  <div class="txt">
-      <div class="fb-post" data-href="https://www.facebook.com/ikariam.easy/posts/1520123068258591" data-width="465"></div>
-      <div class="fb-comments" data-href="http://ikariam-easy.com/#news/id/2" data-width="465" data-numposts="5" data-colorscheme="light"></div>
+    <div id="wrapper">
+        <div id="page">
+            <div id="header">
+                <h2 id="logo"><a id="logoimg" href="/">Ikariam</a></h2>
+            </div>
+            <div id="container">
+                <div id="content">
+                    <div id="contentTop">
+                        <ul id="tabs" class="tabs">
+                            <li><a href="#tab1">Son Yazılar</a></li>
+                            <li><a href="#tab2">Rastgele</a></li>
+                            <li><a href="#tab3">Yorumlar</a></li>
+                        </ul>
 
-      <br>
-
-      <div class="fb-post" data-width="465" data-href="https://www.facebook.com/ikariam.easy/posts/1519897201614511"></div>
-      <div class="fb-comments" data-href="http://ikariam-easy.com/#news/id/1" data-width="465" data-numposts="5" data-colorscheme="light"></div>
-  </div>
- 
-  <h2>Have an idea or question?</h2>
-  <div class="txt">
-<div class="fb-comments" data-href="http://ikariam-easy.com/#feedback" data-width="465" data-numposts="5" data-colorscheme="light"></div>
- </div>
- 
-  <h2>Want to join us?</h2>
-  <div class="txt">
-      <p>
-          If you want to join our team. Contact with us by e-mail: <a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a> or skype: fbiswatua. If you're developer - IkaEasy is an open source project, so fork <a href="https://github.com/swat-web/IkaEasy">IkaEasy repository on github</a> and start to work with us right now:)
-      </p>
-
- </div>
-                      </div>
-								<div id="extraContent" class="page-content" style="display: none;">
-								</div>
-                                <div id="pageContentBottom"></div>
-                            </div>
+                        <div id="tab1" class="tab_content">
+                            <ul><?php wp_get_archives('type=postbypost&limit=10'); ?></ul>
                         </div>
-                        <div id="contentBottom"></div>
+
+                        <div id="tab2" class="tab_content">
+                            <ul><?php rastgele_yazi('10'); ?></ul>
+                        </div>
+
+                        <div id="tab3" class="tab_content">
+                            <ul><?php son_yorumlar(); ?></ul>
+                        </div>
+
                     </div>
+                    <div id="contentMiddle" class="clearfix">
+                        <div id="pageContentWrapper">
+                            <div id="pageContentTop"></div>
+                            <div id="pageContent" class="page-content clearfix" style="display: block;">
+
+                                <h2>Extension stable on version 0.6.2.</h2>
+                                <div class="txt">
+                                    <p>Install <a href="https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en">stable extension</a> or <a href="https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb">latest build</a> from chrome store</p>
+                                </div>
+
+                                <h2>Latest news</h2>
+                                <div class="txt">
+                                    <div class="fb-post" data-href="https://www.facebook.com/ikariam.easy/posts/1520123068258591" data-width="465"></div>
+                                    <div class="fb-comments" data-href="http://ikariam-easy.com/#news/id/2" data-width="465" data-numposts="5" data-colorscheme="light"></div>
+
+                                    <br>
+
+                                    <div class="fb-post" data-width="465" data-href="https://www.facebook.com/ikariam.easy/posts/1519897201614511"></div>
+                                    <div class="fb-comments" data-href="http://ikariam-easy.com/#news/id/1" data-width="465" data-numposts="5" data-colorscheme="light"></div>
+                                </div>
+
+                                <h2>Have an idea or question?</h2>
+                                <div class="txt">
+                                    <div class="fb-comments" data-href="http://ikariam-easy.com/#feedback" data-width="465" data-numposts="5" data-colorscheme="light"></div>
+                                </div>
+
+                                <h2>Want to join us?</h2>
+                                <div class="txt">
+                                    <p>
+                                        If you want to join our team. Contact with us by e-mail: <a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a> or skype: fbiswatua. If you're developer - IkaEasy is an open source project, so fork <a href="https://github.com/swat-web/IkaEasy">IkaEasy repository on github</a> and start to work with us right now:)
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div id="extraContent" class="page-content" style="display: none;">
+                            </div>
+                            <div id="pageContentBottom"></div>
+                        </div>
+                    </div>
+                    <div id="contentBottom"></div>
                 </div>
-                <br class="clearfloat">
             </div>
-			<div id="sunWrapper">
-                <div id="sun"></div>
-            </div>
-            <div id="sky">
-                <div id="clouds-1" style="left: 100%; margin-left: -1416px;"></div>
-                <div id="clouds-2" style="left: 100%; margin-left: -1544px;"></div>
-                <div id="clouds-3" style="left: 100%; margin-left: -1673px;"></div>
-                <div id="birds" style="left: 100%; margin-left: -1544px;"></div>
-                <div id="baloon" style="left: 100%; margin-left: -1544px;"></div>
-            </div>
-            <div id="water"></div>
-            <div id="ship-1" class="ship"></div>
-            <div id="ship-2" class="ship"></div>
-            <div id="submarine" class="ship"></div>
-            <div id="island-left" class="islands"></div>
-            <div id="island-right" class="islands"></div>
-			<div class="push"></div>
+            <br class="clearfloat">
         </div>
-
-		<div id="footer-wrapper">
-            <div id="footer">
-    <p class="copyright">IKAEASY -  Chrome extention for Ikariam.</p>
-</div>
+        <div id="sunWrapper">
+            <div id="sun"></div>
         </div>
+        <div id="sky">
+            <div id="clouds-1" style="left: 100%; margin-left: -1416px;"></div>
+            <div id="clouds-2" style="left: 100%; margin-left: -1544px;"></div>
+            <div id="clouds-3" style="left: 100%; margin-left: -1673px;"></div>
+            <div id="birds" style="left: 100%; margin-left: -1544px;"></div>
+            <div id="baloon" style="left: 100%; margin-left: -1544px;"></div>
+        </div>
+        <div id="water"></div>
+        <div id="ship-1" class="ship"></div>
+        <div id="ship-2" class="ship"></div>
+        <div id="submarine" class="ship"></div>
+        <div id="island-left" class="islands"></div>
+        <div id="island-right" class="islands"></div>
+        <div class="push"></div>
+    </div>
 
-</body></html>
+    <div id="footer-wrapper">
+        <div id="footer">
+            <p class="copyright">IKAEASY -  Chrome extention for Ikariam.</p>
+        </div>
+    </div>
+
+</body>
+</html>

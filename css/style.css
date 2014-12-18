@@ -72,7 +72,7 @@ a#tour-button {
 #container {position:relative; margin-bottom:100px; width:795px; z-index:100;}
 
 #content {float:left; position:relative; width:553px;}
-#contentTop{background:url(../img/sp-bg-content.png) no-repeat -253px 0; height:34px; width:553px;}
+#contentTop{background:url(../img/sp-bg-content.png) no-repeat -253px 0; height:75px; width:553px;}
 #contentMiddle {background:url(../img/sp-bg-box-repeat.png) repeat-y -257px 0; margin:0 10px; min-height:450px; padding:0 20px; width:496px;}
 #contentBottom {background:url(../img/sp-bg-content-bottom.png) no-repeat; height:65px; width:553px;}
 
