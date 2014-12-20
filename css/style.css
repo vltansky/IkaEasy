@@ -28,7 +28,7 @@ h1, h2, h3, h4 {font-family:Arial, Helvetica, sans-serif;}
 #page {position:relative; width:560px; z-index:100; margin:0 auto; padding:40px 0;}
 
 #header {height:150px; position:relative; z-index:300}
-.flag_lang  {text-align: right;}
+
 
 a#btn-fb {margin:0 10px; position:absolute; right:123px; width:197px; z-index:20;}
 a#btn-oi {margin:0 10px; position:absolute; right:323px; width:197px; z-index:20;}
@@ -82,6 +82,7 @@ a#tour-button {
 #contentMiddle {background:url(../img/sp-bg-box-repeat.png) repeat-y -257px 0; margin:0 10px; min-height:450px; padding:0 20px; width:496px;}
 #contentBottom {background:url(../img/sp-bg-content-bottom.png) no-repeat; height:65px; width:553px;}
 
+.flag_lang  {text-align: right;margin-right: 10px}
 #content #menuBox {height:35px; overflow:hidden; padding:31px 33px 0; width:500px;}
 #content ul#tabs {float: left}
 #content ul#tabs li.last {margin-right:0;}
