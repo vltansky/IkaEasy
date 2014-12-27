@@ -72,17 +72,11 @@ a.btn-small:hover {background-position:-201px -172px; text-decoration:none;}
 }
 .extension_area {text-align:center}
 .extension_button { 
-    display: inline-block;
-    width: 35%;
-    background: url(../img/bg_button.jpg) repeat;
-    padding: 8px 18px;
-    text-align: center;
-    border: 2px solid #612D04;
-    color: #222;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 13px;
-    text-decoration: none;
+    height: 54px;
+display: inline-block;
+width: 173px;
+background: url(../img/chrome_stable.png) repeat;
+padding: 8px 18px;
 }
 
 button.btn-big {
