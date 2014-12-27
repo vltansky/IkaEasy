@@ -5,26 +5,26 @@ if(typeof langs == "undefined") {
 langs.en = {
     'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
-        all: 'all',
-        transport: 'transport',
-        plunder: 'plądrowanie',
-        blockade: 'blokada',
-        deployarmy: 'rozmieść wojsko',
-        deployfleet: 'rozmieść flotę',
-        defend: 'broń',
-        defend_port: 'broń portu',
-        occupy: 'okupacja',
-        trade: 'handel'
+        all: 'Wszystko',
+        transport: 'Transport towarów',
+        plunder: 'Plądrowanie',
+        blockade: 'Okupacja',
+        deployarmy: 'Ruchy wojsk',
+        deployfleet: 'Ruchy floty',
+        defend: 'Obrona miast',
+        defend_port: 'Obrona portu',
+        occupy: 'Handel',
+        trade: 'Napady'
     },
     'char_day': 'd',
     'char_hour': 'h',
     'char_minute': 'm',
     'char_second': 's',
-    'WillBeFullIn': 'będzie pełne w ciągu',
-    'per_day': "na dzień",
+    'WillBeFullIn': 'Będzie pełne w ciągu',
+    'per_day': "Na dzień",
     'per_week': "Na tydzień",
     'per_month': "Na miesiąc",
-    'left': "zostało",
+    'left': "Zostało",
     'hours': "godziny",
     'days': "dni",
     'months': "miesiące",
@@ -48,7 +48,7 @@ langs.en = {
 
     'options': {
         'transport': {
-            'header': 'Transporting options type',
+            'header': 'Typ opcji transportu',
             'original': 'GameForge',
             'ikaeasy': 'IkaEasy'
         }
@@ -78,8 +78,8 @@ langs.en = {
             'full': 'Pełny log',
             'short': 'Skrócony log',
             'last': 'Ostatnia runka',
-            'each': 'co 5 runda',
-            'between': 'wybrane rundy'
+            'each': 'Co 5 runda',
+            'between': 'Wybrane rundy'
         }
     },
 
