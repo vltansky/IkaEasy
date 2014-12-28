@@ -71,11 +71,18 @@ a.btn-small:hover {background-position:-201px -172px; text-decoration:none;}
     width:561px;
 }
 .extension_area {text-align:center}
-.extension_button { 
+.extension_button_stable { 
     height: 54px;
 display: inline-block;
 width: 173px;
 background: url(../img/chrome_stable.png) repeat;
+padding: 8px 18px;
+}
+.extension_button_beta { 
+    height: 54px;
+display: inline-block;
+width: 173px;
+background: url(../img/chrome_beta.png) repeat;
 padding: 8px 18px;
 }
 
