@@ -1,4 +1,4 @@
-﻿appendStyle(zJS.Utils.getUrl('css/ikaeasy.css'));
+﻿appendStyle(zJS.Utils.getUrl('css/ikaeasy.css?version=2.0.0.90'));//@todo change with update
 appendStyle('/skin/compiled-' + zJS.Utils.getServerDomain() + '-island.css');
 
 function appendScript(src) {

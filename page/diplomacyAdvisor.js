@@ -68,9 +68,10 @@ function makeActiveLinks() {
 //Добавление вкладки со списком игроков альянса
 function addMembersTab() {
     $('#js_tab_diplomacyMembers').remove();
-    var tabOnClick = "ajaxHandlerCall('?view=diplomacyAlly&listAllyMembers=1'); return false;";
+    var tabOnClick = "ajaxHandlerCall('?view=diplomacyAllyMemberlist&templateView=diplomacyAlly'); return false;";
     var allyTab = $('<li class="tab" id="js_tab_diplomacyMembers" onclick="' + tabOnClick + '"><b class="tab_diplomacyMembers">' + zJS.Lang.Ally_members + '</b></li>');
-    $('ul.tabmenu').css('table-layout', 'inherit').append(allyTab);
+    //$('ul.tabmenu').css('table-layout', 'inherit');
+    $("[id^='js_tab_diplomacyAlly']").after(allyTab);
     if($('table#allyMemberList')[0] != null) {
         $('li', 'ul.tabmenu').each(function() {
             $(this).removeClass('selected');
@@ -143,6 +144,36 @@ zJS.Page.diplomacyTreaty = {
 };
 
 zJS.Page.diplomacyAlly = {
+    init: function() {
+        startAllFunctions()
+    },
+
+    refresh: function() {
+        this.init();
+    }
+};
+
+zJS.Page.diplomacyAllyMemberlist = {
+    init: function() {
+        startAllFunctions()
+    },
+
+    refresh: function() {
+        this.init();
+    }
+};
+
+zJS.Page.diplomacyAllySearch = {
+    init: function() {
+        startAllFunctions()
+    },
+
+    refresh: function() {
+        this.init();
+    }
+};
+
+zJS.Page.diplomacyAllyInfo = {
     init: function() {
         startAllFunctions()
     },
