@@ -155,7 +155,8 @@ zJS.Page.diplomacyAlly = {
 
 zJS.Page.diplomacyAllyMemberlist = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
+        //@todo add statistics for players
     },
 
     refresh: function() {
