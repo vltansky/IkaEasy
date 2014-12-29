@@ -2,6 +2,7 @@ if(typeof langs == "undefined") {
     var langs = {};
 }
 
+//Russian language
 langs.ru = {
     'ikaeasy_link': 'https://vk.com/ikariam_easy',
     'movements':{

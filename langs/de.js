@@ -2,6 +2,7 @@
     var langs = {};
 }
 
+//German language
 langs.de = {
     'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{

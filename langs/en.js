@@ -2,6 +2,7 @@ if(typeof langs == "undefined") {
     var langs = {};
 }
 
+//English language
 langs.en = {
     'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{

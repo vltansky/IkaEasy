@@ -3,10 +3,11 @@ if(typeof  zJS == "undefined") {
 }
 
 var assignedLng = {
-    'ru': 'ru',
-    'en': 'en',
-    'us': 'en',
     'test': 'en',
+    'de': 'de',
+    'en': 'en',
+    'ru': 'ru',
+    'us': 'en',
     'bg': 'bg',
     'it': 'it',
     'ro': 'ro',
@@ -18,9 +19,8 @@ var assignedLng = {
     'mx': 'es',
     'ph': 'es',
     'tw': 'tw',
-    'de': 'de',
     'rs': 'rs',
-    'il': 'il',
+    'il': 'he',
     'tr': 'tr'
 };
 

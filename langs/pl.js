@@ -2,7 +2,8 @@ if(typeof langs == "undefined") {
     var langs = {};
 }
 
-langs.en = {
+//Polish language
+langs.pl = {
     'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
         all: 'Wszystko',

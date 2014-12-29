@@ -2,7 +2,8 @@ if(typeof langs == "undefined") {
     var langs = {};
 }
 
-langs.il = {
+//Hebrew (modern) language
+langs.he = {
     'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
         all: 'all',
