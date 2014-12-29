@@ -1,4 +1,6 @@
-##Ikariam sites which is supported 
+##Ikariam and Ikaeasy which is supported
+
+assignedLng is referenced in the `/zJS/lng.js`
 
 ```
 │ Deutschland // German
@@ -130,7 +132,7 @@
 
 ##Adding translation
 
-Files for internationalization are located [here](https://github.com/swat-web/IkaEasy/tree/swat/langs). To add a new language, create a new file in that directory. 
+Files for internationalization are located [here](https://github.com/swat-web/IkaEasy/tree/swat/langs). To add a new language, create a new file in that directory.
 
 The language has to be referenced in the `/zJS/lng.js` file and `/manifest.json` file to be picked up.
 
