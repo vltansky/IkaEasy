@@ -17,7 +17,7 @@ IkaEasy - is a chrome extension for browser game Ikariam, that add useful featur
 - [Copyright and license](#copyright-and-license)
 
 ## Quick start
-If you're using chrome - install [Main extension](https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en) or [Test extension](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb) and enjoy!
+If you're using chrome - install [main extension (with stable version)](https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en) or [test extension (latest version)](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb) and enjoy!
 
 ##Structure:
 Main files and folders:
