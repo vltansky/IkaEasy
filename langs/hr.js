@@ -1,8 +1,36 @@
-﻿if (typeof langs == "undefined") {
+if (typeof langs == "undefined") {
     var langs = {};
 }
 
-langs.ru = {
+//Croatian language 
+langs.hr = { 
+    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
+    'movements':{
+        all: 'all',
+        transport: 'transport',
+        plunder: 'plunder',
+        blockade: 'blockade',
+        deployarmy: 'deploy army',
+        deployfleet: 'deploy fleet',
+        defend: 'defend',
+        defend_port: 'defend port',
+        occupy: 'occupy',
+        trade: 'trade'
+    },
+    'char_day': 'd',
+    'char_hour': 'h',
+    'char_minute': 'm',
+    'char_second': 's',
+    'WillBeFullIn': 'Be filled in',
+    'per_day': "Per day",
+    'per_week': "Per week",
+    'per_month': "Per month",
+    'left': "Left",
+    'hours': "hours",
+    'days': "days",
+    'months': "months",
+    'years': "years",
+    'MessagePlaceholder': "Click CTRL + Enter to send message",
     'ConfirmDowngrade' : "Da li stvarno želite da srušite 1 nivo ove zgrade?",
     'Circular_message' : "Poruka svima",
 	'Ally_members'     : "Savez",
