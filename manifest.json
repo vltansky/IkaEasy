@@ -10,12 +10,14 @@
     "content_scripts": [
         {
             "js": [
-                "langs/en.js",
-                "langs/ru.js",
                 "langs/de.js",
+                "langs/en.js",
                 "langs/he.js",
-                "langs/tr.js",
-                "langs/pl.js"
+                "langs/hr.js",
+                "langs/pl.js",
+                "langs/ru.js",
+                "langs/sr.js",
+                "langs/tr.js"
             ],
             "matches": [
                 "http://*.ikariam.gameforge.com/*",
