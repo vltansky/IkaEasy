@@ -1,8 +1,9 @@
-﻿if (typeof langs == "undefined") {
+if (typeof langs == "undefined") {
     var langs = {};
 }
 
-langs.ru = {
+//Croatian language 
+langs.hr = { 
     'ConfirmDowngrade' : "Da li stvarno želite da srušite 1 nivo ove zgrade?",
     'Circular_message' : "Poruka svima",
 	'Ally_members'     : "Savez",
