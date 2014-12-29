@@ -1,22 +1,22 @@
 ##Ikariam sites which is supported 
 
 ```
-│ Deutschland //
+│ Deutschland // German
 ├── de.ikariam.gameforge.com
 │   └── added as de.js
-│ Polska //
+│ Polska // Polish	
 ├── pl.ikariam.gameforge.com
 │   └── added as pl.js
-│ United Kingdom //
+│ United Kingdom // English
 ├── en.ikariam.gameforge.com/   -   
 │   └── added as en.js
 │ Russia // Russian
 ├── ru.ikariam.gameforge.com/   -   
 │   └── added as ru.js
-│ Türkiye // 
+│ Türkiye // Turkish
 ├── tr.ikariam.gameforge.com/   -   
 │   └── added as tr.js
-│ USA //
+│ USA // English
 ├── us.ikariam.gameforge.com/   -   
 │   └── added as en.js
 ```
