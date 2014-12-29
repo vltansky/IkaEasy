@@ -13,7 +13,7 @@
             "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*"],
             "run_at": "document_start"
         }, {
-            "js": [ "jquery.js" ],
+            "js": [ "jquery.min.js" ],
             "matches": [ "http://*.ikariam.gameforge.com/*", "https://*.ikariam.gameforge.com/*", "http://ikalogs.ru/*", "http://*.ikalogs.ru/*" ],
             "run_at": "document_end"
         }, {

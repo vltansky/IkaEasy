@@ -22,7 +22,7 @@ If you're using chrome - install [main extension (with stable version)](https://
 ##Structure:
 Main files and folders:
 ```
-bootstrap/
+IkaEasy/
 ├── css/
 │   └── ikaeasy.css
 ├── icon/

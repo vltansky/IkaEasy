@@ -24,7 +24,7 @@
             "run_at": "document_start"
         },
         {
-            "js": ["jquery.js"],
+            "js": ["jquery.min.js"],
             "matches": [
                 "http://*.ikariam.gameforge.com/*",
                 "https://*.ikariam.gameforge.com/*",
