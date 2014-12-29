@@ -1,8 +1,9 @@
-﻿if (typeof langs == "undefined") {
+if (typeof langs == "undefined") {
     var langs = {};
 }
 
-langs.ru = {
+//Serbian language
+langs.sr = {
     'ConfirmDowngrade' : "Да ли стварно желите да срушите 1 ниво ове зграде?",
     'Circular_message' : "Порука свима",
 	'Ally_members'     : "Савез",
