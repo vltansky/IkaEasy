@@ -13,8 +13,10 @@
                 "langs/de.js",
                 "langs/en.js",
                 "langs/he.js",
+                "langs/hr.js",
                 "langs/pl.js",
                 "langs/ru.js",
+                "langs/sr.js",
                 "langs/tr.js"
             ],
             "matches": [
