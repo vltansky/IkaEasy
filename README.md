@@ -1,11 +1,14 @@
 # [IkaEasy](http://ikariam-easy.com/)
 Extension stable on version **0.6.2**.
 
-IkaEasy - is a chrome extension for browser game Ikariam, that add useful features.
+IkaEasy - extension for chrome browser that add many useful features to ikariam. Make your ikariam really easier!
 
 ## Table of contents
 
-- [Quick start](#quick-start)
+- [Quick start](#quick-start)       
+- [Community](#community)
+- [Features](#features)
+- [Supported languages](#supported-languages)
 - [Structure](#structure)
 - [Adding new script](#adding-new-script)
 - [How it works](#how-it-works)
@@ -13,11 +16,47 @@ IkaEasy - is a chrome extension for browser game Ikariam, that add useful featur
 - [Adding script](#adding-script)
 - [Adding images](#adding-images)
 - [Adding translation](#adding-translation)
-- [Community](#community)
 - [Copyright and license](#copyright-and-license)
 
 ## Quick start
 If you're using chrome - install [main extension (with stable version)](https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en) or [test extension (latest version)](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb) and enjoy!
+
+## Community
+
+Keep track of development and community news.
+
+- Like our [Facebook page](https://www.facebook.com/ikariam.easy).
+- Follow us on [VK.com](http://vk.com/ikariam_easy).
+
+## Features:
+
+- Building levels (green circle - enough resources to update, red - not enough. When mouseover - how much resources you need to upgare)
+- City levels and there action points (on island)
+- Alliance and score of player right on the island
+- Movements tabs in military advisor (you can choose what type of movements you want too see)
+- Movements arrival date in military advisor 
+- Movements pictures of units (without clicking on search icon) in military advisor 
+- Highlighing movement when mouseover
+- Making links and images active in diplomacy advisor
+- Sending message with Ctrl+enter
+- Alliance members tab in diplomacy advisor
+- Intergration with ikalogs (save battle log. Much easier publish your battle with it)
+- Gold per hour (on all screens)
+- Resources per hour (on all screens)
+- How much days left with wine
+- Send half\all units
+- "Transport" button moved upper in port
+- Marker (can mark cities of another alliances with other color)
+
+##Supported languages:
+
+- Croatian 
+- English           
+- German  
+- Hebrew (modern)
+- Polish   
+- Russian   
+- Turkish
 
 ##Structure:
 Main files and folders:
@@ -125,14 +164,6 @@ The language has to be referenced in the `/zJS/lng.js` file and `/manifest.json`
 
 Note: The name of the file should be the two-letters [ISO-639-1 language code](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
 
-## Community
-
-Keep track of development and community news.
-
-- Like our [Facebook page](https://www.facebook.com/ikariam.easy).
-- Follow us on [VK.com](http://vk.com/ikariam_easy).
-
 ## Copyright and license
 
 Code and documentation copyright 2014 Vlad Tansky. Code released under [the MIT license](https://github.com/swat-web/IkaEasy/blob/swat/LICENSE.md).
-
