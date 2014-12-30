@@ -6,24 +6,27 @@ assignedLng is referenced in the `/zJS/lng.js`
 │ Deutschland // German
 ├── de.ikariam.gameforge.com
 │   └── assignedLng de.js
-│ Polska // Polish	
-├── pl.ikariam.gameforge.com
-│   └── assignedLng pl.js
-│ United Kingdom // English
-├── en.ikariam.gameforge.com
-│   └── assignedLng en.js
-│ Russia // Russian
-├── ru.ikariam.gameforge.com
-│   └── assignedLng  ru.js
-│ Türkiye // Turkish
-├── tr.ikariam.gameforge.com
-│   └── assignedLng tr.js
-│ USA // English
-├── us.ikariam.gameforge.com
-│   └── assignedLng en.js
 │ Israel // Hebrew (modern)
 ├── il.ikariam.gameforge.com
 │   └── assignedLng he.js
+│ Polska // Polish	
+├── pl.ikariam.gameforge.com
+│   └── assignedLng pl.js
+│ Russia // Russian
+├── ru.ikariam.gameforge.com
+│   └── assignedLng  ru.js
+│ Serbia // Serbian
+├── rs.ikariam.gameforge.com
+│   └── assignedLng sr.js
+│ Türkiye // Turkish
+├── tr.ikariam.gameforge.com
+│   └── assignedLng tr.js
+│ United Kingdom // English
+├── en.ikariam.gameforge.com
+│   └── assignedLng en.js
+│ USA // English
+├── us.ikariam.gameforge.com
+│   └── assignedLng en.js
 ```
 
 ##Ikariam sites which isn't supported yet from ikaeasy
@@ -68,9 +71,9 @@ assignedLng is referenced in the `/zJS/lng.js`
 │ Nederland // Dutch
 ├── nl.ikariam.gameforge.com
 │   └── nl
-│ Norge // ??
+│ Norge // Norwegian
 ├── no.ikariam.gameforge.com
-│   └── ??
+│   └── no
 │ Perú // Spanish
 ├── pe.ikariam.gameforge.com
 │   └── es
@@ -80,9 +83,9 @@ assignedLng is referenced in the `/zJS/lng.js`
 │ Romania // Romanian
 ├── ro.ikariam.gameforge.com
 │   └── ro
-│ Slovenija // ??
+│ Slovenija // Slovene
 ├── si.ikariam.gameforge.com
-│   └── ??
+│   └── sl
 │ Slovensko // Slovak
 ├── sk.ikariam.gameforge.com
 │   └── sk
@@ -92,42 +95,35 @@ assignedLng is referenced in the `/zJS/lng.js`
 │ Sverige // Swedish
 ├── se.ikariam.gameforge.com
 │   └── sv
-│ Venezuela // ??
+│ Venezuela // Spanish
 ├── ve.ikariam.gameforge.com
-│   └── ??
+│   └── es
 │ Ceská Republika // Czech
 ├── cz.ikariam.gameforge.com
 │   └── cs
-│ ?? //
+│ Greece // Greek (modern)
 ├── gr.ikariam.gameforge.com
-│   └── 
-│ ?? //
+│   └── el
+│ Bulgaria // Bulgarian
 ├── bg.ikariam.gameforge.com
-│   └── 
-│ ?? //
-├── rs.ikariam.gameforge.com
-│   └──
-│ ?? //
+│   └── bg
+│ United Arab Emirates // Arabic
 ├── ae.ikariam.gameforge.com
-│   └── 
-│ ?? //
+│   └── ar
+│ Iran // Persian (Farsi)
 ├── ir.ikariam.gameforge.com
-│   └── 
-│ ?? //
+│   └── fa
+│ Taiwan // Chinese	
 ├── tw.ikariam.gameforge.com
-│   └── 
-│ ?? //
+│   └── zh
+│ Hong Kong // Chinese
 ├── hk.ikariam.gameforge.com
-│   └── 
+│   └── zh
 ```
 
 ## Ikariam has not the appendage yet ++
 
 ```
-
-│ ?? // Serbian
-├── ??
-│   └── assignedLng sr.js
 │ ?? // Croatian
 ├── ??
 │   └── assignedLng hr.js
