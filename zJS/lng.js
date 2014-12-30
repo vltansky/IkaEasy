@@ -4,24 +4,24 @@ if(typeof  zJS == "undefined") {
 
 var assignedLng = {
     'test': 'en',
-    'de': 'de',
     'en': 'en',
-    'ru': 'ru',
     'us': 'en',
+    'de': 'de',
+    'il': 'he',
+    'pl': 'pl',
+    'ru': 'ru',
+    'rs': 'sr',
+    'tr': 'tr',
     'bg': 'bg',
     'it': 'it',
     'ro': 'ro',
     'br': 'br',
     'lv': 'lv',
-    'pl': 'pl',
     'ar': 'es',
     'es': 'es',
     'mx': 'es',
     'ph': 'es',
-    'tw': 'tw',
-    'rs': 'rs',
-    'il': 'he',
-    'tr': 'tr'
+    'tw': 'tw'
 };
 
 var lang = assignedLng[zJS.Utils.getServerDomain()] || 'en';

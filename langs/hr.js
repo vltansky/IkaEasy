@@ -59,7 +59,7 @@ langs.hr = {
         'save_log'  : 'Sačuvati izvještaj',
         'analyze'   : 'Analizirati',
         'each'      : 'Svaka',
-        'help_bw'   : 'Upišite pojedinačne runde sa zarezom, ili opseg runda sa crticom.,
+        'help_bw'   : 'Upišite pojedinačne runde sa zarezom, ili opseg runda sa crticom.',
 
         'get_info'  : 'Dobijanje informacije',
         'get_round' : 'Dobijanje izvještaja',
