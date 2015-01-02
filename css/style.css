@@ -99,7 +99,16 @@ a#tour-button {
     display: block;
     margin: 15px auto;
 }
-
+#social {
+	margin-left: 40px;
+	float: left;
+	text-align: center;
+}
+.social {
+	float: left;
+	margin-left: 25px;
+	margin-top: 10px;
+}
 
 
 #container {position:relative; margin-bottom:100px; width:795px; z-index:100;}
