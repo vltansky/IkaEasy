@@ -3,7 +3,7 @@ if(typeof langs == "undefined") {
 }
 
 //Greek language
-langs.gr = {
+langs.el = {
     'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
         all: 'όλα',
