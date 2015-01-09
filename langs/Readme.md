@@ -27,6 +27,9 @@ assignedLng is referenced in the `/zJS/lng.js`
 │ USA // English
 ├── us.ikariam.gameforge.com
 │   └── assignedLng en.js
+│ Greece // Greek (modern)
+├── gr.ikariam.gameforge.com
+│   └── assignedLng el.js
 ```
 
 ##Ikariam sites which isn't supported yet from ikaeasy
@@ -101,9 +104,6 @@ assignedLng is referenced in the `/zJS/lng.js`
 │ Ceská Republika // Czech
 ├── cz.ikariam.gameforge.com
 │   └── cs
-│ Greece // Greek (modern)
-├── gr.ikariam.gameforge.com
-│   └── el
 │ Bulgaria // Bulgarian
 ├── bg.ikariam.gameforge.com
 │   └── bg
