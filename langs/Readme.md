@@ -1,7 +1,5 @@
 ##Ikariam and Ikaeasy which is supported
 
-assignedLng is referenced in the `/zJS/lng.js`
-
 ```
 │ Deutschland // German
 ├── de.ikariam.gameforge.com
