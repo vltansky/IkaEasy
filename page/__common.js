@@ -18,8 +18,10 @@ zJS.Page.__common = {
         this._changeForumBtn();
         this._addIkaEasylinks();
         this._getProduction();
-        this._getFinance();
-        this._setFinance();
+        if(localStorage[zJS.Utils.getPlace() + 'options-gold_per_hour'] != 1) {
+            this._getFinance();
+            this._setFinance();
+        }
         if(document.getElementsByTagName('body')[0].id !== "worldmap_iso") {
             this._addLinkToIslandFeature();
         }

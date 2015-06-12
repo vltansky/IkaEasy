@@ -41,25 +41,27 @@ zJS.Page.militaryAdvisor = {
             trade: $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.mission_icon.trade').length,
             piracyRaid: $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.mission_icon.piracyRaid').length
         };
-        $js_MilitaryMovementsFleetMovementsTable.find('table:not(.ikaeasy_complete)').before('<ul id="ikaeasy_military_movements"><li id="ikaez_movements_all_li"><a href="#" class="ikaez_active" data-ikaeztype="all"><div id="ikaez_movements_all">'+zJS.Lang.movements.all+'</div><div class="ikaez_badge">'+tab_moves.all+'</div></a></li><li><a href="#" data-ikaeztype="transport"><img width="35" src="skin/interface/mission_transport.png" alt="'+zJS.Lang.movements.transport+'"><div class="ikaez_badge">'+tab_moves.transport+'</div></a></li><li><a href="#" data-ikaeztype="plunder"><img width="35"  src="skin/interface/mission_plunder.png" alt="'+zJS.Lang.movements.plunder+'"><div class="ikaez_badge">'+tab_moves.plunder+'</div></a></li><li><a href="#" data-ikaeztype="occupy"><img  width="35" src="skin/interface/mission_occupy.jpg" alt="'+zJS.Lang.movements.occupy+'"><div class="ikaez_badge">'+tab_moves.occupy+'</div></a></li><li><a href="#" data-ikaeztype="blockade"><img width="35"  src="skin/interface/mission_blockade.png" alt="'+zJS.Lang.movements.blockade+'"><div class="ikaez_badge">'+tab_moves.blockade+'</div></a></li><li><a href="#" data-ikaeztype="deployarmy"><img width="35"  src="skin/interface/mission_deployarmy.png" alt="'+zJS.Lang.movements.deployarmy+'"><div class="ikaez_badge">'+tab_moves.deployarmy+'</div></a></li><li><a href="#" data-ikaeztype="deployfleet"><img width="35" src="skin/interface/mission_deployfleet.png" alt="'+zJS.Lang.movements.deployfleet+'"><div class="ikaez_badge">'+tab_moves.deployfleet+'</div></a></li><li><a href="#" data-ikaeztype="defend"><img width="35" src="skin/interface/mission_defend.png" alt="'+zJS.Lang.movements.defend+'"><div class="ikaez_badge">'+tab_moves.defend+'</div></a></li><li><a href="#" data-ikaeztype="defend_port"><img width="35" src="skin/interface/mission_defend_port.png" alt="'+zJS.Lang.movements.defend_port+'"><div class="ikaez_badge">'+tab_moves.defend_port+'</div></a></li><li><a href="#" data-ikaeztype="trade"><img width="35" src="skin/interface/mission_trade.png" alt="'+zJS.Lang.movements.trade+'"><div class="ikaez_badge">'+tab_moves.trade+'</div></a></li><li><a href="#" data-ikaeztype="piracyRaid"><img width="35" src="skin/interface/mission_piracyRaid.png" alt="'+zJS.Lang.movements.piracyRaid+'"><div class="ikaez_badge">'+tab_moves.piracyRaid+'</div></a></li></ul>').addClass('ikaeasy_complete');
-        var $ikaeasy_militaryView_cb=$("#ikaeasy_military_movements a");
+        if(localStorage[zJS.Utils.getPlace() + 'options_movement_tabs'] != 1) {
+            $js_MilitaryMovementsFleetMovementsTable.find('table:not(.ikaeasy_complete)').before('<ul id="ikaeasy_military_movements"><li id="ikaez_movements_all_li"><a href="#" class="ikaez_active" data-ikaeztype="all"><div id="ikaez_movements_all">' + zJS.Lang.movements.all + '</div><div class="ikaez_badge">' + tab_moves.all + '</div></a></li><li><a href="#" data-ikaeztype="transport"><img width="35" src="skin/interface/mission_transport.png" alt="' + zJS.Lang.movements.transport + '"><div class="ikaez_badge">' + tab_moves.transport + '</div></a></li><li><a href="#" data-ikaeztype="plunder"><img width="35"  src="skin/interface/mission_plunder.png" alt="' + zJS.Lang.movements.plunder + '"><div class="ikaez_badge">' + tab_moves.plunder + '</div></a></li><li><a href="#" data-ikaeztype="occupy"><img  width="35" src="skin/interface/mission_occupy.jpg" alt="' + zJS.Lang.movements.occupy + '"><div class="ikaez_badge">' + tab_moves.occupy + '</div></a></li><li><a href="#" data-ikaeztype="blockade"><img width="35"  src="skin/interface/mission_blockade.png" alt="' + zJS.Lang.movements.blockade + '"><div class="ikaez_badge">' + tab_moves.blockade + '</div></a></li><li><a href="#" data-ikaeztype="deployarmy"><img width="35"  src="skin/interface/mission_deployarmy.png" alt="' + zJS.Lang.movements.deployarmy + '"><div class="ikaez_badge">' + tab_moves.deployarmy + '</div></a></li><li><a href="#" data-ikaeztype="deployfleet"><img width="35" src="skin/interface/mission_deployfleet.png" alt="' + zJS.Lang.movements.deployfleet + '"><div class="ikaez_badge">' + tab_moves.deployfleet + '</div></a></li><li><a href="#" data-ikaeztype="defend"><img width="35" src="skin/interface/mission_defend.png" alt="' + zJS.Lang.movements.defend + '"><div class="ikaez_badge">' + tab_moves.defend + '</div></a></li><li><a href="#" data-ikaeztype="defend_port"><img width="35" src="skin/interface/mission_defend_port.png" alt="' + zJS.Lang.movements.defend_port + '"><div class="ikaez_badge">' + tab_moves.defend_port + '</div></a></li><li><a href="#" data-ikaeztype="trade"><img width="35" src="skin/interface/mission_trade.png" alt="' + zJS.Lang.movements.trade + '"><div class="ikaez_badge">' + tab_moves.trade + '</div></a></li><li><a href="#" data-ikaeztype="piracyRaid"><img width="35" src="skin/interface/mission_piracyRaid.png" alt="' + zJS.Lang.movements.piracyRaid + '"><div class="ikaez_badge">' + tab_moves.piracyRaid + '</div></a></li></ul>').addClass('ikaeasy_complete');
+            var $ikaeasy_militaryView_cb = $("#ikaeasy_military_movements a");
 
 
-        $ikaeasy_militaryView_cb.on("click", function() {
-            var action=$(this).data('ikaeztype');
-            $ikaeasy_militaryView_cb.removeClass('ikaez_active');
-            $(this).addClass('ikaez_active');
-            updateTableActions(action);
-            //zJS.Utils.settingsStorage.setItem('MilitaryMovements_tab', action);
-        });
+            $ikaeasy_militaryView_cb.on("click", function () {
+                var action = $(this).data('ikaeztype');
+                $ikaeasy_militaryView_cb.removeClass('ikaez_active');
+                $(this).addClass('ikaez_active');
+                updateTableActions(action);
+                //zJS.Utils.settingsStorage.setItem('MilitaryMovements_tab', action);
+            });
 
-        function updateTableActions(action){
-            console.log('update table actions');
-            if(action=="all") {
-                $js_MilitaryMovementsFleetMovementsTable.find('tr').show();
-            }else{
-                $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.mission_icon').hide();
-                $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.' + action).show();
+            function updateTableActions(action) {
+                console.log('update table actions');
+                if (action == "all") {
+                    $js_MilitaryMovementsFleetMovementsTable.find('tr').show();
+                } else {
+                    $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.mission_icon').hide();
+                    $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.' + action).show();
+                }
             }
         }
 

@@ -52,7 +52,22 @@ langs.hr = {
 			'header' : 'Vrsta transporta resursa',
 			'original' : 'GameForge',
 			'Ikaeasy' : 'IkaEasy'
-		}
+		},
+        'movement_tabs': {
+            'header': 'Movement tabs',
+            'enable': 'active',
+            'disable': 'unactive'
+        },
+        'gold_per_hour': {
+            'header': 'Gold сonsumption',
+            'enable': 'active',
+            'disable': 'unactive'
+        },
+        'island_ap': {
+            'header': 'Action points on island view',
+            'enable': 'active',
+            'disable': 'unactive'
+        }
 	},
 
     'ikalogs' : {

@@ -18,7 +18,8 @@
                 "langs/ru.js",
                 "langs/sr.js",
                 "langs/tr.js",
-                "langs/el.js"
+                "langs/el.js",
+                "langs/lt.js"
             ],
             "matches": [
                 "http://*.ikariam.gameforge.com/*",

@@ -1,8 +1,10 @@
+
 #ikaeasy_builds {
     margin: 0;
     overflow: hidden;
     position: absolute;
 }
+
 
 .ikaeasy_watcher {
     position: absolute;
@@ -16,11 +18,11 @@
     width: 28px;
     color: white;
     text-align: center;
-    line-height: 31px;
+    line-height: 32px;
     font-weight: bold;
     float: left;
     position: absolute;
-    top: -12px;
+    top: -8px;
 }
 
 .ikaeasy_watcher.build_red .ikaeasy_watcher_circle {
