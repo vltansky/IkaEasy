@@ -54,19 +54,19 @@ langs.ru = {
             'Ikaeasy': 'IkaEasy'
         },
         'movement_tabs': {
-            'header': 'Movement tabs',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Вкладки передвижений',
+            'enable': 'активировано',
+            'disable': 'неактивно'
         },
         'gold_per_hour': {
-            'header': 'Gold сonsumption',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Расход золота',
+            'enable': 'активировано',
+            'disable': 'неактивно'
         },
         'island_ap': {
-            'header': 'Action points on island view',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Отображение баллов действия на острове',
+            'enable': 'активировано',
+            'disable': 'неактивно'
         }
     },
 
