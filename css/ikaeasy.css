@@ -25,6 +25,19 @@
     top: -8px;
 }
 
+.development_content {
+    margin: 10px 15px;
+}
+
+.development_content a {
+    text-decoration: underline;
+    color: #2596B6;
+}
+
+.development_content .img_center {
+    text-align:center;
+}
+
 .ikaeasy_watcher.build_red .ikaeasy_watcher_circle {
     background: url(../images/circleRed.png) no-repeat center left;
 }
@@ -962,7 +975,15 @@ table#inboxCity.table01>tbody>tr:hover,table#inboxCity.table01>tbody>tr:focus{
 }
 
 #GF_toolbar .ikaez_fb_link a {
-    color: #A03123;  text-decoration: underline;  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.43);
+    color: #FFFFFF;
+    background-color: #E74939;
+    padding: 5px 8px;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.43);
+    margin-top: 4px;
+    border-radius: 9px;
+    font-weight: normal;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    margin-right: 0px;
 }
 #GF_toolbar .ikaez_fb_link a:hover, #GF_toolbar .ikaez_fb_link a:focus {
     text-decoration: none;

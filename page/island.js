@@ -135,15 +135,17 @@ if(!$('.ikaez_score').length>0) {
                 level = ((v.level) && (v.level != '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '',
                 $cashe_city_gl = $('#cityLocation' + k),
                 BD;
-            if($cashe_city_gl.hasClass("own") && score && score != '') {
-                BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3) : '';
+            var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
+            var city = $cashe_city.html() + ally + score;
+            if(localStorage[zJS.Utils.getPlace() + 'options-island_ap'] != 1) {
+                if ($cashe_city_gl.hasClass("own") && score && score != '') {
+                    BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3) : '';
+                }
+                else {
+                    BD = (v.level) ? Math.floor(v.level / 4 + 3) - 2 : false;
+                }
+                city += (BD != false) ? '<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' + BD + '</span>' : '';
             }
-            else {
-                BD = (v.level) ? Math.floor(v.level / 4 + 3) - 2 : false;
-            }
-            var BD_WRAP = (BD != false) ? '<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' + BD + '</span>' : '',
-                $cashe_city = $('#js_cityLocation' + k + 'TitleText');
-            var city = $cashe_city.html() + ally + score + BD_WRAP;
             $cashe_city.html(city);
             if(UpdateLevel == true) {
                 $cashe_city_gl.append(level);

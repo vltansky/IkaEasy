@@ -28,6 +28,9 @@
 │ Greece // Greek (modern)
 ├── gr.ikariam.gameforge.com
 │   └── assignedLng el.js
+│ Lietuva // Lithuanian
+├── lt.ikariam.gameforge.com
+│   └── lt
 ```
 
 ##Ikariam sites which isn't supported yet from ikaeasy
@@ -60,9 +63,6 @@
 │ Latvija // Latvian
 ├── lv.ikariam.gameforge.com
 │   └── lv
-│ Lietuva // Lithuanian
-├── lt.ikariam.gameforge.com
-│   └── lt
 │ Magyarország // Hungarian
 ├── hu.ikariam.gameforge.com
 │   └── hu

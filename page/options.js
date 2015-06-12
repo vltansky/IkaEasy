@@ -31,7 +31,10 @@ function AddIkaEasyOptionsfunction() {
     var gold_per_hour_enabled = '<div id="ikaeasy_options-gold_per_hour_enabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.gold_per_hour.enable + '</span></div>';
     var gold_per_hour_disabled= '<div id="ikaeasy_options-gold_per_hour_disabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.gold_per_hour.disable + '</span></div>';
 
-    $('<table class="options table01"><tr><td>'+ zJS.Lang.options.transport.header +'</td><td class="left"><form>' + transportOriginalTxt + transportIkaeasyTxt + '</form></td></tr><tr><td>'+ zJS.Lang.options.movement_tabs.header +'</td><td class="left"><form>' + movement_tabs_enabled + movement_tabs_disabled + '</form></td></tr><tr><td>'+ zJS.Lang.options.gold_per_hour.header +'</td><td class="left"><form>' + gold_per_hour_enabled + gold_per_hour_disabled + '</form></td></tr></table>').appendTo(transportOptionsContent);
+    var ap_enabled = '<div id="ikaeasy_options-ap_enabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.island_ap.enable + '</span></div>';
+    var ap_disabled= '<div id="ikaeasy_options-ap_disabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.island_ap.disable + '</span></div>';
+
+    $('<table class="options table01"><tr><td>'+ zJS.Lang.options.transport.header +'</td><td class="left"><form>' + transportOriginalTxt + transportIkaeasyTxt + '</form></td></tr><tr><td>'+ zJS.Lang.options.movement_tabs.header +'</td><td class="left"><form>' + movement_tabs_enabled + movement_tabs_disabled + '</form></td></tr><tr><td>'+ zJS.Lang.options.gold_per_hour.header +'</td><td class="left"><form>' + gold_per_hour_enabled + gold_per_hour_disabled + '</form></td></tr><tr><td>'+ zJS.Lang.options.island_ap.header +'</td><td class="left"><form>' + ap_enabled + ap_disabled + '</form></td></tr></table>').appendTo(transportOptionsContent);
 
     if(localStorage[zJS.Utils.getPlace() + 'transporter-type'] == 1) {
         $('#Img', '#ikaeasyIkaeasyTransport').addClass('checked');
@@ -89,6 +92,34 @@ function AddIkaEasyOptionsfunction() {
         localStorage[zJS.Utils.getPlace() + 'options_movement_tabs'] = 1;
     });
     //Gold per hour END
+
+    if(localStorage[zJS.Utils.getPlace() + 'options-island_ap'] == 1) {
+        $('#Img', '#ikaeasy_options-ap_disabled').addClass('checked');
+    }
+    else {
+        $('#Img', '#ikaeasy_options-ap_enabled').addClass('checked');
+    }
+
+    $('#ikaeasy_options-ap_enabled').click(function() {
+        $('#Img', this).addClass('checked');
+        $('#Img', '#ikaeasy_options-ap_disabled').removeClass('checked');
+        localStorage[zJS.Utils.getPlace() + 'options-island_ap'] = 0;
+    });
+    $('#ikaeasy_options-ap_disabled').click(function() {
+        $('#Img', this).addClass('checked');
+        $('#Img', '#ikaeasy_options-ap_enabled').removeClass('checked');
+        localStorage[zJS.Utils.getPlace() + 'options-island_ap'] = 1;
+    });
+    //Gold per hour END
+
+
+    //Development section
+    var devSection = $('<div class="contentBox01h" id="ikaeasyDev" />').appendTo(tabContent);
+    $('<h3 class="header">Development</h3>').appendTo(devSection);
+    var devSectionContent = $('<div class="content" />').appendTo(devSection);
+    $('<div class="footer" />').appendTo(devSection);
+    $('<div class="development_content">'+zJS.Lang.options.development.overview+'</div>').appendTo(devSectionContent);
+
 }
 zJS.Page.options = {
     init: function() {
