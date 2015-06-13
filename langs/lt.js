@@ -34,7 +34,7 @@ langs.lt = {
     'MessagePlaceholder': "Click CTRL + Enter to send message",
     'ConfirmDowngrade': "Patvirtink griovimą",
     'Circular_message': "Siųsti masinę žinutę",
-    'Ally_members': "Alijansas",
+    'Ally_members': "Aljansas",
     'Attack_All': "Visi",
     'Attack_Half': "Pusė",
     'Attack_Nothing': "Nulis",
@@ -43,9 +43,9 @@ langs.lt = {
     'Messages': "Žinutės",
     'Agora': "Agora",
     'Treaty': "Sutartis",
-    'Alliance': "Alijansas",
+    'Alliance': "Forumas",
     'Transport': "Gabenti prekes!",
-    'Send_General_Log': "Siųsti ataskaitą alijansui",
+    'Send_General_Log': "Siųsti ataskaitą aljansui",
     'Send_General_Log_Header': "Alijanso narių atakos",
 
     'options': {

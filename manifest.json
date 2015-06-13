@@ -197,7 +197,7 @@
         "images/advisors/militaryAdvisor.png"
     ],
 
-    "name": "Ikariam Easy - new feature tests",
+    "name": "Ikariam Easy V2",
     "permissions": [
         "storage",
         "tabs",
@@ -206,5 +206,5 @@
         "http://ikalogs.ru/*",
         "http://*.ikalogs.ru/*"
     ],
-    "version": "2.0.0.41"
+    "version": "2.0.0.43"
 }
