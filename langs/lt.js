@@ -46,7 +46,7 @@ langs.lt = {
     'Alliance': "Forumas",
     'Transport': "Gabenti prekes!",
     'Send_General_Log': "Siųsti ataskaitą aljansui",
-    'Send_General_Log_Header': "Alijanso narių atakos",
+    'Send_General_Log_Header': "Aljanso narių atakos",
 
     'options': {
         'transport': {
