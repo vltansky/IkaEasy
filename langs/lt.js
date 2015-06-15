@@ -42,7 +42,7 @@ langs.lt = {
     'Next_Level': "Kitam lygiui:",
     'Messages': "Žinutės",
     'Agora': "Agora",
-    'Treaty': "Sutartis",
+    'Treaty': "Sutartys",
     'Alliance': "Forumas",
     'Transport': "Gabenti prekes!",
     'Send_General_Log': "Siųsti ataskaitą aljansui",
