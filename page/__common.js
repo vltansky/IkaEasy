@@ -12,6 +12,7 @@ zJS.Page.__common = {
     init: function() {
         this.notification_init();
         //this._checkUpdates();//@todo доработать проверку событий
+        this._getUserData();
         this._transporter();
         this._nextCity();
         this._addOtherButtons();
@@ -49,7 +50,7 @@ zJS.Page.__common = {
     notification_init: function () {
         console.log('check notification');
     if (!Notification) {
-        alert('Please us a modern version of Chrome, Firefox, Opera or Firefox.');
+        alert('Please use a modern version of Chrome, Firefox, Opera or Firefox.');
         return;
     }
 
@@ -185,6 +186,40 @@ zJS.Page.__common = {
                     }
                 });
                 console.timeEnd('_getFinance::ajax');
+            }
+            catch(err) {
+                console.log(err);
+            }
+        }
+        console.timeEnd('_getFinance');
+    },
+    /*
+     * Get finance per hour
+     */
+    _getUserData: function() {
+        console.time('_getUserData');
+
+        if(localStorage.getItem('user_data') == null) {
+        //if(true) {
+            console.log('Ajax get user data');
+            try {
+                console.time('_getFinance::ajax');
+                $.ajax({
+                    url: '/index.php',
+                    success: function(data) {
+                        var ex;
+                        var start = data.indexOf('dataSetForView = {') + 'dataSetForView = {'.length;
+                        var end = data.indexOf('bgViewData: bgViewData,', start);
+                        ex = data.substring(start, end);
+                        ex = ex.replace(/\/\*.+?\*\/|\/\/.*(?=[\n\r])/g, '');
+                        var backgroundView = null, hasAlly = null;
+                        eval("ex = {"+ex+"}");
+                        console.log(ex);
+// TODO send to server
+                        localStorage.setItem("user_data", JSON.stringify(ex));
+                    }
+                });
+                console.timeEnd('_getUserData::ajax');
             }
             catch(err) {
                 console.log(err);
