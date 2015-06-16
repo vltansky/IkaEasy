@@ -31,6 +31,7 @@ zJS.Page.__common = {
     refresh: function() {
         console.log('=========== REFRESH =============');
         console.time('refresh');
+        console.log('test');
         //this._checkUpdates();
         $('#ikaeasy_nextCity').remove();
         $('#ikaeasy_transporter').parent().parent().parent().parent().parent().remove();
