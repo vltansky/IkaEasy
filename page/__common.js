@@ -12,6 +12,10 @@ zJS.Page.__common = {
     init: function() {
         this.notification_init();
         //this._checkUpdates();//@todo доработать проверку событий
+        console.log(localStorage.getItem("popup_v1"));
+        if(!localStorage.getItem("popup_v1")) {
+            this.init_popup();
+        }
         this._getUserData();
         this._transporter();
         this._nextCity();
@@ -31,7 +35,6 @@ zJS.Page.__common = {
     refresh: function() {
         console.log('=========== REFRESH =============');
         console.time('refresh');
-        console.log('test');
         //this._checkUpdates();
         $('#ikaeasy_nextCity').remove();
         $('#ikaeasy_transporter').parent().parent().parent().parent().parent().remove();
@@ -68,6 +71,18 @@ zJS.Page.__common = {
     //    window.open("http://stackoverflow.com/a/13328397/1269037");
     //}
 },
+    init_popup: function(){
+        if($("#ikaez_popup").length<1) {
+            $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
+        }
+
+        $("#dismiss_popup").on('click', function(){
+            console.log('dissmis');
+            $("#ikaez_popup").hide();
+        });
+
+        localStorage.setItem("popup_v1", true);
+    },
     _checkUpdates: function(){
         $("#js_GlobalMenu_military").addClass('premiumactive');
 
@@ -199,25 +214,44 @@ zJS.Page.__common = {
      */
     _getUserData: function() {
         console.time('_getUserData');
-
-        if(localStorage.getItem('user_data') == null) {
-        //if(true) {
+console.log(zJS.Utils.getItem('user_data'));
+        if(!zJS.Utils.getItem('user_data')) {
             console.log('Ajax get user data');
             try {
                 console.time('_getFinance::ajax');
                 $.ajax({
                     url: '/index.php',
                     success: function(data) {
-                        var ex;
+                        var userData;
                         var start = data.indexOf('dataSetForView = {') + 'dataSetForView = {'.length;
                         var end = data.indexOf('bgViewData: bgViewData,', start);
-                        ex = data.substring(start, end);
-                        ex = ex.replace(/\/\*.+?\*\/|\/\/.*(?=[\n\r])/g, '');
+                        userData = data.substring(start, end);
+                        userData = userData.replace(/\/\*.+?\*\/|\/\/.*(?=[\n\r])/g, '');
                         var backgroundView = null, hasAlly = null;
-                        eval("ex = {"+ex+"}");
-                        console.log(ex);
+                        eval("userData = {"+userData+"}");
+                        $.ajax({
+                            url: zJS.Config.server_url + '/users',
+                            type: 'post',
+                            data: {
+                                'user_id' : userData.avatarId,
+                                'ally_id' : userData.avatarAllyId,
+                                'server' : zJS.Utils.getServerWorld(),
+                                'language' : zJS.Utils.getServerDomain()
+                            },
+                            success: function(data) {
+                                console.log(data.message);
+                                zJS.Utils.setItem("user_data", userData);
+                                console.log('set user');
+                            },
+                            error: function(data){
+                                console.log(data.responseJSON.message);
+                                if(data.responseJSON.code == '1'){
+                                    console.log('set user');
+                                    zJS.Utils.setItem("user_data", JSON.stringify(userData));
+                                }
+                            }
+                        });
 // TODO send to server
-                        localStorage.setItem("user_data", JSON.stringify(ex));
                     }
                 });
                 console.timeEnd('_getUserData::ajax');

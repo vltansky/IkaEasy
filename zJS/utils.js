@@ -9,7 +9,20 @@ Array.prototype.remove = function(from, to) {
 };
 
 
+zJS.Config = {
+    //server_url: 'http://localhost:8080/ikaeasy-server/server.php/api/v1'
+    server_url: 'http://multitan.co.il/ikaeasy/server.php/api/v1'
+};
+
 zJS.Utils = {
+    setItem: function(name, value){
+        localStorage.setItem(this.getServerDomain() + "_" + this.getServerWorld() + "_" + name, value);
+        return true;
+    },
+
+    getItem: function(name){
+        return localStorage.getItem(this.getServerDomain() + "_" + this.getServerWorld() + "_"+name);
+    },
     replaceAll: function(s1, s2) {
         return this.split(s1).join(s2)
     },

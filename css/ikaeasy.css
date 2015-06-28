@@ -992,3 +992,35 @@ table#inboxCity.table01>tbody>tr:hover,table#inboxCity.table01>tbody>tr:focus{
 ul.tabmenu{
     table-layout:inherit!important;
 }
+
+#ikaez_popup .messagebox {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+#ikaez_popup .messagebox a {
+    text-decoration: underline;
+    color: #008AE3;
+}
+
+#ikaez_popup .messagebox .img_center {
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+#ikaez_popup .messagebox .img_center img {
+    float: none;
+}
+
+a#dismiss_popup {
+    display: inline-block;
+    float: none;
+    margin-top: 15px;
+}
+
+div#ikaez_popup {
+    text-align: center;
+}
