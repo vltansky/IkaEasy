@@ -12,10 +12,7 @@ zJS.Page.__common = {
     init: function() {
         this.notification_init();
         //this._checkUpdates();//@todo доработать проверку событий
-        console.log(localStorage.getItem("popup_v1"));
-        if(!localStorage.getItem("popup_v1")) {
-            this.init_popup();
-        }
+        this.init_popup();
         this._getUserData();
         this._transporter();
         this._nextCity();
@@ -72,16 +69,19 @@ zJS.Page.__common = {
     //}
 },
     init_popup: function(){
-        if($("#ikaez_popup").length<1) {
-            $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
+        if((localStorage.getItem("popup_v2") != null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 5) || localStorage.getItem("popup_date") == null) {
+            if ($("#ikaez_popup").length < 1) {
+                $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
+            }
+
+            $("#dismiss_popup").on('click', function () {
+                console.log('dissmis');
+                $("#ikaez_popup").hide();
+            });
+
+            localStorage.setItem("popup_v2", true);
+            localStorage.setItem("popup_date", new Date());
         }
-
-        $("#dismiss_popup").on('click', function(){
-            console.log('dissmis');
-            $("#ikaez_popup").hide();
-        });
-
-        localStorage.setItem("popup_v1", true);
     },
     _checkUpdates: function(){
         $("#js_GlobalMenu_military").addClass('premiumactive');
