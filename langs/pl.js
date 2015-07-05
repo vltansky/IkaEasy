@@ -6,99 +6,99 @@ if(typeof langs == "undefined") {
 langs.pl = {
     'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
-        all: 'Wszystko',
-        transport: 'Transport towarów',
-        plunder: 'Plądrowanie',
-        blockade: 'Okupacja',
-        deployarmy: 'Ruchy wojsk',
-        deployfleet: 'Ruchy floty',
-        defend: 'Obrona miast',
-        defend_port: 'Obrona portu',
-        occupy: 'Handel',
-        trade: 'Napady'
+        all: 'all',
+        transport: 'transport',
+        plunder: 'plunder',
+        blockade: 'blockade',
+        deployarmy: 'deploy army',
+        deployfleet: 'deploy fleet',
+        defend: 'defend',
+        defend_port: 'defend port',
+        occupy: 'occupy',
+        trade: 'trade'
     },
     'char_day': 'd',
     'char_hour': 'h',
     'char_minute': 'm',
     'char_second': 's',
-    'WillBeFullIn': 'Będzie zapełniony w ciągu',
+    'WillBeFullIn': 'Będzie pełny w',
     'per_day': "Na dzień",
     'per_week': "Na tydzień",
     'per_month': "Na miesiąc",
-    'left': "Zostało",
+    'left': "zostało",
     'hours': "godzin",
     'days': "dni",
-    'months': "miesiące",
-    'years': "lata",
-    'MessagePlaceholder': "Wciśnij CTRL + Enter, aby wysłać wiadomość",
-    'ConfirmDowngrade': "Potwierdź wyburzenie budynku",
-    'Circular_message': "Wiadomość do wszystkich",
+    'months': "miesięcy",
+    'years': "lat",
+    'MessagePlaceholder': "Wciśnij CTRL + E aby wysłać wiadomość.",
+    'ConfirmDowngrade': "Potwierdź wyburzenie budynku.",
+    'Circular_message': "Wiadomość do wszystkich.",
     'Ally_members': "Sojusz",
-    'Attack_All': "Wszystko",
+    'Attack_All': "Wszystkie",
     'Attack_Half': "Połowa",
-    'Attack_Nothing': "Nic",
-    'Required': "Wymagane:",
+    'Attack_Nothing': "Żadne",
+    'Required': "Potrzeba:",
     'Next_Level': "Następny poziom:",
     'Messages': "Wiadomości",
     'Agora': "Agora",
-    'Treaty': "Traktat",
-    'Alliance': "Tablica",
+    'Treaty': "Traktaty",
+    'Alliance': "Sojusz",
     'Transport': "Transportuj dobra!",
-    'Send_General_Log': "Wyślij logi sojusznikom",
+    'Send_General_Log': "Wyślij log do sojuszu",
     'Send_General_Log_Header': "Ataki na członków sojuszu",
 
     'options': {
         'transport': {
-            'header': 'Typ opcji transportu',
+            'header': 'Rodzaj opcji transportu.',
             'original': 'GameForge',
             'ikaeasy': 'IkaEasy'
         },
         'movement_tabs': {
-            'header': 'Movement tabs',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'zakładki ruchu',
+            'enable': 'aktywne',
+            'disable': 'nieaktywne'
         },
         'gold_per_hour': {
-            'header': 'Gold сonsumption',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Konsumpcja złota',
+            'enable': 'aktywne',
+            'disable': 'nieaktywne'
         },
         'island_ap': {
-            'header': 'Action points on island view',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Punkty akcji w widoku wyspy',
+            'enable': 'aktywne',
+            'disable': 'nieaktywne'
         },
         'development': {
-            'overview': "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Buy Me A Coffee at Ko-Fi.com' /></div></a> Switch to <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> and get updates earlier!"
+            'overview': "IkaEasy jest niekomercyjnym projektem <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a>. Chcesz pomóc? Wejdź na <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, zgłoś nam błędy lub zaproponuj nowe funkcje na <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br> Praca nad Ikariam Easy zajmuje sporo czasu, weekendy, wieczory i noce, oczywiście. Możesz mi podziękować i pomóc nie przysnąć przy pracy, kupując dla mnie kawę. :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Kup mi kawę na Ko-Fi.com' /></div></a> Przejdź do <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> i otrzymuj aktualizacje wcześniej! <br> Specjalne podziękowania dla Adama Rędzikowskiego za polską wersję tłumaczenia."
         }
     },
 
     'ikalogs': {
         'save_log': 'Zapisz log',
-        'analyze': 'Analiza',
-        'each': 'Każde',
-        'help_bw': 'Oddziel kolejne rundy kropkami lub serię rund apostrofami.',
+        'analyze': 'Analizuj',
+        'each': 'Każda',
+        'help_bw': 'Oddziel kolejne rundy kropką lub apostrofem.',
 
         'get_info': 'Pozyskiwanie danych',
-        'get_round': 'Tworzenie logu',
-        'saving': 'Zapisywanie logu',
+        'get_round': 'Pozyskiwanie logu',
+        'saving': 'Zapisywanie',
 
-        'saving_success': 'Ten log został pomyślnie zapisany.',
+        'saving_success': 'Log został z powodzeniem zapisany..',
         'open_report': 'Otwórz log',
 
-        'saving_failed': 'Nie udało się zapisać logu.',
+        'saving_failed': 'Nie udało się zapisać logu',
         'repeat': 'Spróbuj ponownie',
 
         'auth': {
-            'not_logged': 'Nie jesteś zalogowany na Ikalogs'
+            'not_logged': 'Nie jesteś zalogowany w IkaLogs'
         },
 
         'types': {
             'full': 'Pełny log',
             'short': 'Skrócony log',
-            'last': 'Ostatnia runka',
-            'each': 'Co 5 runda',
-            'between': 'Wybrane rundy'
+            'last': 'Ostatnią rundę',
+            'each': 'Każdą N rundę',
+            'between': 'Określone rundy'
         }
     },
 
