@@ -49,27 +49,27 @@ langs.it = {
 
     'options': {
         'transport': {
-            'header': 'Tipo di opzioni di Trasporto',
+            'header': 'Opzioni di Trasporto',
             'original': 'GameForge',
             'ikaeasy': 'IkaEasy'
         },
         'movement_tabs': {
-            'header': 'Movimento tab',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Movimento Tab',
+            'enable': 'attivo',
+            'disable': 'disattivo'
         },
         'gold_per_hour': {
-            'header': 'Produzione Oro',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Dettagli Produzione Oro',
+            'enable': 'attivo',
+            'disable': 'disattivo'
         },
         'island_ap': {
             'header': "Punti d'azione Isola",
-                'enable': 'active',
-    'disable': 'unactive'
+                'enable': 'attivo',
+    'disable': 'disattivo'
 },
 'development': {
-    'overview': "IkaEasy è non commerciale, ma è un progetto <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a>. Vuoi aiutare? Contribuisci su <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, con report riguardanti bug o suggerimenti, anche su <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Sviluppare IkariamEasy richiede molto tempo: week-end, serate e delle notti. Si può dire grazie, aiutandomi a rimanere sveglio con l'acquisto di me caffè :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Comprami un caffè su Ko-Fi.com' /></div></a> Passa a trovarci su <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a>, per tenerti aggiornato! <br> Special thanks to Luca Maglie for Italian translation"
+    'overview': "IkaEasy non � un prodotto commerciale, ma è un progetto <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a>. Vuoi aiutare? Contribuisci su <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, con report riguardanti bug o suggerimenti, anche su <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Sviluppare IkariamEasy richiede molto tempo: week-end, serate e delle notti. Si può dire grazie, aiutandomi a rimanere sveglio con l'acquisto di un caffè :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Comprami un caffè su Ko-Fi.com' /></div></a> Passa a trovarci su <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a>, per tenerti aggiornato! <br> Special thanks to Luca Maglie for Italian translation"
 }
 },
 
@@ -102,5 +102,5 @@ langs.it = {
     }
 },
 
-'Transporter': 'Trasportatore'
+'Transporter': 'Trasporti'
 };
