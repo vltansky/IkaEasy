@@ -2,7 +2,7 @@ if(typeof langs == "undefined") {
     var langs = {};
 }
 
-//Spanish language
+//English language
 langs.es = {
     'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
@@ -22,25 +22,25 @@ langs.es = {
     'char_minute': 'm',
     'char_second': 's',
     'WillBeFullIn': 'lleno en',
-    'per_day': "por dнa",
+    'per_day': "por dia",
     'per_week': "por semana",
     'per_month': "por mes",
-    'left': "falta",
+    'left': "faltante",
     'hours': "horas",
-    'days': "dнas",
+    'days': "días",
     'months': "meses",
-    'years': "aсos",
+    'years': "años",
     'MessagePlaceholder': "CTRL + Enter para enviar mensaje",
-    'ConfirmDowngrade': "Confirmar demoliciуn de edificio",
+    'ConfirmDowngrade': "Confirmar demolicion de edificio",
     'Circular_message': "Enviar circular",
     'Ally_members': "Alianza",
     'Attack_All': "Todos",
     'Attack_Half': "Mitad",
     'Attack_Nothing': "Ninguno",
     'Required': "Requerido:",
-    'Next_Level': "Prуximo Nivel:",
+    'Next_Level': "Proximo Nivel:",
     'Messages': "Mensajes",
-    'Agora': "Бgora",
+    'Agora': "Agora",
     'Treaty': "Tratados",
     'Alliance': "Muro",
     'Transport': "Transporte de bienes",
@@ -64,12 +64,12 @@ langs.es = {
             'disable': 'Desactivado'
         },
         'island_ap': {
-            'header': 'Puntos de acciуn en la isla',
+            'header': 'Puntos de accion en la isla',
             'enable': 'Activado',
             'disable': 'Desactivado'
         },
         'development': {
-            'overview': "IkaEasy es no-comercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. їQuieres ayudar? Contribuye en <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, reporta los bugs y errores en <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Desarrollar Ikariam Easy lleva mucho tiempo: fines de semana, tardes y, por supuesto, noches. Puedes agradecйrmelo y ayudarme a mantenerme despierto comprбndome un cafй :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Cуmprame un cafй en Ko-Fi.com' /></div></a> ЎVe a <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> y obtйn las nuevas versiones antes! <br> Special thanks to Fede Markievicz for Italian translation"
+            'overview': "IkaEasy es un proyecto no-comercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>y de OpenSource</a>. Quieres ayudar? Contribuye en <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a> y reporta los bugs y errores en <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Desarrollar Ikariam Easy lleva mucho tiempo: fines de semana, tardes y, por supuesto, noches. Puedes agradecérmelo y ayudarme a mantenerme despierto comprandome un cafe :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Comprame un café en Ko-Fi.com' /></div></a> ¡Ve a <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> y obten las nuevas versiones antes!"
         }
     },
 
@@ -77,28 +77,28 @@ langs.es = {
         'save_log': 'Guardar registro',
         'analyze': 'Analizar',
         'each': 'Cada',
-        'help_bw': 'Separar cada ronda con una coma, o un conjunto con un guiуn',
+        'help_bw': 'Separar cada ronda con una coma, o un conjunto con un guión',
 
         'get_info': 'Obteniendo data',
         'get_round': 'Obteniendo registro',
         'saving': 'Guardando registro',
 
-        'saving_success': 'El registro fue guardado con йxito.',
+        'saving_success': 'El registro fue guardado con éxito.',
         'open_report': 'Abrir registro',
 
-        'saving_failed': 'Se fallу al guardar el registro',
+        'saving_failed': 'Se ha fallado al guardar el registro',
         'repeat': 'Reintentar',
 
         'auth': {
-            'not_logged': 'No estбs logeado en Ikalogs'
+            'not_logged': 'No te has logeado en Ikalogs'
         },
 
         'types': {
             'full': 'Registro completo',
-            'short': 'Versiуn corta',
-            'last': 'ъltima ronda',
+            'short': 'Version corta',
+            'last': 'Ultima ronda',
             'each': 'Cada N rondas',
-            'between': 'Rondas especнficas'
+            'between': 'Rondas específicas'
         }
     },
 
