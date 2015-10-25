@@ -46,3 +46,15 @@ function postJSON(url, data, callback) {
         dataType: "json"
     });
 }
+
+Array.prototype.removeEl = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        console.log(what);
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};

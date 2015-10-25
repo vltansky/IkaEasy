@@ -12,6 +12,11 @@ zJS.Page.__common = {
     init: function() {
         this.notification_init();
         //this._checkUpdates();//@todo доработать проверку событий
+
+        if($("#worldmap_iso").length > 0){
+            this._islandsSearch();
+        }
+        this._pirateButton();
         this.init_popup();
         this._getUserData();
         this._transporter();
@@ -24,9 +29,11 @@ zJS.Page.__common = {
             this._getFinance();
             this._setFinance();
         }
-        if(document.getElementsByTagName('body')[0].id !== "worldmap_iso") {
-            this._addLinkToIslandFeature();
-        }
+
+        // was added by gameforge
+        //if(document.getElementsByTagName('body')[0].id !== "worldmap_iso") {
+        //    this._addLinkToIslandFeature();
+        //}
     },
 
     refresh: function() {
@@ -48,10 +55,113 @@ zJS.Page.__common = {
         console.timeEnd('refresh');
         this.init();
     },
+
+    _pirateButton: function(){
+        if($("#ikaez_fastPirateButtons").length < 1) {
+            var _inner = '<div id="ikaez_fastPirateButtons"><a onClick="ajaxHandlerCall(\'?action=PiracyScreen&amp;function=capture&amp;buildingLevel=3&amp;view=pirateFortress&amp;cityId=391\'); return false;" href="#" class="button capture">Захват</a></div>';
+            $("body").append(_inner);
+        }
+    },
+
+    _islandsSearch: function() {
+        var isSearchActive = 0,
+            $worldmap = $("#worldmap"),
+            $islands = $worldmap.find(".islandTile"),
+            resources_converted = {
+                "marble": 2,
+                "glass": 3,
+                "sulfur": 4,
+                "wine": 1,
+                "wood": 5
+            },
+            searchParameters = {
+                wonder : [],
+                tradegood: [],
+                general: []
+            };
+        if ($("#ikaez_islandsSearch").length < 1) {
+            console.log("_islandsSearch");
+            var db = zJS.DB._loadDB();
+
+            var inner = '<div id="ikaez_islandsSearch"><div class="ikaez_islandSearch_general_buttons"><button class="ikaez_islandSearch_gbutton button reset" data-name="reset" data-type="general">Reset</button><button class="ikaez_islandSearch_gbutton button" data-name="full" data-type="general">Full</button><button class="ikaez_islandSearch_gbutton button" data-name="empty" data-type="general">Empty</button></div><div class="ikaez_islandSearch_resources">';
+            // resources buttons
+            $.each(db.images.resources, function (name, imgUrl) {
+                inner += '<button class="ikaez_islandSearch_resource_btn button" data-name="' + resources_converted[name] + '" data-type="tradegood"><img src="' + imgUrl + '"></button>';
+            });
+            inner += '</div><div class="ikaez_islandSearch_wonders">';
+            // wonders buttons
+            $.each(db.images.wonders, function (name, imgUrl) {
+                inner += '<button class="ikaez_islandSearch_wonder_btn button" data-name="' + name + '" data-type="wonder"><img src="' + imgUrl + '"></button>';
+            });
+            inner += '</div></div>';
+            $("#footer").find(".footerbg").prepend(inner);
+        }
+
+        $("#ikaez_islandsSearch button").on('click', function () {
+            $worldmap.addClass("ikaez_islandSearching");
+        });
+        $("#ikaez_islandsSearch button").on('click', function () {
+            button_click($(this));
+        });
+
+        function button_click(_this){
+            var name = _this.data('name'),
+                type = _this.data('type'),
+                $search_islands = isSearchActive ? $worldmap.find(".islandTile.ikaez_islandSearch_filtered") : $islands;
+            _this.toggleClass("active");
+                if (_this.hasClass("active")) {
+                    searchParameters[type].push(type + name);
+                    console.log(searchParameters);
+                }else{
+                    searchParameters[type].removeEl(type + name);
+                }
+                $islands.removeClass("ikaez_islandSearch_filtered").each(function(){
+                    var check = true;
+                    if(searchParameters.wonder.length>0) {
+                        check = $(this).find(".wonder").is("." + searchParameters.wonder.join(",."));
+                    }
+
+                    if(searchParameters.tradegood.length>0 && check) {
+                        check = $(this).find(".tradegood").is("." + searchParameters.tradegood.join(",."));
+                    }
+
+                    if(searchParameters.general.length>0 && check) {
+
+                        var cities = $(this).find(".cities").text();
+                        if(searchParameters.general.indexOf('generalfull') > -1 && searchParameters.general.indexOf('generalempty') > -1) {
+                            check = cities > 0 && cities < 16;
+                        }else{
+                            if(searchParameters.general.indexOf('generalfull') > -1) {
+                                check = cities < 16;
+                            }
+                            if(searchParameters.general.indexOf('generalempty') > -1) {
+                                check = cities > 0;
+                            }
+                        }
+                    }
+
+                    if(check){
+                        $(this).addClass("ikaez_islandSearch_filtered");
+                        isSearchActive++;
+                    }
+                });
+
+                if(name == "reset"){
+                    $("#ikaez_islandsSearch button").removeClass("active");
+                    isSearchActive = 0;
+                }
+
+            if(!isSearchActive){
+                $islands.removeClass("ikaez_islandSearch_filtered");
+                $worldmap.removeClass("ikaez_islandSearching");
+            }
+        }
+    },
+
     notification_init: function () {
         console.log('check notification');
     if (!Notification) {
-        alert('Please use a modern version of Chrome, Firefox, Opera or Firefox.');
+        console.log('Please use a modern version of Chrome, Firefox, Opera or Firefox.');
         return;
     }
 
@@ -484,12 +594,12 @@ console.log(zJS.Utils.getItem('user_data'));
         // Добавляем ссылку для дерева
         $("#resources_wood")
             .css("cursor", "pointer")
-            .attr("onClick", "ajaxHandlerCall('?view=resource&type=resource&islandId=" + islandId + "')");
+            .attr("onClick", "ajaxHandlerCall('?view=resource&type=resource&islandId=" + islandId + "'); return false;");
 
         // Добавляем ссылку для Драгоценного ресурса
         resourceType.not(".invisible").eq(1).parent().parent()
             .css("cursor", "pointer")
-            .attr("onClick", "ajaxHandlerCall('?view=tradegood&islandId=" + islandId + "')");
+            .attr("onClick", "ajaxHandlerCall('?view=tradegood&islandId=" + islandId + "'); return false;");
         console.timeEnd('_addLinkToIslandFeature')
     }
 };

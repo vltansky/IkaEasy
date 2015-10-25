@@ -45,8 +45,12 @@ zJS.Page.island = {
                 for(var q = 0; q < allys.length; q++) {
                     for(var s = 0; s < allys[q].length; s++) {
                         var allyTag = zJS.Var.getIsland()['cities'][i].ownerAllyTag == null && zJS.Var.getIsland()['cities'][i].type != 'buildplace' ? '-' : zJS.Var.getIsland()['cities'][i].ownerAllyTag;
+                        console.log(allys[q][s]);
+                        console.log(allyTag);
                         if(allyTag == allys[q][s]) {
+                            console.log(allyTag);
                             if($('#cityLocation' + i).hasClass('animated_off')) {
+                                console.log("animated of");
                                 $('#js_cityLocation' + i + 'Link').addClass('ikaeasy_city_link_' + zJS.Utils.marker.getColorById(q));
                                 $('#js_cityLocation' + i + 'LinkHover').addClass('ikaeasy_city_linkHover_' + zJS.Utils.marker.getColorById(q));
                             }
@@ -110,6 +114,9 @@ zJS.Page.island = {
     },
 
     _showIslandInfo: function(UpdateLevel) {
+        if($("#ikaez_update_island_info").length < 1) {
+            $("#breadcrumbs").append('<button id="ikaez_update_island_info" class="button">Update</button>');
+        }
         UpdateLevel = typeof UpdateLevel !== 'undefined' ? UpdateLevel : true;
         console.log('SHOW ISLAND INFO ===');
         var id = zJS.Var.getIsland()['islandId'],
@@ -125,68 +132,51 @@ zJS.Page.island = {
         }
 
 
-if(!$('.ikaez_score').length>0) {
-    $.each(cities, function(k, v) {
-        if(v.type == "city") {
-            active_cities++;
-            console.log(v.id);
-            var score = ((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) ? '<span class="ikaez_score"></span>' : '<span class="ikaez_score"> #' + users[v.ownerId]['h'] + '</span>',
-                ally = ((v.ownerAllyTag) && (v.ownerAllyTag != '')) ? ' [' + v.ownerAllyTag + ']' : '',
-                level = ((v.level) && (v.level != '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '',
-                $cashe_city_gl = $('#cityLocation' + k),
-                BD;
-            var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
-            var city = $cashe_city.html() + ally + score;
-            if(localStorage[zJS.Utils.getPlace() + 'options-island_ap'] != 1) {
-                if ($cashe_city_gl.hasClass("own") && score && score != '') {
-                    BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3) : '';
-                }
-                else {
-                    BD = (v.level) ? Math.floor(v.level / 4 + 3) - 2 : false;
-                }
-                city += (BD != false) ? '<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' + BD + '</span>' : '';
-            }
-            $cashe_city.html(city);
-            if(UpdateLevel == true) {
-                $cashe_city_gl.append(level);
-            }
+        $("#ikaez_update_island_info").on('click', function () {
+            console.log("update clicked");
+            $.each(cities, function (k, v) {
+                zJS.Page.island._updateIslandInfo(v, k, users, _now)
+            });
+        });
 
-            this._recalcWidth(k);
-            if((((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) && (!users_req[v.ownerId]))) {
-                users_req[v.ownerId] = [k];
-                $.get('http://' + top.location.host + '/index.php?view=cityDetails&destinationCityId=' + v.id + '&ajax=1', function(data) {
-                    data = $.parseJSON(data)[1][1][1];
 
-                    var score = $.trim(data.match(/id="js_selectedCityScore">([^<]+)</)[1].replace(/[\s]+/, '')),
-                    //city_level = $.trim(data.match(/id="js_selectedCityLevel">([^<]+)</)[1].replace(/[\s]+/, '')),
-                        __score = score.split(/[^\d]/);
-                    var _score = __score[0];
-
-                    if(__score.length >= 3) {
-                        _score += '.' + __score[1][0];
+        if(!$('.ikaez_score').length>0) {
+            $.each(cities, function(k, v) {
+                if(v.type == "city") {
+                    active_cities++;
+                    //console.log(v.id);
+                    var score = ((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) ? '<span class="ikaez_score"></span>' : '<span class="ikaez_score"> #' + users[v.ownerId]['h'] + '</span>',
+                        ally = ((v.ownerAllyTag) && (v.ownerAllyTag != '')) ? ' [' + v.ownerAllyTag + ']' : '',
+                        level = ((v.level) && (v.level != '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '',
+                        $cashe_city_gl = $('#cityLocation' + k),
+                        BD;
+                    var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
+                    var city = $cashe_city.html() + ally + score;
+                    if(localStorage[zJS.Utils.getPlace() + 'options-island_ap'] != 1) {
+                        if ($cashe_city_gl.hasClass("own") && score && score != '') {
+                            BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3) : '';
+                        }
+                        else {
+                            BD = (v.level) ? Math.floor(v.level / 4 + 3) - 2 : false;
+                        }
+                        city += (BD != false) ? '<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' + BD + '</span>' : '';
                     }
-                    for(var i = 1; i < __score.length; i++) {
-                        _score += 'k';
+                    $cashe_city.html(city);
+                    if(UpdateLevel == true) {
+                        $cashe_city_gl.append(level);
                     }
-                    users[v.ownerId] = {'h': _score, 's': score.replace(/[^\d]+/g, ''), 'e': _now + 43200};
-                    zJS.Utils.ls.setValue('users', users, 86400);
 
-                    $.each(users_req[v.ownerId], function(k, v) {
-                        var $cashe_score = $('#js_cityLocation' + v + 'TitleText span.ikaez_score');
-                        $cashe_score.html('#'+_score);
-                        //var $cashe_city_gll = $('#cityLocation' + k);
-                        this._recalcWidth(v);
-                    }.bind(this));
-
-                    this._sendWorld();
-                }.bind(this));
-            }
-            else if(users_req[v.ownerId]) {
-                users_req[v.ownerId].push(k);
-            }
+                    this._recalcWidth(k);
+                    if((((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) && (!users_req[v.ownerId]))) {
+                        users_req[v.ownerId] = [k];
+                        this._updateIslandInfo(v, k, users, _now);
+                    }
+                    else if(users_req[v.ownerId]) {
+                        users_req[v.ownerId].push(k);
+                    }
+                }
+            }.bind(this));
         }
-    }.bind(this));
-}
 
 
         if(islands_data[id] && parseInt(islands_data[id]['count'])!=active_cities){
@@ -203,6 +193,37 @@ if(!$('.ikaez_score').length>0) {
         });
     },
 
+    _updateIslandInfo: function(v, k, users, _now){
+        console.log("==== Update island info AJAX for " + v.id);
+        $.get('http://' + top.location.host + '/index.php?view=cityDetails&destinationCityId=' + v.id + '&ajax=1', function(data) {
+            data = $.parseJSON(data)[1][1][1];
+
+            var score = $.trim(data.match(/id="js_selectedCityScore">([^<]+)</)[1].replace(/[\s]+/, '')),
+            //city_level = $.trim(data.match(/id="js_selectedCityLevel">([^<]+)</)[1].replace(/[\s]+/, '')),
+                __score = score.split(/[^\d]/);
+            var _score = __score[0];
+
+
+            if(__score.length >= 3) {
+                _score += '.' + __score[1][0];
+            }
+            for(var i = 1; i < __score.length; i++) {
+                _score += 'k';
+            }
+            users[v.ownerId] = {'h': _score, 's': score.replace(/[^\d]+/g, ''), 'e': _now + 43200};
+            zJS.Utils.ls.setValue('users', users, 86400);
+
+            //$.each(users_req[v.ownerId], function(k, v) {
+            //    console.log(v);
+            var $cashe_score = $('#js_cityLocation' + k + 'TitleText span.ikaez_score');
+            $cashe_score.html(' #'+_score);
+            //var $cashe_city_gll = $('#cityLocation' + k);
+            this._recalcWidth(k);
+            //}.bind(this));
+            this._sendWorld();
+        }.bind(this));
+    },
+
     _recalcWidth: function(k) {
         var w = 9, obj = $('#js_cityLocation' + k + 'TitleScroll');
         $(obj).find('div').each(function() {
@@ -213,6 +234,7 @@ if(!$('.ikaez_score').length>0) {
     },
 
     _sendWorld: function(force) {
+        console.log("_sendWorld");
         console.log(force);
         force = typeof force !== 'undefined' ? force : false;
         var islands_data = {}, active_cities=0;

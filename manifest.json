@@ -21,7 +21,8 @@
                 "langs/el.js",
                 "langs/lt.js",
                 "langs/it.js",
-                "langs/es.js"
+                "langs/es.js",
+                "langs/bg.js"
             ],
             "matches": [
                 "http://*.ikariam.gameforge.com/*",
@@ -100,7 +101,7 @@
             "run_at": "document_end"
         }
     ],
-    "description": "Testing extension for ikariam.com.",
+    "description": "Make your Ikariam easy :).",
     "icons": {
         "128": "icon/128.png",
         "16": "icon/16.png",
@@ -208,5 +209,5 @@
         "http://ikalogs.ru/*",
         "http://*.ikalogs.ru/*"
     ],
-    "version": "2.0.0.47"
+    "version": "2.0.0.48"
 }

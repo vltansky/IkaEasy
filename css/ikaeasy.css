@@ -463,7 +463,8 @@
     width: 16px;
     cursor: pointer;
     position: absolute;
-    margin-left: 68px;
+    margin-left: 39px;
+    margin-top: 2px;
 }
 
 .ikaeasy_marker_big_ally {
@@ -1023,4 +1024,107 @@ a#dismiss_popup {
 
 div#ikaez_popup {
     text-align: center;
+}
+
+div#ikaez_islandsSearch {
+    position: fixed;
+    float: left;
+    left: 30px;
+    top: 190px;
+}
+
+.ikaez_islandSearching .islandTile{
+    opacity: .2;
+}
+
+.islandTile.ikaez_islandSearch_filtered{
+    opacity: 1;
+}
+
+div#ikaez_islandsSearch button{
+    padding: 1px 4px;
+    cursor: pointer;
+}
+button.ikaez_islandSearch_gbutton.button:not(.reset) {
+    color: #B3713F;
+    text-decoration: none;
+    border: 3px double #c9a584;
+    border-top-color: #5d4c2f;
+    border-left-color: #5d4c2f;
+}
+
+div#ikaez_islandsSearch button.active{
+    display: inline-block;
+    background: #eccf8e url(http://s22-ru.ikariam.gameforge.com/input/button.png) repeat-x;
+    color: #B3713F;
+    text-decoration: none;
+    border: 3px double #c9a584;
+    border-top-color: #5d4c2f;
+    border-left-color: #5d4c2f;
+}
+
+div#ikaez_islandsSearch {
+    background: url(http://gf1.geo.gfsrv.net/cdn38/6c3b367f0912f03f573c18a7e635ad.png);
+    padding: 10px 7px;
+    text-align: center;
+    background-position: center -18px;
+    background-size: 265%;
+    border-radius: 4px;
+    border: 1px solid #CB9E65;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.38);
+}
+
+button.ikaez_islandSearch_wonder_btn {
+    display: inline-block;
+    height: 42px;
+    float: left;
+    min-width: 27px;
+}
+
+.ikaez_islandSearch_wonders {
+    float: left;
+    margin-top: 3px;
+}
+
+.ikaez_islandSearch_resources {
+    margin-top: 3px;
+}
+
+div#ikaez_islandsSearch button:hover,div#ikaez_islandsSearch button:focus {
+    background: #F3D087!important;
+    color: #B3713F;
+}
+
+
+button#ikaez_update_island_info {
+    position: absolute;
+    right: -100px;
+    top: 3px;
+}
+
+div#ikaez_islandsSearch button.ikaez_islandSearch_gbutton.button.active:not(.reset) {
+    border: 3px double #5d4c2f;
+    border-top-color: #c9a584;
+    border-left-color: #c9a584;
+    color: #542c0f;
+    display: inline-block;
+    background: #eccf8e url(http://s22-ru.ikariam.gameforge.com/input/button.png) repeat-x;
+}
+
+button.ikaez_islandSearch_wonder_btn.button>img {
+    max-height: 30px;
+}
+
+button.ikaez_islandSearch_resource_btn>img {
+    max-height: 18px;
+}
+table.highscore tr:not(:first-child):hover,table.highscore tr:not(:first-child):focus,table#achievementsTable tr:not(:first-child):hover,table#achievementsTable tr:not(:first-child):focus {
+    background: #FFDD64!important;
+}
+
+div#ikaez_fastPirateButtons {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 90;
 }

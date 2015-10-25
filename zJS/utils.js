@@ -113,7 +113,9 @@ zJS.Utils = {
             for(var i = 0; i < allAllys.length; i++) {
                 for(var q = 0; q < allAllys[i].length; q++) {
                     if(allAllys[i][q] == ally) {
+                        console.log("Found "+ally);
                         allAllys[i].remove(q);
+                        console.log(allAllys);
                         this.setAllAllys(allAllys);
                         return;
                     }
@@ -161,6 +163,14 @@ zJS.Utils = {
     generateServerName: function(name){
         return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + name;
     },
+
+    generateSubDomain: function(){
+        return "http://" + zJS.Utils.getServerWorld() + "-" + zJS.Utils.getServerDomain();
+    },
+
+    generateDomain: function(){
+        return zJS.Utils.generateSubDomain() + ".ikariam.gameforge.com";
+    },
     getDateNow: function(){
       return Math.floor((new Date()).getTime() / 1000);
     },
@@ -170,12 +180,12 @@ zJS.Utils = {
 
     getServerDomain: function() {
         var hostMatch = /(s\d+)-([a-z]+)?\.ikariam.gameforge.com/i.exec(top.location.host);
-        return (hostMatch ? hostMatch[2] : false) || 'ru';
+        return (hostMatch ? hostMatch[2] : false) || 'ru'; //ru
     },
 
     getServerWorld: function() {
         var hostMatch = /(s\d+)-([a-z]+)?\.ikariam.gameforge.com/i.exec(top.location.host);
-        return (hostMatch ? hostMatch[1] : false) || 's?';
+        return (hostMatch ? hostMatch[1] : false) || 's?'; //s22
     },
 
     askms: function(params, callback) {

@@ -41,7 +41,7 @@ zJS.Page.highscore = {
             }
 
             ////////////////////////////////////////////
-            var allyTag = $('.allytag a', $(this)).text() == '' ? '-' : $('.allytag', $(this)).text();
+            var allyTag = $('.allytag a', $(this)).text() == '' ? '-' : $('.allytag a', $(this)).text();
 
             $('<div class="ikaeasy_marker_big" id="' + allyTag + '"/>').insertBefore($('.action a', $(this))).click(function(e) {
                 if($(this).hasClass('clicked')) {

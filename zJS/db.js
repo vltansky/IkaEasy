@@ -1277,7 +1277,27 @@ zJS.DB = {
                 {"wood": 1465254, "marble": 2540000, "crystal": 1587445}
             ]
         };
-        return {'source': BUILDINGS, 'pos': POSITIONS};
+
+        var IMAGES = {
+            "resources": {
+                "marble": zJS.Utils.generateDomain() + "/skin/resources/icon_marble.png",
+                "glass": zJS.Utils.generateDomain() + "/skin/resources/icon_glass.png",
+                "sulfur": zJS.Utils.generateDomain() + "/skin/resources/icon_sulfur.png",
+                "wine": zJS.Utils.generateDomain() + "/skin/resources/icon_wine.png",
+                "wood": zJS.Utils.generateDomain() + "/skin/resources/icon_wood.png"
+            },
+            "wonders": {
+                1 : zJS.Utils.generateDomain() + "/skin/world/w1.png",
+                2 : zJS.Utils.generateDomain() + "/skin/world/w2.png",
+                3 : zJS.Utils.generateDomain() + "/skin/world/w3.png",
+                4 : zJS.Utils.generateDomain() + "/skin/world/w4.png",
+                5 : zJS.Utils.generateDomain() + "/skin/world/w5.png",
+                6 : zJS.Utils.generateDomain() + "/skin/world/w6.png",
+                7 : zJS.Utils.generateDomain() + "/skin/world/w7.png",
+                8 : zJS.Utils.generateDomain() + "/skin/world/w8.png",
+            }
+        };
+        return {'source': BUILDINGS, 'pos': POSITIONS, 'images': IMAGES};
     },
 
     getIslands: function() {
