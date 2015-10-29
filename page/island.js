@@ -45,8 +45,6 @@ zJS.Page.island = {
                 for(var q = 0; q < allys.length; q++) {
                     for(var s = 0; s < allys[q].length; s++) {
                         var allyTag = zJS.Var.getIsland()['cities'][i].ownerAllyTag == null && zJS.Var.getIsland()['cities'][i].type != 'buildplace' ? '-' : zJS.Var.getIsland()['cities'][i].ownerAllyTag;
-                        console.log(allys[q][s]);
-                        console.log(allyTag);
                         if(allyTag == allys[q][s]) {
                             console.log(allyTag);
                             if($('#cityLocation' + i).hasClass('animated_off')) {

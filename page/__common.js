@@ -355,7 +355,9 @@ zJS.Page.__common = {
                     template = '<div class="ikaeasy_delet_me"><span id="ikaeasy-' + clas + '" class="' + tmpIns + '">' + zJS.Utils.formatNumber(tmpRes) + ' <span class="ikaeasy_wine_left_time">' + wineLeftTime + '</span></span></div>';
                 else
                     template = '<div class="ikaeasy_delet_me"><span id="ikaeasy-' + clas + '" class="' + tmpIns + '">' + zJS.Utils.formatNumber(tmpRes) + '</span></div>';
-                $(template).appendTo($('#resources_' + clas));
+                var $addTo = $('#resources_' + clas);
+                $(template).appendTo($addTo);
+                $addTo.addClass("ikaez_resource_added")
             }
         }
         console.timeEnd('_getProduction');
@@ -411,7 +413,6 @@ zJS.Page.__common = {
      */
     _getUserData: function() {
         console.time('_getUserData');
-console.log(zJS.Utils.getItem('user_data'));
         if(!zJS.Utils.getItem('user_data')) {
             console.log('Ajax get user data');
             try {
@@ -466,10 +467,13 @@ console.log(zJS.Utils.getItem('user_data'));
         console.time('_setFinance');
         var LocFinance = zJS.Utils.getLocFinance();
         var value = localStorage.getItem(LocFinance),
-            np_char = 'ikaeasy_green';
-        if(value < 0)
+            np_char = 'ikaeasy_green',
+            np_symb = '+';
+        if(value < 0) {
             np_char = 'red';
-        $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me ' + np_char + '">' + zJS.Utils.formatNumber(value) + '</span>');
+            np_symb = '-';
+        }
+        $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me ' + np_char + '">' + np_symb + zJS.Utils.formatNumber(value) + '</span>');
         console.timeEnd('_setFinance');
     },
 

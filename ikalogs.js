@@ -431,6 +431,7 @@ ikalogs.prototype = {
     },
 
     _make_box: function() {
+        console.log('IkaLogs make box');
         if($('.__ikalogs').length > 0) {
             return;
         }

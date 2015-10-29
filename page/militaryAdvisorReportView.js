@@ -7,9 +7,10 @@ if(typeof zJS.Page == "undefined") {
 }
 
 zJS.Page.militaryAdvisorReportView = {
-    dont_refresh: true,
+    //dont_refresh: true,
 
     init: function() {
+        console.log("Military advisor ============");
         if(typeof ikalogs != "undefined") {
             var _ikalogs = new ikalogs();
         }
