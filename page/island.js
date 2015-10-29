@@ -204,7 +204,7 @@ zJS.Page.island = {
             var _score = __score[0];
 
 
-            if(__score.length >= 3) {
+            if(__score.length >= 2) {
                 _score += '.' + __score[1][0];
             }
             for(var i = 1; i < __score.length; i++) {

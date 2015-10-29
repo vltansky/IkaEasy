@@ -74,5 +74,20 @@ zJS.Var = {
         }
 
         return this._separators;
+    },
+
+    getWorldActiveIsland: function(){
+        return {
+            x: parseInt($("#inputXCoord").val()),
+            y: parseInt($("#inputYCoord").val())
+        }
+    },
+
+    getActiveIsland: function(){
+        var res = $("#js_homeCitySelect").find("option:selected").val().split(":");
+        return {
+            x : parseInt(res[0]),
+            y : parseInt(res[1])
+        }
     }
 };

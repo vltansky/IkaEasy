@@ -79,9 +79,8 @@ zJS.Page.plunder = {
             var a = $('<div href="#reset" class="ikaeasy_max_btn" id="ikaeasy_max_ships"></div>');//why div with href?
             $('#plusminus').append(a);
             $(a).click(function () {
-                $('#summary_plus').mousedown();
-                //$('#extraTransporter').val(zJS.Var.getShips());
-                //$('#totalFreight').text(zJS.Var.getShips() * 500);
+                $('#extraTransporter').val(zJS.Var.getShips());
+                $('#totalFreight').text(zJS.Var.getShips() * 500);
             });
             addAllAndHalfBtns();
         }

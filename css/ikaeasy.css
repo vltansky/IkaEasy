@@ -594,42 +594,69 @@
 /*************************************************************/
 
 .marker_top_purple {
-    background-color: #8029f0 !important;
-    color: #b3b3b3 !important;
+    background-color: #D9C4F2 !important;
+    color: #000000 !important;
+}
+
+
+table.highscore tbody tr.marker_top_purple:hover,table.highscore tbody tr.marker_top_purple:focus{
+    background-color: #B288E4 !important;
 }
 
 .marker_top_purple a {
-    color: #b3b3b3 !important;
+    color: #000000 !important;
 }
 
 .marker_top_bordo {
-    background-color: #7a120c !important;
-    color: #b3b3b3 !important;
+    background-color: #86433F !important;
+    color: #D5D5D5 !important;
+    border-color: #591F1A!important;
 }
 
 .marker_top_bordo a {
-    color: #b3b3b3 !important;
+    color: #D5D5D5 !important;
+}
+
+
+table.highscore tbody tr.marker_top_bordo:hover,table.highscore tbody tr.marker_top_bordo:focus{
+    background-color: #752E29 !important;
 }
 
 .marker_top_white {
-    background-color: #e3e3e3 !important;
+    background-color: #EFEFEF !important;
 }
 
 .marker_top_pink {
-    background-color: #e627bd !important;
+    background-color: #E4A5D6 !important;
+}
+
+
+table.highscore tbody tr.marker_top_pink:hover,table.highscore tbody tr.marker_top_pink:focus{
+    background-color: #D974C3 !important;
 }
 
 .marker_top_orange {
-    background-color: #ff851e !important;
+    background-color: #EFA566 !important;
+}
+
+
+table.highscore tbody tr.marker_top_orange:hover,table.highscore tbody tr.marker_top_orange:focus{
+    background-color: #DA7F31 !important;
 }
 
 .marker_top_turquoise {
-    background-color: #00e5ec !important;
+    background-color: #A7F2F4 !important;
+}
+table.highscore tbody tr.marker_top_turquoise:hover,table.highscore tbody tr.marker_top_turquoise:focus{
+    background-color: #5CD4D7 !important;
 }
 
 .marker_top_black {
-    background-color: #212121 !important;
+    background-color: #333333 !important;
     color: #b3b3b3 !important;
+}
+table.highscore tbody tr.marker_top_black:hover, table.highscore tbody tr.marker_top_black:focus{
+    background-color: #505050 !important;
 }
 
 .marker_top_black a {
@@ -751,7 +778,7 @@
     background-image: url(/images/Marker/turquoise/city_turquoise.png) !important;
 }
 
-/* Ð¤Ð¸ÐºÑÑ‹ Ñ€Ð°Ð·Ð´Ð²Ð¾ÐµÐ½Ð¸Ñ Ð¾Ð±ÑŒÐµÐºÑ‚Ð¾Ð² Ð½Ð° Ð¾ÑÑ‚Ñ€Ð¾Ð²Ðµ Ð¿Ñ€Ð¸ Ð½Ð°Ð²ÐµÐ´ÐµÐ½Ð¸Ð¸. Ð­Ñ‚Ð¾ Ð±Ð°Ð³ ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð¸ÐºÐ°Ñ€Ð¸Ð°Ð¼Ð° */
+/* ÃÂ¤ÃÂ¸ÃÂºÃ‘ÂÃ‘â€¹ Ã‘â‚¬ÃÂ°ÃÂ·ÃÂ´ÃÂ²ÃÂ¾ÃÂµÃÂ½ÃÂ¸Ã‘Â ÃÂ¾ÃÂ±Ã‘Å’ÃÂµÃÂºÃ‘â€šÃÂ¾ÃÂ² ÃÂ½ÃÂ° ÃÂ¾Ã‘ÂÃ‘â€šÃ‘â‚¬ÃÂ¾ÃÂ²ÃÂµ ÃÂ¿Ã‘â‚¬ÃÂ¸ ÃÂ½ÃÂ°ÃÂ²ÃÂµÃÂ´ÃÂµÃÂ½ÃÂ¸ÃÂ¸. ÃÂ­Ã‘â€šÃÂ¾ ÃÂ±ÃÂ°ÃÂ³ Ã‘ÂÃÂ°ÃÂ¼ÃÂ¾ÃÂ³ÃÂ¾ ÃÂ¸ÃÂºÃÂ°Ã‘â‚¬ÃÂ¸ÃÂ°ÃÂ¼ÃÂ° */
 #island #worldmap #cities .cityLocation {
     margin-left: -12px;
 }
@@ -920,7 +947,7 @@ ul#ikaeasy_military_movements li>a {
 ul#ikaeasy_military_movements li>a.ikaez_active {
     opacity: 1;
 }
-ul#ikaeasy_military_movements li>a:hover, ul#ikaeasy_military_movements li>a:focus {
+ul#ikaeasy_military_movements li>a:hover,Â ul#ikaeasy_military_movements li>a:focus {
     background: #FFE4B0;
     text-decoration: none;
     color: #000;
@@ -1068,7 +1095,7 @@ div#ikaez_islandsSearch {
     padding: 10px 7px;
     text-align: center;
     background-position: center -18px;
-    background-size: 265%;
+    background-size: 287%;
     border-radius: 4px;
     border: 1px solid #CB9E65;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.38);
@@ -1127,4 +1154,51 @@ div#ikaez_fastPirateButtons {
     bottom: 15px;
     right: 15px;
     z-index: 90;
+}
+
+#ikaez_islandSearch_prev, #ikaez_islandSearch_next{
+    position: absolute;
+    top: 17px;
+    right: 11px;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: -84px -5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+#ikaez_islandSearch_next:hover, #ikaez_islandSearch_next:focus{
+    background-position: -84px -55px;
+}
+
+#ikaez_islandSearch_next:active{
+    background-position: -84px -105px;
+}
+
+#ikaez_islandSearch_prev{
+    background-position: -16px -5px;
+    right: auto;
+    left: 11px;
+}
+
+#ikaez_islandSearch_prev:hover, #ikaez_islandSearch_prev:focus{
+    background-position: -16px -55px;
+}
+
+#ikaez_islandSearch_prev:active{
+    background-position: -16px -105px;
+}
+
+#ikaez_islandSearch_prev.unactive, #ikaez_islandSearch_next.unactive{
+    opacity: .5;
+    cursor: default;
+}
+
+#ikaez_islandSearch_prev.unactive:hover, #ikaez_islandSearch_prev.unactive:focus, #ikaez_islandSearch_prev.unactive:active{
+    background-position: -16px -5px!important;
+}
+
+#ikaez_islandSearch_next.unactive:hover, #ikaez_islandSearch_next.unactive:focus, #ikaez_islandSearch_next.unactive:active{
+    background-position: -84px -5px!important;
 }

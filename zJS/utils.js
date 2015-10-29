@@ -336,6 +336,32 @@ zJS.Utils = {
                 $(obj2).css(pos);
             }
         }.bind(this));
+    },
+
+    format: {
+      onlyInt: function(a){
+          return a.replace(/[^\d]+/g, '');
+      }
+    },
+    island: {
+        jumpToCoord: function(x,y){
+            $("#inputXCoord").val(x);
+            $("#inputYCoord").val(y);
+            $("form[name='navInputForm']").find(".submitButton").click()//.submit();
+        },
+        getSelectedCoord: function(_this){
+            //var title = $(_this).attr('title');
+            var res = $(_this).attr('title').split(' ');
+            if(typeof res !== "undefined") {
+                res = res[1].split(':');
+
+                return {
+                    x: zJS.Utils.format.onlyInt(res[0]),
+                    y: zJS.Utils.format.onlyInt(res[1])
+                };
+            }
+            return null;
+        }
     }
 };
 
