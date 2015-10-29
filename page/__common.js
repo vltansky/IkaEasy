@@ -132,6 +132,8 @@ zJS.Page.__common = {
         $("#ikaez_islandsSearch button").on('click', function () {
             $worldmap.addClass("ikaez_islandSearching");
             $("#ikaez_islandSearch_next").removeClass("unactive");
+            // execute while map dynamic loading
+            $islands.bind("DOMSubtreeModified",filterIsland);
         });
         $("#ikaez_islandsSearch button").on('click', button_click);
 
@@ -182,8 +184,6 @@ zJS.Page.__common = {
                 $counter_from.text(foundedCoords.length);
             }
         }
-        // execute while map dynamic loading
-        $islands.bind("DOMSubtreeModified",filterIsland);
 
         function button_click(){
             var name = $(this).data('name'),
