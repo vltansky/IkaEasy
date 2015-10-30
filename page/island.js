@@ -113,7 +113,7 @@ zJS.Page.island = {
 
     _showIslandInfo: function(UpdateLevel) {
         if($("#ikaez_update_island_info").length < 1) {
-            $("#breadcrumbs").append('<button id="ikaez_update_island_info" class="button">Update</button>');
+            $("#breadcrumbs").append('<button id="ikaez_update_island_info" class="button">' + zJS.Lang.update + '</button>');
         }
         UpdateLevel = typeof UpdateLevel !== 'undefined' ? UpdateLevel : true;
         console.log('SHOW ISLAND INFO ===');
@@ -121,7 +121,7 @@ zJS.Page.island = {
             cities = zJS.Var.getIsland()['cities'],
             _now = Math.floor((new Date()).getTime() / 1000);
 
-        var users = {}, users_req = {}, islands_data = {}, active_cities=0;
+        var users = {}, users_req = {}, islands_data = {}, active_cities= 0, send_data = false;
         if(zJS.Utils.ls.getValue('users')) {
             users = zJS.Utils.ls.getValue('users');
         }
@@ -135,6 +135,7 @@ zJS.Page.island = {
             $.each(cities, function (k, v) {
                 zJS.Page.island._updateIslandInfo(v, k, users, _now)
             });
+            zJS.Page.island._sendWorld();
         });
 
 
@@ -168,12 +169,18 @@ zJS.Page.island = {
                     if((((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) && (!users_req[v.ownerId]))) {
                         users_req[v.ownerId] = [k];
                         this._updateIslandInfo(v, k, users, _now);
+                        send_data = true;
                     }
                     else if(users_req[v.ownerId]) {
                         users_req[v.ownerId].push(k);
                     }
                 }
             }.bind(this));
+
+
+            if(send_data) {
+                zJS.Page.island._sendWorld();
+            }
         }
 
 
@@ -218,7 +225,7 @@ zJS.Page.island = {
             //var $cashe_city_gll = $('#cityLocation' + k);
             this._recalcWidth(k);
             //}.bind(this));
-            this._sendWorld();
+            //this._sendWorld();
         }.bind(this));
     },
 

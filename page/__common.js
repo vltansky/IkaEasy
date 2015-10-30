@@ -18,7 +18,7 @@ zJS.Page.__common = {
             this._islandsTimeTravel();
         }
         this._pirateButton();
-        this.init_popup();
+        //this.init_popup(); // TODO enable on production, write new texts
         this._getUserData();
         this._transporter();
         this._nextCity();
@@ -61,8 +61,18 @@ zJS.Page.__common = {
         if($("#ikaez_fastPirateButtons").length < 1) {
             var cityId = 391;
             $('head').append('<link rel="stylesheet" href="' + zJS.Utils.generateDomain() + '/skin/compiled-ru-city.css" type="text/css" />'); // @TODO change "RU" to local
-            var _inner = '<div id="ikaez_fastPirateButtons"><a onClick="ajaxHandlerCall(\'?view=pirateFortress&position=17&action=PiracyScreen&function=capture&buildingLevel=3&cityId=' + cityId + '\'); return false;" href="#" class="button capture">Захват</a></div>';
+            var _inner = '<div id="ikaez_fastPirateButtons"><a href="javascript:void(0);" class="button capture">Захват</a></div>';
             $("body").append(_inner);
+            $("#ikaez_fastPirateButtons a").on('click', function(){
+                console.log("=== Pirate click");
+                $('#js_cityIdOnChange').val(cityId);
+                zJS.Utils.execute_js("ajaxHandlerCallFromForm(document.getElementById('changeCityForm'));");
+                setTimeout(function () {
+                    console.log('action!');
+                zJS.Utils.execute_js("ajaxHandlerCall('?view=pirateFortress&position=17&action=PiracyScreen&function=capture&buildingLevel=3&cityId=" + cityId + "');");
+                }, 600); // TODO set interval with checking
+            });
+
         }
     },
 
@@ -96,13 +106,18 @@ zJS.Page.__common = {
                 general: []
             },
             foundedCoords = [],
+            foundedCoordsLastLength,
+            existsCorrds = {},
             activeFoundedCoords = 0;
         if ($("#ikaez_islandsSearch").length < 1) {
             console.log("_islandsSearch");
             var db = zJS.DB._loadDB(),
                 button_image = 'background-image:url('+ zJS.Utils.generateDomain()+ '/skin/pirateFortress/button_arrow_70x50_sprite.png)';
 
-            var inner = '<div id="ikaez_islandsSearch"><div id="ikaez_islandSearch_counter"><span class="ikaez_iSS_cnt_current">0</span><span class="ikaez_iSS_cnt_sep">/</span><span class="ikaez_iSS_cnt_from">0</span></div><div class="ikaez_islandSearch_general_buttons"><button class="ikaez_islandSearch_gbutton button reset" data-name="reset" data-type="general">Reset</button><button class="ikaez_islandSearch_gbutton button" data-name="full" data-type="general">Full</button><button class="ikaez_islandSearch_gbutton button" data-name="empty" data-type="general">Empty</button></div><div class="ikaez_islandSearch_resources">';
+            var inner = '<div id="ikaez_islandsSearch"><div id="ikaez_islandSearch_counter"><span' +
+            ' class="ikaez_iSS_cnt_current">0</span><span class="ikaez_iSS_cnt_sep">/</span><span' +
+            ' class="ikaez_iSS_cnt_from">0</span></div><div class="ikaez_islandSearch_general_buttons"><button' +
+            ' class="ikaez_islandSearch_gbutton button reset" data-name="reset" data-type="general">' + zJS.Lang.is_search_restart + '</button><button class="ikaez_islandSearch_gbutton button" data-name="full" data-type="general">' + zJS.Lang.is_search_full + '</button><button class="ikaez_islandSearch_gbutton button" data-name="empty" data-type="general">' + zJS.Lang.is_search_empty + '</button></div><div class="ikaez_islandSearch_resources">';
             // button left
             inner += '<a id="ikaez_islandSearch_prev" class="unactive" href="javascript:void(0)" style="' + button_image + '"></a>';
             // resources buttons
@@ -121,34 +136,64 @@ zJS.Page.__common = {
             inner += '</div></div>';
             $("#footer").find(".footerbg").prepend(inner);
 
-            var $counter = $("#ikaez_islandSearch_counter"),
-                $counter_current = $counter.find(".ikaez_iSS_cnt_current"),
-                $counter_from = $counter.find(".ikaez_iSS_cnt_from");
-        }
+            if(typeof $counter == "undefined"){
+                var $counter = $("#ikaez_islandSearch_counter"),
+                    $counter_current = $counter.find(".ikaez_iSS_cnt_current"),
+                    $counter_from = $counter.find(".ikaez_iSS_cnt_from");
+                }
+            }
 
         $("#ikaez_islandsSearch button").on('click', function () {
             $worldmap.addClass("ikaez_islandSearching");
             $("#ikaez_islandSearch_next").removeClass("unactive");
             // execute while map dynamic loading
-            $islands.bind("DOMSubtreeModified",filterIsland);
+            $islands.bind("DOMSubtreeModified",function(){
+                //$(this).css('background','#000');
+                filterIsland(this);
+                setFromCounter();
+            });
         });
         $("#ikaez_islandsSearch button").on('click', button_click);
 
 
+        function setFromCounter(count){
+            if(typeof count == "undefined"){
+                count = foundedCoords.length;
+            }
+            if(typeof $counter == "undefined"){
+                var $counter = $("#ikaez_islandSearch_counter"),
+                    $counter_current = $counter.find(".ikaez_iSS_cnt_current"),
+                    $counter_from = $counter.find(".ikaez_iSS_cnt_from")
+            }
+            if(foundedCoordsLastLength != count) {
+                $counter_from.text(count);
+                foundedCoordsLastLength = count;
+            }
+        }
         function filterIsland(){
-            if(!$(this).hasClass("oceanTile") && !$(this).hasClass("ikaez_islandSearch_filtered")) {
-                var check = true;
+            var _this, uploaded = false;
+            if(typeof arguments[1] !== "undefined") {
+                _this = arguments[1];
+            }else if(typeof arguments[0] !== "undefined"){
+                _this = arguments[0];
+            }
+            if(!$(_this).hasClass("oceanTile") && !$(_this).hasClass("ikaez_islandSearch_filtered")) {
+                var check = true,
+                    $wonder = $(_this).find(".wonder"),
+                    $tradegood = $(_this).find(".tradegood"),
+                    coords = zJS.Utils.island.getSelectedCoord(_this),
+                    cities = $(_this).find(".cities").text();
                 if (searchParameters.wonder.length > 0) {
-                    check = $(this).find(".wonder").is("." + searchParameters.wonder.join(",."));
+                    check = $wonder.is("." + searchParameters.wonder.join(",."));
                 }
+                coords.wonder = 'wonder'+$wonder.attr('class').match(/wonder(\d+)/)[1];
 
                 if (searchParameters.tradegood.length > 0 && check) {
-                    check = $(this).find(".tradegood").is("." + searchParameters.tradegood.join(",."));
+                    check = $tradegood.is("." + searchParameters.tradegood.join(",."));
                 }
+                coords.tradegood = 'tradegood'+$tradegood.attr('class').match(/tradegood(\d+)/)[1];
 
                 if (searchParameters.general.length > 0 && check) {
-
-                    var cities = $(this).find(".cities").text();
                     if (searchParameters.general.indexOf('generalfull') > -1 && searchParameters.general.indexOf('generalempty') > -1) {
                         check = cities > 0 && cities < 16;
                     } else {
@@ -160,25 +205,48 @@ zJS.Page.__common = {
                         }
                     }
                 }
+                coords.cities = cities;
 
-                var coords = zJS.Utils.island.getSelectedCoord($(this));
-                //console.log(containsObject(coords, foundedCoords));
                 if (check) {
-                    $(this).addClass("ikaez_islandSearch_filtered");
-                    if(!containsObject(coords, foundedCoords)) {
-                        foundedCoords.push(coords);
-                    }
+                    $(_this).addClass("ikaez_islandSearch_filtered");
                     isSearchActive++;
-                } else {
-                    foundedCoords.removeEl(zJS.Utils.island.getSelectedCoord($(this)));
+                    if(!existsCorrds[coords.x+coords.y]) {
+                        foundedCoords.push(coords);
+                        existsCorrds[coords.x+coords.y] = true;
+                    }
+                } else{
+                    if(existsCorrds[coords.x+coords.y]) {
+                        foundedCoords = $.grep(foundedCoords, function (el) {
+                            var coord_check = el.x != coords.x || el.y != coords.y;
+
+                            if (searchParameters.wonder.length > 0 && coord_check) {
+                                coord_check = searchParameters.wonder.indexOf(el.wonder) > -1;
+                            }
+
+                            if (searchParameters.tradegood.length > 0 && coord_check) {
+                                coord_check = searchParameters.tradegood.indexOf(el.tradegood) > -1;
+                            }
+
+                            if (searchParameters.general.length > 0 && coord_check) {
+                                if (searchParameters.general.indexOf('generalfull') > -1 && searchParameters.general.indexOf('generalempty') > -1) {
+                                    coord_check = el.cities > 0 && el.cities < 16;
+                                } else {
+                                    if (searchParameters.general.indexOf('generalfull') > -1) {
+                                        coord_check = el.cities < 16;
+                                    }
+                                    if (searchParameters.general.indexOf('generalempty') > -1) {
+                                        coord_check = el.cities > 0;
+                                    }
+                                }
+                            }
+                            return coord_check;
+                        });
+                        existsCorrds[coords.x+coords.y] = false;
+                    }
                     if (foundedCoords.length) {
                         $("#ikaez_islandSearch_next").removeClass("unactive");
                     }
                 }
-
-                //console.log(activeFoundedCoords + ' = ' + coords.x + ' : ' + coords.y);
-                //console.log(foundedCoords);
-                $counter_from.text(foundedCoords.length);
             }
         }
 
@@ -189,15 +257,35 @@ zJS.Page.__common = {
             $(this).toggleClass("active");
                 if ($(this).hasClass("active")) {
                     searchParameters[type].push(type + name);
-                    console.log(searchParameters);
                 }else{
                     searchParameters[type].removeEl(type + name);
                 }
+
+                // *** Filter islands ***
                 $islands.removeClass("ikaez_islandSearch_filtered").each(filterIsland);
+                setFromCounter();
+                console.log(foundedCoords);
 
                 if(name == "reset"){
                     $("#ikaez_islandsSearch button").removeClass("active");
                     isSearchActive = 0;
+                    setFromCounter(0);
+
+                    resources_converted = {
+                        "marble": 2,
+                        "glass": 3,
+                        "sulfur": 4,
+                        "wine": 1,
+                        "wood": 5
+                    };
+                    searchParameters = {
+                        wonder : [],
+                        tradegood: [],
+                        general: []
+                    };
+                    foundedCoords = [];
+                    existsCorrds = {};
+                    activeFoundedCoords = 0;
                 }
 
             if(!isSearchActive){
@@ -557,14 +645,15 @@ zJS.Page.__common = {
 
         var nextCity = $('<li class="ikaeasy_nextCity" id="ikaeasy_nextCity"></li>');
         $('#cityResources').find('.resources').prepend(nextCity);
-
         $(nextCity).click(function() {
             if(_next < 1) {
                 _next = _first;
             }
-
             $('#js_cityIdOnChange').val(_next);
-            $('#changeCityForm').submit();
+            console.log("next");
+            zJS.Utils.execute_js("ajaxHandlerCallFromForm(document.getElementById('changeCityForm'));");
+
+
         }.bind(this));
         console.timeEnd('_nextCity');
     },

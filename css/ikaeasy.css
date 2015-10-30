@@ -1128,8 +1128,9 @@ div#ikaez_islandsSearch button:hover,div#ikaez_islandsSearch button:focus {
 
 button#ikaez_update_island_info {
     position: absolute;
-    right: -100px;
-    top: 3px;
+    right: -122px;
+    top: 5px;
+    float: left;
 }
 
 div#ikaez_islandsSearch button.ikaez_islandSearch_gbutton.button.active:not(.reset) {
@@ -1140,7 +1141,9 @@ div#ikaez_islandsSearch button.ikaez_islandSearch_gbutton.button.active:not(.res
     display: inline-block;
     background: #eccf8e url(http://s22-ru.ikariam.gameforge.com/input/button.png) repeat-x;
 }
-
+button.ikaez_islandSearch_gbutton.button.reset {
+    margin-right: 8px;
+}
 button.ikaez_islandSearch_wonder_btn.button>img {
     max-height: 30px;
 }
@@ -1162,7 +1165,7 @@ div#ikaez_fastPirateButtons {
 #ikaez_islandSearch_prev, #ikaez_islandSearch_next{
     position: absolute;
     top: 17px;
-    right: 11px;
+    right: 3px;
     width: 40px;
     height: 40px;
     background-repeat: no-repeat;
@@ -1182,7 +1185,7 @@ div#ikaez_fastPirateButtons {
 #ikaez_islandSearch_prev{
     background-position: -16px -5px;
     right: auto;
-    left: 11px;
+    left: 3px;
 }
 
 #ikaez_islandSearch_prev:hover, #ikaez_islandSearch_prev:focus{
