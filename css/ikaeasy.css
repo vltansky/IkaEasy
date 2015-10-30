@@ -1205,3 +1205,18 @@ div#ikaez_fastPirateButtons {
 #ikaez_islandSearch_next.unactive:hover, #ikaez_islandSearch_next.unactive:focus, #ikaez_islandSearch_next.unactive:active{
     background-position: -84px -5px!important;
 }
+
+div#ikaez_islands_travel_time {
+    position: absolute;
+    bottom: 55px;
+    left: 115px;
+    background: #FEF6E3;
+    width: 100px;
+    line-height: 24px;
+    height: 24px;
+    text-align: center;
+    border: 1px solid #754120;
+    outline: 1px solid rgba(255, 255, 255, 0.42);
+    font-size: 11px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.43);
+}

@@ -67,19 +67,16 @@ zJS.Page.__common = {
     },
 
     _islandsTimeTravel: function(){
-        var $coords = $("#inputXCoord, #inputYCoord"),
-            activeIsland, targetIsland;
-        console.log($coords);
+        var $triggers = $(".islandTile, #mapCoordInput .submitButton"), $res_container;
 
-        $coords.on('change', function () {
-            activeIsland = zJS.Var.getActiveIsland();
-            targetIsland = zJS.Var.getWorldActiveIsland();
-            console.log(activeIsland);
-            console.log(targetIsland);
-            var a = targetIsland.x - activeIsland.x,
-                b = targetIsland.y - activeIsland.y,
-                math = 20 * Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)); // speed = 1200/60
-        });
+        if($("#ikaez_islands_travel_time").length < 1){
+            $res_container = $("<div>", {id: "ikaez_islands_travel_time"});
+            $("#footer").find(".footerbg").append($res_container);
+        }
+
+        $triggers.on('click', zJS.Utils.island.showTravelTime);
+
+        zJS.Utils.island.showTravelTime();
     },
 
     _islandsSearch: function() {
@@ -179,8 +176,8 @@ zJS.Page.__common = {
                     }
                 }
 
-                console.log(activeFoundedCoords + ' = ' + coords.x + ' : ' + coords.y);
-                console.log(foundedCoords);
+                //console.log(activeFoundedCoords + ' = ' + coords.x + ' : ' + coords.y);
+                //console.log(foundedCoords);
                 $counter_from.text(foundedCoords.length);
             }
         }

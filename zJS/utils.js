@@ -348,6 +348,7 @@ zJS.Utils = {
             $("#inputXCoord").val(x);
             $("#inputYCoord").val(y);
             $("form[name='navInputForm']").find(".submitButton").click()//.submit();
+            this.showTravelTime();
         },
         getSelectedCoord: function(_this){
             //var title = $(_this).attr('title');
@@ -360,7 +361,35 @@ zJS.Utils = {
                     y: zJS.Utils.format.onlyInt(res[1])
                 };
             }
-            return null;
+            return false;
+        },
+        showTravelTime: function(){
+            var $res_container = $("#ikaez_islands_travel_time");
+            if($res_container.length>0) {
+                // TODO start loading
+                setTimeout(function () {
+                    // TODO end loading
+                    var activeIsland = zJS.Var.getActiveIsland(),
+                        targetIsland = zJS.Var.getWorldActiveIsland();
+                    console.log(activeIsland);
+                    console.log(targetIsland);
+                    var a = targetIsland.x - activeIsland.x,
+                        b = targetIsland.y - activeIsland.y,
+                        math = 20 * Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)); // speed = 1200/60
+
+                    var hours = Math.floor(math / 60),
+                        minutes = Math.floor(math % 60),
+                        res;
+                    hours = hours ? hours + zJS.Lang.char_hour : '';
+                    minutes = minutes ? minutes + zJS.Lang.char_minute : '';
+                    // TODO add seconds
+                    res = (hours ? hours : '') + ' ' + (minutes ? minutes : '');
+                    $res_container.html(res);
+                }, 400);
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 };

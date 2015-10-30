@@ -84,10 +84,14 @@ zJS.Var = {
     },
 
     getActiveIsland: function(){
-        var res = $("#js_homeCitySelect").find("option:selected").val().split(":");
-        return {
-            x : parseInt(res[0]),
-            y : parseInt(res[1])
+        var res = $("#js_citySelectContainer").find("a").text().split(" ");
+        if(typeof res !== "undefined") {
+            res = res[0].split(':');
+            return {
+                x: zJS.Utils.format.onlyInt(res[0]),
+                y: zJS.Utils.format.onlyInt(res[1])
+            }
         }
+        return false;
     }
 };

@@ -13,7 +13,7 @@ zJS.Page.militaryAdvisorReportView = {
         if(typeof ikalogs != "undefined") {
             var _ikalogs = new ikalogs();
         }
-        if($('#troopsReport').find('.result').length > 0) {
+        if($('#troopsReport').find('.result').length > 0 && !$(".ikaeasy_full_report_btn").length) {
             var $full_report = $('.link:first').clone().addClass('ikaeasy_full_report_btn');
             $('#militaryAdvisorReportView').find('div.content').after($full_report);
         }
