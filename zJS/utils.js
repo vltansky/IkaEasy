@@ -371,8 +371,10 @@ zJS.Utils = {
                     // TODO end loading
                     var activeIsland = zJS.Var.getActiveIsland(),
                         targetIsland = zJS.Var.getWorldActiveIsland();
-                    console.log(activeIsland);
-                    console.log(targetIsland);
+                    if(targetIsland.x == activeIsland.x && targetIsland.y == activeIsland.y) {
+                        $res_container.html('10'+zJS.Lang.char_minute);
+                        return true;
+                    }
                     var a = targetIsland.x - activeIsland.x,
                         b = targetIsland.y - activeIsland.y,
                         math = 20 * Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)); // speed = 1200/60
