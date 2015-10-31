@@ -76,7 +76,7 @@ zJS.Page.militaryAdvisor = {
         $js_MilitaryMovementsFleetMovementsTable.find('tr:not(.ikaeasy_complete)').has('td').each(function() {
             console.time('TR movements select');
             total = 0;
-            var wrapper = $('<div class="ikaeasy_transport_main"></div>');
+            var wrapper = $('<div class="ikaeasy_transport_main"></div>'), res_count = 0;
 
             if($('.unit_detail_icon', this)[0] != null) {
                 console.log($('.unit_detail_icon', this));
@@ -84,10 +84,11 @@ zJS.Page.militaryAdvisor = {
                     if($(this).hasClass("resource_icon")){
                         console.log("resource");
                         total += zJS.Utils.format.onlyInt($(this).text());
+                        res_count++;
                     }
                     $(wrapper).append($(this));
                 });
-                if(total) {
+                if(total && res_count>1) {
                     $(wrapper).append('<span class="ikaez_military_res_total unit_detail_icon resource_icon floatleft' +
                         ' icon40 bold center"><img src="' + db.images.resources.all + '"> ' + total + '</span>');
                 }
