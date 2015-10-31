@@ -27,7 +27,8 @@ if(typeof zJS.Page == "undefined") {
 //<tr><td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="plunder" id="ikaeasy_militaryView_cb_plunder" checked/><label for="ikaeasy_militaryView_cb_plunder"> Набег</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb"  id="ikaeasy_militaryView_cb_blockade" data-ikaeztype="blockade" checked/><label for="ikaeasy_militaryView_cb_blockade"> Блокада</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="transport" id="ikaeasy_militaryView_cb_transport" checked/><label for="ikaeasy_militaryView_cb_transport"> Транпортировка</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="deployarmy" id="ikaeasy_militaryView_cb_deployarmy" checked/><label for="ikaeasy_militaryView_cb_deployarmy"> размещение войска</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="defend"  id="ikaeasy_militaryView_cb_defend" checked/><label for="ikaeasy_militaryView_cb_defend"> Защита</label></td> <td><input type="checkbox" class="ikaeasy_militaryView_cb" data-ikaeztype="deployfleet"  id="ikaeasy_militaryView_cb_deployfleet" checked/><label for="ikaeasy_militaryView_cb_deployfleet"> размещение флота</label></td> <td></td> <td></td> </tr>
 zJS.Page.militaryAdvisor = {
     init: function() {
-        var $js_MilitaryMovementsFleetMovementsTable = $('#js_MilitaryMovementsFleetMovementsTable');
+        var $js_MilitaryMovementsFleetMovementsTable = $('#js_MilitaryMovementsFleetMovementsTable'),
+            db = zJS.DB._loadDB();
         var tab_moves={
             all: $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.mission_icon').length,
             plunder: $js_MilitaryMovementsFleetMovementsTable.find('tr').has('.mission_icon.plunder').length,
@@ -69,16 +70,27 @@ zJS.Page.militaryAdvisor = {
             $(this).css('padding', '4px 0px').removeClass('right');
         });
 
+        var total;
+
         // Отображение войск и флотов в военном советнике.
         $js_MilitaryMovementsFleetMovementsTable.find('tr:not(.ikaeasy_complete)').has('td').each(function() {
             console.time('TR movements select');
+            total = 0;
             var wrapper = $('<div class="ikaeasy_transport_main"></div>');
 
             if($('.unit_detail_icon', this)[0] != null) {
                 console.log($('.unit_detail_icon', this));
                 $('.unit_detail_icon', this).each(function() {
+                    if($(this).hasClass("resource_icon")){
+                        console.log("resource");
+                        total += zJS.Utils.format.onlyInt($(this).text());
+                    }
                     $(wrapper).append($(this));
                 });
+                if(total) {
+                    $(wrapper).append('<span class="ikaez_military_res_total unit_detail_icon resource_icon floatleft' +
+                        ' icon40 bold center"><img src="' + db.images.resources.all + '"> ' + total + '</span>');
+                }
 
                 $('td', this).eq(3).empty().append(wrapper).attr('colspan', '2');
                 $('td', this).eq(4).remove();

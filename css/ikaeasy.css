@@ -1264,13 +1264,20 @@ div#ikaez_islands_travel_time {
     text-align: center;
 }
 
-th.ikaez_combat_resources_th, div#troopsOverview .table01 thead th:last-child {
+th.ikaez_combat_resources_th {
     width: 200px;
 }
-
-.watchBattle{
-    display: none;
+div#troopsOverview .table01 tbody td:last-child{
+    text-align:center;
 }
+
+div#troopsOverview .table01 thead th:last-child{
+    font-size: 0;
+}
+
+/*.watchBattle{*/
+/*display: none;*/
+/*}*/
 
 .ikaez_combat_resources_total img {
     width: 13px;
@@ -1281,4 +1288,30 @@ table.table01.military_event_table{
 }
 table.table01.military_event_table.ikaeasy_complete {
     margin-top: 0px!important;
+}
+
+span.ikaez_military_res_total {
+    padding-top: 6px!important;
+    background: none!important;
+    margin-left: 15px;
+    height: auto!important;
+    float: right;
+}
+span.ikaez_military_res_total img{
+    display:block;
+    margin: 0 auto;
+}
+
+div#ikalogs_already_exist {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+div#ikalogs_already_exist a {
+    text-decoration: underline;
+    font-size:14px;
+}
+
+div#ikalogs_already_exist a:hover{
+    text-decoration: none;
 }

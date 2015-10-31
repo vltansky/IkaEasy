@@ -27,7 +27,9 @@ ikalogs.prototype = {
     init: function() {
         this.ls_battles = zJS.Utils.ls.getValue('battles');
         if(!this.ls_battles){
-            this.ls_battles = {};
+            this.ls_battles = {
+                total: 0
+            };
         }
 
         this._make_box();
@@ -318,9 +320,16 @@ ikalogs.prototype = {
 
             this.ls_battles = zJS.Utils.ls.getValue('battles');
             if(!this.ls_battles){
-                this.ls_battles = {};
+                this.ls_battles = {
+                    total: 0
+                };
             }
 
+            if(typeof this.ls_battles[this._rep_id] === "undefined") {
+                this.ls_battles[this._rep_id] = {
+                    total: 0
+                }
+            }
             this.ls_battles[this._rep_id].ikalogs = data.url;
             zJS.Utils.ls.setValue('battles', this.ls_battles);
         }
@@ -465,6 +474,7 @@ ikalogs.prototype = {
 
         var dynamic_content = '<div style="padding: 5px 5px;" class="ikalogs_block" id="ikalogs_saver">' +
             '<div id="ikalogs_auth" style="text-align: center; padding-bottom: 10px;font-weight: bold;"></div>' +
+            '<div id="ikalogs_already_exist"><a href=""></a></div>' +
             '<select name="report_type" style="width:203px;">' + _types + '</select>' +
             '<select name="report_rounds" style="width:203px; display:none;">' + report_round + '</select>' +
             '<div class="ikalogs_between" style="width:208px; display: none; text-align: center;">' +
@@ -488,16 +498,11 @@ ikalogs.prototype = {
         this._rep_id = url.match(/detailedCombatId=(\d+)/i)[1];
 
         if(typeof this.ls_battles[this._rep_id] !== "undefined" && this.ls_battles[this._rep_id].ikalogs) {
-            $('.ikalogs_block', this._box).hide();
-            $('.ikalogs_loader', this._box).hide();
-            $('.ikalogs_result', this._box).show();
-            $('.ikalogs_result a', this._box)
-                .text(zJS.Lang.ikalogs.open_report)
+            $('#ikalogs_already_exist a', this._box)
+                .text(zJS.Lang.ikalogs.last_report)
                 .attr('href', this.ls_battles[this._rep_id].ikalogs)
                 .attr('target', '__blank')
                 .off('click', this._repeat.bind(this));
-            $('.ikalogs_result span', this._box).text(zJS.Lang.ikalogs.saving_success);
-            return false;
         }
         this._checkIsAuth();
 

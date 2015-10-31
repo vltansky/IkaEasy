@@ -90,6 +90,7 @@ langs.en = {
 
         'saving_success': 'The log was successfully saved.',
         'open_report': 'Open log',
+        'last_report': 'Last report',
 
         'saving_failed': 'Failed to save log',
         'repeat': 'Try again',
