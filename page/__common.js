@@ -122,7 +122,7 @@ zJS.Page.__common = {
             inner += '<a id="ikaez_islandSearch_prev" class="unactive" href="javascript:void(0)" style="' + button_image + '"></a>';
             // resources buttons
             $.each(db.images.resources, function (name, imgUrl) {
-                if(name != 'wood')
+                if(name != 'wood' && name !== 'all')
                 inner += '<button class="ikaez_islandSearch_resource_btn button" data-name="' + resources_converted[name] + '" data-type="tradegood"><img src="' + imgUrl + '"></button>';
             });
             // button next

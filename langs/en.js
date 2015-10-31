@@ -34,6 +34,7 @@ langs.en = {
     'is_search_full': 'full',
     'is_search_empty': 'empty',
     'update': 'update',
+    'robbed' : 'Robbed',
     'MessagePlaceholder': "Click CTRL + Enter to send message",
     'ConfirmDowngrade': "Confirm downgrading of building",
     'Circular_message': "Message to everyone",

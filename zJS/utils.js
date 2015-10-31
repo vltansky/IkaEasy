@@ -138,6 +138,11 @@ zJS.Utils = {
     },
 
     ls: {
+        /*
+        @param {string} name
+        @param {string} value
+        @param {number} time expire time in seconds
+         */
         setValue: function(name, value, time) {
             var _value = {};
             _value["value"] = value;
@@ -340,7 +345,7 @@ zJS.Utils = {
 
     format: {
       onlyInt: function(a){
-          return a.replace(/[^\d]+/g, '');
+          return parseInt(a.replace(/[^\d]+/g, ''));
       }
     },
     island: {

@@ -15,6 +15,7 @@ ikalogs.prototype = {
 
     _all_rounds: 0,
     _rep_id: 0,
+    ls_battles: {},
 
     _rounds: [],
     _rounds_each: [2, 5, 10, 15, 20, 25, 50, 75, 100],
@@ -24,6 +25,11 @@ ikalogs.prototype = {
     _cnt_ally_names: 0,
 
     init: function() {
+        this.ls_battles = zJS.Utils.ls.getValue('battles');
+        if(!this.ls_battles){
+            this.ls_battles = {};
+        }
+
         this._make_box();
     },
 
@@ -310,6 +316,13 @@ ikalogs.prototype = {
                 .attr('target', '__blank')
                 .off('click', this._repeat.bind(this));
 
+            this.ls_battles = zJS.Utils.ls.getValue('battles');
+            if(!this.ls_battles){
+                this.ls_battles = {};
+            }
+
+            this.ls_battles[this._rep_id].ikalogs = data.url;
+            zJS.Utils.ls.setValue('battles', this.ls_battles);
         }
         else {
             this._show_failed(data);
@@ -471,6 +484,21 @@ ikalogs.prototype = {
 
         $('#backTo').after(this._box);
 
+        var url = $('#troopsReport').find('.contentBox01h p.link a').eq(0).attr('href');
+        this._rep_id = url.match(/detailedCombatId=(\d+)/i)[1];
+
+        if(typeof this.ls_battles[this._rep_id] !== "undefined" && this.ls_battles[this._rep_id].ikalogs) {
+            $('.ikalogs_block', this._box).hide();
+            $('.ikalogs_loader', this._box).hide();
+            $('.ikalogs_result', this._box).show();
+            $('.ikalogs_result a', this._box)
+                .text(zJS.Lang.ikalogs.open_report)
+                .attr('href', this.ls_battles[this._rep_id].ikalogs)
+                .attr('target', '__blank')
+                .off('click', this._repeat.bind(this));
+            $('.ikalogs_result span', this._box).text(zJS.Lang.ikalogs.saving_success);
+            return false;
+        }
         this._checkIsAuth();
 
         $(this._select_report_type, this._box).change(function() {

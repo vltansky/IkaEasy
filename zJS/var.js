@@ -93,5 +93,9 @@ zJS.Var = {
             }
         }
         return false;
+    },
+
+    _now: function(){
+        return Math.floor((new Date()).getTime() / 1000);
     }
 };

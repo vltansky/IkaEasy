@@ -946,6 +946,7 @@ ul#ikaeasy_military_movements li>a {
     display: block;
     position: relative;
     opacity: 0.5;
+    height: 25px;
 }
 ul#ikaeasy_military_movements li>a.ikaez_active {
     opacity: 1;
@@ -1222,4 +1223,62 @@ div#ikaez_islands_travel_time {
     outline: 1px solid rgba(255, 255, 255, 0.42);
     font-size: 11px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.43);
+}
+
+.ikaez_combat_resources_tooltip {
+    position: absolute;
+    right: -6px;
+    top: 20px;
+    float: left;
+    width: 75px;
+    background: rgba(100, 60, 35, 0.66);
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.45);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+}
+
+.ikaez_combat_resources_tooltip span.ikaez_battle_resource {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.ikaez_combat_resources_tooltip span.ikaez_battle_resource:last-child {
+    margin-bottom: 0;
+}
+
+.ikaez_combat_resources_td:hover .ikaez_combat_resources_tooltip{
+    visibility: visible;
+    opacity: 1;
+}
+
+.ikaez_combat_resources_total {
+    font-weight: bold;
+    text-align: center;
+}
+
+th.ikaez_combat_resources_th, div#troopsOverview .table01 thead th:last-child {
+    width: 200px;
+}
+
+.watchBattle{
+    display: none;
+}
+
+.ikaez_combat_resources_total img {
+    width: 13px;
+}
+
+table.table01.military_event_table{
+    margin-top: 41px!important;
+}
+table.table01.military_event_table.ikaeasy_complete {
+    margin-top: 0px!important;
 }

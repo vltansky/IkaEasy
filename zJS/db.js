@@ -1279,12 +1279,21 @@ zJS.DB = {
         };
 
         var IMAGES = {
-            "resources": {
+            "resources": { // if adding here smth - add it to if in "_common.js" line 125
+                "all": zJS.Utils.generateDomain() + "/skin/wonder/multi_wine.png",
                 "marble": zJS.Utils.generateDomain() + "/skin/resources/icon_marble.png",
                 "glass": zJS.Utils.generateDomain() + "/skin/resources/icon_glass.png",
                 "sulfur": zJS.Utils.generateDomain() + "/skin/resources/icon_sulfur.png",
                 "wine": zJS.Utils.generateDomain() + "/skin/resources/icon_wine.png",
-                "wood": zJS.Utils.generateDomain() + "/skin/resources/icon_wood.png"
+                "wood": zJS.Utils.generateDomain() + "/skin/resources/icon_wood.png",
+                "small" : {
+                    "marble": zJS.Utils.generateDomain() + "/skin/resources/icon_marble_small.png",
+                    "glass": zJS.Utils.generateDomain() + "/skin/resources/icon_glass_small.png",
+                    "crystal": zJS.Utils.generateDomain() + "/skin/resources/icon_crystal_small.png",
+                    "sulfur": zJS.Utils.generateDomain() + "/skin/resources/icon_sulfur_small.png",
+                    "wine": zJS.Utils.generateDomain() + "/skin/resources/icon_wine_small.png",
+                    "wood": zJS.Utils.generateDomain() + "/skin/resources/icon_wood_small.png"
+                }
             },
             "wonders": {
                 1 : zJS.Utils.generateDomain() + "/skin/world/w1.png",
@@ -1294,7 +1303,7 @@ zJS.DB = {
                 5 : zJS.Utils.generateDomain() + "/skin/world/w5.png",
                 6 : zJS.Utils.generateDomain() + "/skin/world/w6.png",
                 7 : zJS.Utils.generateDomain() + "/skin/world/w7.png",
-                8 : zJS.Utils.generateDomain() + "/skin/world/w8.png",
+                8 : zJS.Utils.generateDomain() + "/skin/world/w8.png"
             }
         };
         return {'source': BUILDINGS, 'pos': POSITIONS, 'images': IMAGES};

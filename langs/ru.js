@@ -34,6 +34,7 @@ langs.ru = {
     'is_search_full': 'полные',
     'is_search_empty': 'пустые',
     'update': 'обновить',
+    'robbed' : 'Ограблено',
     'MessagePlaceholder': "Нажмите CTRL + Enter для отправки сообщения",
     'ConfirmDowngrade': "Вы действительно хотите снести 1 уровень этого здания?",
     'Circular_message': "Общее сообщение",

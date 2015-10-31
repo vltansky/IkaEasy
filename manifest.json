@@ -71,6 +71,7 @@
                 "page/resource.js",
                 "page/militaryAdvisor.js",
                 "page/militaryAdvisorReportView.js",
+                "page/militaryAdvisorCombatList.js",
                 "page/transport.js",
                 "page/attack.js",
                 "page/diplomacyAdvisor.js",
@@ -209,5 +210,5 @@
         "http://ikalogs.ru/*",
         "http://*.ikalogs.ru/*"
     ],
-    "version": "2.0.0.49"
+    "version": "2.0.0.5"
 }
