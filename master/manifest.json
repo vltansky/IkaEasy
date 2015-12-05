@@ -1,0 +1,217 @@
+{
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["inner/background.js"]
+    },
+    "page_action": {
+        "default_icon": "icon/128.png",
+        "default_title": "ikariam"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "langs/de.js",
+                "langs/en.js",
+                "langs/he.js",
+                "langs/hr.js",
+                "langs/pl.js",
+                "langs/ru.js",
+                "langs/sr.js",
+                "langs/tr.js",
+                "langs/el.js",
+                "langs/lt.js",
+                "langs/it.js",
+                "langs/es.js",
+                "langs/bg.js"
+            ],
+            "matches": [
+                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "js": ["jquery.min.js"],
+            "matches": [
+                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*",
+                "http://ikalogs.ru/*",
+                "http://*.ikalogs.ru/*"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "js": [
+                "zJS/utils.js",
+                "zJS/lng.js",
+                "zJS/var.js",
+                "zJS/db.js",
+                "init.js",
+                "ikalogs.js"
+            ],
+            "matches": [
+                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "js": ["zJS/navigation.js"],
+            "matches": [
+                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "js": [
+                "page/__common.js",
+                "page/city.js",
+                "page/island.js",
+                "page/resource.js",
+                "page/militaryAdvisor.js",
+                "page/militaryAdvisorReportView.js",
+                "page/militaryAdvisorCombatList.js",
+                "page/transport.js",
+                "page/attack.js",
+                "page/diplomacyAdvisor.js",
+                "page/units.js",
+                "page/topLists.js",
+                "page/tavern.js",
+                "page/options.js",
+                "page/generalAttacksToAlly.js",
+                "page/pirateFortress.js",
+                "page/finances.js",
+                "page/townHall.js"
+            ],
+            "matches": [
+                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "js": [
+                "hotkeysPlugin.js",
+                "page/sendIKMessage.js"
+            ],
+            "matches": [
+                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "description": "Make your Ikariam easy :).",
+    "icons": {
+        "128": "icon/128.png",
+        "16": "icon/16.png",
+        "32": "icon/32.png",
+        "48": "icon/48.png"
+    },
+
+    "web_accessible_resources": [
+        "css/ikaeasy.min.css",
+        "css/ikalogs.min.css",
+        "inner/ikaeasy.js",
+        "images/cursors/drag0.gif",
+        "images/nextCity.png",
+        "images/transporter.png",
+        "images/chat.png",
+        "images/embassy.png",
+        "images/circleRed.png",
+        "images/circleGreen.png",
+        "images/circleGray.png",
+        "images/circleBlue.png",
+        "images/army.png",
+        "images/army_d.png",
+        "images/army_f.png",
+        "images/arrowGreen.png",
+        "images/arrowGreenFocus.png",
+        "images/arrowRed.png",
+        "images/arrowRedFocus.png",
+        "images/bg_sidebox.gif",
+        "images/bg_sidebox_footer.gif",
+        "images/bg_sidebox_header.jpg",
+        "images/border.jpg",
+        "images/btn_max.gif",
+        "images/fleet.png",
+        "images/fleet_d.png",
+        "images/fleet_f.png",
+        "images/ikalogs-loader.gif",
+        "images/res.png",
+        "images/res_d.png",
+        "images/res_f.png",
+        "images/resourceCg.png",
+        "images/resourceCr.png",
+        "images/resourceLR.png",
+        "images/window_control_sprite.gif",
+        "images/ally_message.png",
+
+        "images/Marker/bordo/city_bordo.png",
+        "images/Marker/bordo/city_bordo_animated.png",
+        "images/Marker/bordo/city_bordo_animated_glow.png",
+        "images/Marker/bordo/city_bordo_glow.png",
+        "images/Marker/black/city_black.png",
+        "images/Marker/black/city_black_animated.png",
+        "images/Marker/black/city_black_animated_glow.png",
+        "images/Marker/black/city_black_glow.png",
+        "images/Marker/white/city_white.png",
+        "images/Marker/white/city_white_animated.png",
+        "images/Marker/white/city_white_animated_glow.png",
+        "images/Marker/white/city_white_glow.png",
+        "images/Marker/pink/city_pink.png",
+        "images/Marker/pink/city_pink_animated.png",
+        "images/Marker/pink/city_pink_animated_glow.png",
+        "images/Marker/pink/city_pink_glow.png",
+        "images/Marker/purple/city_purple.png",
+        "images/Marker/purple/city_purple_animated.png",
+        "images/Marker/purple/city_purple_animated_glow.png",
+        "images/Marker/purple/city_purple_glow.png",
+        "images/Marker/orange/city_orange.png",
+        "images/Marker/orange/city_orange_animated.png",
+        "images/Marker/orange/city_orange_animated_glow.png",
+        "images/Marker/orange/city_orange_glow.png",
+        "images/Marker/turquoise/city_turquoise.png",
+        "images/Marker/turquoise/city_turquoise_animated.png",
+        "images/Marker/turquoise/city_turquoise_animated_glow.png",
+        "images/Marker/turquoise/city_turquoise_glow.png",
+        "images/Marker/purple/flag_purple_gross.png",
+        "images/Marker/bordo/flag_bordo_gross.png",
+        "images/Marker/black/flag_black_gross.png",
+        "images/Marker/white/flag_white_gross.png",
+        "images/Marker/pink/flag_pink_gross.png",
+        "images/Marker/orange/flag_orange_gross.png",
+        "images/Marker/turquoise/flag_turquoise_gross.png",
+        "images/Marker/paint-icon.png",
+        "images/Marker/black/black.png",
+        "images/Marker/white/white.png",
+        "images/Marker/pink/pink.png",
+        "images/Marker/purple/purple.png",
+        "images/Marker/orange/orange.png",
+        "images/Marker/turquoise/turquoise.png",
+        "images/Marker/bordo/bordo.png",
+        "images/Marker/highlighter_left.png",
+        "images/Marker/highlighter_panel.png",
+        "images/Marker/highlighter_right.png",
+        "images/Marker/controls.png",
+        "images/Marker/paint-icon-big.png",
+        "images/Marker/topList-menu.png",
+        "images/externalURLHover.png",
+        "images/externalURL.png",
+        "images/advisors/militaryAdvisor.png"
+    ],
+
+    "name": "Ikariam Easy V2",
+    "permissions": [
+        "storage",
+        "tabs",
+        "http://*.ikariam.gameforge.com/*",
+        "https://*.ikariam.gameforge.com/*",
+        "http://ikalogs.ru/*",
+        "http://*.ikalogs.ru/*",
+        "http://clip2net.com/*",
+        "http://*.clip2net.com/*"
+    ],
+    "version": "2.0.0.54"
+}

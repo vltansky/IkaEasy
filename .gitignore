@@ -1,11 +1,9 @@
-bin/
-FINAL/
 compiler.txt
 build.xml
 config/
 .idea/
-Phing
-build.json
 manifest_new.txt
 manifest_test.txt
 README.md
+/vendor/
+/node_modules/

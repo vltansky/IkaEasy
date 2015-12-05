@@ -1,2 +1,0 @@
-<div id="eventDiv">
-    <div id="btnIngameCountdown1" class="btnIngameCountdown happyHour" style="display: block;"><p class="bold ingameCountdownText">Наймите 300 спартанцев!</p><p id="ingameCountdown1" class="ingameCountdown bold green">3ч 38м</p><input type="hidden" id="hhTimerOffset1" value="13101000"></div></div>
