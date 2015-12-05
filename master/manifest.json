@@ -111,8 +111,8 @@
     },
 
     "web_accessible_resources": [
-        "css/ikaeasy.min.css",
-        "css/ikalogs.min.css",
+        "css/ikaeasy.css",
+        "css/ikalogs.css",
         "inner/ikaeasy.js",
         "images/cursors/drag0.gif",
         "images/nextCity.png",
