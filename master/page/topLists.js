@@ -20,7 +20,7 @@ zJS.Page.highscore = {
             var markerMenu = $('<div class="ikaeasy_top_marker_menu" />').appendTo($(this));
             for(var i = 0; i < 8; i++) {
                 var menuCell = $('<div class="ikaeasy_top_menuCell" id="' + zJS.Utils.marker.getColorById(i - 1) + '" />').appendTo($(markerMenu));
-                if(i == 0) {
+                if(i === 0) {
                     $(menuCell).click(function(e) {
                         var ally = $(e.target).parent().parent();
                         ally = $('.ikaeasy_marker_big', $(ally));
@@ -40,8 +40,7 @@ zJS.Page.highscore = {
                 }
             }
 
-            ////////////////////////////////////////////
-            var allyTag = $('.allytag a', $(this)).text() == '' ? '-' : $('.allytag a', $(this)).text();
+            var allyTag = $('.allytag a', $(this)).text() === '' ? '-' : $('.allytag a', $(this)).text();
 
             $('<div class="ikaeasy_marker_big" id="' + allyTag + '"/>').insertBefore($('.action a', $(this))).click(function(e) {
                 if($(this).hasClass('clicked')) {
@@ -94,7 +93,6 @@ zJS.Page.highscoreAlly = {
                 }
                 else {
                     $(menuCell).click(function(e) {
-                        debugger;
                         var ally = $(e.target).parent().parent();
                         ally = $('.ikaeasy_marker_big_ally', $(ally));
                         zJS.Utils.marker.setAllyColor($(ally)[0].id, 'marker_' + $(this)[0].id);

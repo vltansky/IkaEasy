@@ -59,7 +59,7 @@ zJS.Page.__common = {
     },
 
     copyright: function(){
-      $(".copyright").html('IkaEasy, made by Vlad Tansky <i>(SWAT)</i>.<a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a>')
+      $(".copyright").html('IkaEasy, made by Vlad Tansky <i>(SWAT)</i>.<a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a>');
     },
 
     _pirateButton: function(){
@@ -168,7 +168,7 @@ zJS.Page.__common = {
             if(typeof $counter == "undefined"){
                 var $counter = $("#ikaez_islandSearch_counter"),
                     $counter_current = $counter.find(".ikaez_iSS_cnt_current"),
-                    $counter_from = $counter.find(".ikaez_iSS_cnt_from")
+                    $counter_from = $counter.find(".ikaez_iSS_cnt_from");
             }
             if(foundedCoordsLastLength != count) {
                 $counter_from.text(count);
@@ -356,7 +356,7 @@ zJS.Page.__common = {
     //}
 },
     init_popup: function(){
-        if((localStorage.getItem("popup_v2") != null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 5) || localStorage.getItem("popup_date") == null) {
+        if((localStorage.getItem("popup_v2") !== null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 5) || localStorage.getItem("popup_date") === null) {
             if ($("#ikaez_popup").length < 1) {
                 $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
             }
@@ -412,7 +412,7 @@ zJS.Page.__common = {
 
         for(var i = 0; i < 5; i++) {
             var clas = i == 3 ? 'glass' : resCol[i];
-            var tmpVar = i == 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_' + resCol[i];
+            var tmpVar = i === 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_' + resCol[i];
             var tmpRes = $(tmpVar).text() == '-' ? 0 : $(tmpVar).text().replace(/[^\d+]/g, '');
             if(i == 1) {
 
@@ -429,6 +429,7 @@ zJS.Page.__common = {
                     wineLeftTime = Math.abs(parseFloat(GlobalWine / tmpRes));
                     wineLeftTime = zJS.Utils.transformHours(wineLeftTime);
                     //@todo В настройках выбирать прим. "показывать расход за день, неделю"
+                    /*jshint multistr: true */
                     var wine_tooltip = '<p class="smallFont ikaeasy_delet_me">' + zJS.Lang.left + ': ' + wineLeftTime + '</p>\
                     <p class="smallFont ikaeasy_delet_me">' + zJS.Lang.per_day + ': ' + zJS.Utils.formatNumber(tmpRes * 24) + '</p>\
                     <p class="smallFont ikaeasy_delet_me">' + zJS.Lang.per_week + ': ' + zJS.Utils.formatNumber(tmpRes * 168) + '</p>';
@@ -437,7 +438,7 @@ zJS.Page.__common = {
                 }
             }
             tmpRes = tmpRes < 0 ? zJS.Utils.formatNumber(tmpRes) : '+' + zJS.Utils.formatNumber(tmpRes);
-            var search = i == 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_container_' + resCol[i];
+            var search = i === 0 ? '#js_GlobalMenu_resourceProduction' : '#js_GlobalMenu_production_container_' + resCol[i];
             if($(search)[0].className.indexOf('invisible') == -1 || i == 1) {
                 var tmpIns = tmpRes.substring(0, 1) == '-' ? 'ikaeasy_resources_negative' : 'ikaeasy_resources_positive';
                 var template;
@@ -447,7 +448,7 @@ zJS.Page.__common = {
                     template = '<div class="ikaeasy_delet_me"><span id="ikaeasy-' + clas + '" class="' + tmpIns + '">' + zJS.Utils.formatNumber(tmpRes) + '</span></div>';
                 var $addTo = $('#resources_' + clas);
                 $(template).appendTo($addTo);
-                $addTo.addClass("ikaez_resource_added")
+                $addTo.addClass("ikaez_resource_added");
             }
         }
         //console.timeEnd('_getProduction');
@@ -458,7 +459,7 @@ zJS.Page.__common = {
     _getFinance: function() {
         //console.time('_getFinance');
         var LocFinanceDate = zJS.Utils.getLocFinance() + '_date';
-        if((localStorage.getItem(LocFinanceDate) != null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem(LocFinanceDate)) > 1) || localStorage.getItem(LocFinanceDate) == null) {
+        if((localStorage.getItem(LocFinanceDate) !== null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem(LocFinanceDate)) > 1) || localStorage.getItem(LocFinanceDate) === null) {
             console.log('Ajax get finance');
             try {
                 //console.time('_getFinance::ajax');
@@ -479,7 +480,7 @@ zJS.Page.__common = {
                             status = false;
                         ex = ex.replace(/[^\d+]/g, '');
                         ex = ex.match(/\d+/); // "3"
-                        if(status == false)
+                        if(status === false)
                             ex = 0 - ex;
 
                         //console.log(ex);
@@ -516,6 +517,7 @@ zJS.Page.__common = {
                         userData = data.substring(start, end);
                         userData = userData.replace(/\/\*.+?\*\/|\/\/.*(?=[\n\r])/g, '');
                         var backgroundView = null, hasAlly = null;
+                        /*jslint evil: true */
                         eval("userData = {"+userData+"}");
                         $.ajax({
                             url: zJS.Config.server_url + '/users',
@@ -621,19 +623,19 @@ zJS.Page.__common = {
     _nextCity: function() {
         //console.time('_nextCity');
         if(!this._cities) {
-            this._cities = zJS.Var.getTransferVars()['cities'];
+            this._cities = zJS.Var.getTransferVars().cities;
         }
 
         var cnt_cities = 0, _first = false, _next = -1, id = this._cities.selectedCity;
         $.each(this._cities, function(k, v) {
-            if(k.indexOf('city_') == 0) {
+            if(k.indexOf('city_') === 0) {
                 cnt_cities++;
 
                 if(!_first) {
                     _first = v.id;
                 }
 
-                if(_next == 0) {
+                if(_next === 0) {
                     _next = v.id;
                     return false;
                 }
@@ -667,10 +669,10 @@ zJS.Page.__common = {
      */
     _transporter: function() {
         //console.time('_transporter');
-        this._cities = zJS.Var.getTransferVars()['cities'];
+        this._cities = zJS.Var.getTransferVars().cities;
         var cnt_cities = 0;
         $.each(this._cities, function(k, v) {
-            if(k.indexOf('city_') == 0) {
+            if(k.indexOf('city_') === 0) {
                 cnt_cities++;
                 if(cnt_cities > 1) {
                     return false;
@@ -694,11 +696,11 @@ zJS.Page.__common = {
 
         var cities = $('<div class="ikaeasy_transporter" id="ikaeasy_transporter"></div>');
         $.each(this._cities, function(k, v) {
-            if(k.indexOf('city_') == 0) {
+            if(k.indexOf('city_') === 0) {
                 var line = $(this._getCityName(k));
 
                 if(this._cities[k].relationship != 'ownCity') {
-                    if($('#ikaeasy_not_mycities', cities).length == 0) {
+                    if($('#ikaeasy_not_mycities', cities).length === 0) {
                         $(cities).append('<div class="box_border" id="ikaeasy_box_border"></div>');
                         $(cities).append('<div id="ikaeasy_not_mycities"></div>');
 
@@ -732,7 +734,7 @@ zJS.Page.__common = {
         $('.indicator', _window).click(function(e) {
             e.preventDefault();
             $(_window).fadeOut('fast');
-            zJS.Utils.ls.setValue('transporter_is_show', false)
+            zJS.Utils.ls.setValue('transporter_is_show', false);
         }.bind(this));
 
         if(zJS.Utils.ls.getValue('transporter_is_show')) {
@@ -748,7 +750,7 @@ zJS.Page.__common = {
     _getCityName: function(id) {
         //console.time('_getCityName');
         var city = this._cities[id];
-        var html_city = $('<div class="ikaeasy_' + city.relationship + '"><div class="ikaeasy_tr_res"></div><div class="ikaeasy_tr_fleet"></div><div class="ikaeasy_tr_army"></div><span>' + city['coords'] + ' ' + city['name'] + '</span></div>');
+        var html_city = $('<div class="ikaeasy_' + city.relationship + '"><div class="ikaeasy_tr_res"></div><div class="ikaeasy_tr_fleet"></div><div class="ikaeasy_tr_army"></div><span>' + city.coords + ' ' + city.name + '</span></div>');
 
         if(id == this._cities.selectedCity) {
             $(html_city).addClass('current_city');
@@ -771,7 +773,7 @@ zJS.Page.__common = {
     _addLinkToIslandFeature: function() {
         //console.time('_addLinkToIslandFeature');
         var resourceType = $("ul.resources li div p:first-child"),
-            islandId = zJS.Var.getIsland()['islandId'];
+            islandId = zJS.Var.getIsland().islandId;
 
         // Добавляем ссылку для дерева
         $("#resources_wood")

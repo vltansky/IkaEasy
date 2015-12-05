@@ -8,12 +8,12 @@ zJS.Var = {
     },
 
     getActionRequest: function() {
-        return this.getTransferVars()['actionRequest'];
+        return this.getTransferVars().actionRequest;
     },
 
     getTransferVars: function() {
         //console.time('getTransferVars');
-        if($('#__ikaeasy').html() != '') {
+        if($('#__ikaeasy').html() !== '') {
             var $ikaeasy = $('#__ikaeasy');
             this._transferVars = jQuery.parseJSON($ikaeasy.html());
             $ikaeasy.html('');
@@ -36,7 +36,7 @@ zJS.Var = {
     },
 
     getCityResources: function() {
-        var _resource = this.getTransferVars()['resources'];
+        var _resource = this.getTransferVars().resources;
 
         var resource = {};
         resource.wood = _resource.resource;
@@ -49,17 +49,17 @@ zJS.Var = {
     },
 
     getCities: function() {
-        return this.getTransferVars()['cities'];
+        return this.getTransferVars().cities;
     },
 
     getCityId: function() {
-        var cities = this.getTransferVars()['cities'];
+        var cities = this.getTransferVars().cities;
 
         return cities[cities.selectedCity].id;
     },
 
     isMyCity: function() {
-        var cities = this.getTransferVars()['cities'];
+        var cities = this.getTransferVars().cities;
 
         return (cities[cities.selectedCity].relationship == 'ownCity');
     },
@@ -70,7 +70,7 @@ zJS.Var = {
 
     getSeparators: function() {
         if(typeof this._separators == "undefined") {
-            this._separators = this.getTransferVars()['separators'];
+            this._separators = this.getTransferVars().separators;
         }
 
         return this._separators;
@@ -80,7 +80,7 @@ zJS.Var = {
         return {
             x: parseInt($("#inputXCoord").val()),
             y: parseInt($("#inputYCoord").val())
-        }
+        };
     },
 
     getActiveIsland: function(){
@@ -90,7 +90,7 @@ zJS.Var = {
             return {
                 x: zJS.Utils.format.onlyInt(res[0]),
                 y: zJS.Utils.format.onlyInt(res[1])
-            }
+            };
         }
         return false;
     },

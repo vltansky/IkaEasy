@@ -50,7 +50,7 @@ ikalogs.prototype = {
 
         if($(this._select_report_type, this._box).val() == 'between') {
             var __rounds = $('.ikalogs_between input', this._box).val();
-            if(__rounds == '') {
+            if(__rounds === '') {
                 $(this._select_report_type, this._box).val('short');
             }
 
@@ -73,7 +73,7 @@ ikalogs.prototype = {
                 }
             }.bind(this));
 
-            if(this._rounds.length == 0) {
+            if(this._rounds.length === 0) {
                 $(this._select_report_type, this._box).val('short');
             }
             else {
@@ -86,7 +86,7 @@ ikalogs.prototype = {
 
         var count = 0, self = this;
         var _afterAll = function() {
-            if(--count == 0) {
+            if(--count === 0) {
                 self.isComplete();
             }
         };
@@ -133,7 +133,7 @@ ikalogs.prototype = {
                 data = jQuery.parseJSON(data)[1][1][1];
                 first = this._parse_report(data);
 
-                if(first != '') {
+                if(first !== '') {
                     this._all_rounds = parseInt(first.match(/\d+ \/ (\d+)<\/li>/i)[1]);
 
                     switch($(this._select_report_type, this._box).val()) {
@@ -201,7 +201,7 @@ ikalogs.prototype = {
                                     }
 
                                     var t = this._parse_report(data);
-                                    if(t != '') {
+                                    if(t !== '') {
                                         this._setFullRound(t);
                                     }
                                     query_func();
@@ -333,7 +333,7 @@ ikalogs.prototype = {
             if(typeof this.ls_battles[this._rep_id] === "undefined") {
                 this.ls_battles[this._rep_id] = {
                     total: 0
-                }
+                };
             }
             this.ls_battles[this._rep_id].ikalogs = data.url;
             zJS.Utils.ls.setValue('battles', this.ls_battles);
@@ -344,7 +344,7 @@ ikalogs.prototype = {
     },
 
     _show_failed: function(data) {
-        data && data.errorNo && console && console.log('ErrorNo: ' + data.errorNo);
+        console.log('ErrorNo: ' + data.errorNo);
 
         $('.ikalogs_result span', this._box).html('<span style="color:#bb0000;">' + zJS.Lang.ikalogs.saving_failed + '</span>');
         $('.ikalogs_result a', this._box)
@@ -385,8 +385,8 @@ ikalogs.prototype = {
             this._sendPartLogs(_obj, 0);
         }
         else {
-            _obj['full'] = this._full;
-            _obj['finished'] = 1;
+            _obj.full = this._full;
+            _obj.finished = 1;
             this._sendRequest(_obj);
         }
     },
@@ -394,10 +394,10 @@ ikalogs.prototype = {
     _sendPartLogs: function(obj, start, id) {
         $('.ikalogs_loader_progress div', this._box).width((start * 100 / this._rounds.length) + '%');
 
-        obj['full'] = {};
+        obj.full = {};
 
         if((id) && (start > 0)) {
-            obj['id'] = id;
+            obj.id = id;
         }
         else if((start > 0) && (!id)) {
             this._show_failed(data);
@@ -405,17 +405,17 @@ ikalogs.prototype = {
 
         if(start < obj.rounds.length) {
             if(start == this._cnt_round_for_part) {
-                obj['short'] = 'incomplete';
+                obj.short = 'incomplete';
             }
 
             for(var j = 1; j <= this._cnt_round_for_part; j++) {
-                obj['full'][obj.rounds[obj.rounds.length - (start + j)]] = this._full[obj.rounds[obj.rounds.length - (start + j)]];
+                obj.full[obj.rounds[obj.rounds.length - (start + j)]] = this._full[obj.rounds[obj.rounds.length - (start + j)]];
             }
 
             start += this._cnt_round_for_part;
         }
         else {
-            obj['finished'] = 1;
+            obj.finished = 1;
             this._sendRequest(obj);
 
             return;

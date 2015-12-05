@@ -94,7 +94,7 @@ function addMembersTab() {
     var allyTab = $('<li class="tab" id="js_tab_diplomacyMembers" onclick="' + tabOnClick + '"><b class="tab_diplomacyMembers">' + zJS.Lang.Ally_members + '</b></li>');
     //$('ul.tabmenu').css('table-layout', 'inherit');
     $("[id^='js_tab_diplomacyAlly']").after(allyTab);
-    if($('table#allyMemberList')[0] != null) {
+    if($('table#allyMemberList')[0] !== null) {
         $('li', 'ul.tabmenu').each(function() {
             $(this).removeClass('selected');
             if(this.id == "js_tab_diplomacyAlly") {
@@ -107,7 +107,7 @@ function addMembersTab() {
 
 zJS.Page.diplomacyAdvisor = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {
@@ -117,7 +117,7 @@ zJS.Page.diplomacyAdvisor = {
 
 zJS.Page.diplomacyAdvisorArchiveOutBox = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {
@@ -127,7 +127,7 @@ zJS.Page.diplomacyAdvisorArchiveOutBox = {
 
 zJS.Page.diplomacyAdvisorArchive = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {
@@ -137,7 +137,7 @@ zJS.Page.diplomacyAdvisorArchive = {
 
 zJS.Page.diplomacyAdvisorOutBox = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {
@@ -147,7 +147,7 @@ zJS.Page.diplomacyAdvisorOutBox = {
 
 zJS.Page.diplomacyIslandBoard = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {
@@ -157,7 +157,7 @@ zJS.Page.diplomacyIslandBoard = {
 
 zJS.Page.diplomacyTreaty = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {
@@ -167,7 +167,7 @@ zJS.Page.diplomacyTreaty = {
 
 zJS.Page.diplomacyAlly = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {
@@ -188,7 +188,7 @@ zJS.Page.diplomacyAllyMemberlist = {
 
 zJS.Page.diplomacyAllySearch = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {
@@ -198,7 +198,7 @@ zJS.Page.diplomacyAllySearch = {
 
 zJS.Page.diplomacyAllyInfo = {
     init: function() {
-        startAllFunctions()
+        startAllFunctions();
     },
 
     refresh: function() {

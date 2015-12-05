@@ -43,7 +43,7 @@ function _ajax(url, method, vars, callback) {
                 console.log(xhr.responseText);
                 callback && callback({response: xhr.responseText});
             }
-        }
+        };
     };
 
     xhr.onerror = function(e) {

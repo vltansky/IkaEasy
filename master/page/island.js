@@ -9,9 +9,9 @@ if(typeof zJS.Page == "undefined") {
 zJS.Page.island = {
     init: function() {
 
-        var wood_lvl = zJS.Var.getIsland()['wood'];
-        var res_lvl = zJS.Var.getIsland()['tradegood'];
-        var wonder_lvl = zJS.Var.getIsland()['wonder'];
+        var wood_lvl = zJS.Var.getIsland().wood;
+        var res_lvl = zJS.Var.getIsland().tradegood;
+        var wonder_lvl = zJS.Var.getIsland().wonder;
         $('#islandresource').append($('<div class="ikaeasy_watcher build_default" style="top:50px; left:70px;"><div class="ikaeasy_watcher_circle">' + wood_lvl + '</div></div>'));
         $('#islandtradegood').append($('<div class="ikaeasy_watcher build_default" style="top:60px; left:80px;"><div class="ikaeasy_watcher_circle">' + res_lvl + '</div></div>'));
         $('#islandwonder').append($('<div class="ikaeasy_watcher build_default" style="top:125px; left:60px;"><div class="ikaeasy_watcher_circle">' + wonder_lvl + '</div></div>'));
@@ -39,12 +39,12 @@ zJS.Page.island = {
         }
         //debugger;
         var allys = zJS.Utils.marker.getAllAllys();
-        for(var i = 0; i < 17; i++) {
+        for(i = 0; i < 17; i++) {
             var City = $('#cityLocation').find(i);
             if(!$(City).hasClass('own') && !$(City).hasClass('ally') && !$(City).hasClass('treaty')) {
                 for(var q = 0; q < allys.length; q++) {
                     for(var s = 0; s < allys[q].length; s++) {
-                        var allyTag = zJS.Var.getIsland()['cities'][i].ownerAllyTag == null && zJS.Var.getIsland()['cities'][i].type != 'buildplace' ? '-' : zJS.Var.getIsland()['cities'][i].ownerAllyTag;
+                        var allyTag = zJS.Var.getIsland().cities[i].ownerAllyTag === null && zJS.Var.getIsland().cities[i].type != 'buildplace' ? '-' : zJS.Var.getIsland().cities[i].ownerAllyTag;
                         if(allyTag == allys[q][s]) {
                             console.log(allyTag);
                             if($('#cityLocation' + i).hasClass('animated_off')) {
@@ -117,8 +117,8 @@ zJS.Page.island = {
         }
         UpdateLevel = typeof UpdateLevel !== 'undefined' ? UpdateLevel : true;
         console.log('SHOW ISLAND INFO ===');
-        var id = zJS.Var.getIsland()['islandId'],
-            cities = zJS.Var.getIsland()['cities'],
+        var id = zJS.Var.getIsland().islandId,
+            cities = zJS.Var.getIsland().cities,
             _now = Math.floor((new Date()).getTime() / 1000);
 
         var users = {}, users_req = {}, islands_data = {}, active_cities= 0, send_data = false;
@@ -133,40 +133,40 @@ zJS.Page.island = {
         $("#ikaez_update_island_info").on('click', function () {
             console.log("update clicked");
             $.each(cities, function (k, v) {
-                zJS.Page.island._updateIslandInfo(v, k, users, _now)
+                zJS.Page.island._updateIslandInfo(v, k, users, _now);
             });
             zJS.Page.island._sendWorld();
         });
 
 
-        if(!$('.ikaez_score').length>0) {
+        if($('.ikaez_score').length === 0) {
             $.each(cities, function(k, v) {
                 if(v.type == "city") {
                     active_cities++;
                     //console.log(v.id);
-                    var score = ((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) ? '<span class="ikaez_score"></span>' : '<span class="ikaez_score"> #' + users[v.ownerId]['h'] + '</span>',
-                        ally = ((v.ownerAllyTag) && (v.ownerAllyTag != '')) ? ' [' + v.ownerAllyTag + ']' : '',
-                        level = ((v.level) && (v.level != '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '',
+                    var score = ((!users[v.ownerId]) || (!users[v.ownerId].h) || (users[v.ownerId].e < _now)) ? '<span class="ikaez_score"></span>' : '<span class="ikaez_score"> #' + users[v.ownerId].h + '</span>',
+                        ally = ((v.ownerAllyTag) && (v.ownerAllyTag !== '')) ? ' [' + v.ownerAllyTag + ']' : '',
+                        level = ((v.level) && (v.level !== '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '',
                         $cashe_city_gl = $('#cityLocation' + k),
                         BD;
                     var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
                     var city = $cashe_city.html() + ally + score;
                     if(localStorage[zJS.Utils.getPlace() + 'options-island_ap'] != 1) {
-                        if ($cashe_city_gl.hasClass("own") && score && score != '') {
-                            BD = ((v.level) && (v.level != '')) ? Math.floor(v.level / 4 + 3) : '';
+                        if ($cashe_city_gl.hasClass("own") && score && score !== '') {
+                            BD = ((v.level) && (v.level !== '')) ? Math.floor(v.level / 4 + 3) : '';
                         }
                         else {
                             BD = (v.level) ? Math.floor(v.level / 4 + 3) - 2 : false;
                         }
-                        city += (BD != false) ? '<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' + BD + '</span>' : '';
+                        city += (BD !== false) ? '<span class="ikaeasy_BD"><img src="skin/resources/icon_actionpoints.png" />' + BD + '</span>' : '';
                     }
                     $cashe_city.html(city);
-                    if(UpdateLevel == true) {
+                    if(UpdateLevel === true) {
                         $cashe_city_gl.append(level);
                     }
 
                     this._recalcWidth(k);
-                    if((((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) && (!users_req[v.ownerId]))) {
+                    if((((!users[v.ownerId]) || (!users[v.ownerId].h) || (users[v.ownerId].e < _now)) && (!users_req[v.ownerId]))) {
                         users_req[v.ownerId] = [k];
                         this._updateIslandInfo(v, k, users, _now);
                         send_data = true;
@@ -184,7 +184,7 @@ zJS.Page.island = {
         }
 
 
-        if(islands_data[id] && parseInt(islands_data[id]['count'])!=active_cities){
+        if(islands_data[id] && parseInt(islands_data[id].count)!=active_cities){
             this._sendWorld(true);
         }
 
@@ -247,7 +247,7 @@ zJS.Page.island = {
             islands_data = zJS.Utils.ls.getValue('islands_data');
         }
         console.log('send map');
-        var id = zJS.Var.getIsland()['islandId'], cities = zJS.Var.getIsland()['cities'], _now = Math.floor((new Date()).getTime() / 1000) - 3;
+        var id = zJS.Var.getIsland().islandId, cities = zJS.Var.getIsland().cities, _now = Math.floor((new Date()).getTime() / 1000) - 3;
         if(!islands_data[id] || force===true) {
             var score = {},
                 users = zJS.Utils.ls.getValue('users'),
@@ -259,13 +259,13 @@ zJS.Page.island = {
                 if(v.type == "city") {
                     active_cities++;
                     if(force!==true) {
-                        if((!users[v.ownerId]) || (!users[v.ownerId]['h']) || (users[v.ownerId]['e'] < _now)) {
+                        if((!users[v.ownerId]) || (!users[v.ownerId].h) || (users[v.ownerId].e < _now)) {
                             ok = false;
                             return false;
                         }
                     }
 
-                    score[v.ownerId] = users[v.ownerId]['s'];
+                    score[v.ownerId] = users[v.ownerId].s;
                 }
             }.bind(this));
 
@@ -274,9 +274,9 @@ zJS.Page.island = {
                 return;
             }
 
-            data['server'] = this.get_server_domain();
-            data['world'] = this.get_server_world().substring(1);
-            data['score'] = score;
+            data.server = this.get_server_domain();
+            data.world = this.get_server_world().substring(1);
+            data.score = score;
 
             postJSON('http://ikalogs.ru/common/world/', data);
 

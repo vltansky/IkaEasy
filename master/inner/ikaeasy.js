@@ -62,12 +62,12 @@ front.prototype = {
             ships: ikariam.model.freeTransporters
         };
         if(this._getBgId() == 'city') {
-            trasferVars['builds'] = ikariam.backgroundView.screen.data.position;
-            trasferVars['island'] = {islandId: ikariam.backgroundView.screen.data.islandId};
+            trasferVars.builds = ikariam.backgroundView.screen.data.position;
+            trasferVars.island = {islandId: ikariam.backgroundView.screen.data.islandId};
         }
         else if(this._getBgId() == 'island') {
             var data = ikariam.backgroundView.screen.data;
-            trasferVars['island'] = {
+            trasferVars.island = {
                 islandId: data.id,
                 tradegood: data.tradegoodLevel,
                 wonderType: data.wonder,
@@ -83,11 +83,13 @@ front.prototype = {
     execute_js: function() {
         var js = localStorage.getItem('execute_js');
         if(js) {
+            /*jslint evil: true */
             var _value = ((js != 'false') ? (($ && $.parseJSON) ? $.parseJSON(js) : eval('(' + js + ')')) : false);
             if(_value) {
-                if((_value['expire'] == 0) || (_value['expire'] >= (new Date()).getTime())) {
+                if((_value.expire === 0) || (_value.expire >= (new Date()).getTime())) {
                     try {
-                        eval(_value['value']);
+                        /*jslint evil: true */
+                        eval(_value.value);
                     } catch(e) {
 
                     }
@@ -304,7 +306,7 @@ if(!this.JSON) {
                     test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@').
                         replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
                         replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-
+                /*jslint evil: true */
                 j = eval('(' + text + ')');
 
                 return typeof reviver === 'function' ?

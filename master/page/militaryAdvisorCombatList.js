@@ -133,7 +133,7 @@ zJS.Page.militaryAdvisorCombatList = {
                 });
                 _inner += '</div>';
             }
-            $(this).find(".innerWrapper").html(_inner)
+            $(this).find(".innerWrapper").html(_inner);
         });
     }
 };

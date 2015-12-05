@@ -86,7 +86,7 @@ zJS.Page.transport = {
 
                 var newval = parseInt($('input', obj).val());
 
-                if(newval % 500 != 0) {
+                if(newval % 500 !== 0) {
                     if(newval - (newval % 500) > val) {
                         newval -= (newval % 500);
                         $('input', obj).val(newval).focus().blur();
@@ -98,7 +98,7 @@ zJS.Page.transport = {
                 e.preventDefault();
                 var val = parseInt($('input', obj).val());
 
-                if((val > 500) && (val % 500 != 0)) {
+                if((val > 500) && (val % 500 !== 0)) {
                     val -= (val % 500);
                 }
                 else {
@@ -111,7 +111,7 @@ zJS.Page.transport = {
     },
 
     moveTransportBtn: function() {
-        if($("#ikaeasy_tranport_btn").length == 0) {
+        if($("#ikaeasy_tranport_btn").length === 0) {
             var $transport_container = $('#missionSummary').addClass('ikaeasy_transport_container');
             var $transportersCapacity = $('.transportersCapacity');
             $transportersCapacity.before($transport_container);
@@ -123,10 +123,10 @@ zJS.Page.transport = {
     addSource: function(k, obj) {
         var val = parseInt($('input', obj).val());
 
-        if((k == 0) && (val % 500 != 0)) {
+        if((k === 0) && (val % 500 !== 0)) {
             val -= (val % 500);
         }
-        else if((k == 1) && (val % 500 != 0)) {
+        else if((k == 1) && (val % 500 !== 0)) {
             val += 500 - (val % 500);
         }
         else {

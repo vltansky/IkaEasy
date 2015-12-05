@@ -38,7 +38,6 @@ module.exports = function(grunt) {
                         "master/zJS/db.js",
                         "master/init.js",
                         "master/ikalogs.js",
-                        'master/json.js',
                         'master/page/*.js',
                         "master/hotkeysPlugin.js",
                         "master/page/sendIKMessage.js",
@@ -64,6 +63,15 @@ module.exports = function(grunt) {
                     //{expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
                 ]
             }
+        },
+        jshint: {
+            //ignore_warning: {
+            //    options: {
+            //        '-W015': true,
+            //    },
+            //    src: ['master/**/*.js']
+            //}
+            all: ['Gruntfile.js', 'master/**/*.js', '!master/jquery.min.js']
         }
         //watch: {
         //    files: ['<%= jshint.files %>'],
@@ -75,6 +83,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     //grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['cssmin', 'uglify', 'copy']);

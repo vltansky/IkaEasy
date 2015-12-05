@@ -93,7 +93,7 @@ zJS.Options = {
             check_class;
 
         $.each(settings.options, function( key, value ) {
-            if(key == 0){
+            if(key === 0){
                 key = true;
             }else if(key == 1){
                 key = false;
@@ -216,7 +216,7 @@ function AddIkaEasyOptionsfunction() {
 }
 zJS.Page.options = {
     init: function() {
-        zJS.Options.init()
+        zJS.Options.init();
     },
 
     refresh: function() {
@@ -226,7 +226,7 @@ zJS.Page.options = {
 
 zJS.Page.optionsAccount = {
     init: function() {
-        zJS.Options.init()
+        zJS.Options.init();
     },
 
     refresh: function() {
@@ -236,7 +236,7 @@ zJS.Page.optionsAccount = {
 
 zJS.Page.optionsNotification = {
     init: function() {
-        zJS.Options.init()
+        zJS.Options.init();
     },
 
     refresh: function() {
@@ -246,7 +246,7 @@ zJS.Page.optionsNotification = {
 
 zJS.Page.optionsFacebook = {
     init: function() {
-        zJS.Options.init()
+        zJS.Options.init();
     },
 
     refresh: function() {

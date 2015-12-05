@@ -74,5 +74,5 @@ if(version[0] == '0') {
 
 var ver = parseInt(version.join(''));
 if(ver >= 500) {
-    zJS.Navigation = new navigation;
+    zJS.Navigation = new navigation();
 }

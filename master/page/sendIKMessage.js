@@ -12,7 +12,7 @@ zJS.Page.sendIKMessage = {
         $js_msgTextConfirm.bind('keydown.ctrl_return', function() {
             $('form#sendMessageBoxForm').submit();
         });
-        if(localStorage['ikaiasy-msg-to-send'] != null && localStorage['ikaiasy-msg-to-send'] != '') {
+        if(localStorage['ikaiasy-msg-to-send'] !== null && localStorage['ikaiasy-msg-to-send'] !== '') {
             $js_msgTextConfirm.text(localStorage['ikaiasy-msg-to-send']);
             localStorage['ikaiasy-msg-to-send'] = '';
         }

@@ -24,7 +24,7 @@ zJS.Utils = {
         return localStorage.getItem(this.getServerDomain() + "_" + this.getServerWorld() + "_"+name);
     },
     replaceAll: function(s1, s2) {
-        return this.split(s1).join(s2)
+        return this.split(s1).join(s2);
     },
 
     getLocWine: function() {
@@ -145,20 +145,20 @@ zJS.Utils = {
          */
         setValue: function(name, value, time) {
             var _value = {};
-            _value["value"] = value;
-            _value["expire"] = (time) ? (new Date()).getTime() + time * 1000 : 0;
+            _value.value = value;
+            _value.expire = (time) ? (new Date()).getTime() + time * 1000 : 0;
             localStorage[name] = JSON.stringify(_value);
         },
 
         getValue: function(name) {
             var _value = (!localStorage[name]) ? false : ((localStorage[name] != 'false') ? $.parseJSON(localStorage[name]) : false);
             if(_value) {
-                if((_value['expire'] > 0) && (_value['expire'] < (new Date()).getTime())) {
+                if((_value.expire > 0) && (_value.expire < (new Date()).getTime())) {
                     localStorage.removeItem(name);
                     _value = false;
                 }
             }
-            return (_value) ? _value['value'] : false;
+            return (_value) ? _value.value : false;
         },
 
         removeValue: function(name) {
@@ -255,15 +255,15 @@ zJS.Utils = {
 
     addToLeftMenu: function(image, title) {
         var $leftMenu = $('#leftMenu');
-        if($leftMenu.length == 0) {
+        if($leftMenu.length === 0) {
             $('#container').append('<div id="leftMenu"></div>');
         }
         var $js_viewCityMenu = $('#js_viewCityMenu');
-        if($js_viewCityMenu.length == 0) {
+        if($js_viewCityMenu.length === 0) {
             $leftMenu.append('<div id="js_viewCityMenu" class="slot_menu city_menu"></div>');
         }
 
-        if($('.menu_slots', '#js_viewCityMenu').length == 0) {
+        if($('.menu_slots', '#js_viewCityMenu').length === 0) {
             $js_viewCityMenu.append('<ul class="menu_slots"></ul>');
         }
 
@@ -366,7 +366,7 @@ zJS.Utils = {
         jumpToCoord: function(x,y){
             $("#inputXCoord").val(x);
             $("#inputYCoord").val(y);
-            $("form[name='navInputForm']").find(".submitButton").click()//.submit();
+            $("form[name='navInputForm']").find(".submitButton").click();
             this.showTravelTime();
         },
         getSelectedCoord: function(_this){
