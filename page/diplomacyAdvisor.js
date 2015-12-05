@@ -43,15 +43,37 @@ function makeActiveLinks() {
 
         var __urlRegex_Ikalogs = /(\b(https?):\/\/ikalogs.ru\/report\/.*[-A-Z0-9+&amp;@#\/%=~_|])/ig;
 
+        var __urlRegex_clip2net = /(\b(https?):\/\/clip2net.com)/ig;
+
         this.innerHTML = this.innerHTML.replace(__urlRegex, function(match) {
                 __imgRegex.lastIndex = 0;
                 __urlRegex_Ikalogs.lastIndex = 0;
                 if(__imgRegex.test(match)) {
-                    return '<a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="' + match + '" /></a>';
+                    return '<div class="ikaez_msg_img_container"><a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="' + match + '" /></a></div>';
                 }
-                //else if(__urlRegex_Ikalogs.test(match)){
-                //	return '<div id="ikaeasy_ikalogs_msg_log"><a href="$1" class="ikaeasy_show_log">Show log</a><a href="$1">Visit</a></div>';
-                //}
+                else if(__urlRegex_clip2net.test(match)){
+                    $.ajax({
+                        url: match,
+                        dataType: 'html',
+                        success: function(data) {
+                            var href = $(data).find("div.image-pic img").attr("src");
+                            console.log(this.url);
+                            $(".ikaez_msg_ajax").find("a[href='"+this.url+"'] img").attr('src', 'http://clip2net.com'+href);
+                        }
+                    });
+                	return '<div class="ikaez_msg_img_container ikaez_msg_ajax"><a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="" /></a></div>';
+                }
+                else if(__urlRegex_Ikalogs.test(match)){
+                    //$.ajax({
+                    //    url: match,
+                    //    dataType: 'html',
+                    //    success: function(data) {
+                    //        var $report = $(data).find("div#IkariamReport");
+                    //        $( ".ikaeasy_ikalogs_msg_log[data-href='"+this.url+"']").html($report);
+                    //    }
+                    //});
+                	return '<div class="ikaeasy_ikalogs_msg_log" data-href="'+match+'"><a href="'+match+'" target="_blank" class="button center">'+ zJS.Lang.ikalogs.open_report +'</a></div>';
+                }
                 else {
                     return '<a href="' + match + '" target="_blank" class="externalURL">' + match + '</a>';
                 }

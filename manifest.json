@@ -112,6 +112,7 @@
 
     "web_accessible_resources": [
         "css/ikaeasy.css",
+        "css/ikalogs.css",
         "inner/ikaeasy.js",
         "images/cursors/drag0.gif",
         "images/nextCity.png",
@@ -208,7 +209,9 @@
         "http://*.ikariam.gameforge.com/*",
         "https://*.ikariam.gameforge.com/*",
         "http://ikalogs.ru/*",
-        "http://*.ikalogs.ru/*"
+        "http://*.ikalogs.ru/*",
+        "http://clip2net.com/*",
+        "http://*.clip2net.com/*"
     ],
-    "version": "2.0.0.52"
+    "version": "2.0.0.54"
 }

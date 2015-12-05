@@ -288,6 +288,20 @@ zJS.Utils = {
         return li;
     },
 
+    addToSideBar: function(title, content, classes){
+        if(classes === undefined){
+            classes = '';
+        }
+      var $sideBar = $("#sidebar"),
+          template = '<li class="accordionItem '+classes+'" style=""><a class="accordionTitle active">'+title+'<span class="indicator"></span></a><div class="accordionContent">'+content+'</div></li>';
+
+        if($sideBar.length){
+            $sideBar.find("#sidebarWidget").append(template);
+        }else{
+            $("#leftMenu").after('<div id="sidebar" class="ikaez_sidebar_generated"><ul id="sidebarWidget">'+template+'</ul></div>');
+        }
+    },
+
     execute_js: function(js) {
         zJS.Utils.ls.setValue('execute_js', js, 5);
 

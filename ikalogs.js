@@ -10,6 +10,7 @@ ikalogs.prototype = {
     _short: false,
     _full: {},
     _users_ally: {},
+    _user_id: null,
 
     _box: false,
 
@@ -25,6 +26,10 @@ ikalogs.prototype = {
     _cnt_ally_names: 0,
 
     init: function() {
+        var user_data = $.parseJSON(zJS.Utils.getItem('user_data'));
+        this._user_id = user_data.avatarId;
+        console.log(this._user_id);
+
         this.ls_battles = zJS.Utils.ls.getValue('battles');
         if(!this.ls_battles){
             this.ls_battles = {
@@ -154,30 +159,30 @@ ikalogs.prototype = {
 
                     // Получаем инфу о юзере (как минмум id)
                     count++;
-                    $.get('?view=options&ajax=1', function(data) {
-                        data = jQuery.parseJSON(data)[1][1][1];
-                        var a = data.match(/<div id="options_debug">[\s\S]*?<td>[\s\S]*?<td[\s\S]*?>([\s\S]+?)<\/td>/mi);
-                        this._user_id = ((a) && (a.length == 2)) ? $.trim(a[1]) : 0;
-
-                        if(!this._user_id) {
-                            // Пробуем разок повторить
-                            count++;
-                            $.get('?view=options&ajax=1', function(data) {
-                                data = jQuery.parseJSON(data)[1][1][1];
-                                var a = data.match(/<div id="options_debug">[\s\S]*?<td>[\s\S]*?<td[\s\S]*?>([\s\S]+?)<\/td>/mi);
-                                this._user_id = ((a) && (a.length == 2)) ? $.trim(a[1]) : 0;
-
-                                if(!this._user_id) {
-                                    this._user_id_log = data;
-                                }
-
-                                _afterAll();
-                            }.bind(this));
-                        }
-
-                        _afterAll();
-                    }.bind(this));
-
+                    //$.get('?view=options&ajax=1', function(data) {
+                    //    data = jQuery.parseJSON(data)[1][1][1];
+                    //    var a = data.match(/<div id="options_debug">[\s\S]*?<td>[\s\S]*?<td[\s\S]*?>([\s\S]+?)<\/td>/mi);
+                    //    this._user_id = ((a) && (a.length == 2)) ? $.trim(a[1]) : 0;
+                    //
+                    //    if(!this._user_id) {
+                    //        // Пробуем разок повторить
+                    //        count++;
+                    //        $.get('?view=options&ajax=1', function(data) {
+                    //            data = jQuery.parseJSON(data)[1][1][1];
+                    //            var a = data.match(/<div id="options_debug">[\s\S]*?<td>[\s\S]*?<td[\s\S]*?>([\s\S]+?)<\/td>/mi);
+                    //            this._user_id = ((a) && (a.length == 2)) ? $.trim(a[1]) : 0;
+                    //
+                    //            if(!this._user_id) {
+                    //                this._user_id_log = data;
+                    //            }
+                    //
+                    //            _afterAll();
+                    //        }.bind(this));
+                    //    }
+                    //
+                    //    _afterAll();
+                    //}.bind(this));
+                    _afterAll();
                     // Загружаем раунды по 5 штук за раз
                     var queue = [].concat(this._rounds),
                         ikalogs_loader_progress = $('.ikalogs_loader_progress div', this._box),

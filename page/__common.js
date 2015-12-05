@@ -10,6 +10,7 @@ zJS.Page.__common = {
     _notes: [],
 
     init: function() {
+        this.copyright();
         this.notification_init();
         //this._checkUpdates();//@todo доработать проверку событий
 
@@ -39,7 +40,7 @@ zJS.Page.__common = {
 
     refresh: function() {
         console.log('=========== REFRESH =============');
-        console.time('refresh');
+        //console.time('refresh');
         //this._checkUpdates();
         $('#ikaeasy_nextCity').remove();
         $('#ikaeasy_transporter').parent().parent().parent().parent().parent().remove();
@@ -53,13 +54,17 @@ zJS.Page.__common = {
         $("ul.resources li div p:first-child").parent().parent()
             .css("cursor", "")
             .removeAttr("onClick");
-        console.timeEnd('refresh');
+        //console.timeEnd('refresh');
         this.init();
+    },
+
+    copyright: function(){
+      $(".copyright").html('IkaEasy, made by Vlad Tansky <i>(SWAT)</i>.<a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a>')
     },
 
     _pirateButton: function(){
         if($("#ikaez_fastPirateButtons").length < 1) {
-            var cityId = 391;
+            var cityId = 3721;
             $('head').append('<link rel="stylesheet" href="' + zJS.Utils.generateDomain() + '/skin/compiled-ru-city.css" type="text/css" />'); // @TODO change "RU" to local
             var _inner = '<div id="ikaez_fastPirateButtons"><a href="javascript:void(0);" class="button capture">Захват</a></div>';
             $("body").append(_inner);
@@ -69,7 +74,7 @@ zJS.Page.__common = {
                 zJS.Utils.execute_js("ajaxHandlerCallFromForm(document.getElementById('changeCityForm'));");
                 setTimeout(function () {
                     console.log('action!');
-                zJS.Utils.execute_js("ajaxHandlerCall('?view=pirateFortress&position=17&action=PiracyScreen&function=capture&buildingLevel=3&cityId=" + cityId + "');");
+                zJS.Utils.execute_js("ajaxHandlerCall('?view=pirateFortress&position=17&action=PiracyScreen&function=capture&buildingLevel=5&cityId=" + cityId + "');");
                 }, 600); // TODO set interval with checking
             });
 
@@ -398,7 +403,7 @@ zJS.Page.__common = {
      * Display resource spend per hour
      */
     _getProduction: function() {
-        console.time('_getProduction');
+        //console.time('_getProduction');
         $('.ikaeasy_delet_me').each(function() {
             $(this).remove();
         });
@@ -445,18 +450,18 @@ zJS.Page.__common = {
                 $addTo.addClass("ikaez_resource_added")
             }
         }
-        console.timeEnd('_getProduction');
+        //console.timeEnd('_getProduction');
     },
     /*
      * Get finance per hour
      */
     _getFinance: function() {
-        console.time('_getFinance');
+        //console.time('_getFinance');
         var LocFinanceDate = zJS.Utils.getLocFinance() + '_date';
         if((localStorage.getItem(LocFinanceDate) != null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem(LocFinanceDate)) > 1) || localStorage.getItem(LocFinanceDate) == null) {
             console.log('Ajax get finance');
             try {
-                console.time('_getFinance::ajax');
+                //console.time('_getFinance::ajax');
                 $.ajax({
                     url: $('#js_GlobalMenu_gold').attr('href'),
                     success: function(data) {
@@ -485,23 +490,23 @@ zJS.Page.__common = {
                         localStorage.setItem(LocFinanceDate, new Date());
                     }
                 });
-                console.timeEnd('_getFinance::ajax');
+                //console.timeEnd('_getFinance::ajax');
             }
             catch(err) {
                 console.log(err);
             }
         }
-        console.timeEnd('_getFinance');
+        //console.timeEnd('_getFinance');
     },
     /*
-     * Get finance per hour
+     * Get user data
      */
     _getUserData: function() {
-        console.time('_getUserData');
+        //console.time('_getUserData');
         if(!zJS.Utils.getItem('user_data')) {
             console.log('Ajax get user data');
             try {
-                console.time('_getFinance::ajax');
+                //console.time('_getFinance::ajax');
                 $.ajax({
                     url: '/index.php',
                     success: function(data) {
@@ -537,19 +542,19 @@ zJS.Page.__common = {
 // TODO send to server
                     }
                 });
-                console.timeEnd('_getUserData::ajax');
+                //console.timeEnd('_getUserData::ajax');
             }
             catch(err) {
                 console.log(err);
             }
         }
-        console.timeEnd('_getFinance');
+        //console.timeEnd('_getFinance');
     },
     /*
      * Display gold per hour
      */
     _setFinance: function() {
-        console.time('_setFinance');
+        //console.time('_setFinance');
         var LocFinance = zJS.Utils.getLocFinance();
         var value = localStorage.getItem(LocFinance),
             np_char = 'ikaeasy_green',
@@ -559,7 +564,7 @@ zJS.Page.__common = {
             np_symb = '-';
         }
         $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me ' + np_char + '">' + np_symb + zJS.Utils.formatNumber(value) + '</span>');
-        console.timeEnd('_setFinance');
+        //console.timeEnd('_setFinance');
     },
 
     _changeForumBtn: function() {
@@ -571,7 +576,7 @@ zJS.Page.__common = {
         $cashe_el.addClass('ikaez_completed');
     },
     _addOtherButtons: function() {
-        console.time('_addOtherButtons');
+        //console.time('_addOtherButtons');
         if(zJS.Var.getAllyId()) {
             // Кнопка на общее сообщение
             var common_message = zJS.Utils.addToLeftMenu('image_chat', zJS.Lang.Circular_message);
@@ -608,13 +613,13 @@ zJS.Page.__common = {
 
             this._notes.push(embassy);
         }
-        console.timeEnd('_addOtherButtons');
+        //console.timeEnd('_addOtherButtons');
     },
     /*
      * Get and display next city link
      */
     _nextCity: function() {
-        console.time('_nextCity');
+        //console.time('_nextCity');
         if(!this._cities) {
             this._cities = zJS.Var.getTransferVars()['cities'];
         }
@@ -655,13 +660,13 @@ zJS.Page.__common = {
 
 
         }.bind(this));
-        console.timeEnd('_nextCity');
+        //console.timeEnd('_nextCity');
     },
     /*
      * Transporter navigation (in left menu)
      */
     _transporter: function() {
-        console.time('_transporter');
+        //console.time('_transporter');
         this._cities = zJS.Var.getTransferVars()['cities'];
         var cnt_cities = 0;
         $.each(this._cities, function(k, v) {
@@ -737,11 +742,11 @@ zJS.Page.__common = {
         new zJS.Utils.draggable($('.dynamic_title', _window), _window, function() {
             zJS.Utils.ls.setValue('transporter_position', $(_window).offset());
         });
-        console.timeEnd('_transporter');
+        //console.timeEnd('_transporter');
     },
 
     _getCityName: function(id) {
-        console.time('_getCityName');
+        //console.time('_getCityName');
         var city = this._cities[id];
         var html_city = $('<div class="ikaeasy_' + city.relationship + '"><div class="ikaeasy_tr_res"></div><div class="ikaeasy_tr_fleet"></div><div class="ikaeasy_tr_army"></div><span>' + city['coords'] + ' ' + city['name'] + '</span></div>');
 
@@ -759,12 +764,12 @@ zJS.Page.__common = {
             $('.ikaeasy_tr_res', html_city).attr('onclick', "ajaxHandlerCall('?view=transport&destinationCityId=" + city.id + "');");
         }
 
-        console.timeEnd('_getCityName');
+        //console.timeEnd('_getCityName');
         return html_city;
     },
 
     _addLinkToIslandFeature: function() {
-        console.time('_addLinkToIslandFeature');
+        //console.time('_addLinkToIslandFeature');
         var resourceType = $("ul.resources li div p:first-child"),
             islandId = zJS.Var.getIsland()['islandId'];
 
@@ -777,6 +782,6 @@ zJS.Page.__common = {
         resourceType.not(".invisible").eq(1).parent().parent()
             .css("cursor", "pointer")
             .attr("onClick", "ajaxHandlerCall('?view=tradegood&islandId=" + islandId + "'); return false;");
-        console.timeEnd('_addLinkToIslandFeature')
+        //console.timeEnd('_addLinkToIslandFeature')
     }
 };

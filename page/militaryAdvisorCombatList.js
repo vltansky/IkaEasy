@@ -29,7 +29,7 @@ zJS.Page.militaryAdvisorCombatList = {
         //if(!battles){ // stop function if no battles
         //    return false;
         //}
-        $target_th = $table.find("thead th").last().before('<th class="ikaez_combat_resources_th">' + zJS.Lang.robbed + '</th>');
+        $target_th = $table.find("thead th").last().before('<th class="ikaez_combat_resources_th"><img src="' + db.images.resources.all + '"></th>');
 
         sidebar = '<li class="accordionItem" style=""><a class="accordionTitle active">Statistics<span class="indicator"></span></a><div class="accordionContent"><div id="premiumAdvisorSidebar" class="dynamic">'+
             '<p>' + zJS.Lang.robbed + ': ' + battles.total + '<img src="' + db.images.resources.all + '">.</p></div></div></li>';
@@ -106,7 +106,11 @@ zJS.Page.militaryAdvisorCombatList = {
                 });//ajax;
             }// !battles[combatId
 
-            $(this).addClass('ikaez_combat_tr ikaez_combatId-'+combatId);
+            var classes = 'ikaez_combat_tr ikaez_combatId-'+combatId;
+            if(typeof battles[combatId] !== "undefined" && typeof battles[combatId].ikalogs !== "undefined"){
+                classes += ' ikaez_combat_ikalogs';
+            }
+            $(this).addClass(classes);
             $(this).find("td").last().before("<td class='ikaez_combat_resources_td'></td>");
             $target_td = $(this).find(".ikaez_combat_resources_td");
             $wrapper = $("<div />", {

@@ -5,36 +5,129 @@
 if(typeof zJS.Page == "undefined") {
     zJS.Page = {};
 }
+
+if(typeof zJS.Options == "undefined") {
+    zJS.Options = {};
+}
+
+zJS.Options = {
+    init: function(){
+        if($("#js_tabIkaEasyOptions").length){
+            return false;
+        }
+        //Creating the tab itself
+        $('.tabmenu').css('display', 'block').append('<li onclick="switchTab(\'tabIkaEasyOptions\');" id="js_tabIkaEasyOptions" class="tab"><b class="tabIkaEasyOptions">IkaEasy</b></li>');
+        var tabContent = $('<div id="tabIkaEasyOptions" style="display: none;" />');
+        // Creating inner content elements
+        var contentBox = $('<div class="contentBox01h" id="ikaeasyTransport" />').appendTo(tabContent);
+        $('<h3 class="header">IkaEasy</h3>').appendTo(contentBox);
+        var innerContent = $('<div class="content" />').appendTo(contentBox);
+        $('<div class="footer" />').appendTo(contentBox);
+        zJS.Options.$content = $('<table class="options table01"></table>');
+
+        // Options start
+
+        this.addOption({
+            id: 'transport',
+            title: zJS.Lang.options.transport.header,
+            options: [
+                zJS.Lang.options.transport.original,
+                zJS.Lang.options.transport.ikaeasy
+            ]
+        });
+
+        this.addOption({
+            id: 'movement_tabs',
+            title: zJS.Lang.options.movement_tabs.header,
+            options: [
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
+            ],
+            default: true
+        });
+
+        this.addOption({
+            id: 'gold_per_hour',
+            title: zJS.Lang.options.gold_per_hour.header,
+            options: [
+                zJS.Lang.options.transport.original,
+                zJS.Lang.options.transport.ikaeasy
+            ]
+        });
+
+        this.addOption({
+            id: 'island_ap',
+            title: zJS.Lang.options.island_ap.header,
+            options: [
+                zJS.Lang.options.transport.original,
+                zJS.Lang.options.transport.ikaeasy
+            ]
+        });
+
+        // Options end
+
+        zJS.Options.$content.appendTo(innerContent);
+        tabContent.appendTo('.mainContent');
+
+        // init JS action handler
+        zJS.Options.actionHandler.init();
+    },
+
+    addOption: function(obj){
+        var settings = {
+            id: null,
+            type: "true_false",
+            title: 'undefined',
+            options: {
+                true: zJS.Lang.options.enable,
+                false: zJS.Lang.options.disable
+            },
+            default: false
+        };
+        $.extend( settings, obj );
+        if(!settings.id){
+            console.warn("Options warning: no ID in settings");
+            return false;
+        }
+        var $controls = '',
+            check_class;
+
+        $.each(settings.options, function( key, value ) {
+            if(key == 0){
+                key = true;
+            }else if(key == 1){
+                key = false;
+            }
+            check_class = '';
+            if(settings.default == key){
+                check_class = 'checked';
+            }
+            console.debug(check_class);
+
+            $controls += '<div id="ikaeasy_options-' +settings.id + '_' + key+'" data-value="' +key+ '" class="margin10 clearfix ikaeasy_options_btn"><div id="Img" class="checkbox radio floatleft '+ check_class +'"></div><span class="smallFont floatleft checkbox_label">' + value + '</span></div>';
+        });
+
+        $('<tr><td>' +settings.title+ '</td><td class="left"><form class="ikaez_options_form ikaez_options_type-'+ settings.type +'" data-id="'+ settings.id +'">' + $controls + '</form></td></tr>').appendTo(zJS.Options.$content);
+    }
+};
+zJS.Options.actionHandler = {
+  init: function(){
+      var $form_tf = $(".ikaez_options_form");
+
+      $form_tf.find(".ikaeasy_options_btn").on('click', this.true_false);
+  },
+
+    true_false: function(){
+        var value = $(this).attr('data-value'),
+            $form = $(this).closest('.ikaez_options_form'),
+            id = $form.attr('data-id');
+
+        $form.find('.ikaeasy_options_btn #Img').toggleClass("checked");
+
+    }
+};
+
 function AddIkaEasyOptionsfunction() {
-    //Cleaning up
-    var $tabMenu = $("ul#tabMenu");
-    $('#js_tabIkaEasyOptions').remove();
-    $('#tabIkaEasyOptions').remove();
-
-    //Creating the tab itself
-    $('.tabmenu').css('display', 'block').append('<li onclick="switchTab(\'tabIkaEasyOptions\');" id="js_tabIkaEasyOptions" class="tab"><b class="tabIkaEasyOptions">IkaEasy</b></li>');
-    var tabContent = $('<div id="tabIkaEasyOptions" style="display: none;" />').appendTo('.mainContent');
-
-    //Transport type
-    var transportOptionsTab = $('<div class="contentBox01h" id="ikaeasyTransport" />').appendTo(tabContent);
-    $('<h3 class="header">IkaEasy</h3>').appendTo(transportOptionsTab);
-    var transportOptionsContent = $('<div class="content" />').appendTo(transportOptionsTab);
-    $('<div class="footer" />').appendTo(transportOptionsTab);
-
-    var transportOriginalTxt = '<div id="ikaeasyOriginalTransport" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.transport.original + '</span></div>';
-    var transportIkaeasyTxt = '<div id="ikaeasyIkaeasyTransport" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.transport.ikaeasy + '</span></div>';
-
-
-    var movement_tabs_enabled = '<div id="ikaeasy_options_movement_tabs_enable" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.movement_tabs.enable + '</span></div>';
-    var movement_tabs_disabled= '<div id="ikaeasy_options_movement_tabs_disabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.movement_tabs.disable + '</span></div>';
-
-    var gold_per_hour_enabled = '<div id="ikaeasy_options-gold_per_hour_enabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.gold_per_hour.enable + '</span></div>';
-    var gold_per_hour_disabled= '<div id="ikaeasy_options-gold_per_hour_disabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.gold_per_hour.disable + '</span></div>';
-
-    var ap_enabled = '<div id="ikaeasy_options-ap_enabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.island_ap.enable + '</span></div>';
-    var ap_disabled= '<div id="ikaeasy_options-ap_disabled" class="margin10 clearfix"><div id="Img" class="checkbox radio floatleft"></div><span class="smallFont floatleft checkbox_label">' + zJS.Lang.options.island_ap.disable + '</span></div>';
-
-    $('<table class="options table01"><tr><td>'+ zJS.Lang.options.transport.header +'</td><td class="left"><form>' + transportOriginalTxt + transportIkaeasyTxt + '</form></td></tr><tr><td>'+ zJS.Lang.options.movement_tabs.header +'</td><td class="left"><form>' + movement_tabs_enabled + movement_tabs_disabled + '</form></td></tr><tr><td>'+ zJS.Lang.options.gold_per_hour.header +'</td><td class="left"><form>' + gold_per_hour_enabled + gold_per_hour_disabled + '</form></td></tr><tr><td>'+ zJS.Lang.options.island_ap.header +'</td><td class="left"><form>' + ap_enabled + ap_disabled + '</form></td></tr></table>').appendTo(transportOptionsContent);
 
     if(localStorage[zJS.Utils.getPlace() + 'transporter-type'] == 1) {
         $('#Img', '#ikaeasyIkaeasyTransport').addClass('checked');
@@ -123,7 +216,7 @@ function AddIkaEasyOptionsfunction() {
 }
 zJS.Page.options = {
     init: function() {
-        AddIkaEasyOptionsfunction()
+        zJS.Options.init()
     },
 
     refresh: function() {
@@ -133,7 +226,7 @@ zJS.Page.options = {
 
 zJS.Page.optionsAccount = {
     init: function() {
-        AddIkaEasyOptionsfunction()
+        zJS.Options.init()
     },
 
     refresh: function() {
@@ -143,7 +236,7 @@ zJS.Page.optionsAccount = {
 
 zJS.Page.optionsNotification = {
     init: function() {
-        AddIkaEasyOptionsfunction()
+        zJS.Options.init()
     },
 
     refresh: function() {
@@ -153,7 +246,7 @@ zJS.Page.optionsNotification = {
 
 zJS.Page.optionsFacebook = {
     init: function() {
-        AddIkaEasyOptionsfunction()
+        zJS.Options.init()
     },
 
     refresh: function() {

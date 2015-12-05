@@ -933,7 +933,7 @@ ul#ikaeasy_military_movements {
     margin: 0 3px;
     background: #FFEBCA;
     border-bottom: 1px solid #FAD69D;
-    padding: 10px 0 5px;
+    padding: 10px 3px 5px;
 }
 
 ul#ikaeasy_military_movements li {
@@ -941,40 +941,52 @@ ul#ikaeasy_military_movements li {
 }
 
 ul#ikaeasy_military_movements li>a {
-    padding: 0 5px;
+    margin: 0 2px;
     background: #FFEBCA;
     display: block;
     position: relative;
     opacity: 0.5;
-    height: 25px;
+    height: 40px;
+    transition: all .15s ease-in-out;
+    width: 35px;
 }
 ul#ikaeasy_military_movements li>a.ikaez_active {
     opacity: 1;
+    transform: scale(1.07);
 }
-ul#ikaeasy_military_movements li>a:hover,Ã‚Â ul#ikaeasy_military_movements li>a:focus {
+ul#ikaeasy_military_movements li>a.ikaez_active:hover{
+    text-decoration: none;
+}
+ul#ikaeasy_military_movements li>a:not(.ikaez_active):hover, ul#ikaeasy_military_movements li>a:focus {
     background: #FFE4B0;
     text-decoration: none;
     color: #000;
     opacity: 0.8;
+    transform: scale(1.07);
 }
 
 #ikaeasy_military_movements li>a>div.ikaez_badge {
-    display: inline-block;
+    /* display: inline-block; */
     line-height: 15px;
-    position: absolute;
-    right: 1px;
-    top: -4px;
+    /* position: absolute; */
+    /* right: 1px; */
+    /* top: -4px; */
     background: #A9721B;
     padding: 0 4px;
     color: #fff;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.47);
     font-size: 10px;
     box-shadow: -1px 1px 2px rgba(255, 255, 255, 0.8);
+    /* float: left; */
+    clear: both;
+    /* width: 100%; */
+    position: relative;
+    text-align: center;
 }
 
 ul#ikaeasy_military_movements div#ikaez_movements_all {
-    line-height: 20px;
+    line-height: 21px;
     background: #FAD5A0;
     text-align: center;
     border: 1px solid #EAB476;
@@ -986,6 +998,11 @@ ul#ikaeasy_military_movements #ikaez_movements_all_li {
     float: left;
 }
 
+ul#ikaeasy_military_movements li>a img{
+    float:left;
+    border: 1px solid #A9721B;
+    width: 33px;
+}
 #container .tabmenu .tab {
     padding: 0px 3px 0 2px!important;
     border-top: 1px solid transparent;
@@ -1060,7 +1077,7 @@ div#ikaez_popup {
 div#ikaez_islandsSearch {
     position: fixed;
     float: left;
-    left: 30px;
+    left: 80px;
     top: 190px;
 }
 
@@ -1264,8 +1281,8 @@ div#ikaez_islands_travel_time {
     text-align: center;
 }
 
-th.ikaez_combat_resources_th {
-    width: 200px;
+th.ikaez_combat_resources_th img {
+    height: 17px;
 }
 div#troopsOverview .table01 tbody td:last-child{
     text-align:center;
@@ -1314,4 +1331,81 @@ div#ikalogs_already_exist a {
 
 div#ikalogs_already_exist a:hover{
     text-decoration: none;
+}
+
+#ikaez_islandSearch_prev, #ikaez_islandSearch_next{
+    display: none!important; /* @todo delete it */
+}
+
+#container .table01 tr.ikaez_combat_ikalogs{
+    background-color: #FFF1B2;
+}
+
+a#ikaeasy-sendAttacksToAll {
+    height: auto!important;
+    width: 43%!important;
+    padding: 5px 0px;
+}
+
+a.IkaEasy_msg_img img {
+    max-width: 100%;
+    float: left;
+}
+
+.ikaez_msg_img_container{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a.IkaEasy_msg_img {
+    display: block;
+    opacity: 0.95;
+    max-width: 80%;
+    display: inline-block;
+    border: 2px solid #DFB271;
+    padding: 1px!important;
+    position: relative;
+    min-width: 60%;
+    min-height: 50px;
+    background: url(http://s22-ru.ikariam.gameforge.com/skin/interface/loading.gif) no-repeat scroll center center #F6DFAD;
+}
+
+a.IkaEasy_msg_img:hover {
+    opacity: 1;
+}
+
+a.IkaEasy_msg_img:after {
+    content: " ";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(/images/externalURL.png) no-repeat center center rgba(255, 255, 255, 0.74);
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.32);
+}
+
+a.IkaEasy_msg_img:hover:after{
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+}
+
+.ikaeasy_ikalogs_msg_log {
+    /* text-align: center; */
+}
+
+.ikaeasy_ikalogs_msg_log a {
+    padding: 7px 25px;
+}
+
+.ikaeasy_ikalogs_msg_log a:active {
+    padding: 6px 24px;
+}
+
+div#sidebar.ikaez_sidebar_generated {
+    left: 80px;
+    margin-top: 50px;
 }

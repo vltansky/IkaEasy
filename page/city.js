@@ -27,14 +27,20 @@ zJS.Page.city = {
         audio.volume=0.2;
         audio.play();
     },
-    infoBlock: function(){
-       var warehouses=$('.building.warehouse'), sum_lvl=0;
+    infoProtectedRes: function(){
+        var warehouses=$('.building.warehouse'), sum_lvl=0;
         console.log(warehouses);
         for(var i=0;i<warehouses.length;i++){
             sum_lvl+=parseInt($(warehouses[i]).attr('class').match(/level(\d+)/)[1]);
         }
         var protecred_resources=sum_lvl*480+100;
         console.log(protecred_resources);
+        return protecred_resources;
+    },
+    infoBlock: function(){
+        if(!$(".accordionItem.cityInfoBlock").length) {
+            zJS.Utils.addToSideBar('info', 'protected: ' + this.infoProtectedRes(), 'cityInfoBlock');
+        }
     },
     _updateBuilds: function() {
         var emb = false, myCity = zJS.Var.isMyCity();
