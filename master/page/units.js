@@ -61,7 +61,6 @@ function addMaxValue_barracks(){//@todo create option - enable\disable
             resources[index].sulfur=$resources.find('li.sulfur')?$resources.find('li.sulfur').text().replace(/[^\d+]/g, ''):null;
             resources[index].wine=$resources.find('li.wine')?$resources.find('li.wine').text().replace(/[^\d+]/g, ''):null;
             resources[index].crystal=$resources.find('li.glass')?$resources.find('li.glass').text().replace(/[^\d+]/g, ''):null;
-            console.log(resources);
 
             max[0]=city_resources.citizens/resources[index].citizens;
             max[1]=city_resources.wood/resources[index].wood<max[0]?city_resources.wood/resources[index].wood:max[0];

@@ -12,6 +12,9 @@ if(typeof zJS.Options == "undefined") {
 
 zJS.Options = {
     init: function(){
+        console.log("options init");
+        this.options = zJS.Utils.ls.getValue("options") || {};
+        console.log(this.options);
         if($("#js_tabIkaEasyOptions").length){
             return false;
         }
@@ -42,16 +45,15 @@ zJS.Options = {
             options: [
                 zJS.Lang.options.enable,
                 zJS.Lang.options.disable
-            ],
-            default: true
+            ]
         });
 
         this.addOption({
             id: 'gold_per_hour',
             title: zJS.Lang.options.gold_per_hour.header,
             options: [
-                zJS.Lang.options.transport.original,
-                zJS.Lang.options.transport.ikaeasy
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
             ]
         });
 
@@ -59,8 +61,35 @@ zJS.Options = {
             id: 'island_ap',
             title: zJS.Lang.options.island_ap.header,
             options: [
-                zJS.Lang.options.transport.original,
-                zJS.Lang.options.transport.ikaeasy
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
+            ]
+        });
+
+        this.addOption({
+            id: 'searchIslands',
+            title: zJS.Lang.options.search_islands.header,
+            options: [
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
+            ]
+        });
+
+        this.addOption({
+            id: 'transporter',
+            title: zJS.Lang.options.transporter.header,
+            options: [
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
+            ]
+        });
+
+        this.addOption({
+            id: 'combatRobbedResources',
+            title: zJS.Lang.options.combat_resources.header,
+            options: [
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
             ]
         });
 
@@ -82,12 +111,15 @@ zJS.Options = {
                 true: zJS.Lang.options.enable,
                 false: zJS.Lang.options.disable
             },
-            default: false
+            default: "true"
         };
         $.extend( settings, obj );
         if(!settings.id){
             console.warn("Options warning: no ID in settings");
             return false;
+        }
+        if(this.options[obj.id]){
+            settings.default = this.options[obj.id];
         }
         var $controls = '',
             check_class;
@@ -99,7 +131,7 @@ zJS.Options = {
                 key = false;
             }
             check_class = '';
-            if(settings.default == key){
+            if(settings.default == key.toString()){
                 check_class = 'checked';
             }
             console.debug(check_class);
@@ -108,6 +140,33 @@ zJS.Options = {
         });
 
         $('<tr><td>' +settings.title+ '</td><td class="left"><form class="ikaez_options_form ikaez_options_type-'+ settings.type +'" data-id="'+ settings.id +'">' + $controls + '</form></td></tr>').appendTo(zJS.Options.$content);
+    },
+
+    getOption: function(id){
+        if(!this.options){
+            this.options = zJS.Utils.ls.getValue("options") || {};
+        }
+
+        console.log("get option :");
+        console.log(this.options[id]);
+
+        // return boolean except string
+        if(this.options[id] == 'true' || !this.options[id]){
+            return true;
+        }else if(this.options[id] == 'false'){
+            return false;
+        }
+
+        return this.options[id];
+    },
+
+    saveOption: function(id, value){
+        console.log("save option :");
+
+        this.options[id] = value;
+        zJS.Utils.ls.setValue("options", this.options);
+
+        console.log(this.options);
     }
 };
 zJS.Options.actionHandler = {
@@ -121,6 +180,8 @@ zJS.Options.actionHandler = {
         var value = $(this).attr('data-value'),
             $form = $(this).closest('.ikaez_options_form'),
             id = $form.attr('data-id');
+
+        zJS.Options.saveOption(id, value);
 
         $form.find('.ikaeasy_options_btn #Img').toggleClass("checked");
 

@@ -65,7 +65,7 @@ zJS.Var = {
     },
 
     getIsland: function() {
-        return this.getTransferVars()['island'];
+        return this.getTransferVars().island;
     },
 
     getSeparators: function() {

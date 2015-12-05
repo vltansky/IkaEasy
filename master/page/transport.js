@@ -11,7 +11,9 @@ zJS.Page.transport = {
 
     init: function() {
         this.moveTransportBtn();
-        this._addTransportBtns();
+        if(zJS.Options.getOption('transport')) {
+            this._addTransportBtns();
+        }
         this.SaveTime();
     },
 
@@ -24,7 +26,6 @@ zJS.Page.transport = {
             var obj = this;
             var box = $('<div class="ikaeasy_resource"></div>');
             $('div.sliderinput', this).append(box);
-            if(localStorage[zJS.Utils.getPlace() + 'transporter-type'] == '1') {
                 $('.minusPlusValueContainer').remove();
                 $('.minus', '.resourceAssign').each(function() {
                     $(this).remove();
@@ -65,7 +66,6 @@ zJS.Page.transport = {
                 $('#transportGoods ul.resourceAssign li .ikaeasy_resource a.button').each(function() {
                     $(this).css('padding', '2px 5px');
                 });
-            }
 
             var a1 = $('a.setMax', this), a2 = $('a.setMin', this);
             var aa1 = $(a1).clone(), aa2 = $(a2).clone();

@@ -10,7 +10,7 @@ zJS.Page.militaryAdvisorCombatList = {
     //dont_refresh: true,
     init: function() {
         console.log(" ==== militaryAdvisorCombatList");
-        if($(".ikaez_combat_tr").length < 1) {
+        if($(".ikaez_combat_tr").length < 1 && zJS.Options.getOption('combatRobbedResources')) {
             this._resources();
         }
     },

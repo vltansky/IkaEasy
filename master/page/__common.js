@@ -15,19 +15,23 @@ zJS.Page.__common = {
         //this._checkUpdates();//@todo доработать проверку событий
 
         if($("#worldmap_iso").length > 0){
-            this._islandsSearch();
+            if(zJS.Options.getOption('searchIslands')) {
+                this._islandsSearch();
+            }
             this._islandsTimeTravel();
         }
         this._pirateButton();
         //this.init_popup(); // TODO enable on production, write new texts
         this._getUserData();
-        this._transporter();
+        if(zJS.Options.getOption('transporter')) {
+            this._transporter();
+        }
         this._nextCity();
         this._addOtherButtons();
         this._changeForumBtn();
         this._addIkaEasylinks();
         this._getProduction();
-        if(localStorage[zJS.Utils.getPlace() + 'options-gold_per_hour'] != 1) {
+        if(zJS.Options.getOption('gold_per_hour')){
             this._getFinance();
             this._setFinance();
         }

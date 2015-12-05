@@ -151,7 +151,7 @@ zJS.Page.island = {
                         BD;
                     var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
                     var city = $cashe_city.html() + ally + score;
-                    if(localStorage[zJS.Utils.getPlace() + 'options-island_ap'] != 1) {
+                    if(zJS.Options.getOption('island_ap')) {
                         if ($cashe_city_gl.hasClass("own") && score && score !== '') {
                             BD = ((v.level) && (v.level !== '')) ? Math.floor(v.level / 4 + 3) : '';
                         }
