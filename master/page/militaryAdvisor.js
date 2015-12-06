@@ -87,7 +87,7 @@ zJS.Page.militaryAdvisor = {
             total = 0;
             var wrapper = $('<div class="ikaeasy_transport_main"></div>'), res_count = 0;
 
-            if($('.unit_detail_icon', this)[0] !== null) {
+            if($('.unit_detail_icon', this)[0] != null) {
                 console.log($('.unit_detail_icon', this));
                 $('.unit_detail_icon', this).each(function() {
                     if($(this).hasClass("resource_icon")){
