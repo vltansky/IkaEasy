@@ -45,6 +45,12 @@ function makeActiveLinks() {
 
         var __urlRegex_clip2net = /(\b(https?):\/\/clip2net.com)/ig;
 
+        var __urlRegex_joxi = /(\b(https?):\/\/joxi.ru)/ig;
+
+        var __urlRegex_floomby = /(\b(https?):\/\/www.floomby.ru)/ig;
+
+        var __urlRegex_shot_qip = /(\b(https?):\/\/shot.qip.ru)/ig;
+
         this.innerHTML = this.innerHTML.replace(__urlRegex, function(match) {
                 __imgRegex.lastIndex = 0;
                 __urlRegex_Ikalogs.lastIndex = 0;
@@ -61,20 +67,52 @@ function makeActiveLinks() {
                             $(".ikaez_msg_ajax").find("a[href='"+this.url+"'] img").attr('src', 'http://clip2net.com'+href);
                         }
                     });
-                	return '<div class="ikaez_msg_img_container ikaez_msg_ajax"><a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="" /></a></div>';
-                }
-                else if(__urlRegex_Ikalogs.test(match)){
+                    return '<div class="ikaez_msg_img_container ikaez_msg_ajax"><a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="" /></a></div>';
+                }else if(__urlRegex_Ikalogs.test(match)){
+                    //var battleId = match.split('/')[4];
                     //$.ajax({
-                    //    url: match,
+                    //    url: 'http://ikalogs.ru/user/report/getHtml/?id='+ battleId +'&round=0',
+                    //    beforeSend: function( request) {
+                    //        request.setRequestHeader("e", "true");
+                    //    },
                     //    dataType: 'html',
                     //    success: function(data) {
-                    //        var $report = $(data).find("div#IkariamReport");
-                    //        $( ".ikaeasy_ikalogs_msg_log[data-href='"+this.url+"']").html($report);
+                    //        console.log(data);
+                    //        $( ".ikaeasy_ikalogs_msg_log[data-href='"+match+"']").html(data);
                     //    }
                     //});
-                	return '<div class="ikaeasy_ikalogs_msg_log" data-href="'+match+'"><a href="'+match+'" target="_blank" class="button center">'+ zJS.Lang.ikalogs.open_report +'</a></div>';
-                }
-                else {
+                	return '<div class="ikalogs_report ikaeasy_ikalogs_msg_log" data-href="'+match+'"><a href="'+match+'" target="_blank" class="button center">'+ zJS.Lang.ikalogs.open_report +'</a></div>';
+                } else if(__urlRegex_floomby.test(match)){
+                    $.ajax({
+                        url: match,
+                        dataType: 'html',
+                        success: function(data) {
+                            var href = $(data).find("#content img").attr("src");
+                            $(".ikaez_msg_ajax").find("a[href='"+this.url+"'] img").attr('src', href);
+                        }
+                    });
+                    return '<div class="ikaez_msg_img_container ikaez_msg_ajax"><a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="" /></a></div>';
+                } else if(__urlRegex_joxi.test(match)){
+                    $.ajax({
+                        url: match,
+                        dataType: 'html',
+                        success: function(data) {
+                            var href = $(data).find("div.tile-image img").attr("src");
+                            $(".ikaez_msg_ajax").find("a[href='"+this.url+"'] img").attr('src', href);
+                        }
+                    });
+                    return '<div class="ikaez_msg_img_container ikaez_msg_ajax"><a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="" /></a></div>';
+                } else if(__urlRegex_shot_qip.test(match)){
+                    $.ajax({
+                        url: match,
+                        dataType: 'html',
+                        success: function(data) {
+                            var href = $(data).find("div.bigphoto img").attr("src");
+                            $(".ikaez_msg_ajax").find("a[href='"+this.url+"'] img").attr('src', href);
+                        }
+                    });
+                    return '<div class="ikaez_msg_img_container ikaez_msg_ajax"><a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="" /></a></div>';
+                } else {
                     return '<a href="' + match + '" target="_blank" class="externalURL">' + match + '</a>';
                 }
             }

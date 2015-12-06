@@ -20,7 +20,7 @@ zJS.Page.__common = {
             }
             this._islandsTimeTravel();
         }
-        this._pirateButton();
+        //this._pirateButton();
         //this.init_popup(); // TODO enable on production, write new texts
         this._getUserData();
         if(zJS.Options.getOption('transporter')) {

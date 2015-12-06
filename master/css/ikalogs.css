@@ -1,36 +1,40 @@
-#IkariamReport .center {
+.ikalogs_report .center {
     text-align: center!important
 }
-#IkariamReport {
+.ikalogs_report {
     font: normal 12px Arial, Helvetica, sans-serif!important;
     text-align: left;
     color: #542c0f;
     position: relative;
     margin-bottom: 10px
 }
-#IkariamReport>div {
-    width: 680px;
+.ikalogs_report>div {
+    width: 100%;
     margin: 0 auto
+
+
+
+
 }
-#IkariamReport .report-with-ad {
+.ikalogs_report .report-with-ad {
     width: 100%
 }
-#IkariamReport #report-content {
+.ikalogs_report #report-content {
     max-width: 890px
 }
-#IkariamReport #report-content .contentBox01h {
+.ikalogs_report #report-content .contentBox01h {
     width: 680px;
     float: right
 }
-#IkariamReport .report-with-ad .short-ad {
+.ikalogs_report .report-with-ad .short-ad {
     width: 246px;
     float: right
 }
-#IkariamReport .contentBox01h {
-    background-image: url(../img/ikariam/bg_contentBox01.gif)
+.ikalogs_report .contentBox01h {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01.gif)
 }
-#IkariamReport .contentBox01h h3.header {
-    background-image: url(../img/ikariam/bg_contentBox01h_header.gif);
+.ikalogs_report .contentBox01h h3.header {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01h_header.gif);
     background-repeat: no-repeat;
     height: 20px;
     line-height: 20px;
@@ -41,23 +45,23 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px!important
 }
-#IkariamReport .contentBox01 div.content{
+.ikalogs_report .contentBox01 div.content{
     position: relative;
     margin: 0 3px
 }
-#IkariamReport .tooltip {
+.ikalogs_report .tooltip {
     display: none
 }
-#IkariamReport h3 span.date {
+.ikalogs_report h3 span.date {
     font-weight: normal
 }
-#IkariamReport .contentBox01h h3.header {
+.ikalogs_report .contentBox01h h3.header {
     line-height: 20px;
     color: #7e4a21;
     font-weight: bold;
     text-align: center
 }
-#IkariamReport .contentBox01h table {
+.ikalogs_report .contentBox01h table {
     width: 100%;
     margin: 0 auto 10px auto;
     color: #612d04;
@@ -65,39 +69,39 @@
     border: 0 solid #e4b873;
     background-color: #fdf7dd
 }
-#IkariamReport .contentBox01h div.content table.overview td {
+.ikalogs_report .contentBox01h div.content table.overview td {
     padding-top: 7px
 }
-#IkariamReport .content table td {
+.ikalogs_report .content table td {
     padding-top: 7px
 }
-#IkariamReport .attacker {
+.ikalogs_report .attacker {
     line-height: normal;
-    background: url(../img/ikariam/unit_attack.gif) left top no-repeat;
+    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/unit_attack.gif) left top no-repeat;
     margin: 10px 0 0 8px;
     padding-left: 50px
 }
-#IkariamReport .defender {
+.ikalogs_report .defender {
     line-height: normal;
-    background: url(../img/ikariam/unit_defend.gif) left top no-repeat;
+    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/unit_defend.gif) left top no-repeat;
     margin: 10px 0 0 8px;
     padding-left: 50px
 }
-#IkariamReport label {
+.ikalogs_report label {
     display: block;
     width: 100px
 }
-#IkariamReport .textred {
+.ikalogs_report .textred {
     color: #950000!important
 }
-#IkariamReport .textgreen,
-#IkariamReport .textgreen .dotted_link {
+.ikalogs_report .textgreen,
+.ikalogs_report .textgreen .dotted_link {
     color: #007000!important
 }
-#IkariamReport .textblue {
+.ikalogs_report .textblue {
     color: #1f09f8!important
 }
-#IkariamReport h5 {
+.ikalogs_report h5 {
     background-color: #542c0f;
     color: #faeac6;
     font-size: 12px;
@@ -105,189 +109,196 @@
     padding: 8px 0 8px 11px!important;
     margin: 10px 0 0 0!important
 }
-#IkariamReport table.overview {
+.ikalogs_report table.overview {
     background-color: #faeac6;
     width: 670px
 }
-#IkariamReport table.overview .col1 {
+.ikalogs_report table.overview .col1 {
     font-weight: bold;
     padding: 44px 0 0 11px;
     text-align: left
 }
-#IkariamReport table.overview td.col1 {
+.ikalogs_report table.overview td.col1 {
     font-weight: bold;
     padding: 10px 0 0 11px;
     text-align: left
 }
-#IkariamReport table.overview div.army {
-    background-image: url(../img/ikariam/army.png);
+.ikalogs_report table.overview div.army {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/army.png);
     width: 50px;
     height: 50px;
     background-repeat: none;
     margin: 0 0 0 25px
 }
-#IkariamReport table.overview div.fleet {
-    background-image: url(../img/ikariam/fleet.gif);
+.ikalogs_report table.overview div.fleet {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/fleet.gif);
     width: 50px;
     height: 50px;
     background-repeat: none;
     margin: 0 0 0 25px
 }
-#IkariamReport table.overview td.firstCol {
+.ikalogs_report table.overview td.firstCol {
     padding: 8px 0 0 11px
 }
-#IkariamReport td {
+.ikalogs_report td {
     background-color: #fdf7dd;
     border: 2px solid #faeac6;
     padding: 0
 }
-#IkariamReport td.numbers {
+.ikalogs_report td.numbers {
     text-align: center
 }
-#IkariamReport tr.line td {
+.ikalogs_report tr.line td {
     background-color: #faeac6
 }
-#IkariamReport td.nobg,
-#IkariamReport td.headline {
+.ikalogs_report td.nobg,
+.ikalogs_report td.headline {
     background-color: #faeac6
 }
-#IkariamReport td.headline-total {
+.ikalogs_report td.headline-total {
     background-color: #fbf1d2;
     color: #003000
 }
-#IkariamReport .result {
+.ikalogs_report .result {
     border: 2px solid #fedc9c;
     background-color: #f9e3aa;
     width: 80%;
     margin: auto;
     margin-bottom: 10px;
-    background-image: url(../img/ikariam/resultbg.gif);
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/resultbg.gif);
     background-repeat: repeat-x
 }
-#IkariamReport .contentBox01h .content table .col1 {
+.ikalogs_report .contentBox01h .content table .col1 {
     width: 100px
 }
-#IkariamReport .result div {
+.ikalogs_report .result div {
     padding: 10px
 }
-#IkariamReport .result ul {
+.ikalogs_report .result ul {
     padding: 0;
     margin: 0
 }
-#IkariamReport .s302 {
+.ikalogs_report .s302 {
     background-position: -50px 0
 }
-#IkariamReport .s303 {
+.ikalogs_report .s303 {
     background-position: -100px 0
 }
-#IkariamReport .s304 {
+.ikalogs_report .s304 {
     background-position: -200px 0
 }
-#IkariamReport .s305 {
+.ikalogs_report .s305 {
     background-position: -550px 0
 }
-#IkariamReport .s306 {
+.ikalogs_report .s306 {
     background-position: -500px 0
 }
-#IkariamReport .s307 {
+.ikalogs_report .s307 {
     background-position: -600px 0
 }
-#IkariamReport .s308 {
+.ikalogs_report .s308 {
     background-position: -350px 0
 }
-#IkariamReport .s309 {
+.ikalogs_report .s309 {
     background-position: -450px 0
 }
-#IkariamReport .s310 {
+.ikalogs_report .s310 {
     background-position: -300px 0
 }
-#IkariamReport .s311 {
+.ikalogs_report .s311 {
     background-position: -250px 0
 }
-#IkariamReport .s312 {
+.ikalogs_report .s312 {
     background-position: -400px 0
 }
-#IkariamReport .s313 {
+.ikalogs_report .s313 {
     background-position: -150px 0
 }
-#IkariamReport .s314 {
+.ikalogs_report .s314 {
     background-position: -650px 0
 }
-#IkariamReport .s315 {
+.ikalogs_report .s315 {
     background-position: -750px 0
 }
-#IkariamReport .s316 {
+.ikalogs_report .s316 {
     background-position: -700px 0
 }
-#IkariamReport .s317 {
+.ikalogs_report .s317 {
     background-position: -800px 0
 }
-#IkariamReport .s319 {
+.ikalogs_report .s319 {
     background-position: -900px 0
 }
-#IkariamReport .s202 {
+.ikalogs_report .s202 {
     background-position: -50px 0
 }
-#IkariamReport .s210 {
+.ikalogs_report .s210 {
     background-position: -50px 0
 }
-#IkariamReport .s211 {
+.ikalogs_report .s211 {
     background-position: -150px 0
 }
-#IkariamReport .s212 {
+.ikalogs_report .s212 {
     background-position: -350px 0
 }
-#IkariamReport .s213 {
+.ikalogs_report .s213 {
     background-position: -100px 0
 }
-#IkariamReport .s214 {
+.ikalogs_report .s214 {
     background-position: -200px 0
 }
-#IkariamReport .s215 {
+.ikalogs_report .s215 {
     background-position: -300px 0
 }
-#IkariamReport .s216 {
+.ikalogs_report .s216 {
     background-position: -250px 0
 }
-#IkariamReport .s217 {
+.ikalogs_report .s217 {
     background-position: -550px 0
 }
-#IkariamReport .s218 {
+.ikalogs_report .s218 {
     background-position: -500px 0
 }
-#IkariamReport .s219 {
+.ikalogs_report .s219 {
     background-position: -450px 0
 }
-#IkariamReport .s220 {
+.ikalogs_report .s220 {
     background-position: -400px 0
 }
-#IkariamReport p.link,
-#IkariamReport p.link2 {
+.ikalogs_report p.link,
+.ikalogs_report p.link2 {
     text-align: center;
     padding: 5px 0 10px 0
 }
-#IkariamReport li {
+.ikalogs_report li {
     display: inline
 }
-#IkariamReport .result .winners {
-    background-image: url(../img/ikariam/medallie32x32_gold.gif);
+.ikalogs_report .result div {
+    display: none;
+}
+.ikalogs_report .result .winners {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/medallie32x32_gold.gif);
     background-position: 8px 12px;
     background-repeat: no-repeat;
     font-size: 14px;
     font-weight: bold;
     padding-left: 46px
+;
+    display: block;
 }
-#IkariamReport .result .losers {
+.ikalogs_report .result .losers {
     padding-left: 46px;
-    background-image: url(../img/ikariam/losers.gif);
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/losers.gif);
     background-position: 8px 12px;
     background-repeat: no-repeat
+;
+    display: block;
 }
-#IkariamReport ul.units {
+.ikalogs_report ul.units {
     margin: 20px 0
 }
-#IkariamReport ul.units li {
-    background-image: url(../img/ikariam/army.png);
+.ikalogs_report ul.units li {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/army.png);
     background-repeat: no-repeat;
     text-align: center;
     width: 50px;
@@ -297,134 +308,134 @@
     margin: 0 0 0 17px;
     display: block
 }
-#IkariamReport ul.fleets li {
-    background-image: url(../img/ikariam/fleet.gif)
+.ikalogs_report ul.fleets li {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/fleet.gif)
 }
-#IkariamReport .contentBox01 div.footer,
+.ikalogs_report .contentBox01 div.footer,
 .contentBox01h div.footer {
-    background: url(../img/ikariam/bg_contentBox01_footer.gif) no-repeat;
+    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01_footer.gif) no-repeat;
     overflow: hidden;
     height: 3px;
     top: 0;
     position: inherit
 }
-#IkariamReport .result ul {
+.ikalogs_report .result ul {
     padding: 0;
     margin: 0
 }
-#IkariamReport ul.resources {
+.ikalogs_report ul.resources {
     text-align: left
 }
-#IkariamReport ul.resources li {
+.ikalogs_report ul.resources li {
     width: 100px;
     height: 26px;
     padding-left: 32px;
     line-height: 26px;
     background-repeat: no-repeat
 }
-#IkariamReport ul.resources li .textLabel {
+.ikalogs_report ul.resources li .textLabel {
     position: absolute;
     left: -9999px;
     width: 1px;
     height: 1px;
     overflow: hidden
 }
-#IkariamReport li {
+.ikalogs_report li {
     display: inline;
     list-style: none
 }
-#IkariamReport .wood {
-    background-image: url(../img/ikariam/icon_wood.gif);
+.ikalogs_report .wood {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_wood.gif);
     background-position: 4px 2px
 }
-#IkariamReport .wine {
-    background-image: url(../img/ikariam/icon_wine.gif);
+.ikalogs_report .wine {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_wine.gif);
     background-position: 4px 2px
 }
-#IkariamReport .marble {
-    background-image: url(../img/ikariam/icon_marble.gif);
+.ikalogs_report .marble {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_marble.gif);
     background-position: 2px 2px
 }
-#IkariamReport .glass {
-    background-image: url(../img/ikariam/icon_glass.gif);
+.ikalogs_report .glass {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_glass.gif);
     background-position: 4px 2px
 }
-#IkariamReport .crystal {
-    background-image: url(../img/ikariam/icon_glass.gif);
+.ikalogs_report .crystal {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_glass.gif);
     background-position: 4px 2px
 }
-#IkariamReport .sulfur {
-    background-image: url(../img/ikariam/icon_sulfur.gif);
+.ikalogs_report .sulfur {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_sulfur.gif);
     background-position: 2px 2px
 }
-#IkariamReport .gold {
-    background-image: url(../img/ikariam/icon_gold.png);
+.ikalogs_report .gold {
+    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_gold.png);
     background-position: 18px 2px
 }
-#IkariamReport .result #result_hidden {
+.ikalogs_report .result #result_hidden {
     padding: 0
 }
-#IkariamReport #report_links .content {
+.ikalogs_report #report_links .content {
     text-align: center
 }
-#IkariamReport #report_links .content .col_input {
+.ikalogs_report #report_links .content .col_input {
     width: 60%;
     padding: 0 5px;
     vertical-align: middle
 }
-#IkariamReport #report_links .content input {
+.ikalogs_report #report_links .content input {
     width: 100%;
     font-size: 11px
 }
-#IkariamReport .accesshint {
+.ikalogs_report .accesshint {
     display: none
 }
-.version_640 #IkariamReport .table01 {
+.version_640 .ikalogs_report .table01 {
     width: 674px;
     border: 0;
     background-color: #fdf7dd;
     border-bottom: 1px dotted #fcdbaa;
     text-align: center
 }
-.version_640 #IkariamReport .table01 tr {
+.version_640 .ikalogs_report .table01 tr {
     background-color: #fdf7dd
 }
-.version_640 #IkariamReport .overview .col1 {
+.version_640 .ikalogs_report .overview .col1 {
     font-weight: bold;
     padding: 10px 0 0 11px;
     text-align: left;
     width: 100px
 }
-.version_640 #IkariamReport .army,
-.version_640 #IkariamReport .fleet {
+.version_640 .ikalogs_report .army,
+.version_640 .ikalogs_report .fleet {
     width: 50px;
     height: 50px;
     margin: 0 auto
 }
-.version_640 #IkariamReport td {
+.version_640 .ikalogs_report td {
     background-color: #fdf7dd;
     border: 2px solid #faeac6;
     padding: 3px
 }
-.version_640 #IkariamReport td.alt {
+.version_640 .ikalogs_report td.alt {
     background-color: #fffae8
 }
-.version_640 #IkariamReport td.numbers {
+.version_640 .ikalogs_report td.numbers {
     border-right: 2px solid #fdf7dd;
     width: 50px;
     text-align: right
 }
-.version_640 #IkariamReport td.numbers2 {
+.version_640 .ikalogs_report td.numbers2 {
     text-align: left;
     width: 50px
 }
-#IkariamReport .table01 .defenderLine {
-    background: url(../img/ikariam/defender.png) left center no-repeat;
+.ikalogs_report .table01 .defenderLine {
+    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/defender.png) left center no-repeat;
     text-align: left;
     padding-left: 25px!important
 }
-#IkariamReport .table01 .attackerLine {
-    background: url(../img/ikariam/attacker.png) left center no-repeat;
+.ikalogs_report .table01 .attackerLine {
+    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/attacker.png) left center no-repeat;
     text-align: left;
     padding-left: 25px!important
 }

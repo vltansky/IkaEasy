@@ -56,7 +56,7 @@ zJS.Page.militaryAdvisor = {
             var action = $(this).data('ikaeztype');
             $ikaeasy_militaryView_cb.removeClass('ikaez_active');
             $(this).addClass('ikaez_active');
-            this._updateTableActions(action);
+            zJS.Page.militaryAdvisor._updateTableActions(action);
             //zJS.Utils.settingsStorage.setItem('MilitaryMovements_tab', action);
         });
     },

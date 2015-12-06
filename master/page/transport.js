@@ -11,7 +11,7 @@ zJS.Page.transport = {
 
     init: function() {
         this.moveTransportBtn();
-        if(zJS.Options.getOption('transport')) {
+        if(!zJS.Options.getOption('transport')) {
             this._addTransportBtns();
         }
         this.SaveTime();

@@ -1,4 +1,4 @@
-
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300&subset=latin,cyrillic);
 #ikaeasy_builds {
     margin: 0;
     overflow: hidden;
@@ -447,14 +447,19 @@
     position: absolute;
     top: 18.5px;
     font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .ikaeasy_resources_negative {
-    color: red;
-    font-size: 8px;
-    line-height: 7px;
+    color: #D01818;
+    font-size: 9px;
+    line-height: 6px;
     position: absolute;
+    white-space: nowrap;
     top: 19px;
+    margin-left: -3px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
 }
 
 .ikaeasy_marker_big {
@@ -855,8 +860,26 @@ table.highscore tbody tr.marker_top_black:hover, table.highscore tbody tr.marker
     top: 11px;
     right: 13px;
 }
+/** Open sans experiment **/
 #header #globalResources .gold a{
-    line-height: 23px;
+    line-height: 22px;
+    font-family: 'Open Sans', sans-serif;
+}
+div#js_viewFriends {
+    font-family: 'Open Sans', sans-serif;
+}
+
+div#leftMenu {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+#header #globalResources .transporters a {
+    font-family: 'Open Sans', sans-serif;
+}
+
+ul.resources .tooltip {
+    font-family: 'Open Sans', sans-serif;
 }
 #IkaEasy_Gold_per_hour.ikaeasy_green {
     color: green;
@@ -1149,6 +1172,7 @@ button#ikaez_update_island_info {
     right: -122px;
     top: 5px;
     float: left;
+    font-family: 'Open Sans', sans-serif;
 }
 
 div#ikaez_islandsSearch button.ikaez_islandSearch_gbutton.button.active:not(.reset) {
@@ -1391,6 +1415,7 @@ a.IkaEasy_msg_img:after {
 
 a.IkaEasy_msg_img:hover:after{
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+
 }
 
 .ikaeasy_ikalogs_msg_log {
