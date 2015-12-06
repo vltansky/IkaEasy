@@ -67,7 +67,8 @@ zJS.Page.__common = {
     },
 
     _pirateButton: function(){
-        if($("#ikaez_fastPirateButtons").length < 1) {
+        if($("#ikaez_" +
+                "stPirateButtons").length < 1) {
             var cityId = 3721;
             $('head').append('<link rel="stylesheet" href="' + zJS.Utils.generateDomain() + '/skin/compiled-ru-city.css" type="text/css" />'); // @TODO change "RU" to local
             var _inner = '<div id="ikaez_fastPirateButtons"><a href="javascript:void(0);" class="button capture">Захват</a></div>';
@@ -523,28 +524,29 @@ zJS.Page.__common = {
                         var backgroundView = null, hasAlly = null;
                         /*jslint evil: true */
                         eval("userData = {"+userData+"}");
-                        $.ajax({
-                            url: zJS.Config.server_url + '/users',
-                            type: 'post',
-                            data: {
-                                'user_id' : userData.avatarId,
-                                'ally_id' : userData.avatarAllyId,
-                                'server' : zJS.Utils.getServerWorld(),
-                                'language' : zJS.Utils.getServerDomain()
-                            },
-                            success: function(data) {
-                                console.log(data.message);
-                                zJS.Utils.setItem("user_data", userData);
-                                console.log('set user');
-                            },
-                            error: function(data){
-                                console.log(data.responseJSON.message);
-                                if(data.responseJSON.code == '1'){
-                                    console.log('set user');
-                                    zJS.Utils.setItem("user_data", JSON.stringify(userData));
-                                }
-                            }
-                        });
+                        zJS.Utils.setItem("user_data", JSON.stringify(userData));
+                        //$.ajax({
+                        //    url: zJS.Config.server_url + '/users',
+                        //    type: 'post',
+                        //    data: {
+                        //        'user_id' : userData.avatarId,
+                        //        'ally_id' : userData.avatarAllyId,
+                        //        'server' : zJS.Utils.getServerWorld(),
+                        //        'language' : zJS.Utils.getServerDomain()
+                        //    },
+                        //    success: function(data) {
+                        //        console.log(data.message);
+                        //        zJS.Utils.setItem("user_data", userData);
+                        //        console.log('set user');
+                        //    },
+                        //    error: function(data){
+                        //        console.log(data.responseJSON.message);
+                        //        if(data.responseJSON.code == '1'){
+                        //            console.log('set user');
+                        //            zJS.Utils.setItem("user_data", JSON.stringify(userData));
+                        //        }
+                        //    }
+                        //});
 // TODO send to server
                     }
                 });
