@@ -4,7 +4,7 @@ if(typeof langs == "undefined") {
 
 //English language
 langs.en = {
-    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
+    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'all',
         transport: 'transport',
@@ -33,7 +33,7 @@ langs.en = {
     'is_search_restart': 'restart',
     'is_search_full': 'full',
     'is_search_empty': 'empty',
-    'update': 'update',
+    'update': 'update scores',
     'robbed' : 'Robbed',
     'MessagePlaceholder': "Click CTRL + Enter to send message",
     'ConfirmDowngrade': "Confirm downgrading of building",
@@ -51,6 +51,11 @@ langs.en = {
     'Transport': "Transport goods!",
     'Send_General_Log': "Send log to ally",
     'Send_General_Log_Header': "Attacks on alliance members",
+    protected_resources: "Protected:",
+    not_protected_resources: "Not protected:",
+    land_limit: "Land limit:",
+    navy_limit: "Navy limit:",
+    pirate_capture: "Capture",
 
     'options': {
         'enable': 'active',
@@ -82,9 +87,21 @@ langs.en = {
         combat_resources: {
             header: 'Robbed resources fast view'
         },
+        infoBox: {
+            header: 'City information'
+        },
+        pirateButton:{
+            header: 'Pirate shortcut'
+        },
+        arrivalTime:{
+            header: 'Arrival time',
+            enable: 'IkaEasy',
+            disable: 'GameForge'
+        },
 
         'development': {
-            'overview': "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Buy Me A Coffee at Ko-Fi.com' /></div></a> Switch to <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> and get updates earlier!"
+            overview: "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='http://ikariam-easy.com/?ref=game' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :)",
+            donate_link: '<form id="ikaez_donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="EL67LETGLAS8G"> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> </form>'
         }
     },
 

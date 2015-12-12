@@ -4,7 +4,7 @@ if(typeof langs == "undefined") {
 
 //Polish language
 langs.pl = {
-    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
+    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'all',
         transport: 'transport',
@@ -69,7 +69,7 @@ langs.pl = {
             'disable': 'nieaktywne'
         },
         'development': {
-            'overview': "IkaEasy jest niekomercyjnym projektem <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a>. Chcesz pomóc? Wejdź na <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, zgłoś nam błędy lub zaproponuj nowe funkcje na <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br> Praca nad Ikariam Easy zajmuje sporo czasu, weekendy, wieczory i noce, oczywiście. Możesz mi podziękować i pomóc nie przysnąć przy pracy, kupując dla mnie kawę. :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Kup mi kawę na Ko-Fi.com' /></div></a> Przejdź do <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> i otrzymuj aktualizacje wcześniej! <br> Specjalne podziękowania dla Adama Rędzikowskiego za polską wersję tłumaczenia."
+            'overview': "IkaEasy jest niekomercyjnym projektem <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a>. Chcesz pomóc? Wejdź na <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, zgłoś nam błędy lub zaproponuj nowe funkcje na <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br> Praca nad Ikariam Easy zajmuje sporo czasu, weekendy, wieczory i noce, oczywiście. Możesz mi podziękować i pomóc nie przysnąć przy pracy, kupując dla mnie kawę. :) <br>Specjalne podziękowania dla Adama Rędzikowskiego za polską wersję tłumaczenia."
         }
     },
 

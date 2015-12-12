@@ -17,7 +17,7 @@ var navigation = function() {
 
 navigation.prototype = {
     _changeTpl: function() {
-        if((this._getTplId()) && (this._action) && (this._action.dont_refresh) && (this._action_name == this._getTplId())) {
+        if((this._getTplId()) && (this._action) && (this._action.dont_refresh)) {
             return;
         }
 

@@ -14,7 +14,6 @@ zJS.Options = {
     init: function(){
         console.log("options init");
         this.options = zJS.Utils.ls.getValue("options") || {};
-        console.log(this.options);
         if($("#js_tabIkaEasyOptions").length){
             return false;
         }
@@ -93,9 +92,46 @@ zJS.Options = {
             ]
         });
 
+        this.addOption({
+            id: 'infoBlock',
+            title: zJS.Lang.options.infoBox.header,
+            options: [
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
+            ]
+        });
+
+        this.addOption({
+            id: 'pirateButton',
+            title: zJS.Lang.options.pirateButton.header,
+            options: [
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
+            ]
+        });
+
+        this.addOption({
+            id: 'arrivalTime',
+            title: zJS.Lang.options.arrivalTime.header,
+            options: [
+                zJS.Lang.options.arrivalTime.enable,
+                zJS.Lang.options.arrivalTime.disable
+            ]
+        });
+
         // Options end
 
         zJS.Options.$content.appendTo(innerContent);
+
+
+        //Development section
+        var devSection = $('<div class="contentBox01h" id="ikaeasyDev" />').appendTo(tabContent);
+        $('<h3 class="header">Development</h3>').appendTo(devSection);
+        var devSectionContent = $('<div class="content" />').appendTo(devSection);
+        $('<div class="footer" />').appendTo(devSection);
+        $('<div class="development_content">'+zJS.Lang.options.development.overview+'</div>').appendTo(devSectionContent);
+
+
         tabContent.appendTo('.mainContent');
 
         // init JS action handler
@@ -147,9 +183,6 @@ zJS.Options = {
             this.options = zJS.Utils.ls.getValue("options") || {};
         }
 
-        console.log("get option :");
-        console.log(this.options[id]);
-
         // return boolean except string
         if(this.options[id] == 'true' || !this.options[id]){
             return true;
@@ -161,12 +194,9 @@ zJS.Options = {
     },
 
     saveOption: function(id, value){
-        console.log("save option :");
-
+        console.log("saving option..");
         this.options[id] = value;
         zJS.Utils.ls.setValue("options", this.options);
-
-        console.log(this.options);
     }
 };
 zJS.Options.actionHandler = {
@@ -187,94 +217,6 @@ zJS.Options.actionHandler = {
 
     }
 };
-
-function AddIkaEasyOptionsfunction() {
-
-    if(localStorage[zJS.Utils.getPlace() + 'transporter-type'] == 1) {
-        $('#Img', '#ikaeasyIkaeasyTransport').addClass('checked');
-    }
-    else {
-        $('#Img', '#ikaeasyOriginalTransport').addClass('checked');
-    }
-
-    $('#ikaeasyOriginalTransport').click(function() {
-        $('#Img', this).addClass('checked');
-        $('#Img', '#ikaeasyIkaeasyTransport').removeClass('checked');
-        localStorage[zJS.Utils.getPlace() + 'transporter-type'] = 1;
-    });
-    $('#ikaeasyIkaeasyTransport').click(function() {
-        $('#Img', this).addClass('checked');
-        $('#Img', '#ikaeasyOriginalTransport').removeClass('checked');
-        localStorage[zJS.Utils.getPlace() + 'transporter-type'] = 0;
-    });
-    //Transport type END
-
-    if(localStorage[zJS.Utils.getPlace() + 'options-gold_per_hour'] == 1) {
-        $('#Img', '#ikaeasy_options-gold_per_hour_disabled').addClass('checked');
-    }
-    else {
-        $('#Img', '#ikaeasy_options-gold_per_hour_enabled').addClass('checked');
-    }
-
-    $('#ikaeasy_options-gold_per_hour_enabled').click(function() {
-        $('#Img', this).addClass('checked');
-        $('#Img', '#ikaeasy_options-gold_per_hour_disabled').removeClass('checked');
-        localStorage[zJS.Utils.getPlace() + 'options-gold_per_hour'] = 0;
-    });
-    $('#ikaeasy_options-gold_per_hour_disabled').click(function() {
-        $('#Img', this).addClass('checked');
-        $('#Img', '#ikaeasy_options-gold_per_hour_enabled').removeClass('checked');
-        localStorage[zJS.Utils.getPlace() + 'options-gold_per_hour'] = 1;
-    });
-    //movement tabs END
-
-    if(localStorage[zJS.Utils.getPlace() + 'options_movement_tabs'] == 1) {
-        $('#Img', '#ikaeasy_options_movement_tabs_disabled').addClass('checked');
-    }
-    else {
-        $('#Img', '#ikaeasy_options_movement_tabs_enable').addClass('checked');
-    }
-
-    $('#ikaeasy_options_movement_tabs_enable').click(function() {
-        $('#Img', this).addClass('checked');
-        $('#Img', '#ikaeasy_options_movement_tabs_disabled').removeClass('checked');
-        localStorage[zJS.Utils.getPlace() + 'options_movement_tabs'] = 0;
-    });
-    $('#ikaeasy_options_movement_tabs_disabled').click(function() {
-        $('#Img', this).addClass('checked');
-        $('#Img', '#ikaeasy_options_movement_tabs_enable').removeClass('checked');
-        localStorage[zJS.Utils.getPlace() + 'options_movement_tabs'] = 1;
-    });
-    //Gold per hour END
-
-    if(localStorage[zJS.Utils.getPlace() + 'options-island_ap'] == 1) {
-        $('#Img', '#ikaeasy_options-ap_disabled').addClass('checked');
-    }
-    else {
-        $('#Img', '#ikaeasy_options-ap_enabled').addClass('checked');
-    }
-
-    $('#ikaeasy_options-ap_enabled').click(function() {
-        $('#Img', this).addClass('checked');
-        $('#Img', '#ikaeasy_options-ap_disabled').removeClass('checked');
-        localStorage[zJS.Utils.getPlace() + 'options-island_ap'] = 0;
-    });
-    $('#ikaeasy_options-ap_disabled').click(function() {
-        $('#Img', this).addClass('checked');
-        $('#Img', '#ikaeasy_options-ap_enabled').removeClass('checked');
-        localStorage[zJS.Utils.getPlace() + 'options-island_ap'] = 1;
-    });
-    //Gold per hour END
-
-
-    //Development section
-    var devSection = $('<div class="contentBox01h" id="ikaeasyDev" />').appendTo(tabContent);
-    $('<h3 class="header">Development</h3>').appendTo(devSection);
-    var devSectionContent = $('<div class="content" />').appendTo(devSection);
-    $('<div class="footer" />').appendTo(devSection);
-    $('<div class="development_content">'+zJS.Lang.options.development.overview+'</div>').appendTo(devSectionContent);
-
-}
 zJS.Page.options = {
     init: function() {
         zJS.Options.init();

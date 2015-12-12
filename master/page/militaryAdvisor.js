@@ -79,7 +79,8 @@ zJS.Page.militaryAdvisor = {
             $(this).css('padding', '4px 0px').removeClass('right');
         });
 
-        var total;
+        var total,
+            self = this;
 
         // Отображение войск и флотов в военном советнике.
         this.$js_MilitaryMovementsFleetMovementsTable.find('tr:not(.ikaeasy_complete)').has('td').each(function() {
@@ -106,9 +107,25 @@ zJS.Page.militaryAdvisor = {
                 $('td', this).eq(4).remove();
             }
 
+            if(zJS.Options.getOption("arrivalTime")) {
+                self.arrivalTime(this);
+            }
             $(this).addClass('ikaeasy_complete');
             console.timeEnd('TR movements select');
         });
+    },
+
+    arrivalTime: function(_this){
+        var diffTime = new Date() - zJS.Var.serverTime(),
+            $timeContainer = $('span[id$="ArrivalDate"]', _this);
+        var arr_time = zJS.Utils.Date.fromString($timeContainer.text());
+        var arrival_date = new Date(arr_time.getTime()+diffTime),
+            format = "HH:mm:ss";
+        if(new Date().getDate() < arrival_date.getDate()){
+            format = "DD.MM.YY HH:mm:ss";
+        }
+        $timeContainer.addClass("ikaez_hidden")
+            .after('<span class="IkaEasy_transport_date">' + moment(arrival_date).format(format) + '</span>');
     },
 
     refresh: function() {

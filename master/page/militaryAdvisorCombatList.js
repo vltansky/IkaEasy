@@ -31,7 +31,7 @@ zJS.Page.militaryAdvisorCombatList = {
         //}
         $target_th = $table.find("thead th").last().before('<th class="ikaez_combat_resources_th"><img src="' + db.images.resources.all + '"></th>');
 
-        sidebar = '<li class="accordionItem" style=""><a class="accordionTitle active">Statistics<span class="indicator"></span></a><div class="accordionContent"><div id="premiumAdvisorSidebar" class="dynamic">'+
+        sidebar = '<li class="accordionItem" style=""><a class="accordionTitle active">Statistics (beta)<span class="indicator"></span></a><div class="accordionContent"><div id="premiumAdvisorSidebar" class="dynamic">'+
             '<p>' + zJS.Lang.robbed + ': ' + battles.total + '<img src="' + db.images.resources.all + '">.</p></div></div></li>';
         $("#sidebarWidget").append(sidebar);
 

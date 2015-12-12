@@ -38,7 +38,10 @@ zJS.Utils = {
         return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_";
     },
     hoursBetween: function(date1, date2) {
+        //console.log("date2:", date2);
         var diffMs = Date.parse(date1) - Date.parse(date2);
+        //console.log(Date.parse(date1));
+        console.log(date2);
         return Math.round((diffMs % 86400000) / 3600000);//после деления - перевод милисекунд в часы
     },
 
@@ -193,6 +196,10 @@ zJS.Utils = {
         return (hostMatch ? hostMatch[1] : false) || 's?'; //s22
     },
 
+    getServerPrefix: function(){
+      return this.getServerDomain() + "_" + this.getServerWorld() + "_";
+    },
+
     askms: function(params, callback) {
         if((params.vars) && (typeof params.vars == 'object')) {
             params.vars = $.param(params.vars);
@@ -293,7 +300,7 @@ zJS.Utils = {
             classes = '';
         }
       var $sideBar = $("#sidebar"),
-          template = '<li class="accordionItem '+classes+'" style=""><a class="accordionTitle active">'+title+'<span class="indicator"></span></a><div class="accordionContent">'+content+'</div></li>';
+          template = '<li class="accordionItem '+classes+'" style=""><a class="accordionTitle active">'+title+'<span class="indicator"></span></a><div class="accordionContent"><div class="ikaez_sidebar_padding_content">'+content+'</div></div></li>';
 
         if($sideBar.length){
             $sideBar.find("#sidebarWidget").append(template);
@@ -411,7 +418,51 @@ zJS.Utils = {
             }else{
                 return false;
             }
-        }
+        },
+    },
+    Date: {
+        fromString: function(stringDate) {
+            var stringArray = stringDate.split(' '),
+                date = '',
+                now_date = new Date();
+            if(stringArray[1]) {
+                date = stringArray[0].split('.');
+                console.log("=== fromString: if date");
+                return new Date(date[1] + '.' + date[0] + '.' + date[2] + ' ' + stringArray[1]);
+            }
+            return new Date(now_date.getMonth()+1 + '.' + now_date.getDate() + '.' + now_date.getFullYear() + ' ' + stringArray[0]);
+        },
+
+        countDown: function(duration, display) {
+            var start = Date.now(),
+                diff,
+                minutes,
+                seconds;
+
+            function timer() {
+                // get the number of seconds that have elapsed since
+                // startTimer() was called
+                diff = duration - (((Date.now() - start) / 1000) | 0);
+
+                // does the same job as parseInt truncates the float
+                minutes = (diff / 60) | 0;
+                seconds = (diff % 60) | 0;
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if(diff <= 0) {
+                    // add one second so that the count down starts at the full duration
+                    // example 05:00 not 04:59
+                    start = Date.now() + 1000;
+                }
+            };
+            // we don't want to wait a full second before the timer starts
+            timer();
+            setInterval(timer, 1000);
+        },
     }
 };
 

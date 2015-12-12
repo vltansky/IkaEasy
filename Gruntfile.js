@@ -30,7 +30,9 @@ module.exports = function(grunt) {
                     'dist/inner/background.min.js': ['master/inner/background.js'],
                     //'dist/jquery.min.js': ['master/jquery.min.js'],
                     'dist/app.min.js': [
+                        'master/vendor/moment.js',
                         'master/jquery.min.js',
+                        'master/vendor/jquery.countdown.min.js',
                         'master/langs/*.js',
                         "master/zJS/utils.js",
                         "master/zJS/lng.js",

@@ -15,14 +15,18 @@
 }
 
 .ikaeasy_watcher .ikaeasy_watcher_circle {
-    width: 28px;
-    color: white;
+    width: 24px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.86);
     text-align: center;
-    line-height: 32px;
     font-weight: bold;
     float: left;
     position: absolute;
     top: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.72);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.73);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .development_content {
@@ -39,27 +43,42 @@
 }
 
 .ikaeasy_watcher.build_red .ikaeasy_watcher_circle {
-    background: url(../images/circleRed.png) no-repeat center left;
+    /* background: url(../images/circleRed.png) no-repeat center left #fff; */
+    background: rgba(189, 28, 28, 0.77);
+}
+.ikaeasy_watcher.build_red .ikaeasy_watcher_circle:hover{
+    background: rgba(189, 28, 28, 0.9);
 }
 
 .ikaeasy_watcher.build_blue .ikaeasy_watcher_circle {
-    background: url(../images/circleBlue.png) no-repeat center left;
+    /*     background: url(../images/circleBlue.png) no-repeat center left; */
+    background: rgba(35, 114, 148, 0.77);
+}
+.ikaeasy_watcher.build_blue .ikaeasy_watcher_circle:hover{
+    background: rgba(35, 114, 148, 0.9);
 }
 
 .ikaeasy_watcher.build_green .ikaeasy_watcher_circle {
-    background: url(../images/circleGreen.png) no-repeat center left;
+    /* background: url(../images/circleGreen.png) no-repeat center left #fff; */
+    background: rgba(95, 113, 33, 0.77);
 }
-
+.ikaeasy_watcher.build_green .ikaeasy_watcher_circle:hover{
+    background: rgba(95, 113, 33, 0.9);
+}
 .ikaeasy_watcher.build_gray .ikaeasy_watcher_circle {
-    background: url(../images/circleGray.png) no-repeat center left;
+    /*     background: url(../images/circleGray.png) no-repeat center left; */
+    background: rgba(168, 169, 164, 0.77);
 }
-
+.ikaeasy_watcher.build_gray .ikaeasy_watcher_circle:hover{
+    background: rgba(168, 169, 164, 0.77);
+}
 .ikaeasy_watcher .ikaeasy_watcher_buttons {
     margin-left: 30px;
     width: 15px;
     height: 30px;
     display: none;
     cursor: pointer;
+    margin-top: -6px;
 }
 
 .ikaeasy_watcher .ikaeasy_watcher_buttons .watche_up {
@@ -97,7 +116,7 @@
 }
 
 .ikaeasy_watcher.build_green:hover .ikaeasy_watcher_buttons .watche_down {
-    margin-top: 0;
+    margin-top: 2px;
 }
 
 .ikaeasy_watcher:hover .ikaeasy_watcher_tooltip {
@@ -389,6 +408,10 @@
     float: left;
     width: auto !important;
     display: inline-block !important;
+}
+
+#island .hover .scroll_img .center, #island .selected .scroll_img .center{
+    margin-top: -12px;
 }
 
 #island .cityLocation.city {
@@ -783,7 +806,7 @@ table.highscore tbody tr.marker_top_black:hover, table.highscore tbody tr.marker
     background-image: url(/images/Marker/turquoise/city_turquoise.png) !important;
 }
 
-/* ÃƒÂÃ‚Â¤ÃƒÂÃ‚Â¸ÃƒÂÃ‚ÂºÃƒâ€˜Ã‚ÂÃƒâ€˜Ã¢â‚¬Â¹ Ãƒâ€˜Ã¢â€šÂ¬ÃƒÂÃ‚Â°ÃƒÂÃ‚Â·ÃƒÂÃ‚Â´ÃƒÂÃ‚Â²ÃƒÂÃ‚Â¾ÃƒÂÃ‚ÂµÃƒÂÃ‚Â½ÃƒÂÃ‚Â¸Ãƒâ€˜Ã‚Â ÃƒÂÃ‚Â¾ÃƒÂÃ‚Â±Ãƒâ€˜Ã…â€™ÃƒÂÃ‚ÂµÃƒÂÃ‚ÂºÃƒâ€˜Ã¢â‚¬Å¡ÃƒÂÃ‚Â¾ÃƒÂÃ‚Â² ÃƒÂÃ‚Â½ÃƒÂÃ‚Â° ÃƒÂÃ‚Â¾Ãƒâ€˜Ã‚ÂÃƒâ€˜Ã¢â‚¬Å¡Ãƒâ€˜Ã¢â€šÂ¬ÃƒÂÃ‚Â¾ÃƒÂÃ‚Â²ÃƒÂÃ‚Âµ ÃƒÂÃ‚Â¿Ãƒâ€˜Ã¢â€šÂ¬ÃƒÂÃ‚Â¸ ÃƒÂÃ‚Â½ÃƒÂÃ‚Â°ÃƒÂÃ‚Â²ÃƒÂÃ‚ÂµÃƒÂÃ‚Â´ÃƒÂÃ‚ÂµÃƒÂÃ‚Â½ÃƒÂÃ‚Â¸ÃƒÂÃ‚Â¸. ÃƒÂÃ‚Â­Ãƒâ€˜Ã¢â‚¬Å¡ÃƒÂÃ‚Â¾ ÃƒÂÃ‚Â±ÃƒÂÃ‚Â°ÃƒÂÃ‚Â³ Ãƒâ€˜Ã‚ÂÃƒÂÃ‚Â°ÃƒÂÃ‚Â¼ÃƒÂÃ‚Â¾ÃƒÂÃ‚Â³ÃƒÂÃ‚Â¾ ÃƒÂÃ‚Â¸ÃƒÂÃ‚ÂºÃƒÂÃ‚Â°Ãƒâ€˜Ã¢â€šÂ¬ÃƒÂÃ‚Â¸ÃƒÂÃ‚Â°ÃƒÂÃ‚Â¼ÃƒÂÃ‚Â° */
+/* ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¤ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¸ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚ÂºÃƒÆ’Ã¢â‚¬ËœÃƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â°ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â·ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â´ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â²ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚ÂµÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â½ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¸ÃƒÆ’Ã¢â‚¬ËœÃƒâ€šÃ‚Â ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â±ÃƒÆ’Ã¢â‚¬ËœÃƒâ€¦Ã¢â‚¬â„¢ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚ÂµÃƒÆ’Ã‚ÂÃƒâ€šÃ‚ÂºÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â² ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â½ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â° ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ÃƒÆ’Ã¢â‚¬ËœÃƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â²ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Âµ ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¿ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¸ ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â½ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â°ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â²ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚ÂµÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â´ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚ÂµÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â½ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¸ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¸. ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â­ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â±ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â°ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â³ ÃƒÆ’Ã¢â‚¬ËœÃƒâ€šÃ‚ÂÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â°ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¼ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â³ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¾ ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¸ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚ÂºÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬ËœÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¸ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â°ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â¼ÃƒÆ’Ã‚ÂÃƒâ€šÃ‚Â° */
 #island #worldmap #cities .cityLocation {
     margin-left: -12px;
 }
@@ -912,27 +935,24 @@ p.link.ikaeasy_full_report_btn {
 }
 
 div.ikaeasy_levelcity {
-    position: absolute;
     left: 35px;
     bottom: 0;
-    background: #7C6D36;
-    border-radius: 25px;
-    line-height: 24px;
-    width: 25px;
-    text-align: center;
-    color: #E4E4E4;
-    border: 1px solid #FFF;
-    opacity: 0.8;
-    cursor: default;
 }
 .ikaeasy_watcher.build_default .ikaeasy_watcher_circle {
-    position: absolute;      background: #7C6D36;
-    border-radius: 25px;
-    line-height: 25px;
+    bottom: absolute;
+}
+div.ikaeasy_levelcity, .ikaeasy_watcher.build_default .ikaeasy_watcher_circle{
+    position: absolute;
+    background: rgba(124, 109, 54, 0.79);
+    border-radius: 50%;
+    line-height: 24px;
+    width: 24px;
     text-align: center;
     color: #E4E4E4;
-    border: 1px solid #FFF;  opacity: 0.8;
-    width: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.64);
+    cursor: default;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.73);
+    font-family: 'Open Sans', sans-serif;
 }
 #island #cities .city.vacation span.ikaeasy_BD {
     left: 0;
@@ -980,7 +1000,7 @@ ul#ikaeasy_military_movements li>a.ikaez_active {
 ul#ikaeasy_military_movements li>a.ikaez_active:hover{
     text-decoration: none;
 }
-ul#ikaeasy_military_movements li>a:not(.ikaez_active):hover, ul#ikaeasy_military_movements li>a:focus {
+ul#ikaeasy_military_movements li>a:not(.ikaez_active):hover,Â ul#ikaeasy_military_movements li>a:focus {
     background: #FFE4B0;
     text-decoration: none;
     color: #000;
@@ -1068,10 +1088,18 @@ ul.tabmenu{
 #ikaez_popup .messagebox {
     float: left;
     width: 100%;
-    text-align: center;
+    text-align: justify;
     font-size: 14px;
 }
-
+#ikaez_donate {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: -12px;
+    margin-right: -12px;
+    background: #F3D18A;
+    padding: 8px 0 5px;
+    text-align: center;
+}
 #ikaez_popup .messagebox a {
     text-decoration: underline;
     color: #008AE3;
@@ -1095,6 +1123,12 @@ a#dismiss_popup {
 
 div#ikaez_popup {
     text-align: center;
+    z-index: 20000;
+    top: 50%!important;
+    left: 50%!important;
+    margin-left: -240px;
+    transform: translateY(-55%);
+    box-shadow: 0 0 60px #F8E43A, 0 0 20px #9C8E12;
 }
 
 div#ikaez_islandsSearch {
@@ -1169,7 +1203,7 @@ div#ikaez_islandsSearch button:hover,div#ikaez_islandsSearch button:focus {
 
 button#ikaez_update_island_info {
     position: absolute;
-    right: -122px;
+    transform: translateX(185%);
     top: 5px;
     float: left;
     font-family: 'Open Sans', sans-serif;
@@ -1197,11 +1231,32 @@ table.highscore tr:not(:first-child):hover,table.highscore tr:not(:first-child):
     background: #FFDD64!important;
 }
 
-div#ikaez_fastPirateButtons {
+#ikaez_fastPirateButtons {
     position: fixed;
     bottom: 15px;
     right: 15px;
     z-index: 90;
+    background: #313131;
+    min-width: 100px;
+    border-radius: 4px;
+    padding-bottom: 3px;
+    transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transform: scale(1);
+}
+
+#ikaez_fastPirateButtons.disabled{
+    overflow: hidden;
+}
+#ikaez_fastPirateButtons:hover{
+    background: #404040;
+    transform: scale(1.03);
+}
+@media only screen and (max-width : 1200px) {
+    div#ikaez_fastPirateButtons{
+        bottom: 80px;
+        right: 45px;
+    }
 }
 
 #ikaez_islandSearch_prev, #ikaez_islandSearch_next{
@@ -1433,4 +1488,190 @@ a.IkaEasy_msg_img:hover:after{
 div#sidebar.ikaez_sidebar_generated {
     left: 80px;
     margin-top: 50px;
+}
+
+#transportGoods.ikaez_transport_goods ul.resourceAssign li .ikaeasy_resource{
+    width: 180px;
+    position: relative;
+    top: -56px;
+    left: 403px;
+    text-align: center;
+}
+
+#transportGoods.ikaez_transport_goods ul.resourceAssign li .ikaeasy_resource a.button.ikaez_transport_button_trigger{
+    padding: 2px 0!important;
+    width: 34px;
+    line-height: 18px;
+}
+#transportGoods.ikaez_transport_goods ul.resourceAssign li .ikaeasy_resource a.button.plus_minis.ikaez_transport_button_trigger {
+    width: 25px!important;
+}
+#transportGoods.ikaez_transport_goods ul.resourceAssign li .ikaeasy_resource a.button.ikaez_transport_button_trigger:not(:last-child){
+    border-right: none;
+}
+#transportGoods.ikaez_transport_goods ul.resourceAssign li .ikaeasy_resource a.button.ikaez_transport_button_trigger:not(:first-child){
+    border-left: 1px solid #C9A584;
+}
+#transportGoods.ikaez_transport_goods ul.resourceAssign{
+    width: 100%;
+    margin: 10px 5px;
+}
+
+#transportGoods.ikaez_transport_goods ul.resourceAssign li div.sliderinput{
+    margin: 0 25px;
+}
+
+#transportGoods.ikaez_transport_goods ul.resourceAssign li input{
+    left: 330px!important;
+    top: -29px;
+}
+
+.ikaez_sidebar_padding_content{
+    padding: 0 10px;
+}
+
+a.ikaez_save_pirate_capture {
+    background: url(/images/externalURL.png) no-repeat center center;
+    width:20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    right: 8px;
+    margin-top: -5px;
+    background-color: rgb(241, 206, 92);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    box-shadow: 0 0 2px transparent;
+    opacity: 1;
+    visibility: visible;
+}
+
+a.ikaez_save_pirate_capture:hover,a.ikaez_save_pirate_capture:focus{
+    background-color: rgb(255, 241, 197);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+a.ikaez_save_pirate_capture.ikaez_active{
+    opacity:0;
+    visibility: hidden;
+}
+.ikaeasy_options_btn {
+    display:inline-block;
+}
+
+.ikaez_hidden{
+    display: none!important;
+}
+
+#island #cities .level10 .fire_position, #island #cities .level11 .fire_position, #island #cities .level12 .fire_position {
+    left: 51px!important;
+}
+
+#island #cities .level13 .fire_position, #island #cities .level14 .fire_position, #island #cities .level15 .fire_position {
+    left: 46px!important;
+}
+
+.level3 .ikaeasy_levelcity {
+    left: 39px;
+    bottom: -2px;
+}
+
+.level6 .ikaeasy_levelcity {
+    left: 45px;
+    bottom: -3px;
+}
+
+.level9 .ikaeasy_levelcity {
+    left: 38px;
+    bottom: -3px;
+}
+
+.cityLocation.inactive {
+    opacity: .8;
+}
+div#ikaez_fastPirateButtons>.button.capture {
+    width: 100%;
+    box-sizing: border-box;
+    background: #000000;
+    color: #E0E0E0;
+    border: 3px double #6D6B67;
+    border-top-color: #C1B9B9;
+    border-left-color: #737373;
+    background-image: url(../images/capturePoints.png);
+    background-repeat: no-repeat;
+    background-size: 23px;
+    background-position: 9px 3px;
+    padding-left: 29px;
+    min-height: 20px;
+}
+div#ikaez_pirateCountdown {
+    /* display: none; */
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    font-size: 15px;
+    transition: all .25s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+div#ikaez_fastPirateButtons:after{
+    content: " ";
+    display: block;
+    position: absolute;
+    background-image: url("../images/icon_piratecrew.png");
+    width: 32px;
+    height:20px;
+    top: -1px;
+    background-position: center top;
+    margin-left: 7px;
+    transform: translateY(5px);
+    transition: transform .3s ease-in-out;
+    z-index: -1;
+}
+
+div#ikaez_fastPirateButtons:hover:after{
+    transform: translateY(-15px);
+}
+
+#ikaez_fastPirateButtons.disabled div#ikaez_pirateCountdown {
+    /* display: block; */
+    max-height: 50px;
+    padding: 4px 0;
+}
+
+div#ikaez_fastPirateButtons.disabled:after {
+    top: auto;
+    bottom: 8px;
+    margin-left: -26px;
+    transform: rotate(90deg);
+}
+a.allyLink.ikaez_highlighted_ally {
+    position: relative;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a.allyLink.ikaez_highlighted_ally>img {
+    height: 26px;
+    position: absolute;
+    top: -6px;
+    left: -32px;
+}
+
+div#ikaez_fastPirateButtons.disabled:hover:after {
+    transform: rotate(90deg) translateY(-18px);
+}
+
+a.ikaez_donate_yandex{
+    display: inline-block;
+    border-top: 1px solid #8A8A8A;
+    margin-top: 10px;
+}
+
+a.ikaez_donate_yandex img{
+    float: none!important;
+    height: 35px;
+    padding: 0!important;
+    margin: 0!important;
 }

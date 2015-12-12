@@ -4,7 +4,7 @@ if(typeof langs == "undefined") {
 
 //Italian language
 langs.it = {
-    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
+    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'tutti',
         transport: 'trasporto',
@@ -46,6 +46,7 @@ langs.it = {
     'Transport': "Ttrasporta Merci!",
     'Send_General_Log': "Invia log all'alleanza",
     'Send_General_Log_Header': "Attacchi contro i membri dell'alleanza",
+    pirate_capture: "Depreda",
 
     'options': {
         'transport': {
@@ -69,7 +70,7 @@ langs.it = {
     'disable': 'disattivo'
 },
 'development': {
-    'overview': "IkaEasy non un prodotto commerciale, ma è un progetto <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a>. Vuoi aiutare? Contribuisci su <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, con report riguardanti bug o suggerimenti, anche su <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Sviluppare IkariamEasy richiede molto tempo: week-end, serate e delle notti. Si può dire grazie, aiutandomi a rimanere sveglio con l'acquisto di un caffè :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Comprami un caffè su Ko-Fi.com' /></div></a> Passa a trovarci su <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a>, per tenerti aggiornato! <br> Special thanks to Luca Maglie for Italian translation"
+    'overview': "IkaEasy non un prodotto commerciale, ma è un progetto <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a>. Vuoi aiutare? Contribuisci su <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, con report riguardanti bug o suggerimenti, anche su <a href='http://ikariam-easy.com/?ref=game' target='_blank'>Facebook</a>.<br>Sviluppare IkariamEasy richiede molto tempo: week-end, serate e delle notti. Si può dire grazie, aiutandomi a rimanere sveglio con l'acquisto di un caffè :) <br>Special thanks to Luca Maglie for Italian translation"
 }
 },
 

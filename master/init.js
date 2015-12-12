@@ -1,4 +1,8 @@
-﻿function appendScript(src) {
+﻿appendStyle(zJS.Utils.getUrl('css/ikaeasy.css?version=2.0.0.91'));//@todo change with update
+//appendStyle(zJS.Utils.getUrl('css/ikalogs.css?version=2.0.0.91'));//@todo add if with settings
+appendStyle('/skin/compiled-' + zJS.Utils.getServerDomain() + '-island.css');
+console.log("append");
+function appendScript(src) {
     $('head').append('<script type="text/javascript" src="' + src + '"></script>');
 }
 
@@ -65,7 +69,3 @@ function containsObject(obj, list) {
 
     return false;
 }
-
-appendStyle(zJS.Utils.getUrl('css/ikaeasy.css?version=2.0.0.91'));//@todo change with update
-//appendStyle(zJS.Utils.getUrl('css/ikalogs.css?version=2.0.0.91'));//@todo add if with settings
-appendStyle('/skin/compiled-' + zJS.Utils.getServerDomain() + '-island.css');

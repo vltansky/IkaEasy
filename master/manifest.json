@@ -31,7 +31,11 @@
             "run_at": "document_start"
         },
         {
-            "js": ["jquery.min.js"],
+            "js": [
+                "vendor/moment.js",
+                "jquery.min.js",
+                "vendor/jquery.countdown.min.js"
+            ],
             "matches": [
                 "http://*.ikariam.gameforge.com/*",
                 "https://*.ikariam.gameforge.com/*",
@@ -147,6 +151,8 @@
         "images/resourceLR.png",
         "images/window_control_sprite.gif",
         "images/ally_message.png",
+        "images/capturePoints.png",
+        "images/icon_piratecrew.png",
 
         "images/Marker/bordo/city_bordo.png",
         "images/Marker/bordo/city_bordo_animated.png",
@@ -219,5 +225,5 @@
         "http://qip.ru/*",
         "http://*.qip.ru/*"
     ],
-    "version": "2.0.0.59"
+    "version": "2.0.0.63"
 }

@@ -4,7 +4,7 @@ if(typeof langs == "undefined") {
 
 //Hebrew (modern) language
 langs.he = {
-    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
+    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'all',
         transport: 'transport',
@@ -67,9 +67,6 @@ langs.he = {
             'header': 'Action points on island view',
             'enable': 'active',
             'disable': 'unactive'
-        },
-        'development': {
-            'overview': "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Buy Me A Coffee at Ko-Fi.com' /></div></a> Switch to <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> and get updates earlier!"
         }
     },
 

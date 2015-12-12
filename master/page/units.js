@@ -12,7 +12,7 @@ function changeMaxValue_barracks(currentElementClass){
     var $accumulatedResourcesCosts=$("#accumulatedResourcesCosts"), $each_el=$('ul#units li.unit');//@todo create function for global resources
     current_units_costs={citizens:0, wood:0, sulfur:0, wine:0, crystal:0};
     $each_el.each(function(index) {
-        var _this=$('div.forminput input.textfield', this);
+        var _this=$('div.forminput input', this);
         current_units_costs.citizens += _this.val() * resources[index].citizens;
         current_units_costs.wood += _this.val() * resources[index].wood;
         current_units_costs.sulfur += _this.val() * resources[index].sulfur;

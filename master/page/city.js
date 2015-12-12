@@ -11,11 +11,13 @@ zJS.Page.city = {
         //this.play_sound();
         this._updateBuilds();
 
-        this.infoBlock();
+        if(zJS.Options.getOption("infoBlock")) {
+            this.infoBlock();
+        }
         this._watcher();
         $('#portOccupierShip1').css('z-index', '9999999');
         $('#portOccupierShip2').css('z-index', '9999999');
-        setInterval(this._update_watcher.bind(this), 1000);
+        //setInterval(this._update_watcher.bind(this), 1000);
     },
 
     refresh: function() {
@@ -29,7 +31,6 @@ zJS.Page.city = {
     },
     infoProtectedRes: function(){
         var warehouses=$('.building.warehouse'), sum_lvl=0;
-        console.log(warehouses);
         for(var i=0;i<warehouses.length;i++){
             sum_lvl+=parseInt($(warehouses[i]).attr('class').match(/level(\d+)/)[1]);
         }
@@ -37,9 +38,40 @@ zJS.Page.city = {
         console.log(protecred_resources);
         return protecred_resources;
     },
+    infoUnProtectedRes: function(){
+        var city_resources = zJS.Var.getCityResources(),
+            protecred = this.infoProtectedRes(),
+            not_protected = 0;
+        console.log(city_resources);
+        $.each(city_resources, function(key, value) {
+            if(value > protecred){
+                not_protected += value - protecred;
+            }
+        });
+        return not_protected;
+    },
+    infoMilitaryLimit: function(){
+        var townHallLevel = parseInt(this._getBuild("townHall").level) || 0;
+        var wallLevel = parseInt(this._getBuild("wall").level) || 0;
+        console.log(townHallLevel);
+        return 250 + 50 * (townHallLevel + wallLevel);
+    },
+    infoNavyLimit: function(){
+        var shipyardLevel = parseInt(this._getBuild("shipyard").level) || 0;
+        var portLevel = parseInt(this._getBuild("port").level) || 0;
+        var hasMoreLevel = shipyardLevel >= portLevel ? shipyardLevel : portLevel;
+        console.log(hasMoreLevel);
+        return 125 + 25 * (hasMoreLevel);
+    },
+
     infoBlock: function(){
-        if(!$(".accordionItem.cityInfoBlock").length) {
-            zJS.Utils.addToSideBar('info', 'protected: ' + this.infoProtectedRes(), 'cityInfoBlock');
+        $(".accordionItem.cityInfoBlock").remove();
+        if(!$(".templateView ").length) { // if we already didnt create it and its city view (not city background!!)
+            var content = zJS.Lang.protected_resources + ' ' + this.infoProtectedRes()+'<br>'+
+                zJS.Lang.not_protected_resources + ' ' + this.infoUnProtectedRes()+'<br>'+
+                zJS.Lang.land_limit + ' ' + this.infoMilitaryLimit()+'<br>'+
+                zJS.Lang.navy_limit + ' ' + this.infoNavyLimit();
+            zJS.Utils.addToSideBar('info', content, 'cityInfoBlock');
         }
     },
     _updateBuilds: function() {

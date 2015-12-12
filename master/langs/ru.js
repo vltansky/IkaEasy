@@ -33,7 +33,7 @@ langs.ru = {
     'is_search_restart': 'сброс',
     'is_search_full': 'полные',
     'is_search_empty': 'пустые',
-    'update': 'обновить',
+    'update': 'обновить баллы',
     'robbed' : 'Ограблено',
     'MessagePlaceholder': "Нажмите CTRL + Enter для отправки сообщения",
     'ConfirmDowngrade': "Вы действительно хотите снести 1 уровень этого здания?",
@@ -51,8 +51,15 @@ langs.ru = {
     'Transport': "Транспортировать!",
     'Send_General_Log': "Отправить лог альянсу",
     'Send_General_Log_Header': "Атаки на членов альянса",
+    protected_resources: "Застрахованно:",
+    not_protected_resources: "Не застраховано:",
+    land_limit: "Лимит гарнизона:",
+    navy_limit: "Лимит морского гарнизона:",
+    pirate_capture: "Захват",
 
     'options': {
+        'enable': 'активировано',
+        'disable': 'неактивно',
         'transport': {
             'header': 'Тип транспортировки ресурсов',
             'original': 'GameForge',
@@ -70,11 +77,27 @@ langs.ru = {
         },
         'island_ap': {
             'header': 'Отображение баллов действия на острове',
-            'enable': 'активировано',
-            'disable': 'неактивно'
         },
+        'search_islands': {
+            'header': 'Поиск островов'
+        },
+        transporter: {
+            header: 'Транспортёр (в левом меню)'
+        },
+        combat_resources: {
+            header: 'Обзор ограбленных рессурсов'
+        },
+        infoBox: {
+            header: 'Информация о городе'
+        },
+        pirateButton:{
+            header: 'Ярлык пиратского набега'
+        },
+
         'development': {
-            'overview': "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Buy Me A Coffee at Ko-Fi.com' /></div></a> Switch to <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> and get updates earlier!"
+            overview: "ИкаИзи - некоммерческий, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> проект. Хочешь помочь? Присоеденяйся к группе <a href='https://vk.com/ikariam_easy' target='_blank'>Вконтакте</a> и в <a href='https://join.skype.com/h1zCev9PbdWG' target='_blank'>Skype</a>.<br><br>И конечно же вы можете помочь мне финансово. <b>Буду очень благодарен за вашу поддержку</b> и непременно постараюсь вас порадовать нововведениями в будущем :)",
+            donate_link: '<div id="ikaez_donate"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"><input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="32W92HPPGVYWU"> <input type="image" src="https://www.paypalobjects.com/ru_RU/RU/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal — более безопасный и легкий способ оплаты через Интернет!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form><a href="http://ikariam-easy.com/%D0%BF%D0%BE%D0%B6%D0%B5%D1%80%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D1%82%D1%8C/" target="_blank" class="ikaez_donate_yandex"><img src="http://ikariam-easy.com/yandex-logo.png" /></a></div>',
+            links: '<a href="https://vk.com/ikariam_easy" class="ikaez_social ikaez_vk"><img src="https://vk.com/images/dev_logo_vk.png"></a><a href="https://join.skype.com/h1zCev9PbdWG" class="ikaez_social ikaez_skype">S</a>'
         }
     },
 

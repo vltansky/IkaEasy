@@ -8,6 +8,7 @@ if(typeof zJS.Page == "undefined") {
 
 zJS.Page.__common = {
     _notes: [],
+    _pirateButtonStorage: zJS.Utils.ls.getValue(zJS.Utils.getServerPrefix()+'pirateButton'),
 
     init: function() {
         this.copyright();
@@ -20,8 +21,10 @@ zJS.Page.__common = {
             }
             this._islandsTimeTravel();
         }
-        //this._pirateButton();
-        //this.init_popup(); // TODO enable on production, write new texts
+        if(this._pirateButtonStorage && zJS.Options.getOption("pirateButton")) {
+            this._pirateButton();
+        }
+        this.init_popup();
         this._getUserData();
         if(zJS.Options.getOption('transporter')) {
             this._transporter();
@@ -67,26 +70,47 @@ zJS.Page.__common = {
     },
 
     _pirateButton: function(){
-        if($("#ikaez_" +
-                "stPirateButtons").length < 1) {
-            var cityId = 3721;
+        console.log("_pirateButton");
+        if(!$("#ikaez_fastPirateButtons").length) {
+            var self = this;
             $('head').append('<link rel="stylesheet" href="' + zJS.Utils.generateDomain() + '/skin/compiled-ru-city.css" type="text/css" />'); // @TODO change "RU" to local
-            var _inner = '<div id="ikaez_fastPirateButtons"><a href="javascript:void(0);" class="button capture">Захват</a></div>';
+
+            var classes = '', btn_classes = 'button capture', flag = false;
+            if(zJS.Utils.getItem("pirateDeadlineActive") == 2 && zJS.Utils.getItem("pirateDeadline") !== null && zJS.Utils.getItem("pirateDeadline") > new Date().getTime()){
+                flag = true;
+                classes += 'disabled';
+                btn_classes += ' button_disabled';
+            }
+            var _inner = '<div id="ikaez_fastPirateButtons" class="'+ classes +'"><a href="javascript:void(0);" class="'+ btn_classes +'">'+ zJS.Lang.pirate_capture +'</a><div id="ikaez_pirateCountdown"></div></div>';
             $("body").append(_inner);
+            if(flag){
+                zJS.Page.pirateFortress.disableShortcutButton();
+                zJS.Page.pirateFortress.startTimer();
+            }else{
+                zJS.Page.pirateFortress.enableShortcutButton();
+            }
             $("#ikaez_fastPirateButtons a").on('click', function(){
                 console.log("=== Pirate click");
-                $('#js_cityIdOnChange').val(cityId);
-                zJS.Utils.execute_js("ajaxHandlerCallFromForm(document.getElementById('changeCityForm'));");
-                setTimeout(function () {
-                    console.log('action!');
-                zJS.Utils.execute_js("ajaxHandlerCall('?view=pirateFortress&position=17&action=PiracyScreen&function=capture&buildingLevel=5&cityId=" + cityId + "');");
-                }, 600); // TODO set interval with checking
+                if(!$(this).hasClass("disabled")) {
+                    $('#js_cityIdOnChange').val(self._pirateButtonStorage.cityId);
+                    zJS.Utils.execute_js("ajaxHandlerCallFromForm(document.getElementById('changeCityForm'));");
+                    setTimeout(function() {
+                        console.log('action!');
+                        zJS.Utils.execute_js("ajaxHandlerCall('" + self._pirateButtonStorage.url + "');");
+                        zJS.Page.pirateFortress.captureClicked(self._pirateButtonStorage.url);
+                    }, 600); // TODO set interval with checking
+                }else{
+                    console.log("=== Pirate disabled");
+                }
             });
 
+        }else{
+            this._pirateButtonStorage = zJS.Utils.ls.getValue(zJS.Utils.getServerPrefix()+'pirateButton');
         }
     },
 
     _islandsTimeTravel: function(){
+        console.log("_islandsTimeTravel");
         var $triggers = $(".islandTile, #mapCoordInput .submitButton"), $res_container;
 
         if($("#ikaez_islands_travel_time").length < 1){
@@ -100,6 +124,7 @@ zJS.Page.__common = {
     },
 
     _islandsSearch: function() {
+        console.log("_islandsSearch");
         var isSearchActive = 0,
             $worldmap = $("#worldmap"),
             $islands = $worldmap.find(".islandTile"),
@@ -261,6 +286,7 @@ zJS.Page.__common = {
         }
 
         function button_click(){
+            console.log("button_click");
             var name = $(this).data('name'),
                 type = $(this).data('type'),
                 $search_islands = isSearchActive ? $worldmap.find(".islandTile.ikaez_islandSearch_filtered") : $islands;
@@ -361,9 +387,11 @@ zJS.Page.__common = {
     //}
 },
     init_popup: function(){
-        if((localStorage.getItem("popup_v2") !== null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 5) || localStorage.getItem("popup_date") === null) {
+        console.log("init_popup");
+        console.log(zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")));
+        if((localStorage.getItem("popup_v5") === null || zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 12) || localStorage.getItem("popup_date") === null) {
             if ($("#ikaez_popup").length < 1) {
-                $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
+                $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + zJS.Lang.options.development.donate_link + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
             }
 
             $("#dismiss_popup").on('click', function () {
@@ -371,11 +399,19 @@ zJS.Page.__common = {
                 $("#ikaez_popup").hide();
             });
 
-            localStorage.setItem("popup_v2", true);
+            if(localStorage.getItem("popup_v4") !== null){
+                localStorage.removeItem("popup_v4");
+            }
+            localStorage.setItem("popup_v5", true);
             localStorage.setItem("popup_date", new Date());
+
+            $("#ikaez_donate").off().on("click", function(){
+                localStorage.setItem("popup_donate", true);
+            })
         }
     },
     _checkUpdates: function(){
+        console.log("_checkUpdates");
         $("#js_GlobalMenu_military").addClass('premiumactive');
 
         chrome.storage.sync.get('last_generalAdvisor_notification', function(data) {
@@ -408,6 +444,7 @@ zJS.Page.__common = {
      * Display resource spend per hour
      */
     _getProduction: function() {
+        console.log("_checkUpdates");
         //console.time('_getProduction');
         $('.ikaeasy_delet_me').each(function() {
             $(this).remove();
@@ -428,7 +465,6 @@ zJS.Page.__common = {
                     GlobalWine=GlobalWine.substring(0, GlobalWine.length - 1);
                     k*=10; }
                 GlobalWine=(k>1)?GlobalWine.replace(/[^\d+]/g, '')*k:GlobalWine.replace(/[^\d+]/g, '');
-                console.log(GlobalWine);
                 tmpRes -= $("#js_GlobalMenu_WineConsumption").text().replace(/[^\d+]/g, '');
                 if(tmpRes < 0) {
                     wineLeftTime = Math.abs(parseFloat(GlobalWine / tmpRes));
@@ -456,13 +492,13 @@ zJS.Page.__common = {
                 $addTo.addClass("ikaez_resource_added");
             }
         }
-        //console.timeEnd('_getProduction');
+        console.timeEnd('_getProduction');
     },
     /*
      * Get finance per hour
      */
     _getFinance: function() {
-        //console.time('_getFinance');
+        console.time('_getFinance');
         var LocFinanceDate = zJS.Utils.getLocFinance() + '_date';
         if((localStorage.getItem(LocFinanceDate) !== null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem(LocFinanceDate)) > 1) || localStorage.getItem(LocFinanceDate) === null) {
             console.log('Ajax get finance');
@@ -502,13 +538,13 @@ zJS.Page.__common = {
                 console.log(err);
             }
         }
-        //console.timeEnd('_getFinance');
+        console.timeEnd('_getFinance');
     },
     /*
      * Get user data
      */
     _getUserData: function() {
-        //console.time('_getUserData');
+        console.time('_getUserData');
         if(!zJS.Utils.getItem('user_data')) {
             console.log('Ajax get user data');
             try {
@@ -556,35 +592,36 @@ zJS.Page.__common = {
                 console.log(err);
             }
         }
-        //console.timeEnd('_getFinance');
+        console.timeEnd('_getFinance');
     },
     /*
      * Display gold per hour
      */
     _setFinance: function() {
-        //console.time('_setFinance');
+        console.time('_setFinance');
         var LocFinance = zJS.Utils.getLocFinance();
         var value = localStorage.getItem(LocFinance),
-            np_char = 'ikaeasy_green',
+            np_char = 'red',
+            np_symb = '';
+        if(value >= 0) {
+            np_char = 'ikaeasy_green';
             np_symb = '+';
-        if(value < 0) {
-            np_char = 'red';
-            np_symb = '-';
         }
         $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me ' + np_char + '">' + np_symb + zJS.Utils.formatNumber(value) + '</span>');
-        //console.timeEnd('_setFinance');
+        console.timeEnd('_setFinance');
     },
 
     _changeForumBtn: function() {
         $('#GF_toolbar').find('li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';
     },
     _addIkaEasylinks: function(){
+        console.log("_addIkaEasylinks");
         var $cashe_el=$('#GF_toolbar').find('li.ikhelp:not(.ikaez_completed)');
         $cashe_el.before('<li class="ikaez_fb_link"><a class="noViewParameters" target="_blank" href="'+zJS.Lang.ikaeasy_link+'" title="IkaEasy"> Ikariam Easy</a></li>');
         $cashe_el.addClass('ikaez_completed');
     },
     _addOtherButtons: function() {
-        //console.time('_addOtherButtons');
+        console.time('_addOtherButtons');
         if(zJS.Var.getAllyId()) {
             // Кнопка на общее сообщение
             var common_message = zJS.Utils.addToLeftMenu('image_chat', zJS.Lang.Circular_message);
@@ -621,13 +658,13 @@ zJS.Page.__common = {
 
             this._notes.push(embassy);
         }
-        //console.timeEnd('_addOtherButtons');
+        console.timeEnd('_addOtherButtons');
     },
     /*
      * Get and display next city link
      */
     _nextCity: function() {
-        //console.time('_nextCity');
+        console.time('_nextCity');
         if(!this._cities) {
             this._cities = zJS.Var.getTransferVars().cities;
         }
@@ -668,13 +705,13 @@ zJS.Page.__common = {
 
 
         }.bind(this));
-        //console.timeEnd('_nextCity');
+        console.timeEnd('_nextCity');
     },
     /*
      * Transporter navigation (in left menu)
      */
     _transporter: function() {
-        //console.time('_transporter');
+        console.time('_transporter');
         this._cities = zJS.Var.getTransferVars().cities;
         var cnt_cities = 0;
         $.each(this._cities, function(k, v) {
@@ -750,7 +787,7 @@ zJS.Page.__common = {
         new zJS.Utils.draggable($('.dynamic_title', _window), _window, function() {
             zJS.Utils.ls.setValue('transporter_position', $(_window).offset());
         });
-        //console.timeEnd('_transporter');
+        console.timeEnd('_transporter');
     },
 
     _getCityName: function(id) {
@@ -777,7 +814,7 @@ zJS.Page.__common = {
     },
 
     _addLinkToIslandFeature: function() {
-        //console.time('_addLinkToIslandFeature');
+        console.time('_addLinkToIslandFeature');
         var resourceType = $("ul.resources li div p:first-child"),
             islandId = zJS.Var.getIsland().islandId;
 
@@ -790,6 +827,6 @@ zJS.Page.__common = {
         resourceType.not(".invisible").eq(1).parent().parent()
             .css("cursor", "pointer")
             .attr("onClick", "ajaxHandlerCall('?view=tradegood&islandId=" + islandId + "'); return false;");
-        //console.timeEnd('_addLinkToIslandFeature')
+        console.timeEnd('_addLinkToIslandFeature')
     }
 };

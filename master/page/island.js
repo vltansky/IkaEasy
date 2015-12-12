@@ -46,9 +46,7 @@ zJS.Page.island = {
                     for(var s = 0; s < allys[q].length; s++) {
                         var allyTag = zJS.Var.getIsland().cities[i].ownerAllyTag === null && zJS.Var.getIsland().cities[i].type != 'buildplace' ? '-' : zJS.Var.getIsland().cities[i].ownerAllyTag;
                         if(allyTag == allys[q][s]) {
-                            console.log(allyTag);
                             if($('#cityLocation' + i).hasClass('animated_off')) {
-                                console.log("animated of");
                                 $('#js_cityLocation' + i + 'Link').addClass('ikaeasy_city_link_' + zJS.Utils.marker.getColorById(q));
                                 $('#js_cityLocation' + i + 'LinkHover').addClass('ikaeasy_city_linkHover_' + zJS.Utils.marker.getColorById(q));
                             }

@@ -48,6 +48,11 @@ zJS.Var = {
         return resource;
     },
 
+    getCitySumResources: function(){
+        var _resource = this.getTransferVars().resources;
+        return _resource.resource + _resource[1] + _resource[2] + _resource[3] +_resource[4];
+    },
+
     getCities: function() {
         return this.getTransferVars().cities;
     },
@@ -97,5 +102,13 @@ zJS.Var = {
 
     _now: function(){
         return Math.floor((new Date()).getTime() / 1000);
+    },
+
+    serverTime: function(){
+        var serverDate = $("#servertime").text();
+        var time = serverDate.split(' ');
+        var date = time[0].split('.');
+
+        return new Date(date[1]+'.'+date[0]+'.'+date[2]+' '+time[1]);
     }
 };
