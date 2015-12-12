@@ -55,21 +55,21 @@ langs.tr = {
         },
         'movement_tabs': {
             'header': 'Movement tabs',
-            'enable': 'active',
-            'disable': 'unactive'
+            'enable': 'aktif',
+            'disable': 'pasif'
         },
         'gold_per_hour': {
             'header': 'Gold сonsumption',
-            'enable': 'active',
-            'disable': 'unactive'
+            'enable': 'aktif',
+            'disable': 'pasif'
         },
         'island_ap': {
             'header': 'Action points on island view',
-            'enable': 'active',
-            'disable': 'unactive'
+            'enable': 'akttif',
+            'disable': 'pasif'
         },
         'development': {
-            'overview': "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Buy Me A Coffee at Ko-Fi.com' /></div></a> Switch to <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> and get updates earlier!"
+            'overview': "IkaEasy ticari olmayan ve <a href='https://github.com/swat-web/IkaEasy' target='_blank'>açık kaynak kodlu</a> bir projedir. Yardım etmek ister misin? <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a> aracılığı ile katkıda bulunabilir, <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a> aracılığıyla ise hataları bildirebilir veya özellikleri önerebilirsiniz.<br>Ikariam Easy geliştirmek çok zaman alır, hafta sonları, iş çıkışları ve tabikide geceler. Eğer isterseniz bir teşekkür edebilir veya uyanık kalmam için bana bir kahve ısmarlayabilirsiniz :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0px' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Buy Me A Coffee at Ko-Fi.com' /></div></a> Eklentiyi <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> ile değiştirip güncellemeleri daha erken alabilirsiniz!"
         }
     },
 
@@ -83,22 +83,22 @@ langs.tr = {
         'get_round': 'Getting log',
         'saving': 'Saving log',
 
-        'saving_success': 'The log was successfully saved.',
+        'saving_success': 'log başarıyla kaydedildi.',
         'open_report': 'Open log',
 
-        'saving_failed': 'Failed to save log',
+        'saving_failed': 'log kaydedilemedi',
         'repeat': 'Tekrar deneyin',
 
         'auth': {
-            'not_logged': 'You are not logged on Ikalogs'
+            'not_logged': 'Ikalogs oturumunuz açık değil'
         },
 
         'types': {
             'full': 'Full log',
             'short': 'Short log',
-            'last': 'Last round',
-            'each': 'Every N round',
-            'between': 'Specific rounds'
+            'last': 'Son raund',
+            'each': 'Her N raund',
+            'between': 'Specific raund'
         }
     },
 
