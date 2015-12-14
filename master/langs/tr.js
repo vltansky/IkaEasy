@@ -4,14 +4,14 @@ if(typeof langs == "undefined") {
 
 //Turkish language
 langs.tr = {
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
         all: 'hepsi',
-        transport: 'transport',
-        plunder: 'plunder',
-        blockade: 'blockade',
+        transport: 'nakliye',
+        plunder: 'yağma',
+        blockade: 'abluka',
         deployarmy: 'birimleri terhis et',
-        deployfleet: 'deploy fleet',
+        deployfleet: 'filoyu dağıt',
         defend: 'savun',
         defend_port: 'limanı savun',
         occupy: 'işgal',
@@ -44,29 +44,29 @@ langs.tr = {
     'Treaty': "Antlaşma",
     'Alliance': "Board",
     'Transport': "Kaynakları taşı!",
-    'Send_General_Log': "Send log to ally",
+    'Send_General_Log': "İttifağa log gönder",
     'Send_General_Log_Header': "Attacks on alliance members",
 
     'options': {
         'transport': {
-            'header': 'Transporting options type',
+            'header': 'Nakliye taşıma tipi',
             'original': 'GameForge',
             'ikaeasy': 'IkaEasy'
         },
         'movement_tabs': {
             'header': 'Movement tabs',
-            'enable': 'active',
-            'disable': 'unactive'
+            'enable': 'aktif',
+            'disable': 'pasif'
         },
         'gold_per_hour': {
-            'header': 'Gold сonsumption',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Altın Durumu',
+            'enable': 'aktif',
+            'disable': 'pasif'
         },
         'island_ap': {
-            'header': 'Action points on island view',
-            'enable': 'active',
-            'disable': 'unactive'
+            'header': 'Ada görünümünde Aksiyon Puanı',
+            'enable': 'akttif',
+            'disable': 'pasif'
         }
     },
 
@@ -80,22 +80,22 @@ langs.tr = {
         'get_round': 'Getting log',
         'saving': 'Saving log',
 
-        'saving_success': 'The log was successfully saved.',
+        'saving_success': 'log başarıyla kaydedildi.',
         'open_report': 'Open log',
 
-        'saving_failed': 'Failed to save log',
+        'saving_failed': 'log kaydedilemedi',
         'repeat': 'Tekrar deneyin',
 
         'auth': {
-            'not_logged': 'You are not logged on Ikalogs'
+            'not_logged': 'Ikalogs oturumunuz açık değil'
         },
 
         'types': {
             'full': 'Full log',
             'short': 'Short log',
-            'last': 'Last round',
-            'each': 'Every N round',
-            'between': 'Specific rounds'
+            'last': 'Son raund',
+            'each': 'Her N raund',
+            'between': 'Spesifik raund'
         }
     },
 
