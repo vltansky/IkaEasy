@@ -86,7 +86,8 @@
                 "page/generalAttacksToAlly.js",
                 "page/pirateFortress.js",
                 "page/finances.js",
-                "page/townHall.js"
+                "page/townHall.js",
+                "page/temple.js"
             ],
             "matches": [
                 "http://*.ikariam.gameforge.com/*",

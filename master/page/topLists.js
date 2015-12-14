@@ -138,6 +138,6 @@ zJS.Page.highscoreAlly = {
     },
 
     refresh: function() {
-        this.init();
+        //this.init();
     }
 };
