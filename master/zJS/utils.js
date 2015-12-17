@@ -38,10 +38,7 @@ zJS.Utils = {
         return zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_";
     },
     hoursBetween: function(date1, date2) {
-        //console.log("date2:", date2);
         var diffMs = Date.parse(date1) - Date.parse(date2);
-        //console.log(Date.parse(date1));
-        console.log(date2);
         return Math.round((diffMs % 86400000) / 3600000);//после деления - перевод милисекунд в часы
     },
 
@@ -262,15 +259,15 @@ zJS.Utils = {
 
     addToLeftMenu: function(image, title) {
         var $leftMenu = $('#leftMenu');
-        if($leftMenu.length === 0) {
+        if(!$leftMenu.length) {
             $('#container').append('<div id="leftMenu"></div>');
         }
         var $js_viewCityMenu = $('#js_viewCityMenu');
-        if($js_viewCityMenu.length === 0) {
+        if(!$js_viewCityMenu.length) {
             $leftMenu.append('<div id="js_viewCityMenu" class="slot_menu city_menu"></div>');
         }
 
-        if($('.menu_slots', '#js_viewCityMenu').length === 0) {
+        if(!$('.menu_slots', '#js_viewCityMenu').length) {
             $js_viewCityMenu.append('<ul class="menu_slots"></ul>');
         }
 
@@ -307,6 +304,12 @@ zJS.Utils = {
         }else{
             $("#leftMenu").after('<div id="sidebar" class="ikaez_sidebar_generated"><ul id="sidebarWidget">'+template+'</ul></div>');
         }
+
+
+        $(".accordionItem .accordionTitle .indicator").off("click.ikaez").on("click.ikaez", function(){
+            console.log("toggle click");
+            $(this).parent().toggleClass("active").next(".accordionContent").toggleClass("ikaez_toggle");
+        });
     },
 
     execute_js: function(js) {

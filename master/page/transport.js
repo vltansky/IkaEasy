@@ -60,7 +60,7 @@ zJS.Page.transport = {
             var self = this;
             $('#transportGoods ul.resourceAssign li').each(function() {
                 var obj = this;
-                if(!zJS.Options.getOption('transport')) {
+                if(zJS.Options.getOption('transport')) {
                     self.change_to_ikaeasy_transport_buttons(this);
                 }
 
@@ -108,7 +108,7 @@ zJS.Page.transport = {
 
             });
 
-            if(!zJS.Options.getOption('transport')) {
+            if(zJS.Options.getOption('transport')) {
                 $container.addClass("ikaez_transport_goods");
             }
             this.ikaeasy_transporter_click_handler();

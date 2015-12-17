@@ -1,4 +1,5 @@
 ﻿var nowTabId, _url;
+
 function checkForValidUrl(tabId, changeInfo, tab) {
     if(tab.url.indexOf('.ikariam.gameforge.com') > -1) {
         chrome.pageAction.show(tabId);

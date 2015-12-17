@@ -11,9 +11,9 @@ zJS.Page.__common = {
     _pirateButtonStorage: zJS.Utils.ls.getValue(zJS.Utils.getServerPrefix()+'pirateButton'),
 
     init: function() {
+
         this.copyright();
-        this.notification_init();
-        //this._checkUpdates();//@todo доработать проверку событий
+        //this.notification.init();
 
         if($("#worldmap_iso").length > 0){
             if(zJS.Options.getOption('searchIslands')) {
@@ -26,17 +26,17 @@ zJS.Page.__common = {
         }
         this.init_popup();
         this._getUserData();
+        this._nextCity();
+
         if(zJS.Options.getOption('transporter')) {
             this._transporter();
         }
-        this._nextCity();
         this._addOtherButtons();
         this._changeForumBtn();
         this._addIkaEasylinks();
         this._getProduction();
         if(zJS.Options.getOption('gold_per_hour')){
-            this._getFinance();
-            this._setFinance();
+            this.gold_consumption.init();
         }
 
         // was added by gameforge
@@ -48,7 +48,6 @@ zJS.Page.__common = {
     refresh: function() {
         console.log('=========== REFRESH =============');
         //console.time('refresh');
-        //this._checkUpdates();
         $('#ikaeasy_nextCity').remove();
         $('#ikaeasy_transporter').parent().parent().parent().parent().parent().remove();
 
@@ -65,8 +64,11 @@ zJS.Page.__common = {
         this.init();
     },
 
-    copyright: function(){
-      $(".copyright").html('IkaEasy, made by Vlad Tansky <i>(SWAT)</i>.<a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a>');
+    copyright: function() {
+        var $copy = $(".copyright");
+        if(!$copy.hasClass("ikaez_DOM")){
+            $copy.html('IkaEasy, made by Vlad Tansky <i>(SWAT)</i>.<a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a>').addClass("ikaez_DOM");
+        }
     },
 
     _pirateButton: function(){
@@ -75,7 +77,7 @@ zJS.Page.__common = {
             var self = this;
             $('head').append('<link rel="stylesheet" href="' + zJS.Utils.generateDomain() + '/skin/compiled-ru-city.css" type="text/css" />'); // @TODO change "RU" to local
 
-            var classes = '', btn_classes = 'button capture', flag = false;
+            var classes = '', btn_classes = 'button capture ikaez_pirateCapture', flag = false;
             if(zJS.Utils.getItem("pirateDeadlineActive") == 2 && zJS.Utils.getItem("pirateDeadline") !== null && zJS.Utils.getItem("pirateDeadline") > new Date().getTime()){
                 flag = true;
                 classes += 'disabled';
@@ -83,29 +85,31 @@ zJS.Page.__common = {
             }
             var _inner = '<div id="ikaez_fastPirateButtons" class="'+ classes +'"><a href="javascript:void(0);" class="'+ btn_classes +'">'+ zJS.Lang.pirate_capture +'</a><div id="ikaez_pirateCountdown"></div></div>';
             $("body").append(_inner);
+
             if(flag){
                 zJS.Page.pirateFortress.disableShortcutButton();
                 zJS.Page.pirateFortress.startTimer();
             }else{
                 zJS.Page.pirateFortress.enableShortcutButton();
             }
+
             $("#ikaez_fastPirateButtons a").on('click', function(){
                 console.log("=== Pirate click");
                 if(!$(this).hasClass("disabled")) {
-                    $('#js_cityIdOnChange').val(self._pirateButtonStorage.cityId);
-                    zJS.Utils.execute_js("ajaxHandlerCallFromForm(document.getElementById('changeCityForm'));");
+                    if(zJS.Var.getCityId != self._pirateButtonStorage.cityId) {
+                        $('#js_cityIdOnChange').val(self._pirateButtonStorage.cityId);
+                        zJS.Utils.execute_js("ajaxHandlerCallFromForm(document.getElementById('changeCityForm'));");
+                    }
                     setTimeout(function() {
                         console.log('action!');
                         zJS.Utils.execute_js("ajaxHandlerCall('" + self._pirateButtonStorage.url + "');");
                         zJS.Page.pirateFortress.captureClicked(self._pirateButtonStorage.url);
-                    }, 600); // TODO set interval with checking
+                    }, 1000); // TODO set interval with checking
                 }else{
                     console.log("=== Pirate disabled");
                 }
             });
 
-        }else{
-            this._pirateButtonStorage = zJS.Utils.ls.getValue(zJS.Utils.getServerPrefix()+'pirateButton');
         }
     },
 
@@ -125,6 +129,7 @@ zJS.Page.__common = {
 
     _islandsSearch: function() {
         console.log("_islandsSearch");
+        if (!$("#ikaez_islandsSearch").length) {
         var isSearchActive = 0,
             $worldmap = $("#worldmap"),
             $islands = $worldmap.find(".islandTile"),
@@ -144,7 +149,6 @@ zJS.Page.__common = {
             foundedCoordsLastLength,
             existsCorrds = {},
             activeFoundedCoords = 0;
-        if ($("#ikaez_islandsSearch").length < 1) {
             console.log("_islandsSearch");
             var db = zJS.DB._loadDB(),
                 button_image = 'background-image:url('+ zJS.Utils.generateDomain()+ '/skin/pirateFortress/button_arrow_70x50_sprite.png)';
@@ -176,7 +180,6 @@ zJS.Page.__common = {
                     $counter_current = $counter.find(".ikaez_iSS_cnt_current"),
                     $counter_from = $counter.find(".ikaez_iSS_cnt_from");
                 }
-            }
 
         $("#ikaez_islandsSearch button").on('click', function () {
             $worldmap.addClass("ikaez_islandSearching");
@@ -364,50 +367,30 @@ zJS.Page.__common = {
         $("#ikaez_islandSearch_prev").on("click", button_prev);
         $("#ikaez_islandSearch_next").on("click", button_next);
 
+        }
     },
 
-    notification_init: function () {
-        console.log('check notification');
-    if (!Notification) {
-        console.log('Please use a modern version of Chrome, Firefox, Opera or Firefox.');
-        return;
-    }
+    notification:{
+        init: function(){
+            console.log('check notification');
+            this.check_permission();
+            this.advisers.init();
+        },
 
-    if (Notification.permission !== "granted")
-        Notification.requestPermission();
+        check_permission: function(){
+            if (Notification.permission !== "granted")
+                Notification.requestPermission();
+        },
 
-    //var notification = new Notification('IkaEasy: new notification', {
-    //    icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-    //    body: message,
-    //});
-
-
-    //notification.onclick = function () {
-    //    window.open("http://stackoverflow.com/a/13328397/1269037");
-    //}
-},
-    init_popup: function(){
-        console.log("init_popup");
-        console.log(zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")));
-        if((localStorage.getItem("popup_v5") === null || zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 12) || localStorage.getItem("popup_date") === null) {
-            if ($("#ikaez_popup").length < 1) {
-                $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + zJS.Lang.options.development.donate_link + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
+        advisers:{
+            init: function(){
+                if($("a.premiumactive").length || $("a.normalactive").length) {
+                    var notification = new Notification('IkaEasy: ADVISER', {
+                        icon: chrome.extension.getURL('images/capturePoints.png'),
+                        body: "We have some news for you",
+                    });
+                }
             }
-
-            $("#dismiss_popup").on('click', function () {
-                console.log('dissmis');
-                $("#ikaez_popup").hide();
-            });
-
-            if(localStorage.getItem("popup_v4") !== null){
-                localStorage.removeItem("popup_v4");
-            }
-            localStorage.setItem("popup_v5", true);
-            localStorage.setItem("popup_date", new Date());
-
-            $("#ikaez_donate").off().on("click", function(){
-                localStorage.setItem("popup_donate", true);
-            })
         }
     },
     _checkUpdates: function(){
@@ -438,6 +421,30 @@ zJS.Page.__common = {
             new_link.href = '/favicon.ico';
             document.getElementsByTagName('head')[0].appendChild(new_link);
 
+        }
+    },
+
+    init_popup: function(){
+        console.log("init_popup");
+        if((localStorage.getItem("popup_v5") === null || zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 12) || localStorage.getItem("popup_date") === null) {
+            if ($("#ikaez_popup").length < 1) {
+                $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + zJS.Lang.options.development.donate_link + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
+            }
+
+            $("#dismiss_popup").on('click', function () {
+                console.log('dissmis');
+                $("#ikaez_popup").hide();
+            });
+
+            if(localStorage.getItem("popup_v4") !== null){
+                localStorage.removeItem("popup_v4");
+            }
+            localStorage.setItem("popup_v5", true);
+            localStorage.setItem("popup_date", new Date());
+
+            $("#ikaez_donate").off().on("click", function(){
+                localStorage.setItem("popup_donate", true);
+            })
         }
     },
     /*
@@ -494,52 +501,80 @@ zJS.Page.__common = {
         }
         console.timeEnd('_getProduction');
     },
-    /*
-     * Get finance per hour
-     */
-    _getFinance: function() {
-        console.time('_getFinance');
-        var LocFinanceDate = zJS.Utils.getLocFinance() + '_date';
-        if((localStorage.getItem(LocFinanceDate) !== null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem(LocFinanceDate)) > 1) || localStorage.getItem(LocFinanceDate) === null) {
-            console.log('Ajax get finance');
-            try {
-                //console.time('_getFinance::ajax');
-                $.ajax({
-                    url: $('#js_GlobalMenu_gold').attr('href'),
-                    success: function(data) {
-                        var ex;
-                        var start = data.indexOf('ikariam.getClass(ajax.Responder') + 'ikariam.getClass(ajax.Responder'.length;
-                        var end = data.indexOf("updateTemplateData", start);
-                        ex = data.substring(start, end);
-                        end = ex.indexOf('updateBackgroundData');
-                        start = end - 200;
-                        ex = ex.substring(start, end);
-                        start = ex.indexOf('<td class=\"hidden bold\">') + '<td class=\"hidden bold\">'.length;
-                        ex = ex.substring(start, end);
-                        var status = true;
-                        if(ex.indexOf('red') > -1)
-                            status = false;
-                        ex = ex.replace(/[^\d+]/g, '');
-                        ex = ex.match(/\d+/); // "3"
-                        if(status === false)
-                            ex = 0 - ex;
 
-                        //console.log(ex);
-                        var LocFinance = zJS.Utils.getLocFinance(),
-                            LocFinanceDate = zJS.Utils.getLocFinance() + '_date';
+    gold_consumption: {
+        /*
+         * Get finance per hour
+         */
+        init: function(){
+            console.log("gold_consumption init");
+            this.get();
+            this.set();
+        },
 
-                        localStorage.setItem(LocFinance, ex);
-                        localStorage.setItem(LocFinanceDate, new Date());
-                    }
-                });
-                //console.timeEnd('_getFinance::ajax');
+        get: function() {
+            console.time('gold_consumption::get');
+            var LocFinanceDate = zJS.Utils.getLocFinance() + '_date';
+            if((localStorage.getItem(LocFinanceDate) !== null && zJS.Utils.hoursBetween(new Date(), localStorage.getItem(LocFinanceDate)) > 1) || localStorage.getItem(LocFinanceDate) === null) {
+                console.log('Ajax get finance');
+                try {
+                    //console.time('_getFinance::ajax');
+                    $.ajax({
+                        url: $('#js_GlobalMenu_gold').attr('href'),
+                        success: function(data) {
+                            var ex;
+                            var start = data.indexOf('ikariam.getClass(ajax.Responder') + 'ikariam.getClass(ajax.Responder'.length;
+                            var end = data.indexOf("updateTemplateData", start);
+                            ex = data.substring(start, end);
+                            end = ex.indexOf('updateBackgroundData');
+                            start = end - 200;
+                            ex = ex.substring(start, end);
+                            start = ex.indexOf('<td class=\"hidden bold\">') + '<td class=\"hidden bold\">'.length;
+                            ex = ex.substring(start, end);
+                            var status = true;
+                            if(ex.indexOf('red') > -1)
+                                status = false;
+                            ex = ex.replace(/[^\d+]/g, '');
+                            ex = ex.match(/\d+/); // "3"
+                            if(status === false)
+                                ex = 0 - ex;
+
+                            //console.log(ex);
+                            var LocFinance = zJS.Utils.getLocFinance(),
+                                LocFinanceDate = zJS.Utils.getLocFinance() + '_date';
+
+                            localStorage.setItem(LocFinance, ex);
+                            localStorage.setItem(LocFinanceDate, new Date());
+                        }
+                    });
+                    //console.timeEnd('_getFinance::ajax');
+                }
+                catch(err) {
+                    console.log(err);
+                }
             }
-            catch(err) {
-                console.log(err);
+            console.timeEnd('gold_consumption::get');
+        },
+
+
+        /*
+         * Display gold per hour
+         */
+        set: function() {
+            console.time('gold_consumption::set');
+            var LocFinance = zJS.Utils.getLocFinance();
+            var value = localStorage.getItem(LocFinance),
+                np_char = 'red',
+                np_symb = '';
+            if(value >= 0) {
+                np_char = 'ikaeasy_green';
+                np_symb = '+';
             }
+            $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me ' + np_char + '">' + np_symb + zJS.Utils.formatNumber(value) + '</span>');
+            console.timeEnd('gold_consumption::set');
         }
-        console.timeEnd('_getFinance');
     },
+
     /*
      * Get user data
      */
@@ -592,23 +627,7 @@ zJS.Page.__common = {
                 console.log(err);
             }
         }
-        console.timeEnd('_getFinance');
-    },
-    /*
-     * Display gold per hour
-     */
-    _setFinance: function() {
-        console.time('_setFinance');
-        var LocFinance = zJS.Utils.getLocFinance();
-        var value = localStorage.getItem(LocFinance),
-            np_char = 'red',
-            np_symb = '';
-        if(value >= 0) {
-            np_char = 'ikaeasy_green';
-            np_symb = '+';
-        }
-        $("#js_GlobalMenu_gold").append('<span id="IkaEasy_Gold_per_hour" class="ikaeasy_delet_me ' + np_char + '">' + np_symb + zJS.Utils.formatNumber(value) + '</span>');
-        console.timeEnd('_setFinance');
+        console.timeEnd('_getUserData');
     },
 
     _changeForumBtn: function() {
@@ -622,13 +641,6 @@ zJS.Page.__common = {
     },
     _addOtherButtons: function() {
         console.time('_addOtherButtons');
-        if(zJS.Var.getAllyId()) {
-            // Кнопка на общее сообщение
-            var common_message = zJS.Utils.addToLeftMenu('image_chat', zJS.Lang.Circular_message);
-            $(common_message).attr('onclick', "ajaxHandlerCall('?view=sendIKMessage&msgType=51&allyId=" + zJS.Var.getAllyId() + "'); return false;");
-
-            this._notes.push(common_message);
-        }
 
         var emb = zJS.Utils.ls.getValue('embassy');
         if(emb) {
@@ -657,6 +669,13 @@ zJS.Page.__common = {
             });
 
             this._notes.push(embassy);
+        }
+        if(zJS.Var.getAllyId()) {
+            // Кнопка на общее сообщение
+            var common_message = zJS.Utils.addToLeftMenu('image_chat', zJS.Lang.Circular_message);
+            $(common_message).attr('onclick', "ajaxHandlerCall('?view=sendIKMessage&msgType=51&allyId=" + zJS.Var.getAllyId() + "'); return false;");
+
+            this._notes.push(common_message);
         }
         console.timeEnd('_addOtherButtons');
     },

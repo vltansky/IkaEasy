@@ -1304,6 +1304,9 @@ zJS.DB = {
                 6 : zJS.Utils.generateDomain() + "/skin/world/w6.png",
                 7 : zJS.Utils.generateDomain() + "/skin/world/w7.png",
                 8 : zJS.Utils.generateDomain() + "/skin/world/w8.png"
+            },
+            Pirate:{
+                capture: zJS.Utils.generateDomain() + "/skin/resources/capturePoints.png"
             }
         };
         return {'source': BUILDINGS, 'pos': POSITIONS, 'images': IMAGES};

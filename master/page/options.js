@@ -33,8 +33,8 @@ zJS.Options = {
             id: 'transport',
             title: zJS.Lang.options.transport.header,
             options: [
-                zJS.Lang.options.transport.original,
-                zJS.Lang.options.transport.ikaeasy
+                zJS.Lang.options.transport.ikaeasy,
+                zJS.Lang.options.transport.original
             ]
         });
 

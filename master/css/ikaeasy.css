@@ -57,7 +57,6 @@
 .ikaeasy_watcher.build_blue .ikaeasy_watcher_circle:hover{
     background: rgba(35, 114, 148, 0.9);
 }
-
 .ikaeasy_watcher.build_green .ikaeasy_watcher_circle {
     /* background: url(../images/circleGreen.png) no-repeat center left #fff; */
     background: rgba(95, 113, 33, 0.77);
@@ -1674,4 +1673,15 @@ a.ikaez_donate_yandex img{
     height: 35px;
     padding: 0!important;
     margin: 0!important;
+}
+
+#sidebar.ikaez_sidebar_generated .accordionContent{
+    transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    max-height:600px;
+}
+#sidebar.ikaez_sidebar_generated .accordionContent.ikaez_toggle {
+    max-height:0;
+    padding-top:0;
+    padding-bottom:0;
 }
