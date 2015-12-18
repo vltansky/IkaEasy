@@ -144,8 +144,8 @@ langs.en = {
         },
         advisers:{
             overall:{
-                title: 'IkaEasy: Советники',
-                body: 'Государь, у нас есть новости!'
+                title: 'IkaEasy: Advisers',
+                body: 'We have some news for you  (alpha version - dont turn off notifications, all bugs will be improbed by next update)'
             }
         }
     },

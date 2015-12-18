@@ -142,8 +142,8 @@ langs.ru = {
         },
         advisers:{
             overall:{
-                title: 'IkaEasy: Advisers',
-                body: 'We have some news for you'
+                title: 'IkaEasy: Советники',
+                body: 'Государь, у нас есть новости! (альфа версия - не отключайте оповещенеие. Все баги будут исправлены к следующему обновлению)'
             }
         }
     },
