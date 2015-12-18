@@ -135,5 +135,20 @@ langs.en = {
         }
     },
 
+    notifications: {
+        pirate: {
+            captured:{
+                title: 'IkaEasy: pirate capture finished',
+                body: 'Click on the notification to capture again'
+            }
+        },
+        advisers:{
+            overall:{
+                title: 'IkaEasy: Советники',
+                body: 'Государь, у нас есть новости!'
+            }
+        }
+    },
+
     'Transporter': 'Transporter'
 };

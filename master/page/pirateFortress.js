@@ -71,13 +71,17 @@ zJS.Page.pirateFortress = {
             if (Notification.permission !== "granted")
                 Notification.requestPermission();
 
-            var notification = new Notification('IkaEasy: Ваши пираты вернулись с захвата', {
+            var notification = new Notification(zJS.Lang.notifications.pirate.captured.title, {
                 icon: chrome.extension.getURL('images/capturePoints.png'),
-                body: "Нажмите сюда чтобы снова отправить пиратов на захват",
+                body: zJS.Lang.notifications.captured.pirate.body,
             });
 
+            //var notification = new Notification('IkaEasy: Ваши пираты вернулись с захвата', {
+            //    icon: chrome.extension.getURL('images/capturePoints.png'),
+            //    body: "Нажмите сюда чтобы снова отправить пиратов на захват",
+            //});
+
             notification.onclick = function () {
-                console.log("onclick");
                 self.capturePirates();
                 notification.close();
             }

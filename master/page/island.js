@@ -112,6 +112,14 @@ zJS.Page.island = {
     _showIslandInfo: function(UpdateLevel) {
         if($("#ikaez_update_island_info").length < 1) {
             $("#breadcrumbs").append('<button id="ikaez_update_island_info" class="button">' + zJS.Lang.update + '</button>');
+
+            $("#ikaez_update_island_info").on('click', function () {
+                console.log("update clicked");
+                $.each(cities, function (k, v) {
+                    zJS.Page.island._updateIslandInfo(v, k, users, _now);
+                });
+                zJS.Page.island._sendWorld();
+            });
         }
         UpdateLevel = typeof UpdateLevel !== 'undefined' ? UpdateLevel : true;
         console.log('SHOW ISLAND INFO ===');
@@ -128,26 +136,17 @@ zJS.Page.island = {
         }
 
 
-        $("#ikaez_update_island_info").on('click', function () {
-            console.log("update clicked");
-            $.each(cities, function (k, v) {
-                zJS.Page.island._updateIslandInfo(v, k, users, _now);
-            });
-            zJS.Page.island._sendWorld();
-        });
-
-
         if($('.ikaez_score').length === 0) {
             $.each(cities, function(k, v) {
                 if(v.type == "city") {
                     active_cities++;
-                    //console.log(v.id);
                     var score = ((!users[v.ownerId]) || (!users[v.ownerId].h) || (users[v.ownerId].e < _now)) ? '<span class="ikaez_score"></span>' : '<span class="ikaez_score"> #' + users[v.ownerId].h + '</span>',
                         ally = ((v.ownerAllyTag) && (v.ownerAllyTag !== '')) ? ' [' + v.ownerAllyTag + ']' : '',
                         level = ((v.level) && (v.level !== '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '',
                         $cashe_city_gl = $('#cityLocation' + k),
                         BD;
-                    var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
+                    var $cashe_city = $('#js_cityLocation' + k + 'TitleText'),
+                        $ships = $("#js_cityLocation" +k + "Ships.fleetAction");
                     var city = $cashe_city.html() + ally + score;
                     if(zJS.Options.getOption('island_ap')) {
                         if ($cashe_city_gl.hasClass("own") && score && score !== '') {
@@ -161,6 +160,13 @@ zJS.Page.island = {
                     $cashe_city.html(city);
                     if(UpdateLevel === true) {
                         $cashe_city_gl.append(level);
+                    }
+                    console.log("preships");
+                    if($ships.length){
+                        console.log("SHIPS");
+                        var ships_username = $ships.attr("title").split(' ');
+                        ships_username = ships_username[ships_username.length-1];
+                        $ships.append('<div class="ikaez_island_cityInfo_ships_name">'+ships_username+'</div>')
                     }
 
                     this._recalcWidth(k);

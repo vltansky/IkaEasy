@@ -13,7 +13,7 @@ zJS.Page.__common = {
     init: function() {
 
         this.copyright();
-        //this.notification.init();
+        this.notification.init();
 
         if($("#worldmap_iso").length > 0){
             if(zJS.Options.getOption('searchIslands')) {
@@ -385,9 +385,9 @@ zJS.Page.__common = {
         advisers:{
             init: function(){
                 if($("a.premiumactive").length || $("a.normalactive").length) {
-                    var notification = new Notification('IkaEasy: ADVISER', {
+                    var notification = new Notification(zJS.Lang.notifications.advisers.overall.title, {
                         icon: chrome.extension.getURL('images/capturePoints.png'),
-                        body: "We have some news for you",
+                        body: zJS.Lang.notifications.advisers.overall.body,
                     });
                 }
             }

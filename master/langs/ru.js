@@ -132,5 +132,21 @@ langs.ru = {
         }
     },
 
+
+    notifications: {
+        pirate: {
+            captured:{
+                title: 'IkaEasy: Ваши пираты вернулись с захвата',
+                body: 'Нажмите сюда чтобы снова отправить пиратов на захват'
+            }
+        },
+        advisers:{
+            overall:{
+                title: 'IkaEasy: Advisers',
+                body: 'We have some news for you'
+            }
+        }
+    },
+
     'Transporter': 'Транспортировщик'
 };

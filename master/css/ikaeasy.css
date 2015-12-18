@@ -1050,6 +1050,7 @@ ul#ikaeasy_military_movements li>a img{
     border-top: 1px solid transparent;
     border-left: 1px solid transparent;
     border-right: 1px solid transparent;
+    transition: all .15s ease-in-out;
 }
 #container .tabmenu .selected, #container .tabmenu .tab:hover{
     border-top: 1px solid #E4B873!important;
@@ -1242,6 +1243,7 @@ table.highscore tr:not(:first-child):hover,table.highscore tr:not(:first-child):
     transition: all .25s ease-in-out;
     -webkit-transition: all .25s ease-in-out;
     transform: scale(1);
+    opacity: .8;
 }
 
 #ikaez_fastPirateButtons.disabled{
@@ -1249,7 +1251,8 @@ table.highscore tr:not(:first-child):hover,table.highscore tr:not(:first-child):
 }
 #ikaez_fastPirateButtons:hover{
     background: #404040;
-    transform: scale(1.03);
+    /* transform: scale(1.03); */
+    opacity: 1;
 }
 @media only screen and (max-width : 1200px) {
     div#ikaez_fastPirateButtons{
@@ -1684,4 +1687,42 @@ a.ikaez_donate_yandex img{
     max-height:0;
     padding-top:0;
     padding-bottom:0;
+}
+
+.hover{
+    opacity: 1;
+    transition: opacity .15s ease-in-out;
+}
+.hover.invisible {
+    opacity: 0;
+    display: block!important;
+}
+
+#header #advisors a:not(.pluslink){
+    transition: all .15s ease-in-out;
+    -webkit-transition: all .15s ease-in-out;
+}
+#header #advisors a:hover {
+    -webkit-filter: brightness(1.2);
+}
+th a.sortable {
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
+
+#sidebar #buildingUpgrade .actions .action_btn {
+    transition: -webkit-filter .2s ease;
+}
+#sidebar #buildingUpgrade .actions .action_btn:hover{
+    -webkit-filter: brightness(1.2);
+}
+
+.ikaez_island_cityInfo_ships_name {
+    position: absolute;
+    bottom: -7px;
+    left: -32px;
+    background: #FCF4DE;
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: 1px solid #753A06;
 }

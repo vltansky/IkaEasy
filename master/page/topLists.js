@@ -134,6 +134,9 @@ zJS.Page.highscoreAlly = {
             if("?view=allyPage&allyId=4&oldView=highscore" == $allLink.attr("href")){
                 $allLink.addClass("ikaez_highlighted_ally").prepend("<img src='http://ikariam-easy.com/ikariam_logo_x_favicon.png'>");
             }
+            if("?view=allyPage&allyId=111&oldView=highscore" == $allLink.attr("href")){
+                $allLink.addClass("ikaez_highlighted_ally").prepend("<img src='http://ikariam-easy.com/ikaez_favicon_s.png'>");
+            }
         });
     },
 
