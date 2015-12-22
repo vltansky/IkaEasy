@@ -1325,8 +1325,8 @@ div#ikaez_islands_travel_time {
 
 .ikaez_combat_resources_tooltip {
     position: absolute;
-    right: -6px;
-    top: 20px;
+    right: 100%;
+    top: 2px;
     float: left;
     width: 75px;
     background: rgba(100, 60, 35, 0.66);
@@ -1339,6 +1339,11 @@ div#ikaez_islands_travel_time {
     visibility: hidden;
     transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
+}
+
+img.ikaez_sidebar_robbed_img {
+    height: 11px;
+    margin-left: 3px;
 }
 
 .ikaez_combat_resources_tooltip span.ikaez_battle_resource {
@@ -1661,6 +1666,10 @@ a.allyLink.ikaez_highlighted_ally>img {
     left: -32px;
 }
 
+.ikaez_highlighted_ally_longVert>img{
+    left: -17px!important;
+}
+
 div#ikaez_fastPirateButtons.disabled:hover:after {
     transform: rotate(90deg) translateY(-18px);
 }
@@ -1725,4 +1734,8 @@ th a.sortable {
     padding: 2px 5px;
     border-radius: 3px;
     border: 1px solid #753A06;
+}
+
+.ikaez_combat_resources_td{
+    position: relative;
 }

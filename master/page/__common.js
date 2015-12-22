@@ -13,7 +13,7 @@ zJS.Page.__common = {
     init: function() {
 
         this.copyright();
-        this.notification.init();
+        //this.notification.init();
 
         if($("#worldmap_iso").length > 0){
             if(zJS.Options.getOption('searchIslands')) {

@@ -73,7 +73,7 @@ zJS.Page.pirateFortress = {
 
             var notification = new Notification(zJS.Lang.notifications.pirate.captured.title, {
                 icon: chrome.extension.getURL('images/capturePoints.png'),
-                body: zJS.Lang.notifications.captured.pirate.body,
+                body: zJS.Lang.notifications.pirate.captured.body
             });
 
             //var notification = new Notification('IkaEasy: Ваши пираты вернулись с захвата', {
@@ -167,8 +167,8 @@ zJS.Page.pirateFortress = {
             });
 
 
-            var audio = new Audio('http://ikariam-easy.com/pirate_notification.wav');
-            audio.play();
+            //var audio = new Audio('http://ikariam-easy.com/pirate_notification.wav');
+            //audio.play();
         }
     }
 };

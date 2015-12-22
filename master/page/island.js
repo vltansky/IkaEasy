@@ -161,9 +161,7 @@ zJS.Page.island = {
                     if(UpdateLevel === true) {
                         $cashe_city_gl.append(level);
                     }
-                    console.log("preships");
                     if($ships.length){
-                        console.log("SHIPS");
                         var ships_username = $ships.attr("title").split(' ');
                         ships_username = ships_username[ships_username.length-1];
                         $ships.append('<div class="ikaez_island_cityInfo_ships_name">'+ships_username+'</div>')

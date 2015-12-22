@@ -17,7 +17,7 @@ zJS.Page.militaryAdvisorCombatList = {
 
     _resources: function(){
         var $table = $("#combatList"),
-            battles = zJS.Utils.ls.getValue('battles'), // get battles or false
+            battles = zJS.Utils.ls.getValue(zJS.Utils.getServerPrefix()+'battles'), // get battles or false
             db = zJS.DB._loadDB(),
             combatId,
             combatLink,
@@ -25,20 +25,21 @@ zJS.Page.militaryAdvisorCombatList = {
             $target_td,
             $target_th,
             sidebar;
+        console.log(zJS.Utils.getServerPrefix()+'battles');
+        console.log(battles);
 
-        //if(!battles){ // stop function if no battles
-        //    return false;
-        //}
+        if(!battles){ // stop function if no battles
+            battles = {total: '-'};
+        }
         $target_th = $table.find("thead th").last().before('<th class="ikaez_combat_resources_th"><img src="' + db.images.resources.all + '"></th>');
 
         sidebar = '<li class="accordionItem" style=""><a class="accordionTitle active">Statistics (beta)<span class="indicator"></span></a><div class="accordionContent"><div id="premiumAdvisorSidebar" class="dynamic">'+
-            '<p>' + zJS.Lang.robbed + ': ' + battles.total + '<img src="' + db.images.resources.all + '">.</p></div></div></li>';
+            '<p>' + zJS.Lang.robbed + ': ' + battles.total + '<img src="' + db.images.resources.all + '" class="ikaez_sidebar_robbed_img">.</p></div></div></li>';
         $("#sidebarWidget").append(sidebar);
 
         $table.find("tbody tr").each(function(i, el){
             combatId = zJS.Utils.format.onlyInt($(this).find("td input[type='checkbox']").attr("name"));
             combatLink = $(this).find("a.watchBattle").attr("href");
-            console.log(battles[combatId]);
             if(!battles[combatId]) {
                 $.ajax({
                     url: combatLink,
@@ -48,14 +49,14 @@ zJS.Page.militaryAdvisorCombatList = {
                             $resources_container,
                             combatId,
                             $html,
-                            battles = zJS.Utils.ls.getValue('battles'), // get battles or false
+                            battles = zJS.Utils.ls.getValue(zJS.Utils.getServerPrefix()+'battles'), // get battles or false
                             total = 0,
                             temp_res = [];
 
                         var parsedJson = JSON.parse(data.substring(start, end) + ']');
                         if(parsedJson[0][0] == 'changeView' && parsedJson[0][1][0] == 'militaryAdvisorReportView') {
                             $html = $(parsedJson[0][1][1]);
-                            if($html.find("#combatRoundTimer").length < 1) {
+                            if(!$html.find("#combatRoundTimer").length) {
                                 if(!battles) {
                                     battles = {
                                         total: 0
@@ -71,17 +72,21 @@ zJS.Page.militaryAdvisorCombatList = {
                                     if($resources_container.length > 0) {
                                         var __inner;
                                         $resources_container.find("li").each(function(i, el) {
+                                            console.log('== each');
                                             var in_count = zJS.Utils.format.onlyInt(el.innerHTML); // amount of robbed resources
-                                            temp_res.push({
-                                                amount: in_count,
-                                                type: $(el).find("img").attr('src').match(/icon_(\S+)_/i)[1]// type of res (wood, marble,..)
-                                            });
-                                            total += in_count;
+                                            var res_type = $(el).find("img").attr('src').match(/icon_(\S+)_/i)[1];
+                                            if('gold' != res_type) {
+                                                temp_res.push({
+                                                    amount: in_count,
+                                                    type: res_type// type of res (wood, marble,..)
+                                                });
+                                                total += in_count;
+                                            }// if != gold type
                                         });
                                         battles[combatId].resources = temp_res;
                                         battles[combatId].total = total;
                                         battles.total += total;
-                                        zJS.Utils.ls.setValue('battles', battles); // expire var if needed, in "ikalogs.js" same function
+                                        zJS.Utils.ls.setValue(zJS.Utils.getServerPrefix()+'battles', battles); // expire var if needed, in "ikalogs.js" same function
                                         $td.find(".ikaez_amount").text(total); // set total
 
                                         if(temp_res.length>1) {

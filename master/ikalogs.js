@@ -30,7 +30,7 @@ ikalogs.prototype = {
         this._user_id = user_data.avatarId;
         console.log(this._user_id);
 
-        this.ls_battles = zJS.Utils.ls.getValue('battles');
+        this.ls_battles = zJS.Utils.ls.getValue(zJS.Utils.getServerPrefix()+'battles');
         if(!this.ls_battles){
             this.ls_battles = {
                 total: 0
@@ -323,7 +323,7 @@ ikalogs.prototype = {
                 .attr('target', '__blank')
                 .off('click', this._repeat.bind(this));
 
-            this.ls_battles = zJS.Utils.ls.getValue('battles');
+            this.ls_battles = zJS.Utils.ls.getValue(zJS.Utils.getServerPrefix()+'battles');
             if(!this.ls_battles){
                 this.ls_battles = {
                     total: 0
@@ -336,7 +336,7 @@ ikalogs.prototype = {
                 };
             }
             this.ls_battles[this._rep_id].ikalogs = data.url;
-            zJS.Utils.ls.setValue('battles', this.ls_battles);
+            zJS.Utils.ls.setValue(zJS.Utils.getServerPrefix()+'battles', this.ls_battles);
         }
         else {
             this._show_failed(data);
