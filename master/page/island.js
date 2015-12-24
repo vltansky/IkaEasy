@@ -145,8 +145,7 @@ zJS.Page.island = {
                         level = ((v.level) && (v.level !== '')) ? '<div class="ikaeasy_levelcity">' + v.level + '</div>' : '',
                         $cashe_city_gl = $('#cityLocation' + k),
                         BD;
-                    var $cashe_city = $('#js_cityLocation' + k + 'TitleText'),
-                        $ships = $("#js_cityLocation" +k + "Ships.fleetAction");
+                    var $cashe_city = $('#js_cityLocation' + k + 'TitleText');
                     var city = $cashe_city.html() + ally + score;
                     if(zJS.Options.getOption('island_ap')) {
                         if ($cashe_city_gl.hasClass("own") && score && score !== '') {
@@ -161,10 +160,13 @@ zJS.Page.island = {
                     if(UpdateLevel === true) {
                         $cashe_city_gl.append(level);
                     }
-                    if($ships.length){
-                        var ships_username = $ships.attr("title").split(' ');
-                        ships_username = ships_username[ships_username.length-1];
-                        $ships.append('<div class="ikaez_island_cityInfo_ships_name">'+ships_username+'</div>')
+                    if(zJS.Options.getOption('shipsOwner')) {
+                        var $ships = $("#js_cityLocation" +k + "Ships.fleetAction");
+                        if($ships.length && !$ships.find('.ikaez_island_cityInfo_ships_name').length) {
+                            var ships_username = $ships.attr("title").split(' ');
+                            ships_username = ships_username[ships_username.length - 1];
+                            $ships.append('<div class="ikaez_island_cityInfo_ships_name">' + ships_username + '</div>')
+                        }
                     }
 
                     this._recalcWidth(k);

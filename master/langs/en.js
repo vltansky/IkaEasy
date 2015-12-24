@@ -98,9 +98,12 @@ langs.en = {
             enable: 'IkaEasy',
             disable: 'GameForge'
         },
+        shipsOwner:{
+            header: 'Ships block owner (island view)',
+        },
 
         'development': {
-            overview: "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='http://ikariam-easy.com/?ref=game' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :)",
+            overview: "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='http://ikariam-easy.com/?ref=game' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :)<br><br> <b>All donated money going for hosting payments of IkaLogs server*</b>",
             donate_link: '<form id="ikaez_donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="EL67LETGLAS8G"> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> </form>'
         }
     },

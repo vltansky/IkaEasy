@@ -1105,6 +1105,12 @@ ul.tabmenu{
     color: #008AE3;
 }
 
+div#ikaez_donate>form {
+    display: inline-block;
+    padding-right: 5px;
+    border-right: 1px solid #D0AA5B;
+}
+
 #ikaez_popup .messagebox .img_center {
     text-align: center;
     width: 100%;
@@ -1676,8 +1682,10 @@ div#ikaez_fastPirateButtons.disabled:hover:after {
 
 a.ikaez_donate_yandex{
     display: inline-block;
-    border-top: 1px solid #8A8A8A;
-    margin-top: 10px;
+    /* border-top: 1px solid #8A8A8A; */
+    padding-left: 8px;
+    position: relative;
+    top: -5px;
 }
 
 a.ikaez_donate_yandex img{
@@ -1728,14 +1736,33 @@ th a.sortable {
 
 .ikaez_island_cityInfo_ships_name {
     position: absolute;
-    bottom: -7px;
-    left: -32px;
-    background: #FCF4DE;
+    top: 27px;
+    left: -9px;
+    background: rgba(255, 255, 255, 0.7);
     padding: 2px 5px;
     border-radius: 3px;
-    border: 1px solid #753A06;
+    border: 1px solid rgba(117, 58, 6, 0.4);
 }
 
 .ikaez_combat_resources_td{
     position: relative;
+}
+
+#ikaez_popup_bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.53);
+    z-index: 999;
+}
+
+#GF_toolbar li.options a {
+    color: #AF033A;
+}
+
+li#js_tabIkaEasyOptions {
+    background: #FFF8D7;
+    color: #BB342E;
 }

@@ -119,6 +119,17 @@ zJS.Options = {
             ]
         });
 
+        this.addOption({
+            id: 'shipsOwner',
+            title: zJS.Lang.options.shipsOwner.header,
+            options: [
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
+            ]
+        });
+
+
+
         // Options end
 
         zJS.Options.$content.appendTo(innerContent);
@@ -129,7 +140,7 @@ zJS.Options = {
         $('<h3 class="header">Development</h3>').appendTo(devSection);
         var devSectionContent = $('<div class="content" />').appendTo(devSection);
         $('<div class="footer" />').appendTo(devSection);
-        $('<div class="development_content">'+zJS.Lang.options.development.overview+'</div>').appendTo(devSectionContent);
+        $('<div class="development_content">'+zJS.Lang.options.development.overview + zJS.Lang.options.development.donate_link +'</div>').appendTo(devSectionContent);
 
 
         tabContent.appendTo('.mainContent');

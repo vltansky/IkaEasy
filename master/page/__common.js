@@ -426,20 +426,22 @@ zJS.Page.__common = {
 
     init_popup: function(){
         console.log("init_popup");
-        if((localStorage.getItem("popup_v5") === null || zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 12) || localStorage.getItem("popup_date") === null) {
+        if((localStorage.getItem("popup_v6") === null || zJS.Utils.hoursBetween(new Date(), localStorage.getItem("popup_date")) > 12) || localStorage.getItem("popup_date") === null) {
             if ($("#ikaez_popup").length < 1) {
                 $("#container").append('<div class="popup_contentbox"> <div id="ikaez_popup" class="popupMessage" style="top: 171px; left: 720px; z-index: 19999;"> <div id="notesHeader" class="hd header draggable mousedown"> <div class="header headerLeft"></div> <div class="header headerMiddle"> </div><div class="header headerRight"></div> </div><div id="resizablepanel_notes_c" class="notes_box popupContent"> <div class="messagebox">' + zJS.Lang.options.development.overview + zJS.Lang.options.development.donate_link + '</div> <a href="#" id="dismiss_popup" class="button">Close</a> </div> <div class="ft footer"></div> </div> </div>');
+                $("body").prepend('<div id="ikaez_popup_bg"></div>')
             }
 
             $("#dismiss_popup").on('click', function () {
                 console.log('dissmis');
                 $("#ikaez_popup").hide();
+                $("#ikaez_popup_bg").hide();
             });
 
-            if(localStorage.getItem("popup_v4") !== null){
-                localStorage.removeItem("popup_v4");
+            if(localStorage.getItem("popup_v5") !== null){
+                localStorage.removeItem("popup_v5");
             }
-            localStorage.setItem("popup_v5", true);
+            localStorage.setItem("popup_v6", true);
             localStorage.setItem("popup_date", new Date());
 
             $("#ikaez_donate").off().on("click", function(){
