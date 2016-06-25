@@ -30,6 +30,7 @@ function getJSON(url, callback) {
     $.ajax({
         url: url,
         async: true,
+        xhrFields: { withCredentials: true },
         dataType: "json",
         error: callback,
         success: callback
@@ -41,6 +42,7 @@ function postJSON(url, data, callback) {
         url: url,
         data: data,
         async: true,
+        xhrFields: { withCredentials: true },
         type: "POST",
         error: callback || false,
         success: callback || false,
