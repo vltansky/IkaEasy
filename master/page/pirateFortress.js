@@ -67,6 +67,7 @@ zJS.Page.pirateFortress = {
             console.log("============= CountDown Finished! =======");
             self.enableShortcutButton();
 
+            //zJS.Page.pirateFortress.capturePirates(); //autoclicker
 
             if (Notification.permission !== "granted")
                 Notification.requestPermission();
@@ -75,11 +76,6 @@ zJS.Page.pirateFortress = {
                 icon: chrome.extension.getURL('images/capturePoints.png'),
                 body: zJS.Lang.notifications.pirate.captured.body
             });
-
-            //var notification = new Notification('IkaEasy: Ваши пираты вернулись с захвата', {
-            //    icon: chrome.extension.getURL('images/capturePoints.png'),
-            //    body: "Нажмите сюда чтобы снова отправить пиратов на захват",
-            //});
 
             notification.onclick = function () {
                 self.capturePirates();

@@ -204,33 +204,39 @@ zJS.Page.island = {
 
     _updateIslandInfo: function(v, k, users, _now){
         console.log("==== Update island info AJAX for " + v.id);
-        $.get('http://' + top.location.host + '/index.php?view=cityDetails&destinationCityId=' + v.id + '&ajax=1', function(data) {
-            data = $.parseJSON(data)[1][1][1];
+        if(v.ownerId != 1290) { // delete it! Hidding cities of user with ID 1290 :D
+            $.get('http://' + top.location.host + '/index.php?view=cityDetails&destinationCityId=' + v.id + '&ajax=1', function(data) {
+                data = $.parseJSON(data)[1][1][1];
 
-            var score = $.trim(data.match(/id="js_selectedCityScore">([^<]+)</)[1].replace(/[\s]+/, '')),
-            //city_level = $.trim(data.match(/id="js_selectedCityLevel">([^<]+)</)[1].replace(/[\s]+/, '')),
-                __score = score.split(/[^\d]/);
-            var _score = __score[0];
+                var score = $.trim(data.match(/id="js_selectedCityScore">([^<]+)</)[1].replace(/[\s]+/, '')),
+                //city_level = $.trim(data.match(/id="js_selectedCityLevel">([^<]+)</)[1].replace(/[\s]+/, '')),
+                    __score = score.split(/[^\d]/);
+                var _score = __score[0];
 
 
-            if(__score.length >= 2) {
-                _score += '.' + __score[1][0];
-            }
-            for(var i = 1; i < __score.length; i++) {
-                _score += 'k';
-            }
-            users[v.ownerId] = {'h': _score, 's': score.replace(/[^\d]+/g, ''), 'e': _now + 43200};
-            zJS.Utils.ls.setValue('users', users, 86400);
+                if(__score.length >= 2) {
+                    _score += '.' + __score[1][0];
+                }
+                for(var i = 1; i < __score.length; i++) {
+                    _score += 'k';
+                }
+                users[v.ownerId] = {
+                    'h': _score,
+                    's': score.replace(/[^\d]+/g, ''),
+                    'e': _now + 43200
+                };
+                zJS.Utils.ls.setValue('users', users, 86400);
 
-            //$.each(users_req[v.ownerId], function(k, v) {
-            //    console.log(v);
-            var $cashe_score = $('#js_cityLocation' + k + 'TitleText span.ikaez_score');
-            $cashe_score.html(' #'+_score);
-            //var $cashe_city_gll = $('#cityLocation' + k);
-            this._recalcWidth(k);
-            //}.bind(this));
-            //this._sendWorld();
-        }.bind(this));
+                //$.each(users_req[v.ownerId], function(k, v) {
+                //    console.log(v);
+                var $cashe_score = $('#js_cityLocation' + k + 'TitleText span.ikaez_score');
+                $cashe_score.html(' #' + _score);
+                //var $cashe_city_gll = $('#cityLocation' + k);
+                this._recalcWidth(k);
+                //}.bind(this));
+                //this._sendWorld();
+            }.bind(this));
+        }else{console.log(v);}
     },
 
     _recalcWidth: function(k) {
@@ -243,6 +249,7 @@ zJS.Page.island = {
     },
 
     _sendWorld: function(force) {
+        return false; // TODO DELETE IT!
         console.log("_sendWorld");
         console.log(force);
         force = typeof force !== 'undefined' ? force : false;
