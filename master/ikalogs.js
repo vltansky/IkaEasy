@@ -134,7 +134,7 @@ ikalogs.prototype = {
                 first = this._parse_report(data);
 
                 if(first !== '') {
-                    this._all_rounds = parseInt(first.match(/\d+ \/ (\d+)<\/li>/i)[1]);
+                    this._all_rounds = parseInt(first.match(/\d+ \/ (\d+)<\//i)[1]);
 
                     switch($(this._select_report_type, this._box).val()) {
                         case 'each' :
@@ -226,7 +226,7 @@ ikalogs.prototype = {
     },
 
     _setFullRound: function(data) {
-        var rounds = data.match(/(\d+) \/ (\d+)<\/li>/i);
+        var rounds = data.match(/(\d+) \/ (\d+)<\//i);
 
         if(rounds.length == 3) {
             var round = parseInt(rounds[1]);
