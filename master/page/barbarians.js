@@ -23,7 +23,7 @@ function write() {
     var shipsCount = Math.ceil(sum / 500);
 
     var placeForText = $("div[class=barbarianCityKingSpeech]");
-    placeForText.text("You will rob " + sum + " resources, you need " + shipsCount + " ships");
+    placeForText.text(zJS.Lang.You_will_rob+" " + sum +" "+ zJS.Lang.Resources+ ", "+zJS.Lang.you_need +" "+ shipsCount +" " + zJS.Lang.ships);
 }
 zJS.Page.barbarianVillage = {
     init: function() {

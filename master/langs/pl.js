@@ -30,6 +30,8 @@ langs.pl = {
     'days': "dni",
     'months': "miesięcy",
     'years': "lat",
+    'ships' :'statki',
+    'sum':'suma',
     'MessagePlaceholder': "Wciśnij CTRL + E aby wysłać wiadomość.",
     'ConfirmDowngrade': "Potwierdź wyburzenie budynku.",
     'Circular_message': "Wiadomość do wszystkich.",
@@ -46,7 +48,12 @@ langs.pl = {
     'Transport': "Transportuj dobra!",
     'Send_General_Log': "Wyślij log do sojuszu",
     'Send_General_Log_Header': "Ataki na członków sojuszu",
-
+    'Available_to_steal' : 'Dostępne do zrabowania',
+    'Warehouse_level' :'Poziom magazynu',
+    'is_idle' :'Czy jest nieaktywny?',
+    'You_will_rob':'Zrabujesz',
+    'Resources':'surowców',
+    'you_need':'potrzebujesz',
     'options': {
         'transport': {
             'header': 'Rodzaj opcji transportu.',
