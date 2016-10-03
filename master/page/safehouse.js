@@ -17,8 +17,8 @@ zJS.Page.safehouse = {
         $("#warehouseLevel" + i).remove();
         $("#isIdle" + i).remove();
         $("#ika_easy_available_in_report" + i).remove();
-        $("tr[class=safehouse_to_clean]").remove();
-        var tr = $("<tr/>", {class: "safehouse_to_clean"})
+        $("tr[class=safehouse_to_clean"+i+"]").remove();
+        var tr = $("<tr/>", {class: "safehouse_to_clean"+i})
             .append($("<td/>", {text: zJS.Lang.Warehouse_level}))
             .append($("<td/>").append($("<input/>", {
                 style: "width:30px",
@@ -29,7 +29,7 @@ zJS.Page.safehouse = {
             .append($("<td/>", {id: "shipCount" + i}));
         $(table).append(tr);
 
-        tr = $("<tr/>", {class: "safehouse_to_clean"});
+        tr = $("<tr/>", {class: "safehouse_to_clean"+i});
         tr.append($("<td/>", {text: zJS.Lang.is_idle}));
         var checkbox = $("<input/>", {type: "checkbox", id: "isIdle" + i, class: "checkbox  radio image floatleft"});
         checkbox.on("change", this.refreshResourcesReports);
