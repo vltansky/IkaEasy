@@ -267,3 +267,12 @@ zJS.Page.optionsFacebook = {
         this.init();
     }
 };
+zJS.Page.optionsIPSharing ={
+    init: function(){
+        zJS.Options.init();
+    },
+
+    refresh: function() {
+        this.init();
+    }
+};
