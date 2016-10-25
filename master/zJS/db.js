@@ -333,7 +333,13 @@ zJS.DB = {
                 {"wood": 43256, "crystal": 113941},	// level 29
                 {"wood": 50782, "crystal": 139576},
                 {"wood": 59591, "crystal": 170910},
-                {"wood": 68528, "crystal": 205093}			// max lvl 32 (current = 0.4.4)
+                {"wood": 68528, "crystal": 205093},			// level 32
+                {"wood": 80385, "crystal": 251032},
+                {"wood": 96068, "crystal": 313054},
+                {"wood": 108393, "crystal": 368566},
+                {"wood": 129447, "crystal": 459304},
+                {"wood": 148864, "crystal": 551164},
+                {"wood": 174363, "crystal": 673645}			// level 38 max ( 0.7.0 )
             ],
 
             // townHall, wood, marble
@@ -532,7 +538,13 @@ zJS.DB = {
                 {"wood": 240124, "marble": 214192},
                 {"wood": 302626, "marble": 269954},
                 {"wood": 381378, "marble": 340214},
-                {"wood": 480605, "marble": 428741}	// level 32
+                {"wood": 480605, "marble": 428741},	// level 32
+                {"wood": 605632, "marble": 540286},
+                {"wood": 763166, "marble": 680832},
+                {"wood": 961659, "marble": 875920},
+                {"wood": 1211759, "marble": 1081051},
+                {"wood": 1526886, "marble": 1362196},
+                {"wood": 1923946, "marble": 1716438}	// level 38
             ],
 
             // port, wood, marble
