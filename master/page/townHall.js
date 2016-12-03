@@ -37,7 +37,7 @@ zJS.Page.townHall = {
         var display_count = 3;
         for (var i = inhabitants.length - 1; i >= 0 && display_count; i--) {
             if (inhabitants[i] * 2 <= freespace) {
-                text = '<br>' + 'Next ' + inhabitants[i] + ' in ' + result_hours[i] + ' ' + zJS.Lang.hours + text;
+                text = '<br>' + zJS.Lang.Next + ' ' + inhabitants[i] + ' ' + zJS.Lang.in + ' ' + result_hours[i] + ' ' + zJS.Lang.hours + text;
                 display_count--;
             }
         }
