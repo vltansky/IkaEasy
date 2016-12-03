@@ -21,6 +21,8 @@ langs.en = {
     'char_hour': 'h',
     'char_minute': 'm',
     'char_second': 's',
+    'Next': 'Next',
+    'in': 'in',
     'WillBeFullIn': 'Be filled in',
     'per_day': "Per day",
     'per_week': "Per week",
