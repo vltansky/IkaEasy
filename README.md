@@ -3,6 +3,8 @@ Extension stable on version **0.6.2**.
 
 IkaEasy - extension for chrome browser that add many useful features to ikariam. Make your ikariam really easier!
 
+Old website (gh-pages branch): http://swat-web.github.io/IkaEasy/
+
 ## Table of contents
 
 - [Quick start](#quick-start)       
