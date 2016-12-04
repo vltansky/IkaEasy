@@ -20,7 +20,7 @@ zJS.Page.townHall = {
             if (happiness < freespace) {
                 time = '\u221E';
             } else {
-                time = (((50 / happiness) + (50 / last_happiness)) / 2 * freespace).toFixed(1);
+                time = (-50*Math.log((happiness-freespace)/happiness)).toFixed(1);
             }
             return time;
         }
