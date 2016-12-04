@@ -255,7 +255,7 @@ zJS.Page.city = {
                         if(b_need < 0) {
                             sources_ok = false;
                             if (production[k] > 0) {
-                                timeNeeded =  '&nbsp;(' + zJS.Utils.hoursToTime(-b_need/production[k]) + '&nbsp' + zJS.Lang.hours + ')';
+                                timeNeeded =  '&nbsp;(' + zJS.Utils.hoursToTime(-b_need/production[k]) + '&nbsp;' + zJS.Lang.hours + ')';
                             }
                         }
 
