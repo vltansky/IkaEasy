@@ -132,7 +132,8 @@ function addMembersTab() {
     var allyTab = $('<li class="tab" id="js_tab_diplomacyMembers" onclick="' + tabOnClick + '"><b class="tab_diplomacyMembers">' + zJS.Lang.Ally_members + '</b></li>');
     //$('ul.tabmenu').css('table-layout', 'inherit');
     $("[id^='js_tab_diplomacyAlly']").after(allyTab);
-    if($('table#allyMemberList')[0] !== null) {
+    if($("#diplomacyAllyMemberlist").length>0 && $(".filter.diplomacy .filterEntry:first-child:not(.active)")) {
+    //if($('table#allyMemberList')[0] !== null) {
         $('li', 'ul.tabmenu').each(function() {
             $(this).removeClass('selected');
             if(this.id == "js_tab_diplomacyAlly") {
