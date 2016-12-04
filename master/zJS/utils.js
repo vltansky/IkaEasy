@@ -320,7 +320,7 @@ zJS.Utils = {
         $('#__ikaeasy')[0].dispatchEvent(customEvent);
     },
     hoursToTime: function(dhours) {
-        return dhours.toFixed(0) + ':' + ('0' + ((dhours % 1)*60).toFixed(0)).slice(-2);
+        return Math.floor(dhours) + ':' + ('0' + ((dhours % 1)*60).toFixed(0)).slice(-2);
     },
     transformHours: function(hours) {
         if(hours < 24)
