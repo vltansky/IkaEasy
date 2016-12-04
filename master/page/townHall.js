@@ -14,16 +14,13 @@ if(typeof zJS.Page == "undefined") {
 zJS.Page.townHall = {
     init: function() {
         var inhabitants = [10, 50, 100, 250, 500];
-        function toTime(dhours) {
-            return dhours.toFixed(0) + ':' + ('0' + ((dhours % 1)*60).toFixed(0)).slice(-2);
-        }
         function result_time(happiness, freespace) {
             var time; //time is in minutes
             var last_happiness = happiness - freespace + 1; //happines when last inhabitant is beeing created
             if (happiness < freespace) {
                 time = '\u221E';
             } else {
-                time = toTime(-50*Math.log((happiness-freespace)/happiness));
+                time = zJS.Utils.hoursToTime(-50*Math.log((happiness-freespace)/happiness));
             }
             return time;
         }
