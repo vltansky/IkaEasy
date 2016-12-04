@@ -215,6 +215,7 @@ zJS.Page.city = {
 
         // Узнаем кол-во ресурсов в городе
         var sourceOnCity = zJS.Var.getCityResources();
+        var production = zJS.Page.__common.getResourceProduction();
 
         // Проверяем, нет ли строящихся зданий?
         var bb_icon = ($('#locations').find('.constructionSite').length > 0) ? 'build_blue' : 'build_green';
@@ -250,11 +251,15 @@ zJS.Page.city = {
                         var b_minus = Math.floor(v * this.__watcher_minus[k]);
                         var b_need = (sourceOnCity[k] - b_minus);
 
+                        var timeNeeded = '';
                         if(b_need < 0) {
                             sources_ok = false;
+                            if (production[k] > 0) {
+                                timeNeeded =  '&nbsp;(' + zJS.Utils.toTime(-b_need/production[k]) + ')';
+                            }
                         }
 
-                        var line = $('<div class="' + k + '"><div class="ikaeasy_tooltip_left"></div><div class="ikaeasy_tooltip_right"></div><div class="ikaeasy_tooltip_center">' + zJS.Utils.formatNumber(b_need) + '</div></div>');
+                        var line = $('<div class="' + k + '"><div class="ikaeasy_tooltip_left"></div><div class="ikaeasy_tooltip_right"></div><div class="ikaeasy_tooltip_center">' + zJS.Utils.formatNumber(b_need) + timeNeeded + '</div></div>');
 
                         if(b_need < 0) {
                             $(line).addClass('ikaeasy_red');
