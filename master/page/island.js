@@ -94,7 +94,7 @@ zJS.Page.island = {
 
         $('<div id="markerRight"></div>').appendTo($(markerMenu));
 
-        var markerBtn = $('<span id="ikaeasy_marker_btn" />').click(function(e) {
+        var markerBtn = $('<span id="ikaeasy_marker_btn" />').click(function() {
             if($(markerMenu).css('display') == 'none') {
                 var position = $(sidebar).position();
                 $(markerMenu).show(1000).offset({left: position.left + 230, top: position.top + 19});
@@ -204,7 +204,7 @@ zJS.Page.island = {
 
     _updateIslandInfo: function(v, k, users, _now){
         console.log("==== Update island info AJAX for " + v.id);
-        if(v.ownerId != 1290) { // delete it! Hidding cities of user with ID 1290 :D
+        if(v.id != -1) { // -1 city not existed
             $.get('http://' + top.location.host + '/index.php?view=cityDetails&destinationCityId=' + v.id + '&ajax=1', function(data) {
                 data = $.parseJSON(data)[1][1][1];
 
@@ -234,7 +234,7 @@ zJS.Page.island = {
                 //var $cashe_city_gll = $('#cityLocation' + k);
                 this._recalcWidth(k);
                 //}.bind(this));
-                //this._sendWorld();
+                // this._sendWorld();
             }.bind(this));
         }else{console.log(v);}
     },
@@ -249,7 +249,6 @@ zJS.Page.island = {
     },
 
     _sendWorld: function(force) {
-        return false; // TODO DELETE IT!
         console.log("_sendWorld");
         console.log(force);
         force = typeof force !== 'undefined' ? force : false;
