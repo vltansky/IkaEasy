@@ -19,6 +19,7 @@ Old website (gh-pages branch): http://swat-web.github.io/IkaEasy/
 - [Adding images](#adding-images)
 - [Adding translation](#adding-translation)
 - [Copyright and license](#copyright-and-license)
+- [Building & minifying](#Building-and-minifying)
 
 ## Quick start
 If you're using chrome - install [main extension (with stable version)](https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en) or [test extension (latest version)](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb) and enjoy!
@@ -165,6 +166,13 @@ Files for internationalization are located [here](https://github.com/swat-web/Ik
 The language has to be referenced in the `/zJS/lng.js` file and `/manifest.json` file to be picked up.
 
 Note: The name of the file should be the two-letters [ISO-639-1 language code](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+
+##Building and minifying
+
+`master` is the main folder where all the file sources in readable view.
+`dist` is the folder after minifying & concating. The content of this folder goes to releasing updated in chrome web store.
+
+Use grunt to minify, concat & etc (already configured. Just use `grunt` command in the root of the project).
 
 ## Copyright and license
 
