@@ -277,12 +277,12 @@ zJS.DB = {
                 {"wood": 1330, "crystal": 1089},
                 {"wood": 2004, "crystal": 1748},
                 {"wood": 2665, "crystal": 2454},
-                {"wood": 3916, "crystal": 3786},
+                {"wood": 3916, "crystal": 3786},            // level 10
                 {"wood": 5156, "crystal": 5216},
                 {"wood": 7446, "crystal": 7862},
                 {"wood": 9753, "crystal": 10729},
                 {"wood": 12751, "crystal": 14599},
-                {"wood": 18163, "crystal": 21627},
+                {"wood": 18163, "crystal": 21627},          // level 15
                 {"wood": 23691, "crystal": 29321},
                 {"wood": 33450, "crystal": 43020},
                 {"wood": 43571, "crystal": 58213},

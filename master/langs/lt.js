@@ -3,20 +3,21 @@ if(typeof langs == "undefined") {
 }
 
 //Lithuanian language
+// Last update from repository: https://github.com/auga357/IkaEasy/commit/b1de25e57470c454a41d04a354d664e95a472215 by auga357
 langs.lt = {
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://www.facebook.com/ikariam.easy',
     'movements':{
-        all: 'all',
+        all: 'visi',
         transport: 'gabenti prekes',
         plunder: 'plėšti',
-//I hope lithuanian letters ąčęėįšųū will work. :)
+        //I hope lithuanian letters ąčęėįšųū will work. :)
         blockade: 'blokada',
         deployarmy: 'dislokuoti karius',
         deployfleet: 'dislokuoti laivyną',
         defend: 'ginti miestą',
         defend_port: 'ginti uostą',
         occupy: 'okupuoti',
-        trade: 'trade'
+        trade: 'mainytis'
     },
     'char_day': 'd',
     'char_hour': 'h',
@@ -31,7 +32,7 @@ langs.lt = {
     'days': "dienų(dienos)",
     'months': "mėnesiai(uo)",
     'years': "metai",
-    'MessagePlaceholder': "Click CTRL + Enter to send message",
+    'MessagePlaceholder': "Spausk CTRL + Enter išsiųsti žinutę.",
     'ConfirmDowngrade': "Patvirtink griovimą",
     'Circular_message': "Siųsti masinę žinutę",
     'Ally_members': "Aljansas",
@@ -68,6 +69,9 @@ langs.lt = {
             'header': 'Action points on island view',
             'enable': 'active',
             'disable': 'unactive'
+        },
+        'development': {
+            'overview': "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='https://www.facebook.com/ikariam.easy' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :) <a href='http://ko-fi.com?i=13041DD5P60E0' target='_blank'><div class='img_center'><img style='border:0' src='https://az743702.vo.msecnd.net/cdn/btn3.png' border='0' alt='Buy Me A Coffee at Ko-Fi.com' /></div></a> Switch to <a href='https://chrome.google.com/webstore/detail/ikariam-easy-new-feature/nbgafacaepgodomleebpcjcfgeiceidb' target='_blank'>IkaEasy V2</a> and get updates earlier!"
         }
     },
 
