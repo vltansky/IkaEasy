@@ -449,6 +449,22 @@ zJS.Page.__common = {
             })
         }
     },
+    getResourceProduction: function() {
+        console.log('getResourceProduction');
+        function getPageValue(valueId) {
+            return $('#' + valueId).text() == '-' ? 0 : $('#' + valueId).text().replace(/[^\d+]/g, '');
+        }
+
+        var production = {};
+        production.wood = getPageValue('js_GlobalMenu_resourceProduction');
+        console.log('wood: ' + ' : ' + production.wood);
+        production.wine = getPageValue('js_GlobalMenu_production_wine') - getPageValue('js_GlobalMenu_WineConsumption');
+        production.marble = getPageValue('js_GlobalMenu_production_marble');
+        production.crystal = getPageValue('js_GlobalMenu_production_crystal');
+        production.sulfur = getPageValue('js_GlobalMenu_production_sulfur');
+
+        return production;
+    },
     /*
      * Display resource spend per hour
      */

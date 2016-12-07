@@ -26,7 +26,7 @@ langs.bg = {
     'per_week': "За седмица",
     'per_month': "За месец",
     'left': "Остава",
-    'hours': "часове",
+    'hours': "часа",
     'days': "дни",
     'months': "месеци",
     'years': "години",

@@ -319,6 +319,9 @@ zJS.Utils = {
         customEvent.initEvent('execute_js', true, true);
         $('#__ikaeasy')[0].dispatchEvent(customEvent);
     },
+    hoursToTime: function(dhours) {
+        return Math.floor(dhours) + ':' + ('0' + ((dhours % 1)*60).toFixed(0)).slice(-2);
+    },
     transformHours: function(hours) {
         if(hours < 24)
             return Math.round(hours) + ' ' + zJS.Lang.hours;
