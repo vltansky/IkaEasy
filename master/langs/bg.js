@@ -21,7 +21,7 @@ langs.bg = {
     'char_hour': 'ч',
     'char_minute': 'м',
     'char_second': 'с',
-    'WillBeFullIn': 'Ще бъде запълнено',
+    'WillBeFullIn': 'Запълнен след',
     'per_day': "За ден",
     'per_week': "За седмица",
     'per_month': "За месец",

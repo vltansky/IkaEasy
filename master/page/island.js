@@ -205,7 +205,7 @@ zJS.Page.island = {
     _updateIslandInfo: function(v, k, users, _now){
         console.log("==== Update island info AJAX for " + v.id);
         if(v.id != -1) { // -1 city not existed
-            $.get('http://' + top.location.host + '/index.php?view=cityDetails&destinationCityId=' + v.id + '&ajax=1', function(data) {
+            $.get(top.location.origin + '/index.php?view=cityDetails&destinationCityId=' + v.id + '&ajax=1', function(data) {
                 data = $.parseJSON(data)[1][1][1];
 
                 var score = $.trim(data.match(/id="js_selectedCityScore">([^<]+)</)[1].replace(/[\s]+/, '')),

@@ -109,8 +109,8 @@ zJS.Page.city = {
     },
 
     _getResearch: function() {
-        zJS.Utils.getAjax('http://' + top.location.host + '/index.php?view=noViewChange&researchType=economy&templateView=researchAdvisor&actionRequest=' + zJS.Var.getActionRequest() + '&ajax=1', function(data) {
-            this._checkResearch(data[1][1]);
+        zJS.Utils.getAjax(top.location.origin + '/index.php?view=noViewChange&researchType=economy&templateView=researchAdvisor&actionRequest=' + zJS.Var.getActionRequest() + '&ajax=1', function(data) {
+            this._checkResearch(data[2][1]);
         }.bind(this));
     },
 
@@ -184,7 +184,7 @@ zJS.Page.city = {
                     top: parseInt($(build_pos).css('top')) + b_coord[0].y
                 });
 
-                $('.watche_up', block).attr('onclick', "ajaxHandlerCall('http://" + top.location.host + "/index.php?action=CityScreen&function=upgradeBuilding&actionRequest=" + zJS.Var.getActionRequest() + "&currentCityId=" + zJS.Var.getCityId() + "&cityId=" + zJS.Var.getCityId() + "&position=" + build.position + "&level=" + build.level + "&backgroundView=city');");
+                $('.watche_up', block).attr('onclick', "ajaxHandlerCall('" + top.location.origin + "/index.php?action=CityScreen&function=upgradeBuilding&actionRequest=" + zJS.Var.getActionRequest() + "&currentCityId=" + zJS.Var.getCityId() + "&cityId=" + zJS.Var.getCityId() + "&position=" + build.position + "&level=" + build.level + "&backgroundView=city');");
 
                 $(parent).append(block);
 
@@ -287,7 +287,7 @@ zJS.Page.city = {
                     });
                 }
 
-                $('.watche_down', block).attr('onclick', "if(confirm('" + zJS.Lang.ConfirmDowngrade + "')){ajaxHandlerCall('http://" + top.location.host + "/index.php?action=CityScreen&function=demolishBuilding&actionRequest=" + zJS.Var.getActionRequest() + "&currentCityId=" + zJS.Var.getCityId() + "&cityId=" + zJS.Var.getCityId() + "&position=" + build.position + "&level=" + build.level + "&backgroundView=city');}");
+                $('.watche_down', block).attr('onclick', "if(confirm('" + zJS.Lang.ConfirmDowngrade + "')){ajaxHandlerCall('" + top.location.origin + "/index.php?action=CityScreen&function=demolishBuilding&actionRequest=" + zJS.Var.getActionRequest() + "&currentCityId=" + zJS.Var.getCityId() + "&cityId=" + zJS.Var.getCityId() + "&position=" + build.position + "&level=" + build.level + "&backgroundView=city');}");
 
                 $('#ikaeasy_watcher_' + build.position).attr('class', 'ikaeasy_watcher ' + class_icon).show();
             }.bind(this));
