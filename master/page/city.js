@@ -110,7 +110,7 @@ zJS.Page.city = {
 
     _getResearch: function() {
         zJS.Utils.getAjax(top.location.origin + '/index.php?view=noViewChange&researchType=economy&templateView=researchAdvisor&actionRequest=' + zJS.Var.getActionRequest() + '&ajax=1', function(data) {
-            this._checkResearch(data[1][1]);
+            this._checkResearch(data[2][1]);
         }.bind(this));
     },
 
