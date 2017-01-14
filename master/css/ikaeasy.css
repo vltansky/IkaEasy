@@ -256,15 +256,15 @@
     max-width: 242px;
 }
 
-#container #leftMenu .city_menu .expandable .image_transporter {
+#container #leftMenu .city_menu .image_transporter {
     background: url(../images/transporter.png) no-repeat 0 0;
 }
 
-#container #leftMenu .city_menu .expandable .image_embassy {
+#container #leftMenu .city_menu .image_embassy {
     background: url(../images/embassy.png) no-repeat 0 0;
 }
 
-#container #leftMenu .city_menu .expandable .image_chat {
+#container #leftMenu .city_menu .image_chat {
     background: url(../images/ally_message.png) no-repeat 0 0;
 }
 

@@ -274,7 +274,7 @@ zJS.Utils = {
         var menu_slot = $js_viewCityMenu.find('.menu_slots');
 
         var _slot = $('li', menu_slot).length;
-        var li = $('<li class="expandable slot' + _slot + '" style="width: 53px; "><div class="image ' + image + '"></div><div class="name"><span class="namebox">' + title + '</span></div></li>');
+        var li = $('<li class="slot' + _slot + '" style="width: 53px; "><div class="image ' + image + '"></div><div class="name"><span class="namebox">' + title + '</span></div></li>');
         $(menu_slot).prepend(li);
 
         var animate = false;
