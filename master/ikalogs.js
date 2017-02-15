@@ -432,18 +432,18 @@ ikalogs.prototype = {
     },
 
     _checkIsAuth: function() {
-        getJSON('http://ikalogs.ru/layout/user/isAuth/', function(data) {
+        getJSON('//ikalogs.ru/layout/user/isAuth/', function(data) {
             if(data && data.auth && data.email) {
                 $('#ikalogs_auth').text(data.email);
             }
             else {
-                $('#ikalogs_auth').html('<a href="http://ikalogs.ru" target="__blank" style="font-weight: inherit;color:red;">' + zJS.Lang.ikalogs.auth.not_logged + '</a>');
+                $('#ikalogs_auth').html('<a href="//ikalogs.ru" target="__blank" style="font-weight: inherit;color:red;">' + zJS.Lang.ikalogs.auth.not_logged + '</a>');
             }
         }.bind(this));
     },
 
     _sendRequest: function(vars, callback) {
-        postJSON('http://ikalogs.ru/common/import/', vars, function(data) {
+        postJSON('//ikalogs.ru/common/import/', vars, function(data) {
             if(!data.status) {
                 data = {'status': 'failed'};
             }
