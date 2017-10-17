@@ -1,9 +1,9 @@
-# [IkaEasy](http://ikariam-easy.com/)
-Extension stable on version **0.6.2**.
-
-# Problems with an extension IkaEasy
+# Problems with an extension IkaEasy (17.11.2017)
 Due to the fact that third parties had access to the extension and integrate advertising to it, it was removed from the Chrome Web Store.
 The fully working extension is available at a [new address](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb). 
+
+# [IkaEasy](http://ikariam-easy.com/)
+Extension stable on version **0.6.2**.
 
 IkaEasy - extension for chrome browser that add many useful features to ikariam. Make your ikariam really easier!
 
