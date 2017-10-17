@@ -1,6 +1,10 @@
 # [IkaEasy](http://ikariam-easy.com/)
 Extension stable on version **0.6.2**.
 
+# Problems with an extension IkaEasy
+Due to the fact that third parties had access to the extension and integrate advertising to it, it was removed from the Chrome Web Store.
+The fully working extension is available at a [new address](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb). 
+
 IkaEasy - extension for chrome browser that add many useful features to ikariam. Make your ikariam really easier!
 
 Old website (gh-pages branch): http://swat-web.github.io/IkaEasy/
@@ -22,7 +26,7 @@ Old website (gh-pages branch): http://swat-web.github.io/IkaEasy/
 - [Building & minifying](#Building-and-minifying)
 
 ## Quick start
-If you're using chrome - install [main extension (with stable version)](https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en) or [test extension (latest version)](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb) and enjoy!
+If you're using chrome - install [extension](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb) and enjoy!
 
 ## Community
 
