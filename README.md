@@ -1,6 +1,6 @@
 # Problems with an extension IkaEasy (17.11.2017)
 Due to the fact that third parties had access to the extension and integrate advertising to it, it was removed from the Chrome Web Store.
-The fully working extension is available at a [new address](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb). 
+The fully working extension is available at a [new address](https://goo.gl/CNRiXK). 
 
 # [IkaEasy](http://ikariam-easy.com/)
 Extension stable on version **0.6.2**.
@@ -26,7 +26,7 @@ Old website (gh-pages branch): http://swat-web.github.io/IkaEasy/
 - [Building & minifying](#Building-and-minifying)
 
 ## Quick start
-If you're using chrome - install [extension](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb) and enjoy!
+If you're using chrome - install [extension](https://goo.gl/CNRiXK) and enjoy!
 
 ## Community
 
