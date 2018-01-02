@@ -1,3 +1,7 @@
+# Problems with an extension IkaEasy (17.11.2017)
+Due to the fact that third parties had access to the extension and integrate advertising to it, it was removed from the Chrome Web Store.
+The fully working extension is available at a [new address](https://goo.gl/CNRiXK). 
+
 # [IkaEasy](http://ikariam-easy.com/)
 Extension stable on version **0.6.2**.
 
@@ -22,7 +26,7 @@ Old website (gh-pages branch): http://swat-web.github.io/IkaEasy/
 - [Building & minifying](#Building-and-minifying)
 
 ## Quick start
-If you're using chrome - install [main extension (with stable version)](https://chrome.google.com/webstore/detail/ikariam-easy/eflmkpkfklepiajpjpmjbneomenkbpdl?hl=en) or [test extension (latest version)](https://chrome.google.com/webstore/detail/ikariam-easy-test/nbgafacaepgodomleebpcjcfgeiceidb) and enjoy!
+If you're using chrome - install [extension](https://goo.gl/CNRiXK) and enjoy!
 
 ## Community
 
@@ -51,7 +55,7 @@ Keep track of development and community news.
 - "Transport" button moved upper in port
 - Marker (can mark cities of another alliances with other color)
 
-##Supported languages:
+## Supported languages:
 
 - Croatian 
 - English           
@@ -61,7 +65,7 @@ Keep track of development and community news.
 - Russian   
 - Turkish
 
-##Structure:
+## Structure:
 Main files and folders:
 ```
 IkaEasy/
@@ -106,7 +110,7 @@ IkaEasy/
 └── manifest.json
 ```
 
-##Adding new script
+## Adding new script
 Create new file with custom name in directory `page`.
 
 Default script template:
@@ -137,7 +141,7 @@ Default script template:
 And finally add this file to `manifest.json`, to the end of the long line.
 
 
-##How it works
+## How it works
 All scripts, that must be executed on pages are located in directory `page`.
 
 Script `__common.js` executing on all pages.
@@ -145,7 +149,7 @@ Script `__common.js` executing on all pages.
 All other pages call by changes values of `ikariam.templateView.id` or `ikariam.backgroundView.id`.
 
 
-###How script works
+### How script works
 Value `dont_refresh` define if script must be reinitialize when page refreshed (by ikariam).
 
 Function `init` calling when page execute.
@@ -153,13 +157,13 @@ Function `init` calling when page execute.
 Function `refresh` by refreshing pages (e.g city change, or by timeout).
 
 
-##Adding script
+## Adding script
 When adding (deleting, moving, renaming) script files, you must update information about it in `manifest.json`
 
-##Adding images
+## Adding images
 When adding (deleting, moving, renaming) images in directory `image`, you must update information about it in `manifest.json`
 
-##Adding translation
+## Adding translation
 
 Files for internationalization are located [here](https://github.com/swat-web/IkaEasy/tree/swat/master/langs). To add a new language, create a new file in that directory. 
 
@@ -167,7 +171,7 @@ The language has to be referenced in the `/zJS/lng.js` file and `/manifest.json`
 
 Note: The name of the file should be the two-letters [ISO-639-1 language code](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
 
-##Building and minifying
+## Building and minifying
 
 `master` is the main folder where all the file sources in readable view.
 `dist` is the folder after minifying & concating. The content of this folder goes to releasing updated in chrome web store.
