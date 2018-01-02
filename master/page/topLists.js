@@ -132,14 +132,14 @@ zJS.Page.highscoreAlly = {
             var $allLink = $(this).find("a.allyLink");
             console.log("link!");
             if("?view=allyPage&allyId=4&oldView=highscore" == $allLink.attr("href")){
-                $allLink.addClass("ikaez_highlighted_ally").prepend("<img src='http://ikariam-easy.com/ikariam_logo_x_favicon.png'>");
+                $allLink.addClass("ikaez_highlighted_ally").prepend("<img src='https://ikariam-easy.com/ikariam_logo_x_favicon.png'>");
             }
             if("?view=allyPage&allyId=111&oldView=highscore" == $allLink.attr("href")){
-                $allLink.addClass("ikaez_highlighted_ally").prepend("<img src='http://ikariam-easy.com/ikaez_favicon_s.png'>");
+                $allLink.addClass("ikaez_highlighted_ally").prepend("<img src='https://ikariam-easy.com/ikaez_favicon_s.png'>");
             }
 
             if("?view=allyPage&allyId=37&oldView=highscore" == $allLink.attr("href")){
-                $allLink.addClass("ikaez_highlighted_ally").addClass("ikaez_highlighted_ally_longVert").prepend("<img src='http://ikariam-easy.com/ikaez_favicon_amz.png'>");
+                $allLink.addClass("ikaez_highlighted_ally").addClass("ikaez_highlighted_ally_longVert").prepend("<img src='https://ikariam-easy.com/ikaez_favicon_amz.png'>");
             }
         });
     },

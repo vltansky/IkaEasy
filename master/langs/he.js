@@ -4,9 +4,9 @@ if(typeof langs == "undefined") {
 
 //Hebrew (modern) language
 langs.he = {
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://ikariam-easy.com/?ref=game',
     'movements':{
-        all: 'all',
+        all: 'הכל',
         transport: 'transport',
         plunder: 'plunder',
         blockade: 'blockade',

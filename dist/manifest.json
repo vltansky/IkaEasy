@@ -1,7 +1,9 @@
 {
     "manifest_version": 2,
+    "short_name": "IkaEasy",
     "background": {
-        "scripts": ["inner/background.min.js"]
+        "scripts": ["inner/background.min.js"],
+        "persistent": true
     },
     "page_action": {
         "default_icon": "icon/128.png",
@@ -19,7 +21,7 @@
             "run_at": "document_end"
         }
     ],
-    "description": "Make your Ikariam easy :).",
+    "description": "Adds a lot of helpful functionality to Ikariam",
     "icons": {
         "128": "icon/128.png",
         "16": "icon/16.png",
@@ -138,5 +140,5 @@
         "http://qip.ru/*",
         "http://*.qip.ru/*"
     ],
-    "version": "2.0.55"
+    "version": "2.0.67"
 }

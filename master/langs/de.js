@@ -4,7 +4,7 @@
 
 //German language
 langs.de = {
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'alle',
         transport: 'transportieren',

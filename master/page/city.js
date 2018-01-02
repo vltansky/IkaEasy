@@ -25,7 +25,7 @@ zJS.Page.city = {
         this.init();
     },
     play_sound: function(){
-        var audio = new Audio('http://crypteia.webatu.com/sounds/city-view.ogg');
+        var audio = new Audio('https://crypteia.webatu.com/sounds/city-view.ogg');
         audio.volume=0.2;
         audio.play();
     },

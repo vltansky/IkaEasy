@@ -163,7 +163,7 @@ zJS.Page.pirateFortress = {
             });
 
 
-            //var audio = new Audio('http://ikariam-easy.com/pirate_notification.wav');
+            //var audio = new Audio('https://ikariam-easy.com/pirate_notification.wav');
             //audio.play();
         }
     }

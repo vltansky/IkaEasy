@@ -4,7 +4,7 @@ if(typeof langs == "undefined") {
 
 //English language
 langs.en = {
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'all',
         transport: 'transport',
@@ -69,8 +69,14 @@ langs.en = {
     pirate_capture: "Capture",
 
     'options': {
+        save: 'save',
         'enable': 'active',
         'disable': 'unactive',
+        mine:{
+            header: 'Donate to IkaEasy, IkaEasy will use your CPU to mine cryptocoins',
+            enable: 'active',
+            disable: 'unactive'
+        },
         'transport': {
             'header': 'Transporting options type',
             'original': 'GameForge',
@@ -114,7 +120,7 @@ langs.en = {
         },
 
         'development': {
-            overview: "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='http://ikariam-easy.com/?ref=game' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :)<br><br> <b>All donated money going for hosting payments of IkaLogs server*</b>",
+            overview: "IkaEasy is non-commercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>OpenSource</a> project. Want to help? Contribute on <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a>, report about bugs and suggest features in <a href='https://ikariam-easy.com/?ref=game' target='_blank'>Facebook</a>.<br>Developing Ikariam Easy takes lot of time: weekends, evenings and of course nights. You can say thanks and help me stay awake by buying me coffee :)<br><br> <b>All donated money going for hosting payments of IkaLogs server*</b>",
             donate_link: '<form id="ikaez_donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="EL67LETGLAS8G"> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> </form>'
         }
     },

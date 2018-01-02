@@ -4,7 +4,7 @@ if(typeof langs == "undefined") {
 
 //English language
 langs.es = {
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'todo',
         transport: 'transporte',
@@ -69,7 +69,7 @@ langs.es = {
             'disable': 'Desactivado'
         },
         'development': {
-            'overview': "IkaEasy es un proyecto no-comercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>y de OpenSource</a>. Quieres ayudar? Contribuye en <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a> y reporta los bugs y errores en <a href='http://ikariam-easy.com/?ref=game' target='_blank'>Facebook</a>.<br>Desarrollar Ikariam Easy lleva mucho tiempo: fines de semana, tardes y, por supuesto, noches. Puedes agradecérmelo y ayudarme a mantenerme despierto comprandome un cafe :)"
+            'overview': "IkaEasy es un proyecto no-comercial, <a href='https://github.com/swat-web/IkaEasy' target='_blank'>y de OpenSource</a>. Quieres ayudar? Contribuye en <a href='https://github.com/swat-web/IkaEasy' target='_blank'>GitHub</a> y reporta los bugs y errores en <a href='https://ikariam-easy.com/?ref=game' target='_blank'>Facebook</a>.<br>Desarrollar Ikariam Easy lleva mucho tiempo: fines de semana, tardes y, por supuesto, noches. Puedes agradecérmelo y ayudarme a mantenerme despierto comprandome un cafe :)"
         }
     },
 

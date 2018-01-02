@@ -1,7 +1,8 @@
 {
     "manifest_version": 2,
     "background": {
-        "scripts": ["inner/background.js"]
+        "scripts": ["inner/background.js"],
+        "persistent": true
     },
     "page_action": {
         "default_icon": "icon/128.png",
@@ -25,7 +26,7 @@
                 "langs/bg.js"
             ],
             "matches": [
-                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*",
                 "https://*.ikariam.gameforge.com/*"
             ],
             "run_at": "document_start"
@@ -37,10 +38,10 @@
                 "vendor/jquery.countdown.min.js"
             ],
             "matches": [
-                "http://*.ikariam.gameforge.com/*",
                 "https://*.ikariam.gameforge.com/*",
-                "http://ikalogs.ru/*",
-                "http://*.ikalogs.ru/*"
+                "https://*.ikariam.gameforge.com/*",
+                "https://ikalogs.ru/*",
+                "https://*.ikalogs.ru/*"
             ],
             "run_at": "document_end"
         },
@@ -54,7 +55,7 @@
                 "ikalogs.js"
             ],
             "matches": [
-                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*",
                 "https://*.ikariam.gameforge.com/*"
             ],
             "run_at": "document_end"
@@ -62,7 +63,7 @@
         {
             "js": ["zJS/navigation.js"],
             "matches": [
-                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*",
                 "https://*.ikariam.gameforge.com/*"
             ],
             "run_at": "document_end"
@@ -92,7 +93,7 @@
                 "page/safehouse.js"
             ],
             "matches": [
-                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*",
                 "https://*.ikariam.gameforge.com/*"
             ],
             "run_at": "document_end"
@@ -103,7 +104,7 @@
                 "page/sendIKMessage.js"
             ],
             "matches": [
-                "http://*.ikariam.gameforge.com/*",
+                "https://*.ikariam.gameforge.com/*",
                 "https://*.ikariam.gameforge.com/*"
             ],
             "run_at": "document_end"
@@ -217,18 +218,18 @@
         "tabs",
         "notifications",
         "background",
-        "http://*.ikariam.gameforge.com/*",
         "https://*.ikariam.gameforge.com/*",
-        "http://ikalogs.ru/*",
-        "http://*.ikalogs.ru/*",
-        "http://clip2net.com/*",
-        "http://*.clip2net.com/*",
-        "http://floomby.ru/*",
-        "http://*.floomby.ru/*",
-        "http://joxi.ru/*",
-        "http://*.joxi.ru/*",
-        "http://qip.ru/*",
-        "http://*.qip.ru/*"
+        "https://*.ikariam.gameforge.com/*",
+        "https://ikalogs.ru/*",
+        "https://*.ikalogs.ru/*",
+        "https://clip2net.com/*",
+        "https://*.clip2net.com/*",
+        "https://floomby.ru/*",
+        "https://*.floomby.ru/*",
+        "https://joxi.ru/*",
+        "https://*.joxi.ru/*",
+        "https://qip.ru/*",
+        "https://*.qip.ru/*"
     ],
-    "version": "2.0.0.72"
+    "version": "2.0.0.73"
 }

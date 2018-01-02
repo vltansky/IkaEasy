@@ -4,7 +4,7 @@ if(typeof langs == "undefined") {
 
 //Greek language
 langs.el = {
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'όλα',
         transport: 'μεταφορά',

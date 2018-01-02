@@ -4,7 +4,7 @@ if(typeof langs == "undefined") {
 
 //Polish language
 langs.pl = {
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'all',
         transport: 'transport',

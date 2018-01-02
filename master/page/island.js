@@ -288,9 +288,9 @@ zJS.Page.island = {
             data.world = this.get_server_world().substring(1);
             data.score = score;
 
-            postJSON('http://ikalogs.ru/common/world/', data);
+            postJSON('https://ikalogs.ru/common/world/', data);
 
-            // zJS.Utils.askms({type : 'ajax', url : 'http://ikalogs.ru/common/world/', 'method' : 'post', vars : data}, false);
+            // zJS.Utils.askms({type : 'ajax', url : 'https://ikalogs.ru/common/world/', 'method' : 'post', vars : data}, false);
             islands_data[id]={'status': true, 'count':active_cities};
             zJS.Utils.ls.setValue('islands_data', islands_data, 86400 * 2);
         }

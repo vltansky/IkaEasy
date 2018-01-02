@@ -31,10 +31,10 @@
     float: right
 }
 .ikalogs_report .contentBox01h {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01.gif)
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01.gif)
 }
 .ikalogs_report .contentBox01h h3.header {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01h_header.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01h_header.gif);
     background-repeat: no-repeat;
     height: 20px;
     line-height: 20px;
@@ -77,13 +77,13 @@
 }
 .ikalogs_report .attacker {
     line-height: normal;
-    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/unit_attack.gif) left top no-repeat;
+    background: url(https://s1.ikalogs.ru/themes/default/img/ikariam/unit_attack.gif) left top no-repeat;
     margin: 10px 0 0 8px;
     padding-left: 50px
 }
 .ikalogs_report .defender {
     line-height: normal;
-    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/unit_defend.gif) left top no-repeat;
+    background: url(https://s1.ikalogs.ru/themes/default/img/ikariam/unit_defend.gif) left top no-repeat;
     margin: 10px 0 0 8px;
     padding-left: 50px
 }
@@ -124,14 +124,14 @@
     text-align: left
 }
 .ikalogs_report table.overview div.army {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/army.png);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/army.png);
     width: 50px;
     height: 50px;
     background-repeat: none;
     margin: 0 0 0 25px
 }
 .ikalogs_report table.overview div.fleet {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/fleet.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/fleet.gif);
     width: 50px;
     height: 50px;
     background-repeat: none;
@@ -165,7 +165,7 @@
     width: 80%;
     margin: auto;
     margin-bottom: 10px;
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/resultbg.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/resultbg.gif);
     background-repeat: repeat-x
 }
 .ikalogs_report .contentBox01h .content table .col1 {
@@ -277,7 +277,7 @@
     display: none;
 }
 .ikalogs_report .result .winners {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/medallie32x32_gold.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/medallie32x32_gold.gif);
     background-position: 8px 12px;
     background-repeat: no-repeat;
     font-size: 14px;
@@ -288,7 +288,7 @@
 }
 .ikalogs_report .result .losers {
     padding-left: 46px;
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/losers.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/losers.gif);
     background-position: 8px 12px;
     background-repeat: no-repeat
 ;
@@ -298,7 +298,7 @@
     margin: 20px 0
 }
 .ikalogs_report ul.units li {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/army.png);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/army.png);
     background-repeat: no-repeat;
     text-align: center;
     width: 50px;
@@ -309,11 +309,11 @@
     display: block
 }
 .ikalogs_report ul.fleets li {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/fleet.gif)
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/fleet.gif)
 }
 .ikalogs_report .contentBox01 div.footer,
 .contentBox01h div.footer {
-    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01_footer.gif) no-repeat;
+    background: url(https://s1.ikalogs.ru/themes/default/img/ikariam/bg_contentBox01_footer.gif) no-repeat;
     overflow: hidden;
     height: 3px;
     top: 0;
@@ -345,31 +345,31 @@
     list-style: none
 }
 .ikalogs_report .wood {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_wood.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/icon_wood.gif);
     background-position: 4px 2px
 }
 .ikalogs_report .wine {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_wine.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/icon_wine.gif);
     background-position: 4px 2px
 }
 .ikalogs_report .marble {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_marble.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/icon_marble.gif);
     background-position: 2px 2px
 }
 .ikalogs_report .glass {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_glass.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/icon_glass.gif);
     background-position: 4px 2px
 }
 .ikalogs_report .crystal {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_glass.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/icon_glass.gif);
     background-position: 4px 2px
 }
 .ikalogs_report .sulfur {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_sulfur.gif);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/icon_sulfur.gif);
     background-position: 2px 2px
 }
 .ikalogs_report .gold {
-    background-image: url(http://s1.ikalogs.ru/themes/default/img/ikariam/icon_gold.png);
+    background-image: url(https://s1.ikalogs.ru/themes/default/img/ikariam/icon_gold.png);
     background-position: 18px 2px
 }
 .ikalogs_report .result #result_hidden {
@@ -430,12 +430,12 @@
     width: 50px
 }
 .ikalogs_report .table01 .defenderLine {
-    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/defender.png) left center no-repeat;
+    background: url(https://s1.ikalogs.ru/themes/default/img/ikariam/defender.png) left center no-repeat;
     text-align: left;
     padding-left: 25px!important
 }
 .ikalogs_report .table01 .attackerLine {
-    background: url(http://s1.ikalogs.ru/themes/default/img/ikariam/attacker.png) left center no-repeat;
+    background: url(https://s1.ikalogs.ru/themes/default/img/ikariam/attacker.png) left center no-repeat;
     text-align: left;
     padding-left: 25px!important
 }

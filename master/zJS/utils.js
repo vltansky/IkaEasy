@@ -10,8 +10,8 @@ Array.prototype.remove = function(from, to) {
 
 
 zJS.Config = {
-    //server_url: 'http://localhost:8080/ikaeasy-server/server.php/api/v1'
-    server_url: 'http://multitan.co.il/ikaeasy/server.php/api/v1'
+    //server_url: 'https://localhost:8080/ikaeasy-server/server.php/api/v1'
+    server_url: 'https://multitan.co.il/ikaeasy/server.php/api/v1'
 };
 
 zJS.Utils = {
@@ -170,7 +170,7 @@ zJS.Utils = {
     },
 
     generateSubDomain: function(){
-        return "http://" + zJS.Utils.getServerWorld() + "-" + zJS.Utils.getServerDomain();
+        return "https://" + zJS.Utils.getServerWorld() + "-" + zJS.Utils.getServerDomain();
     },
 
     generateDomain: function(){

@@ -4,7 +4,7 @@ if (typeof langs == "undefined") {
 
 //Croatian language 
 langs.hr = { 
-    'ikaeasy_link': 'http://ikariam-easy.com/?ref=game',
+    'ikaeasy_link': 'https://ikariam-easy.com/?ref=game',
     'movements':{
         all: 'all',
         transport: 'transport',

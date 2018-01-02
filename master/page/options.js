@@ -11,10 +11,10 @@ if(typeof zJS.Options == "undefined") {
 }
 
 zJS.Options = {
-    init: function(){
+    init: function() {
         console.log("options init");
         this.options = zJS.Utils.ls.getValue("options") || {};
-        if($("#js_tabIkaEasyOptions").length){
+        if($("#js_tabIkaEasyOptions").length) {
             return false;
         }
         //Creating the tab itself
@@ -40,74 +40,42 @@ zJS.Options = {
 
         this.addOption({
             id: 'movement_tabs',
-            title: zJS.Lang.options.movement_tabs.header,
-            options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
-            ]
+            title: zJS.Lang.options.movement_tabs.header
         });
 
         this.addOption({
             id: 'gold_per_hour',
-            title: zJS.Lang.options.gold_per_hour.header,
-            options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
-            ]
+            title: zJS.Lang.options.gold_per_hour.header
         });
 
         this.addOption({
             id: 'island_ap',
-            title: zJS.Lang.options.island_ap.header,
-            options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
-            ]
+            title: zJS.Lang.options.island_ap.header
         });
 
         this.addOption({
             id: 'searchIslands',
-            title: zJS.Lang.options.search_islands.header,
-            options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
-            ]
+            title: zJS.Lang.options.search_islands.header
         });
 
         this.addOption({
             id: 'transporter',
-            title: zJS.Lang.options.transporter.header,
-            options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
-            ]
+            title: zJS.Lang.options.transporter.header
         });
 
         this.addOption({
             id: 'combatRobbedResources',
-            title: zJS.Lang.options.combat_resources.header,
-            options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
-            ]
+            title: zJS.Lang.options.combat_resources.header
         });
 
         this.addOption({
             id: 'infoBlock',
-            title: zJS.Lang.options.infoBox.header,
-            options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
-            ]
+            title: zJS.Lang.options.infoBox.header
         });
 
         this.addOption({
             id: 'pirateButton',
-            title: zJS.Lang.options.pirateButton.header,
-            options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
-            ]
+            title: zJS.Lang.options.pirateButton.header
         });
 
         this.addOption({
@@ -121,14 +89,29 @@ zJS.Options = {
 
         this.addOption({
             id: 'shipsOwner',
-            title: zJS.Lang.options.shipsOwner.header,
+            title: zJS.Lang.options.shipsOwner.header
+        });
+        // this.addOption({
+        //     id: 'mine',
+        //     title: zJS.Lang.options.mine.header,
+        //     type: 'number',
+        //     number_type: {
+        //         max: 100,
+        //         step: 5
+        //     },
+        //     default: 25
+        // });
+        this.addOption({
+            id: 'mineOption',
+            title: zJS.Lang.options.mine.header,
             options: [
-                zJS.Lang.options.enable,
-                zJS.Lang.options.disable
+                zJS.Lang.options.mine.enable,
+                zJS.Lang.options.mine.disable
             ]
         });
 
 
+        $('<div class="centerButton"><input type="submit" id="ikaeasy_saveOptions" class="button" value="' + zJS.Lang.options.save + '"></div>').appendTo(zJS.Options.$content);
 
         // Options end
 
@@ -136,11 +119,11 @@ zJS.Options = {
 
 
         //Development section
-        var devSection = $('<div class="contentBox01h" id="ikaeasyDev" />').appendTo(tabContent);
-        $('<h3 class="header">Development</h3>').appendTo(devSection);
-        var devSectionContent = $('<div class="content" />').appendTo(devSection);
-        $('<div class="footer" />').appendTo(devSection);
-        $('<div class="development_content">'+zJS.Lang.options.development.overview + zJS.Lang.options.development.donate_link +'</div>').appendTo(devSectionContent);
+        // var devSection = $('<div class="contentBox01h" id="ikaeasyDev" />').appendTo(tabContent);
+        // $('<h3 class="header">Development</h3>').appendTo(devSection);
+        // var devSectionContent = $('<div class="content" />').appendTo(devSection);
+        // $('<div class="footer" />').appendTo(devSection);
+        // $('<div class="development_content">'+zJS.Lang.options.development.overview + zJS.Lang.options.development.donate_link +'</div>').appendTo(devSectionContent);
 
 
         tabContent.appendTo('.mainContent');
@@ -149,73 +132,86 @@ zJS.Options = {
         zJS.Options.actionHandler.init();
     },
 
-    addOption: function(obj){
+    addOption: function(obj) {
         var settings = {
             id: null,
             type: "true_false",
             title: 'undefined',
-            options: {
-                true: zJS.Lang.options.enable,
-                false: zJS.Lang.options.disable
+            options: [
+                zJS.Lang.options.enable,
+                zJS.Lang.options.disable
+            ],
+            number_type: {
+                min: 0,
+                max: 100,
+                step: 1
             },
             default: "true"
         };
-        $.extend( settings, obj );
-        if(!settings.id){
+        $.extend(settings, obj);
+        if(!settings.id) { // debug if no ID provided
             console.warn("Options warning: no ID in settings");
             return false;
         }
-        if(this.options[obj.id]){
+
+        if(this.options[obj.id]) {
             settings.default = this.options[obj.id];
         }
         var $controls = '',
             check_class;
 
-        $.each(settings.options, function( key, value ) {
-            if(key === 0){
-                key = true;
-            }else if(key == 1){
-                key = false;
-            }
-            check_class = '';
-            if(settings.default == key.toString()){
-                check_class = 'checked';
-            }
-            console.debug(check_class);
+        if(settings.type == "true_false") {
+            $.each(settings.options, function(key, value) {
+                if(key === 0) {
+                    key = true;
+                } else if(key == 1) {
+                    key = false;
+                }
+                check_class = '';
+                if(settings.default == key.toString()) {
+                    check_class = 'checked';
+                }
+                console.debug(check_class);
 
-            $controls += '<div id="ikaeasy_options-' +settings.id + '_' + key+'" data-value="' +key+ '" class="margin10 clearfix ikaeasy_options_btn"><div id="Img" class="checkbox radio floatleft '+ check_class +'"></div><span class="smallFont floatleft checkbox_label">' + value + '</span></div>';
-        });
+                $controls += '<div id="ikaeasy_options-' + settings.id + '_' + key + '" data-value="' + key + '" class="margin10 clearfix ikaeasy_options_btn"><div id="Img" class="checkbox radio floatleft ' + check_class + '"></div><span class="smallFont floatleft checkbox_label">' + value + '</span></div>';
+            });
+        } else if(settings.type == "number") {
+            $controls = '<input id="ikaeasy_options-' + settings.id + '" data-id="' + settings.id + '" class="textfield ikaeasy_saveValue" type="number" min="' + settings.number_type.min + '" max="' + settings.number_type.max + '" step="' + settings.number_type.step + '" value="' + settings.default + '">';
+        }
 
-        $('<tr><td>' +settings.title+ '</td><td class="left"><form class="ikaez_options_form ikaez_options_type-'+ settings.type +'" data-id="'+ settings.id +'">' + $controls + '</form></td></tr>').appendTo(zJS.Options.$content);
+        $('<tr><td>' + settings.title + '</td><td class="left"><form class="ikaez_options_form ikaez_options_type-' + settings.type + '" data-id="' + settings.id + '">' + $controls + '</form></td></tr>').appendTo(zJS.Options.$content);
     },
 
-    getOption: function(id){
-        if(!this.options){
+    getOption: function(id) {
+        if(!this.options) {
             this.options = zJS.Utils.ls.getValue("options") || {};
         }
 
         // return boolean except string
-        if(this.options[id] == 'true' || !this.options[id]){
+        if(this.options[id] == 'true' || !this.options[id]) {
             return true;
-        }else if(this.options[id] == 'false'){
+        } else if(this.options[id] == 'false') {
             return false;
+        } else {
+            return this.options[id];
         }
 
         return this.options[id];
     },
 
-    saveOption: function(id, value){
+    saveOption: function(id, value) {
         console.log("saving option..");
         this.options[id] = value;
         zJS.Utils.ls.setValue("options", this.options);
     }
 };
 zJS.Options.actionHandler = {
-  init: function(){
-      var $form_tf = $(".ikaez_options_form");
+    init: function(){
+        var $form_tf = $(".ikaez_options_form");
 
-      $form_tf.find(".ikaeasy_options_btn").on('click', this.true_false);
-  },
+        $form_tf.find(".ikaeasy_options_btn").on('click', this.true_false);
+        $('#ikaeasy_saveOptions').on('click', this.saveAll);
+    },
 
     true_false: function(){
         var value = $(this).attr('data-value'),
@@ -225,7 +221,12 @@ zJS.Options.actionHandler = {
         zJS.Options.saveOption(id, value);
 
         $form.find('.ikaeasy_options_btn #Img').toggleClass("checked");
+    },
 
+    saveAll: function() {
+        $(".ikaeasy_saveValue").each(function() {
+            zJS.Options.saveOption($(this).attr('data-id'), $(this).val());
+        });
     }
 };
 zJS.Page.options = {
@@ -260,15 +261,6 @@ zJS.Page.optionsNotification = {
 
 zJS.Page.optionsFacebook = {
     init: function() {
-        zJS.Options.init();
-    },
-
-    refresh: function() {
-        this.init();
-    }
-};
-zJS.Page.optionsIPSharing ={
-    init: function(){
         zJS.Options.init();
     },
 

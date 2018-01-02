@@ -34,7 +34,7 @@ function makeActiveLinks() {
     $('tr:not(.globalmessage) td.msgText:not(.IkaEasy_links_completed)').each(function() {
         this.innerHTML = this.innerHTML.replace(/<br>/gi, " $&"); //На случай если тег стоит сразу после ссылки, а такое часто бывает
 
-        //URLs начинающиеся с http://, https://
+        //URLs начинающиеся с https://, https://
         var __urlRegex = /(\b(https?):\/\/[-A-Z0-9+&amp;@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;@#\/%=~_|])/ig;
         //URLs начинающиеся с "www."
         var __urlRegex_www = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
@@ -52,6 +52,7 @@ function makeActiveLinks() {
         var __urlRegex_shot_qip = /(\b(https?):\/\/shot.qip.ru)/ig;
 
         this.innerHTML = this.innerHTML.replace(__urlRegex, function(match) {
+                match = match.replace(/^http:\/\//i, 'https://');
                 __imgRegex.lastIndex = 0;
                 __urlRegex_Ikalogs.lastIndex = 0;
                 if(__imgRegex.test(match)) {
@@ -64,14 +65,14 @@ function makeActiveLinks() {
                         success: function(data) {
                             var href = $(data).find("div.image-pic img").attr("src");
                             console.log(this.url);
-                            $(".ikaez_msg_ajax").find("a[href='"+this.url+"'] img").attr('src', 'http://clip2net.com'+href);
+                            $(".ikaez_msg_ajax").find("a[href='"+this.url+"'] img").attr('src', 'https://clip2net.com'+href);
                         }
                     });
                     return '<div class="ikaez_msg_img_container ikaez_msg_ajax"><a href="' + match + '" target="_blank" class="IkaEasy_msg_img"><img src="" /></a></div>';
                 }else if(__urlRegex_Ikalogs.test(match)){
                     //var battleId = match.split('/')[4];
                     //$.ajax({
-                    //    url: 'http://ikalogs.ru/user/report/getHtml/?id='+ battleId +'&round=0',
+                    //    url: 'https://ikalogs.ru/user/report/getHtml/?id='+ battleId +'&round=0',
                     //    beforeSend: function( request) {
                     //        request.setRequestHeader("e", "true");
                     //    },
@@ -118,7 +119,7 @@ function makeActiveLinks() {
             }
         );
 
-        this.innerHTML = this.innerHTML.replace(__urlRegex_www, '$1<a href="http://$2" target="_blank" class="externalURL">$2</a>');
+        this.innerHTML = this.innerHTML.replace(__urlRegex_www, '$1<a href="https://$2" target="_blank" class="externalURL">$2</a>');
 
         $(this).addClass('IkaEasy_links_completed');
         console.timeEnd('makeActiveLinks');
@@ -250,7 +251,7 @@ zJS.Page.diplomacyAllyInfo = {
 // headers: { 
 //         "e": true
 //     },
-//         url: "http://ikalogs.ru/user/report/get/?id=8767647410f011e4af97002421ef2dfa",
+//         url: "https://ikalogs.ru/user/report/get/?id=8767647410f011e4af97002421ef2dfa",
 //         processData: false,
 
 //         dataType: "json",
