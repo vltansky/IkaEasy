@@ -1,13 +1,11 @@
-# Problems with an extension IkaEasy (17.11.2017)
-Due to the fact that third parties had access to the extension and integrate advertising to it, it was removed from the Chrome Web Store.
-The fully working extension is available at a [new address](https://goo.gl/CNRiXK). 
+# WARNING: this repo is not maintained anymore. the new IkaEasy (v3) moved to a private repo.
+In this version, all the extension code is completely rewritten, from the extension core to each function separately. Many bugs of the old version are fixed, HUD and UI improved, some new features were added
+IkaEasy v3 is available at a [new address](http://bit.ly/2Lj4FdF). 
 
 # [IkaEasy](http://ikariam-easy.com/)
 Extension stable on version **0.6.2**.
 
 IkaEasy - extension for chrome browser that add many useful features to ikariam. Make your ikariam really easier!
-
-Old website (gh-pages branch): http://swat-web.github.io/IkaEasy/
 
 ## Table of contents
 
